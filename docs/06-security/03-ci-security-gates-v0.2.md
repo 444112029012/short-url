@@ -8,6 +8,8 @@
 專案代號：SHORTURL
 與維運對齊狀態：**一致性簽核通過（2026-10-07，維運部）**；`docs/09-cicd-env/` 已改指本 v0.2；job／阻擋語意未放寬；**GitHub 實作生效仍待維運交付（repo 就緒後）**
 ---
+> **待 v0.3 核准後取代**（見 [03-ci-security-gates-v0.3.md](./03-ci-security-gates-v0.3.md)；對應 CR-PENDING CI 偏離裁示）。
+
 
 # CI 資安掃描阻擋門檻（v0.2）
 

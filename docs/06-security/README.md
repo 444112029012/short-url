@@ -1,6 +1,6 @@
 ---
 文件：06-security 章節索引
-版本：v0.3
+版本：v0.4
 狀態：審查中
 負責角色：安全部
 最後更新：2026-10-07
@@ -15,13 +15,16 @@
 | [01-sec-requirements-v0.2.md](./01-sec-requirements-v0.2.md) | **v0.2** | 審查中 | SEC-001～**SEC-017**（G2 回寫 TM；新增 016／017） |
 | [01-sec-requirements-v0.1.md](./01-sec-requirements-v0.1.md) | v0.1 | 歷史 | G1 初版；請以 v0.2 為準 |
 | [02-g1-security-pregate-v0.1.md](./02-g1-security-pregate-v0.1.md) | v0.1 | 審查中 | G1 審查部用書面前置結論 |
-| [03-ci-security-gates-v0.2.md](./03-ci-security-gates-v0.2.md) | **v0.2** | 審查中 | **G3 CI 門檻定案**（gosec／govulncheck／gitleaks；對齊 `docs/09-cicd-env/`） |
+| [03-ci-security-gates-v0.3.md](./03-ci-security-gates-v0.3.md) | **v0.3** | 審查中 | **CI 門檻（審查中）**：Go 1.27.x／gosec v2.29.0／govulncheck v1.8.0；dependency-review 暫行；方案 A 目標態 |
+| [03-ci-security-gates-v0.2.md](./03-ci-security-gates-v0.2.md) | v0.2 | 待取代 | G3 定案稿；**待 v0.3 核准後取代** |
 | [03-ci-security-gates-v0.1.md](./03-ci-security-gates-v0.1.md) | v0.1 | 歷史 | 已由 v0.2 取代 |
 | [04a-dfd-working-v0.1.md](./04a-dfd-working-v0.1.md) | v0.1 | 審查中 | DFD 對齊說明（採設計部定稿；**EE1**） |
 | [04-threat-model-v0.1.md](./04-threat-model-v0.1.md) | v0.1 | 審查中 | STRIDE 威脅模型（23 條 TM） |
-| [05-residual-risk-register-v0.1.md](./05-residual-risk-register-v0.1.md) | v0.1 | 審查中 | 殘餘風險；RR-001 **已接受**（D-06；G5 前再評） |
+| [05-residual-risk-register-v0.1.md](./05-residual-risk-register-v0.1.md) | v0.1.1 | 審查中 | 殘餘風險；RR-001 已接受；**RR-006 待使用者拍板** |
 | [06-g2-security-pregate-v0.1.md](./06-g2-security-pregate-v0.1.md) | v0.1 | 審查中 | G2 審查部用書面前置結論 |
-| [07-g3-security-pregate-v0.1.md](./07-g3-security-pregate-v0.1.md) | **v0.1** | 審查中 | **G3 資安書面前置**：門檻書面已齊；實作待維運 |
+| [07-g3-security-pregate-v0.1.md](./07-g3-security-pregate-v0.1.md) | v0.1 | 審查中 | G3 資安書面前置 |
+| [08-pr-002-security-review-v0.1.md](./08-pr-002-security-review-v0.1.md) | **v0.1** | 審查中 | **PR #2 安全審查**（附條件核准） |
+| [09-cr-ci-deviations-ruling-v0.1.md](./09-cr-ci-deviations-ruling-v0.1.md) | **v0.1** | 審查中 | **CI 偏離＋合併路徑裁示**（維運已同意 a／b） |
 
 ## 準據 DFD
 
@@ -32,7 +35,7 @@
 | 信任邊界 | TB-01～TB-04 |
 | 處理／儲存／流 | P1～P7；DS1／DS2；DF-L0-01～06、DF-01～21 |
 
-## 本章狀態（G3）
+## 本章狀態（G3＋PR #2）
 
 | 項目 | 狀態 |
 |---|---|
@@ -40,27 +43,25 @@
 | SEC 清單 | **v0.2**（SEC-001～017） |
 | STRIDE／TM-xxx | 已完成 v0.1（23 條） |
 | 殘餘高以上 | RR-001／TM-002：**D-06 已接受**（G5 前再評） |
-| CI 門檻書面 | **v0.2 已定案**（對齊維運 `docs/09-cicd-env/` 路徑與 job 名） |
-| 維運 CI 設計稿 | 已對齊 `docs/09-cicd-env/README.md`＋`01-ci-pipeline-v0.1.md`（job 名一致） |
-| CI 實作／分支保護生效 | **待維運關閉**（非本前置範圍；維運標「實作待 repo」） |
-| G3 安全前置結論 | **附條件通過**（書面已齊；生效待驗證） |
+| 殘餘中（合併治理） | **RR-006** 待使用者拍板（方案 A／B／C） |
+| CI 門檻書面 | **v0.3 審查中**（v0.2 待取代）；阻擋語意未放寬 |
+| PR #2 安全審查 | **附條件核准**（補 `::warning::`） |
+| CI 實作／分支保護生效 | 四 checks 已綠於 PR #2；Rulesets 方案 A **待拍板** |
 
 ## 編號清單（供品保追溯）
 
 - SEC-001～SEC-017  
-- TM-001～TM-023（見威脅模型；編號連續使用至 TM-023）  
-- RR-001～RR-005  
+- TM-001～TM-023  
+- RR-001～**RR-006**  
+- SCR-001～SCR-005（見 PR #2 審查）  
 
-## 交接單：G3 安全前置 → 總協調／審查／維運／品保
+## 交接單：PR #2 安全產出 → 總協調／審查／維運／研發
 
-- 交出角色 → 接收角色：安全部 → 總協調（審查部作 G3 前置勾選；維運實作流水線與分支保護；品保知悉 required checks）
+- 交出角色 → 接收角色：安全部 → 總協調（呈使用者拍板合併路徑；登記 CR 編號）；審查部（PR 可合併結論）；維運（Rulesets／graph）；研發（補 `::warning::`）
 - 日期：2026-10-07
-- 交付物清單：CI 門檻 v0.2、G3 前置結論、本索引
-- 版本：上表（狀態：審查中）
-- 對應需求編號：SEC-009～011；SI-05；NFR-004
-- 已知問題／限制：門檻書面已齊；維運 README／01 已對齊；**GitHub workflow／分支保護尚未視為生效**；請維運改引 v0.2
-- 需要下游注意：維運 job 名須為 `secrets-gitleaks`｜`sast-gosec`｜`sca-govulncheck`｜`unit-test`；**不得放寬**門檻語意
-- 待決問題：無（D-06 已關）；待維運關閉實作項
+- 交付物：08 審查、09 裁示、03 門檻 v0.3、RR-006、本索引
+- 已知限制：dependency graph 須**使用者**開啟；合併路徑須**使用者**拍板並於 Settings 操作
+- 待決：使用者選 A／B／C；CR 編號登記
 
 ---
 
@@ -69,5 +70,6 @@
 | 版本 | 日期 | 作者 | 摘要 |
 |---|---|---|---|
 | v0.1 | 2026-10-07 | 安全部 | G1 資安章節初建 |
-| v0.2 | 2026-10-07 | 安全部 | G2：STRIDE／殘餘／前置；SEC v0.2；對齊設計部 DFD EE1 |
-| v0.3 | 2026-10-07 | 安全部 | G3：CI 門檻 v0.2；G3 前置；RR-001 已接受；索引對齊 09-cicd-env |
+| v0.2 | 2026-10-07 | 安全部 | G2：STRIDE／殘餘／前置；SEC v0.2 |
+| v0.3 | 2026-10-07 | 安全部 | G3：CI 門檻 v0.2；G3 前置 |
+| v0.4 | 2026-10-07 | 安全部 | PR #2：審查 08、裁示 09、門檻 v0.3、RR-006 |
