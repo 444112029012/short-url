@@ -1,6 +1,6 @@
 ---
 文件：09-cicd-env 章節索引
-版本：v0.1
+版本：v0.1.3
 狀態：審查中
 負責角色：維運部
 最後更新：2026-10-07
@@ -11,16 +11,21 @@
 # 09 CI／環境／機密｜章節索引
 
 > G3 維運必交物。手冊路徑依 `project-handbook-template` 之 **`docs/09-cicd-env/`**（非 08-ops）。  
-> 資安阻擋語意以安全部 [`../06-security/03-ci-security-gates-v0.2.md`](../06-security/03-ci-security-gates-v0.2.md) 為準，**不得放寬**。
+> 資安阻擋語意以安全部 [`../06-security/03-ci-security-gates-v0.3.md`](../06-security/03-ci-security-gates-v0.3.md) 為準（現行，D-07；v0.2 已由 v0.3 取代），**不得放寬**。
 
 ## 本章文件
 
 | 文件 | 版本 | 狀態 | 說明 |
 |---|---|---|---|
-| [01-ci-pipeline-v0.1.md](./01-ci-pipeline-v0.1.md) | v0.1 | 審查中 | CI 流水線設計、工具鎖定、分支保護、啟用檢查清單 |
+| [01-ci-pipeline-v0.2.md](./01-ci-pipeline-v0.2.md) | v0.2 | 核准（D-07、D-08） | **現行** CI 流水線設計：Go 1.27.x／gosec v2.29.0／govulncheck v1.8.0（CR-001）、dependency review fail-closed、合併路徑 A（Rulesets） |
+| [01-ci-pipeline-v0.1.md](./01-ci-pipeline-v0.1.md) | v0.1 | 已由 v0.2 取代 | 歷史版本：CI 流水線設計、工具鎖定、分支保護、啟用檢查清單 |
 | [02-environments-v0.1.md](./02-environments-v0.1.md) | v0.1 | 審查中 | local／staging／production 區隔、限流預設、SQLite、託管選項 |
 | [03-secrets-management-v0.1.md](./03-secrets-management-v0.1.md) | v0.1 | 審查中 | 機密不進版控、存放、輪替、allowlist、gitignore |
 | [04-g3r1-landing-checklist-v0.1.md](./04-g3r1-landing-checklist-v0.1.md) | v0.1 | 進行中 | G3-R1：workflow／分支保護落地檢查與證據 |
+| [05-pr2-ci-change-review-v0.1.md](./05-pr2-ci-change-review-v0.1.md) | v0.1 | 會簽完成 | PR #2 CI 變更的維運意見（同意 (a)(b)） |
+| [06-rulesets-setup-guide-v0.1.md](./06-rulesets-setup-guide-v0.1.md) | v0.1 | 已完成 | main 分支 Rulesets 設定步驟（D-08 方案 A） |
+| [evidence/g3-addendum-pr2-toolchain-2026-10-07.md](./evidence/g3-addendum-pr2-toolchain-2026-10-07.md) | v0.2 | 草稿待審查 | G3 證據補註：PR #2 工具鏈升版的影響、dependency review 恢復 fail-closed |
+| [evidence/rulesets-snapshot-2026-10-07.md](./evidence/rulesets-snapshot-2026-10-07.md) | v0.3 | 草稿待審查 | Rulesets API 快照與截圖證據（13 項 PASS＋2 項已記錄） |
 | [examples/ci-devsecops.yml.example](./examples/ci-devsecops.yml.example) | 範例 | 參考 | 範例 workflow（action 版本為範例；實作前釘 SHA） |
 
 ## 與安全部對齊摘要（已選定，勿改名）
@@ -39,7 +44,7 @@
 | 項目 | G3 現況 |
 |---|---|
 | 維運設計文件 | **就緒／審查中** |
-| `.github/workflows` 與分支保護 | **待 repo 就緒後由維運啟用**（見 01 啟用檢查清單） |
+| `.github/workflows` 與分支保護 | **已落地**：workflow 已在 main；分支保護採 Rulesets 方案 A（D-08），證據見 [Rulesets 快照](./evidence/rulesets-snapshot-2026-10-07.md)（G3 原紀錄：待 repo 就緒後由維運啟用） |
 | 正式環境 HTTPS／託管選定 | **待 G5 前選定**（見 02） |
 
 ## 交接單：維運 G3 → 總協調／安全／研發／審查
@@ -54,7 +59,7 @@
   - 零預算託管與 production HTTPS 待 G5 前選定
   - MVP 可能尚無雲端 API 金鑰；執行期機密以「有則集中保管、無則文件標明」為準
 - **需要下游注意**：
-  - 安全部：工具／job 名／門檻已與 [`03-ci-security-gates-v0.2.md`](../06-security/03-ci-security-gates-v0.2.md) 對齊；**一致性簽核通過**（2026-10-07）；實作落地（workflow＋分支保護＋擋測）仍待 repo 就緒
+  - 安全部：工具／job 名／門檻已與 [`03-ci-security-gates-v0.2.md`](../06-security/03-ci-security-gates-v0.2.md) 對齊；**一致性簽核通過**（2026-10-07；G3 時點紀錄，現行門檻為 [`03-ci-security-gates-v0.3.md`](../06-security/03-ci-security-gates-v0.3.md)）；實作落地（workflow＋分支保護＋擋測）仍待 repo 就緒
   - 研發：`.env.example`、`.gitignore`、`go.sum` 鎖檔；短碼 CSPRNG／base62 長度 8（D-04）；限流讀環境變數
   - 審查：G3 可標「文件就緒／實作待 repo」若章程允許；啟用後再抽查 required checks
 - **待決問題**：無（工具與 job 名已與安全部暫定對齊）；託管選型非本閘阻擋項
@@ -67,3 +72,5 @@
 |---|---|---|---|
 | v0.1 | 2026-10-07 | 維運部 | G3 初版：CI／環境／機密設計與交接單 |
 | v0.1.1 | 2026-10-07 | 維運部 | 一致性簽核：門檻引用改指 `03-ci-security-gates-v0.2.md`；job／阻擋語意未放寬 |
+| v0.1.2 | 2026-10-07 | 維運部 | 引用同步：開頭 CI 資安門檻引用由 `03-ci-security-gates-v0.2.md` 改指現行 `03-ci-security-gates-v0.3.md`（v0.2 已由 v0.3 取代，D-07）；G3 交接單之 v0.2 簽核紀錄保留並註記現行為 v0.3；frontmatter 版本對齊修訂紀錄 |
+| v0.1.3 | 2026-10-07 | 維運部 | 索引補文件 PR B 新增檔：01 v0.2（現行；v0.1 標為已取代）、05、06、evidence 下 G3 補註與 Rulesets 快照；G3 現況表「workflow 與分支保護」更新為已落地（Rulesets 方案 A），保留原紀錄 |
