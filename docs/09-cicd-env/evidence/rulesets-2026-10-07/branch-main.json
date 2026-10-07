@@ -1,0 +1,99 @@
+{
+  "name": "main",
+  "commit": {
+    "sha": "d09cceb4d2284f2dbcb99e6f1a5833cd9baecd66",
+    "node_id": "C_kwDOU--etdoAKGQwOWNjZWI0ZDIyODRmMmRiY2I5OWU2ZjFhNTgzM2NkOWJhZWNkNjY",
+    "commit": {
+      "author": {
+        "name": "Cursor Agent",
+        "email": "cursoragent@cursor.com",
+        "date": "2026-10-07T04:01:25Z"
+      },
+      "committer": {
+        "name": "Cursor Agent",
+        "email": "cursoragent@cursor.com",
+        "date": "2026-10-07T04:01:25Z"
+      },
+      "message": "Seed SHORTURL DevSecOps landing package on main.\n\nAdd the handbook, Go scaffold, and ci-devsecops workflow so the four\nG3-R1 checks can run. Use Go 1.24.x so govulncheck is not failed by\nstdlib GO-2025-3750 on the 1.22 line.\n\nCo-authored-by: YSW <444112029012@users.noreply.github.com>",
+      "tree": {
+        "sha": "63ec0ae9e1cae090e506593fd42e6207798ca718",
+        "url": "https://api.github.com/repos/444112029012/short-url/git/trees/63ec0ae9e1cae090e506593fd42e6207798ca718"
+      },
+      "url": "https://api.github.com/repos/444112029012/short-url/git/commits/d09cceb4d2284f2dbcb99e6f1a5833cd9baecd66",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN SSH SIGNATURE-----\nU1NIU0lHAAAAAQAAADMAAAALc3NoLWVkMjU1MTkAAAAg+qImwGMCy/grKZ50VxRHz3VfWW\nAL3QNbzIy2Nwcn+nQAAAADZ2l0AAAAAAAAAAZzaGE1MTIAAABTAAAAC3NzaC1lZDI1NTE5\nAAAAQIF0JZM3vJuLv9NXl9EoMfXTO0R7BIf4DDTRwVaGmVy2CeNHPM4O30WSeLeoe/DRhD\nJrIRI+/dH3UgRuhkeF8Q4=\n-----END SSH SIGNATURE-----",
+        "payload": "tree 63ec0ae9e1cae090e506593fd42e6207798ca718\nparent 8c170f47ab25530b6bfaaa9c173fc7d5b52f57db\nauthor Cursor Agent <cursoragent@cursor.com> 1791345685 +0000\ncommitter Cursor Agent <cursoragent@cursor.com> 1791345685 +0000\n\nSeed SHORTURL DevSecOps landing package on main.\n\nAdd the handbook, Go scaffold, and ci-devsecops workflow so the four\nG3-R1 checks can run. Use Go 1.24.x so govulncheck is not failed by\nstdlib GO-2025-3750 on the 1.22 line.\n\nCo-authored-by: YSW <444112029012@users.noreply.github.com>\n",
+        "verified_at": "2026-10-07T04:01:30Z"
+      }
+    },
+    "url": "https://api.github.com/repos/444112029012/short-url/commits/d09cceb4d2284f2dbcb99e6f1a5833cd9baecd66",
+    "html_url": "https://github.com/444112029012/short-url/commit/d09cceb4d2284f2dbcb99e6f1a5833cd9baecd66",
+    "comments_url": "https://api.github.com/repos/444112029012/short-url/commits/d09cceb4d2284f2dbcb99e6f1a5833cd9baecd66/comments",
+    "author": {
+      "login": "cursoragent",
+      "id": 199161495,
+      "node_id": "U_kgDOC972lw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/199161495?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cursoragent",
+      "html_url": "https://github.com/cursoragent",
+      "followers_url": "https://api.github.com/users/cursoragent/followers",
+      "following_url": "https://api.github.com/users/cursoragent/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cursoragent/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cursoragent/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cursoragent/subscriptions",
+      "organizations_url": "https://api.github.com/users/cursoragent/orgs",
+      "repos_url": "https://api.github.com/users/cursoragent/repos",
+      "events_url": "https://api.github.com/users/cursoragent/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cursoragent/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "cursoragent",
+      "id": 199161495,
+      "node_id": "U_kgDOC972lw",
+      "avatar_url": "https://avatars.githubusercontent.com/u/199161495?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cursoragent",
+      "html_url": "https://github.com/cursoragent",
+      "followers_url": "https://api.github.com/users/cursoragent/followers",
+      "following_url": "https://api.github.com/users/cursoragent/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cursoragent/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cursoragent/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cursoragent/subscriptions",
+      "organizations_url": "https://api.github.com/users/cursoragent/orgs",
+      "repos_url": "https://api.github.com/users/cursoragent/repos",
+      "events_url": "https://api.github.com/users/cursoragent/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cursoragent/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "8c170f47ab25530b6bfaaa9c173fc7d5b52f57db",
+        "url": "https://api.github.com/repos/444112029012/short-url/commits/8c170f47ab25530b6bfaaa9c173fc7d5b52f57db",
+        "html_url": "https://github.com/444112029012/short-url/commit/8c170f47ab25530b6bfaaa9c173fc7d5b52f57db"
+      }
+    ]
+  },
+  "_links": {
+    "self": "https://api.github.com/repos/444112029012/short-url/branches/main",
+    "html": "https://github.com/444112029012/short-url/tree/main"
+  },
+  "protected": true,
+  "protection": {
+    "enabled": false,
+    "required_status_checks": {
+      "enforcement_level": "off",
+      "contexts": [],
+      "checks": []
+    }
+  },
+  "protection_url": "https://api.github.com/repos/444112029012/short-url/branches/main/protection"
+}
