@@ -1,6 +1,6 @@
 ---
 文件：09-cicd-env 章節索引
-版本：v0.1.3
+版本：v0.1.4
 狀態：審查中
 負責角色：維運部
 最後更新：2026-10-07
@@ -21,7 +21,9 @@
 | [01-ci-pipeline-v0.1.md](./01-ci-pipeline-v0.1.md) | v0.1 | 已由 v0.2 取代 | 歷史版本：CI 流水線設計、工具鎖定、分支保護、啟用檢查清單 |
 | [02-environments-v0.1.md](./02-environments-v0.1.md) | v0.1 | 審查中 | local／staging／production 區隔、限流預設、SQLite、託管選項 |
 | [03-secrets-management-v0.1.md](./03-secrets-management-v0.1.md) | v0.1 | 審查中 | 機密不進版控、存放、輪替、allowlist、gitignore |
-| [04-g3r1-landing-checklist-v0.1.md](./04-g3r1-landing-checklist-v0.1.md) | v0.1 | 進行中 | G3-R1：workflow／分支保護落地檢查與證據 |
+| [04-g3r1-landing-checklist-v0.2.md](./04-g3r1-landing-checklist-v0.2.md) | v0.2 | 完成 | **現行** G3-R1：workflow／分支保護落地檢查與證據（classic → Rulesets，D-08） |
+| [04-g3r1-landing-checklist-v0.1.md](./04-g3r1-landing-checklist-v0.1.md) | v0.1 | 已由 v0.2 取代 | 歷史版本：G3-R1 落地檢查 |
+| [evidence/g3r1-landing-evidence-2026-10-07.md](./evidence/g3r1-landing-evidence-2026-10-07.md) | v0.2 | 完成 | G3-R1 落地證據（Actions 四 checks、classic 保護時點與改用 Rulesets 說明） |
 | [05-pr2-ci-change-review-v0.1.md](./05-pr2-ci-change-review-v0.1.md) | v0.1 | 會簽完成 | PR #2 CI 變更的維運意見（同意 (a)(b)） |
 | [06-rulesets-setup-guide-v0.1.md](./06-rulesets-setup-guide-v0.1.md) | v0.1 | 已完成 | main 分支 Rulesets 設定步驟（D-08 方案 A） |
 | [evidence/g3-addendum-pr2-toolchain-2026-10-07.md](./evidence/g3-addendum-pr2-toolchain-2026-10-07.md) | v0.2 | 草稿待審查 | G3 證據補註：PR #2 工具鏈升版的影響、dependency review 恢復 fail-closed |
@@ -74,3 +76,4 @@
 | v0.1.1 | 2026-10-07 | 維運部 | 一致性簽核：門檻引用改指 `03-ci-security-gates-v0.2.md`；job／阻擋語意未放寬 |
 | v0.1.2 | 2026-10-07 | 維運部 | 引用同步：開頭 CI 資安門檻引用由 `03-ci-security-gates-v0.2.md` 改指現行 `03-ci-security-gates-v0.3.md`（v0.2 已由 v0.3 取代，D-07）；G3 交接單之 v0.2 簽核紀錄保留並註記現行為 v0.3；frontmatter 版本對齊修訂紀錄 |
 | v0.1.3 | 2026-10-07 | 維運部 | 索引補文件 PR B 新增檔：01 v0.2（現行；v0.1 標為已取代）、05、06、evidence 下 G3 補註與 Rulesets 快照；G3 現況表「workflow 與分支保護」更新為已落地（Rulesets 方案 A），保留原紀錄 |
+| v0.1.4 | 2026-10-07 | 維運部 | 索引補文件 PR A 新增檔：04 v0.2（現行；v0.1 標為已取代）、evidence 下 G3-R1 落地證據 |
