@@ -1,0 +1,61 @@
+{
+  "id": 24629805,
+  "name": "main-required-checks",
+  "target": "branch",
+  "source_type": "Repository",
+  "source": "444112029012/short-url",
+  "enforcement": "active",
+  "conditions": {
+    "ref_name": {
+      "exclude": [],
+      "include": [
+        "~DEFAULT_BRANCH"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "required_status_checks",
+      "parameters": {
+        "strict_required_status_checks_policy": false,
+        "do_not_enforce_on_create": false,
+        "required_status_checks": [
+          {
+            "context": "sca-govulncheck",
+            "integration_id": 15368
+          },
+          {
+            "context": "sast-gosec",
+            "integration_id": 15368
+          },
+          {
+            "context": "secrets-gitleaks",
+            "integration_id": 15368
+          },
+          {
+            "context": "unit-test",
+            "integration_id": 15368
+          }
+        ]
+      }
+    }
+  ],
+  "node_id": "RRS_lACqUmVwb3NpdG9yec5T7561zgF30i0",
+  "created_at": "2026-10-07T05:19:23.312Z",
+  "updated_at": "2026-10-07T05:19:23.391Z",
+  "current_user_can_bypass": "never",
+  "_links": {
+    "self": {
+      "href": "https://api.github.com/repos/444112029012/short-url/rulesets/24629805"
+    },
+    "html": {
+      "href": "https://github.com/444112029012/short-url/rules/24629805"
+    }
+  }
+}
