@@ -1,6 +1,6 @@
 ---
 文件：09-cicd-env 章節索引
-版本：v0.1.4
+版本：v0.1.5
 狀態：審查中
 負責角色：維運部
 最後更新：2026-10-07
@@ -28,6 +28,7 @@
 | [06-rulesets-setup-guide-v0.1.md](./06-rulesets-setup-guide-v0.1.md) | v0.1 | 已完成 | main 分支 Rulesets 設定步驟（D-08 方案 A） |
 | [evidence/g3-addendum-pr2-toolchain-2026-10-07.md](./evidence/g3-addendum-pr2-toolchain-2026-10-07.md) | v0.2 | 草稿待審查 | G3 證據補註：PR #2 工具鏈升版的影響、dependency review 恢復 fail-closed |
 | [evidence/rulesets-snapshot-2026-10-07.md](./evidence/rulesets-snapshot-2026-10-07.md) | v0.3 | 草稿待審查 | Rulesets API 快照與截圖證據（13 項 PASS＋2 項已記錄） |
+| [evidence/ruleset-strict-true-d10-2026-10-07.md](./evidence/ruleset-strict-true-d10-2026-10-07.md) | v0.1 | 完成 | 規則一 strict=true（D-10）生效取證 |
 | [examples/ci-devsecops.yml.example](./examples/ci-devsecops.yml.example) | 範例 | 參考 | 範例 workflow（action 版本為範例；實作前釘 SHA） |
 
 ## 與安全部對齊摘要（已選定，勿改名）
@@ -77,3 +78,4 @@
 | v0.1.2 | 2026-10-07 | 維運部 | 引用同步：開頭 CI 資安門檻引用由 `03-ci-security-gates-v0.2.md` 改指現行 `03-ci-security-gates-v0.3.md`（v0.2 已由 v0.3 取代，D-07）；G3 交接單之 v0.2 簽核紀錄保留並註記現行為 v0.3；frontmatter 版本對齊修訂紀錄 |
 | v0.1.3 | 2026-10-07 | 維運部 | 索引補文件 PR B 新增檔：01 v0.2（現行；v0.1 標為已取代）、05、06、evidence 下 G3 補註與 Rulesets 快照；G3 現況表「workflow 與分支保護」更新為已落地（Rulesets 方案 A），保留原紀錄 |
 | v0.1.4 | 2026-10-07 | 維運部 | 索引補文件 PR A 新增檔：04 v0.2（現行；v0.1 標為已取代）、evidence 下 G3-R1 落地證據 |
+| v0.1.5 | 2026-10-07 | 維運部 | 索引補 D-10 strict=true 生效取證 |
