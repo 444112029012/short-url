@@ -1,0 +1,257 @@
+openapi: 3.0.3
+info:
+  title: SHORTURL 短網址服務 API
+  version: 0.1.0
+  description: |
+    練手／小流量／無帳號 MVP。建立短碼、HTTP 導向、點擊次數查詢。
+    無認證（OUT-03）。技術棧已定（D-04）：Go＋chi、SQLite、短碼 base62×8 CSPRNG。
+
+    ## 安全標頭期望（SEC-008）
+    - 演示 HTTPS：Strict-Transport-Security max-age ≥ 31536000
+    - X-Content-Type-Options: nosniff
+    - CORS 若啟用，勿對敏感回應使用未驗證的 *
+    - 302 Location 僅為建立時已驗證並持久化的 long_url（SEC-014）
+
+    ## 速率限制（SEC-007）
+    - 建立：≤30／分鐘／來源
+    - 導向：≤120／分鐘／來源
+  contact:
+    name: 設計部
+servers:
+  - url: https://shorturl.example.com
+    description: 演示環境 placeholder（須 HTTPS，SEC-012）
+  - url: http://localhost:8080
+    description: 本機開發（非演示對外，不宣稱滿足 SEC-012）
+tags:
+  - name: urls
+    description: 短碼建立與統計
+  - name: redirect
+    description: HTTP 重新導向
+paths:
+  /api/v1/urls:
+    post:
+      tags: [urls]
+      summary: 建立短碼
+      description: |
+        驗證長網址後以 CSPRNG 產生唯一短碼並持久化（REQ-001）。
+        同一 long_url 可多次建立不同短碼（REQ-012）。
+        長網址上限 L=2048（REQ-011）。
+      operationId: createShortUrl
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUrlRequest'
+            example:
+              url: https://example.com/path?q=1
+      responses:
+        '201':
+          description: 建立成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateUrlResponse'
+              example:
+                short_code: Ab12Cd39
+                short_url: https://shorturl.example.com/Ab12Cd39
+                long_url: https://example.com/path?q=1
+        '400':
+          description: 長網址驗證失敗（invalid_url）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error:
+                  type: invalid_url
+                  message: URL validation failed
+        '429':
+          description: 超過建立速率限制（rate_limited）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error:
+                  type: rate_limited
+                  message: Too many requests
+        '500':
+          description: 內部錯誤（不洩漏細節）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error:
+                  type: internal_error
+                  message: An unexpected error occurred
+
+  /{shortCode}:
+    get:
+      tags: [redirect]
+      summary: 短碼重新導向
+      description: |
+        成功時 302，Location 為庫中 long_url，並原子 click_count+1（REQ-002、REQ-003、SEC-014）。
+        禁止依請求參數改寫導向目標。
+      operationId: redirectShortCode
+      parameters:
+        - $ref: '#/components/parameters/ShortCodePath'
+      responses:
+        '302':
+          description: 重新導向至長網址
+          headers:
+            Location:
+              description: 建立時已驗證並持久化的 long_url（僅 http/https）
+              schema:
+                type: string
+                format: uri
+          content: {}
+        '400':
+          description: 短碼格式非法（invalid_url）
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error:
+                  type: invalid_url
+                  message: Invalid short code format
+        '404':
+          description: 短碼不存在（not_found）；不導向、不計數
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error:
+                  type: not_found
+                  message: Short code not found
+        '429':
+          description: 超過導向速率限制
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                error:
+                  type: rate_limited
+                  message: Too many requests
+        '500':
+          description: 內部錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/v1/urls/{shortCode}/stats:
+    get:
+      tags: [urls]
+      summary: 查詢點擊次數
+      description: 回傳指定短碼目前 click_count（REQ-004）。
+      operationId: getUrlStats
+      parameters:
+        - $ref: '#/components/parameters/ShortCodePath'
+      responses:
+        '200':
+          description: 統計成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UrlStatsResponse'
+              example:
+                short_code: Ab12Cd39
+                click_count: 42
+        '400':
+          description: 短碼格式非法
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: 短碼不存在
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 內部錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+components:
+  parameters:
+    ShortCodePath:
+      name: shortCode
+      in: path
+      required: true
+      description: 短碼（ADR-003 建議 base62 長度 8）
+      schema:
+        type: string
+        pattern: '^[A-Za-z0-9]{8}$'
+        minLength: 8
+        maxLength: 8
+      example: Ab12Cd39
+
+  schemas:
+    CreateUrlRequest:
+      type: object
+      required: [url]
+      additionalProperties: false
+      properties:
+        url:
+          type: string
+          description: 長網址（http 或 https），長度 ≤ 2048
+          maxLength: 2048
+          minLength: 1
+          example: https://example.com/path
+
+    CreateUrlResponse:
+      type: object
+      required: [short_code, short_url, long_url]
+      additionalProperties: false
+      properties:
+        short_code:
+          type: string
+          pattern: '^[A-Za-z0-9]{8}$'
+        short_url:
+          type: string
+          format: uri
+          description: 可造訪之短網址（基底 URL＋short_code）
+        long_url:
+          type: string
+          format: uri
+          maxLength: 2048
+
+    UrlStatsResponse:
+      type: object
+      required: [short_code, click_count]
+      additionalProperties: false
+      properties:
+        short_code:
+          type: string
+          pattern: '^[A-Za-z0-9]{8}$'
+        click_count:
+          type: integer
+          minimum: 0
+          description: 成功導向累計次數（聚合，非個資）
+
+    ErrorResponse:
+      type: object
+      required: [error]
+      additionalProperties: false
+      properties:
+        error:
+          type: object
+          required: [type, message]
+          additionalProperties: false
+          properties:
+            type:
+              type: string
+              enum: [invalid_url, not_found, rate_limited, internal_error]
+              description: 穩定錯誤類型（不洩漏內部實作）
+            message:
+              type: string
+              description: 對使用者安全之簡短說明（無堆疊／路徑／SQL）

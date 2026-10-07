@@ -1,0 +1,31 @@
+# 機密與本機組態（見 docs/09-cicd-env/03-secrets-management-v0.1.md）
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+credentials.json
+
+# Go / 建置
+/bin/
+/dist/
+/tmp/
+*.exe
+*.test
+*.out
+coverage.out
+gosec-report.json
+
+# SQLite 與本機資料（各環境獨立檔，不進版控）
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+/data/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store

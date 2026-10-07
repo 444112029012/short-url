@@ -1,0 +1,93 @@
+# 正式啟用檔同步自 .github/workflows/ci-devsecops.yml（repo 落地後以該路徑為準）
+#
+# SHORTURL DevSecOps CI — required checks（名稱勿改）:
+#   secrets-gitleaks / sast-gosec / sca-govulncheck / unit-test
+# 門檻：docs/06-security/03-ci-security-gates-v0.2.md（不得放寬）
+# 設計：docs/09-cicd-env/01-ci-pipeline-v0.1.md
+# 注意：uses 請於穩定後改釘完整 commit SHA
+
+name: ci-devsecops
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: ci-devsecops-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  secrets-gitleaks:
+    name: secrets-gitleaks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install gitleaks
+        run: |
+          set -euo pipefail
+          VER=8.21.2
+          curl -sSL "https://github.com/gitleaks/gitleaks/releases/download/v${VER}/gitleaks_${VER}_linux_x64.tar.gz" \
+            | tar -xz -C /usr/local/bin gitleaks
+          gitleaks version
+      - name: Run gitleaks
+        run: gitleaks detect --source . --verbose --exit-code 1
+
+  sast-gosec:
+    name: sast-gosec
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22.x"
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@v2.21.4
+      - name: Run gosec (block HIGH/CRITICAL)
+        run: |
+          set -euo pipefail
+          # -severity=high：僅 high/critical 導致非零；對齊 SEC-009
+          gosec -fmt=text -no-fail=false -severity=high ./...
+
+  sca-govulncheck:
+    name: sca-govulncheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22.x"
+      - name: Ensure go.sum present
+        run: test -f go.sum
+      - name: Install govulncheck
+        run: go install golang.org/x/vuln/cmd/govulncheck@v1.1.3
+      - name: Run govulncheck
+        # Critical 擋；High 有修補亦應擋（見 01-ci-pipeline §3.3）
+        run: govulncheck ./...
+      - name: Dependency review (PR only)
+        if: github.event_name == 'pull_request'
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: critical
+
+  unit-test:
+    name: unit-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22.x"
+          cache: true
+      - name: go vet
+        run: go vet ./...
+      - name: go test
+        run: go test ./...
