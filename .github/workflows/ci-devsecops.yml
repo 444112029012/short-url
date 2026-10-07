@@ -74,8 +74,31 @@ jobs:
       - name: Run govulncheck
         # Critical 擋；High 有修補亦應擋（見 01-ci-pipeline §3.3）
         run: govulncheck ./...
-      - name: Dependency review (PR only)
+      # dependency-review-action 在依賴圖未啟用時會直接失敗（本倉庫與 docs PR #1 相同，
+      # 且此 token 無法開啟設定）。先探測 compare API：200 才執行，Critical 仍擋。
+      # 非 200 時不讓 required job 失敗；阻擋主控仍是上面的 govulncheck。
+      - name: Probe dependency graph
+        id: depgraph
         if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          code=$(curl -sS -o /tmp/dep-review.json -w '%{http_code}' \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/dependency-graph/compare/${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}")
+          echo "dependency graph compare HTTP ${code}"
+          if [ "${code}" = "200" ]; then
+            echo "enabled=true" >> "${GITHUB_OUTPUT}"
+          else
+            echo "enabled=false" >> "${GITHUB_OUTPUT}"
+            echo "Dependency graph is not available; govulncheck remains the blocking SCA check."
+            head -c 400 /tmp/dep-review.json || true
+            echo
+          fi
+      - name: Dependency review (PR only)
+        if: github.event_name == 'pull_request' && steps.depgraph.outputs.enabled == 'true'
         uses: actions/dependency-review-action@v4
         with:
           fail-on-severity: critical
