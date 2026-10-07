@@ -19,8 +19,10 @@
 | [03-c4-component-v0.1.md](./03-c4-component-v0.1.md) | C4 Component（必交） | v0.1 | 審查中 |
 | [04-class-diagram-v0.1.md](./04-class-diagram-v0.1.md) | 類別圖 | v0.1 | 審查中 |
 | [05-sequence-diagrams-v0.1.md](./05-sequence-diagrams-v0.1.md) | 循序圖 | v0.1 | 審查中 |
-| [06-method-specs-v0.1.md](./06-method-specs-v0.1.md) | 方法規格表 | v0.1 | 審查中 |
+| [06-method-specs-v0.2.md](./06-method-specs-v0.2.md) | 方法規格表（新增 §13 Go 實作對映） | **v0.2** | 審查中 |
+| [06-method-specs-v0.1.md](./06-method-specs-v0.1.md) | 方法規格表（歷史版） | v0.1 | 已取代（請改用 v0.2） |
 | [07-req-design-traceability-v0.1.md](./07-req-design-traceability-v0.1.md) | 需求—設計追溯 | v0.1 | 審查中 |
+| [08-ruling-G4-PR2-R1-go-mapping-v0.1.md](./08-ruling-G4-PR2-R1-go-mapping-v0.1.md) | 設計裁示：G4-PR2-R1 Go 語言對映（不需 CR） | v0.1 | 已裁示；待審查部複審 |
 | [adr/](./adr/) | 架構決策紀錄 | v0.1 | 審查中（決策：已採納） |
 
 ---
@@ -31,7 +33,7 @@
 |---|---|
 | **交出** | 設計部 → 總協調／安全部／品保部／審查部 |
 | **交付物** | C4 三層、類別圖、循序圖（≥7）、方法規格表、追溯表、ADR-001～003（D-04 已採納：Go+chi／SQLite／base62×8 CSPRNG）、資料模型、DFD（見 `03-data/`）、OpenAPI（見 `04-api/`）、UI N/A（見 `05-ui-ux/`） |
-| **版本** | 全部 v0.1 |
+| **版本** | 方法規格 v0.2（G4-PR2-R1）；其餘 v0.1 |
 | **狀態** | 審查中 |
 | **對應需求** | REQ-001～REQ-012、NFR-001～NFR-008、SEC-001～SEC-015 |
 | **已知問題** | G2-QA-R1（SEC-016／017）設計側已補；servers placeholder；無認證（OUT-03） |
@@ -55,3 +57,4 @@ Application → Domain Ports（UrlRepository、ClickCounter）← Infrastructure
 | 版本 | 日期 | 作者 | 摘要 |
 |---|---|---|---|
 | v0.1 | 2026-10-07 | 設計部 | G2 初稿，狀態審查中 |
+| v0.1+G4R1 | 2026-10-07 | 設計部 | G4-PR2-R1：索引改指方法規格 v0.2（v0.1 標已取代）；新增裁示 `08-ruling-G4-PR2-R1-go-mapping-v0.1.md` |
