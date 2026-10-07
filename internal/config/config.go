@@ -10,7 +10,8 @@ import (
 )
 
 // Config is process configuration (ENG-002).
-// Rate-limit fields are loaded for ENG-011; this batch does not enforce them.
+// Rate-limit fields are enforced by the in-process RateLimitGuard (ENG-011).
+// TRUSTED_PROXY_CIDRS empty means forwarding headers are ignored.
 type Config struct {
 	AppEnv                  string
 	HTTPAddr                string
