@@ -93,7 +93,8 @@ jobs:
             echo "enabled=true" >> "${GITHUB_OUTPUT}"
           else
             echo "enabled=false" >> "${GITHUB_OUTPUT}"
-            echo "Dependency graph is not available; govulncheck remains the blocking SCA check."
+            echo "::warning::dependency-review skipped: Dependency graph disabled; fail-open until enabled; expires before G5"
+            echo "dependency-review skipped (HTTP ${code}); govulncheck remains the blocking SCA check."
             head -c 400 /tmp/dep-review.json || true
             echo
           fi
