@@ -1,6 +1,6 @@
 # SHORTURL DevSecOps CI — required checks（名稱勿改）:
 #   secrets-gitleaks / sast-gosec / sca-govulncheck / unit-test
-# 門檻：docs/06-security/03-ci-security-gates-v0.2.md（不得放寬）
+# 門檻：docs/06-security/03-ci-security-gates-v0.3.md（不得放寬）
 # 設計：docs/09-cicd-env/01-ci-pipeline-v0.1.md
 # 注意：uses 請於穩定後改釘完整 commit SHA
 # 工具鏈用 1.27.x（目前支援線）。1.22 標準庫有 GO-2025-3750；1.24.13 是 1.24 最後一版，
@@ -74,32 +74,32 @@ jobs:
       - name: Run govulncheck
         # Critical 擋；High 有修補亦應擋（見 01-ci-pipeline §3.3）
         run: govulncheck ./...
-      # dependency-review-action 在依賴圖未啟用時會直接失敗（本倉庫與 docs PR #1 相同，
-      # 且此 token 無法開啟設定）。先探測 compare API：200 才執行，Critical 仍擋。
-      # 非 200 時不讓 required job 失敗；阻擋主控仍是上面的 govulncheck。
+      # Dependency graph 已開啟（CR-001 裁示）：compare API 非 200 即失敗（fail-closed）。
+      # SHA 與 repository 經 env 傳入，避免在 run 內插值 github context。
+      # 200 時仍記 enabled=true；Dependency review 於每個 pull_request 執行，Critical 仍擋。
       - name: Probe dependency graph
         id: depgraph
         if: github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           set -euo pipefail
           code=$(curl -sS -o /tmp/dep-review.json -w '%{http_code}' \
             -H "Authorization: Bearer ${GH_TOKEN}" \
             -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/dependency-graph/compare/${{ github.event.pull_request.base.sha }}...${{ github.event.pull_request.head.sha }}")
+            "https://api.github.com/repos/${REPO}/dependency-graph/compare/${BASE_SHA}...${HEAD_SHA}")
           echo "dependency graph compare HTTP ${code}"
           if [ "${code}" = "200" ]; then
             echo "enabled=true" >> "${GITHUB_OUTPUT}"
           else
-            echo "enabled=false" >> "${GITHUB_OUTPUT}"
-            echo "::warning::dependency-review skipped: Dependency graph disabled; fail-open until enabled; expires before G5"
-            echo "dependency-review skipped (HTTP ${code}); govulncheck remains the blocking SCA check."
-            head -c 400 /tmp/dep-review.json || true
-            echo
+            echo "::error::Dependency graph compare API returned HTTP ${code}; dependency-review is fail-closed (CR-001 ruling)."
+            exit 1
           fi
       - name: Dependency review (PR only)
-        if: github.event_name == 'pull_request' && steps.depgraph.outputs.enabled == 'true'
+        if: github.event_name == 'pull_request'
         uses: actions/dependency-review-action@v4
         with:
           fail-on-severity: critical
