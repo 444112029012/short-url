@@ -20,6 +20,10 @@ type Config struct {
 	RateLimitRedirectPerMin int
 	TrustedProxyCIDRs       string
 	LogLevel                string
+	// HSTSEnabled opts in to Strict-Transport-Security. The HTTP layer still
+	// sends the header only when the request is TLS (SEC-008). Default false
+	// so local HTTP does not advertise HSTS.
+	HSTSEnabled bool
 }
 
 // Load reads the process environment. Empty or unset values fall back to local defaults.
@@ -56,6 +60,10 @@ func Load() (Config, error) {
 	if err := validateCIDRs(cfg.TrustedProxyCIDRs); err != nil {
 		return Config{}, err
 	}
+	cfg.HSTSEnabled, err = parseBool("HSTS_ENABLED", false)
+	if err != nil {
+		return Config{}, err
+	}
 	return cfg, nil
 }
 
@@ -65,6 +73,21 @@ func getenv(key, fallback string) string {
 		return fallback
 	}
 	return strings.TrimSpace(v)
+}
+
+func parseBool(key string, fallback bool) (bool, error) {
+	raw, ok := os.LookupEnv(key)
+	if !ok || strings.TrimSpace(raw) == "" {
+		return fallback, nil
+	}
+	switch strings.ToLower(strings.TrimSpace(raw)) {
+	case "1", "true", "yes", "on":
+		return true, nil
+	case "0", "false", "no", "off":
+		return false, nil
+	default:
+		return false, fmt.Errorf("%s must be true or false", key)
+	}
 }
 
 func parsePositive(key string, fallback int) (int, error) {

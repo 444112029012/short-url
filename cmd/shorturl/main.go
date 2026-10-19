@@ -56,7 +56,7 @@ func run() error {
 
 	srv := &http.Server{
 		Addr:              cfg.HTTPAddr,
-		Handler:           httpapi.NewRouter(adapter),
+		Handler:           httpapi.NewRouterWithOptions(adapter, httpapi.RouterOptions{HSTS: cfg.HSTSEnabled}),
 		ReadHeaderTimeout: 5 * time.Second,
 		ReadTimeout:       15 * time.Second,
 		WriteTimeout:      15 * time.Second,

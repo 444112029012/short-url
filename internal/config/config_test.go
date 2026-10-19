@@ -17,6 +17,7 @@ func clearConfigEnv(t *testing.T) {
 		"RATE_LIMIT_REDIRECT_PER_MIN",
 		"TRUSTED_PROXY_CIDRS",
 		"LOG_LEVEL",
+		"HSTS_ENABLED",
 	} {
 		t.Setenv(key, "")
 	}
@@ -40,6 +41,9 @@ func TestLoadDefaults(t *testing.T) {
 	if cfg.RateLimitCreatePerMin != 30 || cfg.RateLimitRedirectPerMin != 120 {
 		t.Fatalf("limits: %+v", cfg)
 	}
+	if cfg.HSTSEnabled {
+		t.Fatal("HSTS must default off")
+	}
 }
 
 func TestLoadOverrides(t *testing.T) {
@@ -49,6 +53,7 @@ func TestLoadOverrides(t *testing.T) {
 	t.Setenv("HTTP_ADDR", "127.0.0.1:9090")
 	t.Setenv("RATE_LIMIT_CREATE_PER_MIN", "15")
 	t.Setenv("RATE_LIMIT_REDIRECT_PER_MIN", "40")
+	t.Setenv("HSTS_ENABLED", "true")
 	cfg, err := Load()
 	if err != nil {
 		t.Fatal(err)
@@ -58,6 +63,9 @@ func TestLoadOverrides(t *testing.T) {
 	}
 	if cfg.HTTPAddr != "127.0.0.1:9090" || cfg.RateLimitCreatePerMin != 15 || cfg.RateLimitRedirectPerMin != 40 {
 		t.Fatalf("%+v", cfg)
+	}
+	if !cfg.HSTSEnabled {
+		t.Fatal("HSTS_ENABLED=true was not loaded")
 	}
 }
 
@@ -77,6 +85,11 @@ func TestLoadRejectsBadValues(t *testing.T) {
 	if _, err := Load(); err == nil {
 		t.Fatal("expected CIDR error")
 	}
+	t.Setenv("TRUSTED_PROXY_CIDRS", "")
+	t.Setenv("HSTS_ENABLED", "maybe")
+	if _, err := Load(); err == nil {
+		t.Fatal("expected HSTS_ENABLED error")
+	}
 }
 
 func TestEnvExampleDocumentsKeys(t *testing.T) {
@@ -85,7 +98,7 @@ func TestEnvExampleDocumentsKeys(t *testing.T) {
 		t.Fatal(err)
 	}
 	text := string(raw)
-	for _, key := range []string{"BASE_URL", "DATABASE_PATH", "HTTP_ADDR", "RATE_LIMIT_CREATE_PER_MIN", "RATE_LIMIT_REDIRECT_PER_MIN"} {
+	for _, key := range []string{"BASE_URL", "DATABASE_PATH", "HTTP_ADDR", "RATE_LIMIT_CREATE_PER_MIN", "RATE_LIMIT_REDIRECT_PER_MIN", "HSTS_ENABLED"} {
 		if !strings.Contains(text, key+"=") {
 			t.Fatalf(".env.example missing %s", key)
 		}
