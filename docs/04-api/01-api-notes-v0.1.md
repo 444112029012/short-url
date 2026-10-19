@@ -1,9 +1,9 @@
 ---
 文件：API 設計說明
-版本：v0.1
+版本：v0.1.1
 狀態：審查中
 負責角色：設計部
-最後更新：2026-10-07
+最後更新：2026-10-19
 對應需求：REQ-001～REQ-012, NFR-004, SEC-002, SEC-007, SEC-008, SEC-012
 專案代號：SHORTURL
 ---
@@ -78,11 +78,20 @@ MVP 以 http(s) 協定與格式白名單為主控；**不**實作預覽頁（OUT
 
 ## 9. 長網址上限
 
-**L = 2048**（REQ-011）；OpenAPI `maxLength: 2048`。
+**L = 2048**（REQ-011）；OpenAPI `maxLength: 2048`。以 JSON 解碼後之 Unicode 字元計（`\uXXXX` 跳脫與 surrogate pair 各計 1 字元）。
 
 ## 10. 短碼格式
 
 建議（ADR-003）：`^[A-Za-z0-9]{8}$`；與 path parameter pattern 一致。
+
+## 11. 傳輸層限制（DR-G4-01）
+
+| 限制 | 值 | 超過時 |
+|---|---|---|
+| 建立請求本文（POST /api/v1/urls） | 32768 bytes（原始位元組，含 JSON 跳脫與空白） | 400 `invalid_url`（標準錯誤信封；不回 413）。被限流請求先回 429，不讀本文 |
+| 請求標頭總大小（所有端點） | 16384 bytes（`MaxHeaderBytes`；net/http 另加 4096 B 緩衝，實際門檻約 16384＋4096 B） | **431** Request Header Fields Too Large |
+
+431 由 Go net/http 伺服器在讀取標頭階段、進入應用（router／ErrorMapper／安全標頭中介層）之前直接回應：`Content-Type: text/plain; charset=utf-8`，本文為純文字 `431 Request Header Fields Too Large`。**不**使用 `{error:{type,message}}` 信封、**不**帶 §5 安全標頭、**不屬** §3 四類錯誤；用戶端應依狀態碼處理，勿解析 JSON。設計依據：方法規格 v0.2.2 §13.4、§13.4.1。
 
 ---
 
@@ -91,3 +100,4 @@ MVP 以 http(s) 協定與格式白名單為主控；**不**實作預覽頁（OUT
 | 版本 | 日期 | 作者 | 摘要 |
 |---|---|---|---|
 | v0.1 | 2026-10-07 | 設計部 | 錯誤／限流／標頭／殘餘風險 |
+| v0.1.1 | 2026-10-19 | 設計部 | DR-G4-01（PR #17，main `433140c`）：新增 §11 傳輸層限制（建立本文 32768 B→400 invalid_url；標頭 16384 B→431 text/plain 非信封）；§9 補長度以解碼後字元計；OpenAPI 0.1.0→0.1.1（requestBody 說明、各 operation 431、info「傳輸層限制」） |

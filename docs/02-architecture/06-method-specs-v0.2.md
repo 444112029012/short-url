@@ -1,13 +1,13 @@
 ---
 文件：方法規格表
-版本：v0.2.1
+版本：v0.2.2
 狀態：審查中（§13 Go 實作對映待審查部複審）；DR-G4-01（§13.4.1）已於 2026-10-19 生效
 負責角色：設計部
 最後更新：2026-10-19
 對應需求：SEC-016, SEC-017, REQ-001～REQ-012, NFR-001, NFR-006, SEC-001～SEC-008, SEC-013～SEC-014
 專案代號：SHORTURL
 取代：06-method-specs-v0.1.md（§1～§12 規格內容不變，僅新增 §13 與表頭註記）
-對照依據：PR #2 head `2698138b6c779a2ce8657bdb5b82c43b3b7209dc`（tree `224c14157733205d2c255d48278b141ddaa47944`）
+對照依據：main `433140c5132778bf7cd731e3ecaca8187e50d678`（含 PR #7／#11／#16／#17；§13 初版 v0.2 原對照 PR #2 head `2698138`）
 ---
 
 # 方法規格表
@@ -149,7 +149,7 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 ## 13. Go 實作對映（v0.2 新增；G4-PR2-R1）
 
 > **性質**：本節為 §1～§12 語言中立規格之 **Go 語言繫結（language binding）**，屬規範性內容。依本節規則產生之簽名差異**不構成**方法規格差異、**不需 CR**；凡改變輸入約束、回傳欄位語意、錯誤類型／HTTP 狀態對映、副作用或其順序者，仍屬規格差異，須走 CR。  
-> **對照依據**：PR #2（`feat/ENG-007-core-create-redirect-stats`）head `2698138b6c779a2ce8657bdb5b82c43b3b7209dc`。下文以函式／常數名稱引用程式碼位置。  
+> **對照依據**：main `433140c5132778bf7cd731e3ecaca8187e50d678`（含 PR #7 ENG-011、#11 ENG-012、#16 ENG-016、#17 DR-G4-01；v0.2 初版原對照 PR #2 head `2698138`）。下文以函式／常數名稱引用程式碼位置。  
 > **書面裁示**：`./08-ruling-G4-PR2-R1-go-mapping-v0.1.md`。
 
 ### 13.1 通用對映規則
@@ -186,7 +186,7 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 | ClickCounter.getCount | `getCount(shortCode: string) → Result<int, AppError>` | `GetCount(ctx context.Context, shortCode string) (int, error)`（`ports.ClickCounter`；`(*URLStore).GetCount`） | `QueryRowContext(ctx, countSQL, shortCode)` | not_found→`ports.ErrNotFound`；internal_error→error | 參數化、僅選 click_count（`countSQL`）✅ |
 | InMemoryOrDbUrlStore.* | 實作上列五方法 | `sqlite.URLStore`（`store.go` 之 `var _ ports.URLRepository = (*URLStore)(nil)` 等編譯期斷言實作兩介面） | 同上 | 同上 | SEC-017：DB 檔 0600、非網路監聽（`Open`）✅ |
 | ErrorMapper.toHttpResponse | `toHttpResponse(error: AppError) → HttpResponse` | `func (ErrorMapper) ToHTTPResponse(err *domain.AppError) response`（`internal/httpapi/mapper.go`） | 無 | 不拋出；nil／未知 type→internal_error 500（`ToHTTPResponse`、`statusFor`） | invalid_url→400、not_found→404、rate_limited→429、internal_error→500（`statusFor`）；message 固定目錄（`safeMessage`）✅ |
-| RateLimitGuard.checkCreate／checkRedirect | `(sourceId: string) → Result<void, AppError>` | `(*Guard).CheckCreate/CheckRedirect(sourceID string) *domain.AppError`（`internal/ratelimit/guard.go`；建構子 `ratelimit.NewGuard(createPerMin, redirectPerMin int)`） | 無 | 超過門檻→`domain.RateLimited(MsgTooManyRequests)`（`rate_limited`）→429；nil `Guard` 亦回 rate_limited（fail-closed） | 每來源、每方法固定 1 分鐘窗：建立 30 次／分鐘、導向 120 次／分鐘（`NewGuard` 非正值回落此預設；`cmd/shorturl` 由 `RATE_LIMIT_CREATE_PER_MIN`／`RATE_LIMIT_REDIRECT_PER_MIN` 設定）；放行扣一次額度、拒絕不扣；單程序、不跨程序共享。`sourceID` 由 adapter 以 `ratelimit.ClientSource(r, trusted)` 產生（僅連線端為可信代理時採 X-Forwarded-For／X-Real-IP；IPv4-mapped 折疊為 IPv4、IPv6 取 /64），Guard 原樣作為 bucket key；不記錄來源位址（SEC-005）。`HandleCreate`／`HandleRedirect` 先檢查限流再解碼本文或導向。PR #7（ENG-011）實作 ✅ |
+| RateLimitGuard.checkCreate／checkRedirect | `(sourceId: string) → Result<void, AppError>` | `(*Guard).CheckCreate/CheckRedirect(sourceID string) *domain.AppError`（`internal/ratelimit/guard.go`；建構子 `ratelimit.NewGuard(createPerMin, redirectPerMin int)`） | 無 | 超過門檻→`domain.RateLimited(MsgTooManyRequests)`（`rate_limited`）→429；nil `Guard` 亦回 rate_limited（fail-closed） | 每來源、每方法固定 1 分鐘窗：建立 30 次／分鐘、導向 120 次／分鐘（`NewGuard` 非正值回落此預設；`cmd/shorturl` 由 `RATE_LIMIT_CREATE_PER_MIN`／`RATE_LIMIT_REDIRECT_PER_MIN` 設定）；放行扣一次額度、拒絕不扣；單程序、不跨程序共享。`sourceID` 由 adapter 以 `ratelimit.ClientSource(r, trusted)` 產生（僅連線端為可信代理時採 X-Forwarded-For／X-Real-IP；IPv4-mapped 折疊為 IPv4、IPv6 取 /64），Guard 原樣作為 bucket key；`sourceID` 為空字串時改用共用鍵 `empty-source`（常數 `emptySourceKey`，於 `allow`），所有空來源共用同一份額度、不得藉空身分繞過限流；不記錄來源位址（SEC-005）。`HandleCreate`／`HandleRedirect` 先檢查限流再解碼本文或導向。PR #7（ENG-011）實作 ✅ |
 | ObservabilityHooks.on* | `(shortCode｜errorType: string) → void` | `(*Hooks).OnCreateSuccess(shortCode string)`、`OnCreateFailure(errorType string)`、`OnRedirectSuccess`、`OnRedirectFailure`、`OnStatsSuccess`、`OnStatsFailure`（`internal/observability/hooks.go`；建構子 `NewHooks()`、`NewHooksWithLogger(*slog.Logger)`） | 無 | 不拋出、不回錯誤；記錄失敗以 `recover` 吞掉（`emit`） | 每次呼叫遞增該事件之行程內計數器（`atomic.Uint64`），並以 `log/slog` 輸出一筆 JSON 紀錄（`NewHooks` 寫 stderr）：成功含 `event`、`short_code`；失敗含 `event`、`error_type`（穩定碼）；不記錄 Authorization、Cookie、本文、長網址、客戶端 IP（SEC-005）。PR #11（ENG-012）實作 ✅ |
 
 ### 13.3 錯誤轉換總表（埠層 → 應用層 → 對外）
@@ -218,7 +218,7 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 - **不變**：`long_url` ≤2048 字元、Content-Type、未知欄位、多餘 JSON 值之規則皆不變；HTTP 契約（OpenAPI）不需改版。
 - **DoS 考量**：單請求記憶體上限由 8 KiB 升至 32 KiB；建立端點另有 30 次／分鐘／來源之速率限制，且 `HandleCreate` 先呼叫 `CheckCreate` 再呼叫 `decodeCreate`，被限流請求不讀本文。另 `http.Server.MaxHeaderBytes` 設為 16384（見 13.4「標頭上限」），標頭不再是大於本文上限之單請求記憶體面。
 - **測試**：(a) `url` 為 2048 字元（含 `https://example.com/` 前綴），其餘字元皆為 BMP 外 emoji 且全以 surrogate pair 跳脫之本文→201；(b) 32768 B＋1 之本文→400 invalid_url；(c) 2049 字元（未跳脫）→400 invalid_url；另依安全部 C4：(d) 恰好 32768 B 之合法本文不因大小被拒；(e) 被限流來源送超大本文→429。
-- **生效**：安全部複核意見 v0.1（`10-dr-g4-01-body-limit-security-opinion-v0.1`）**附條件同意**（條件 C1～C5）；C1（PR #7 ENG-011 限流先合併）已由 PR #7 滿足（main `24b8da0`）；由 PR #17 實作（`maxCreateBody` = 32768、`MaxHeaderBytes` = 16384 與上述測試），C2～C5 於該 PR 對照。本裁定自 2026-10-19 生效。
+- **生效**：安全部複核意見 v0.1（`10-dr-g4-01-body-limit-security-opinion-v0.1`）**附條件同意**（條件 C1～C5）；C1（PR #7 ENG-011 限流先合併）已由 PR #7 滿足（main `24b8da0`）；由 PR #17 實作（`maxCreateBody` = 32768、`MaxHeaderBytes` = 16384 與上述測試），C2～C5 於該 PR 對照。本裁定自 2026-10-19 生效（PR #17 合併，merge commit `433140c`）。
 
 ### 13.5 與類別圖 v0.1 之已知出入（不影響本節判定）
 
@@ -236,3 +236,4 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 | v0.1+R1 | 2026-10-07 | 設計部 | G2-QA-R1：SEC-016／017 參數化／原子寫入明文 |
 | v0.2 | 2026-10-07 | 設計部 | G4-PR2-R1（路徑 a）：新增 §13「Go 實作對映」（命名 PascalCase、`Result`→`(T, *AppError)`、`Option`→`(*T, error)`、ctx 為首參且僅傳遞取消／逾時、埠層 `error`＋`ports.ErrNotFound`／`ErrConflict` 由應用層轉 AppError）；逐方法對照 PR #2 head `2698138`；表頭加 §13 指引；§1～§12 規格內容未變。裁示見 `08-ruling-G4-PR2-R1-go-mapping-v0.1.md` |
 | v0.2.1 | 2026-10-19 | 設計部（研發部草擬） | 設計裁定 DR-G4-01（2026-10-07 裁定，2026-10-19 生效）：建立請求本文硬上限 8192→32768 B，超限仍 400 invalid_url，解碼前以 `io.LimitReader` 截斷；新增 §13.4.1；§13.4 新增「標頭上限」列（`MaxHeaderBytes`＝16384，超過由 net/http 回 431）；安全部意見 v0.1 附條件同意，C1～C5 已滿足（C1：PR #7；實作：PR #17）；§13.2／§13.4 行號引用改為函式名；G4-PR17-R2：§13.2 RateLimitGuard／ObservabilityHooks 列更新為現行實作（PR #7、#11）；G4-PR17-R3：§13.3／§13.5 行號引用改為函式名；HTTP 契約不變 |
+| v0.2.2 | 2026-10-19 | 設計部 | S10：metadata 與 §13 引言之對照依據改為 main `433140c`（含 PR #7／#11／#16／#17）；S13：§13.2 RateLimitGuard 列補空 `sourceID` 使用共用鍵 `empty-source`（`emptySourceKey`）；§13.4.1 生效註記補 PR #17 merge commit `433140c`（生效日 2026-10-19 不變）；規格內容與 HTTP 契約不變（OpenAPI 0.1.1 僅補說明與 431） |

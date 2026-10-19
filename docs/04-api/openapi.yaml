@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: SHORTURL 短網址服務 API
-  version: 0.1.0
+  version: 0.1.1
   description: |
     練手／小流量／無帳號 MVP。建立短碼、HTTP 導向、點擊次數查詢。
     無認證（OUT-03）。技術棧已定（D-04）：Go＋chi、SQLite、短碼 base62×8 CSPRNG。
@@ -15,6 +15,13 @@ info:
     ## 速率限制（SEC-007）
     - 建立：≤30／分鐘／來源
     - 導向：≤120／分鐘／來源
+
+    ## 傳輸層限制（DR-G4-01）
+    - 請求標頭總大小上限 16384 bytes（http.Server.MaxHeaderBytes；Go net/http 另有 4096 B 緩衝，實際門檻約 16384＋4096 B）。
+    - 超過時伺服器於進入應用前直接回 431 Request Header Fields Too Large，Content-Type: text/plain; charset=utf-8，
+      本文為純文字；不使用 {error:{type,message}} 錯誤信封、不帶安全標頭、不屬 invalid_url／not_found／rate_limited／internal_error 四類錯誤。
+      用戶端應依狀態碼處理，勿解析為 JSON。
+    - 建立請求本文上限 32768 bytes（見 POST /api/v1/urls）。
   contact:
     name: 設計部
 servers:
@@ -39,6 +46,10 @@ paths:
       operationId: createShortUrl
       requestBody:
         required: true
+        description: |
+          本文上限 32768 bytes（以原始位元組計，含 JSON 跳脫與空白；DR-G4-01）；超過回 400 invalid_url（不回 413）。
+          `url` 欄位仍 ≤2048 個 Unicode 字元（JSON 解碼後計；`\uXXXX` 跳脫與 surrogate pair 各計 1 字元）。
+          被限流的請求先回 429 rate_limited，不讀本文。
         content:
           application/json:
             schema:
@@ -76,6 +87,8 @@ paths:
                 error:
                   type: rate_limited
                   message: Too many requests
+        '431':
+          $ref: '#/components/responses/HeaderTooLarge'
         '500':
           description: 內部錯誤（不洩漏細節）
           content:
@@ -137,6 +150,8 @@ paths:
                 error:
                   type: rate_limited
                   message: Too many requests
+        '431':
+          $ref: '#/components/responses/HeaderTooLarge'
         '500':
           description: 內部錯誤
           content:
@@ -174,6 +189,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+        '431':
+          $ref: '#/components/responses/HeaderTooLarge'
         '500':
           description: 內部錯誤
           content:
@@ -182,6 +199,15 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 
 components:
+  responses:
+    HeaderTooLarge:
+      description: 傳輸層標頭過大（Request Header Fields Too Large）；由伺服器在進入應用前直接回應，非錯誤信封
+      content:
+        text/plain:
+          schema:
+            type: string
+          example: 431 Request Header Fields Too Large
+
   parameters:
     ShortCodePath:
       name: shortCode
