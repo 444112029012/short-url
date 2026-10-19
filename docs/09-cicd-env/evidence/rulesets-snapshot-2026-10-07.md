@@ -1,7 +1,7 @@
 ---
 文件編號：EVD-G3-RULESETS-20261007
 文件：Rulesets API 快照（D-08 路徑 A）
-版本：v0.3
+版本：v0.3.1
 狀態：草稿待審查（合併後改定稿）
 負責：維運部
 日期：2026-10-07
@@ -39,7 +39,7 @@
 | 規則一：條件含 main（`refs/heads/main` 或 `~DEFAULT_BRANCH`） | PASS | `conditions.ref_name.include` 為 `["~DEFAULT_BRANCH"]` |
 | 規則一：`bypass_actors` 為空 | PASS（人工確認：使用者截圖） | [Bypass list is empty](rulesets-2026-10-07/screenshots/rule1-main-required-checks-bypass-empty.png) |
 | 規則一：`required_status_checks` 恰為四個 context | PASS | `secrets-gitleaks`、`sast-gosec`、`sca-govulncheck`、`unit-test` |
-| 規則一：`strict_required_status_checks_policy` | 已記錄 | `false` |
+| 規則一：`strict_required_status_checks_policy` | 已記錄 | `false`（D-10 前時點；D-10 後已改 `true`，見下方註記） |
 | 規則一：各 check 的 `integration_id` | 已記錄 | 四項皆為 `15368` |
 | 規則一：含 `deletion` 與 `non_fast_forward` | PASS | rules 陣列含此二型別 |
 | 規則二 `main-pr-review`：`enforcement=active` | PASS | id `24629854` |
@@ -70,6 +70,8 @@ v0.1 有三列 CANNOT VERIFY。原因是 API 權杖沒有 `administration=read`�
 ## 結論
 
 13 項 PASS＋2 項已記錄（符合指南），無需修正。「已記錄」兩項為規則一 `strict_required_status_checks_policy=false` 與各 check `integration_id=15368`，數值皆符合設定指南。
+
+> **D-10 後註記（v0.3.1）**：本快照為 D-10 前（2026-10-07 13:24，UTC+8）的時點紀錄，當時規則一 `strict_required_status_checks_policy=false`，符合當時版本的設定指南。自 D-10（2026-10-07 14:33，UTC+8）起，規則一已改為 **strict=true**，取證見 [`ruleset-strict-true-d10-2026-10-07.md`](./ruleset-strict-true-d10-2026-10-07.md)；設定指南已同步更新（[`06-rulesets-setup-guide-v0.1.md`](../06-rulesets-setup-guide-v0.1.md) v0.1.1）。本文件其餘 `false` 字樣（含下方 verbatim 欄位、截圖說明）皆為 D-10 前原始紀錄，不改寫。
 
 規則二同時含 `deletion` 與 `non_fast_forward`，與規則一重複，無害：規則一的 Bypass list 為空，四項 required check、禁刪除與禁 force push 沒有繞過名單。`require_extra_approval_for_unattributed_changes=true` 是 GitHub 目前的預設值。
 
@@ -213,3 +215,4 @@ CI 證據以**本證據所在 PR 頁面上最新一次** `ci-devsecops` run 為�
 | v0.1 | 2026-10-07 | 維運部 | API 快照；三項因權杖無 `administration=read` 記為 CANNOT VERIFY |
 | v0.2 | 2026-10-07 | 維運部 | 以擁有者截圖關閉三項 CANNOT VERIFY；結論全數 PASS，無需修正 |
 | v0.3 | 2026-10-07 | 維運部 | 依 G4-PR5 審查建議：S1 規則二截圖名稱未入鏡，改寫為排除法歸屬（不重拍），並訂後續截圖保留網址列；S3 CI 節改為以 PR 頁面最新 run 為準，移除首版 head 的舊 run 引用；S4 frontmatter「對應」補 ENG-020、NFR-004（SI-05）、SEC-009～SEC-011（狀態維持草稿待審查，合併後改定稿）；S5 結論改「13 項 PASS＋2 項已記錄（符合指南）」；舊 ruleset 404 補審查部重驗出處 |
+| v0.3.1 | 2026-10-19 | 維運部 | 依 G4-PR13 審查建議 S3：對照表 strict 列與結論後加註「D-10（2026-10-07 14:33，UTC+8）後規則一已改 strict=true」，連結 `ruleset-strict-true-d10-2026-10-07.md`；快照內容與原始 JSON 不改；小版修訂不改檔名 |

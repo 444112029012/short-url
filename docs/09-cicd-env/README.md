@@ -1,9 +1,9 @@
 ---
 文件：09-cicd-env 章節索引
-版本：v0.1.5
+版本：v0.1.8
 狀態：審查中
 負責角色：維運部
-最後更新：2026-10-07
+最後更新：2026-10-19
 對應需求：NFR-004、SI-05、SEC-007、SEC-009～SEC-012、SEC-017
 專案代號：SHORTURL
 ---
@@ -17,17 +17,18 @@
 
 | 文件 | 版本 | 狀態 | 說明 |
 |---|---|---|---|
-| [01-ci-pipeline-v0.2.md](./01-ci-pipeline-v0.2.md) | v0.2 | 核准（D-07、D-08） | **現行** CI 流水線設計：Go 1.27.x／gosec v2.29.0／govulncheck v1.8.0（CR-001）、dependency review fail-closed、合併路徑 A（Rulesets） |
+| [01-ci-pipeline-v0.2.md](./01-ci-pipeline-v0.2.md) | v0.2.2 | 核准（D-07、D-08；CR-002 依 D-13） | **現行** CI 流水線設計：Go 1.27.2（`go.mod` 與三處 `setup-go` 精確釘版）／gosec `v2.29.1-0.20261015133444-707f2271f665`＋h1 比對／govulncheck v1.8.0（CR-002，PR #15 已合併）；dependency review fail-closed、合併路徑 A（Rulesets）；SCR-032 評估 |
 | [01-ci-pipeline-v0.1.md](./01-ci-pipeline-v0.1.md) | v0.1 | 已由 v0.2 取代 | 歷史版本：CI 流水線設計、工具鎖定、分支保護、啟用檢查清單 |
-| [02-environments-v0.1.md](./02-environments-v0.1.md) | v0.1 | 審查中 | local／staging／production 區隔、限流預設、SQLite、託管選項 |
+| [02-environments-v0.1.md](./02-environments-v0.1.md) | v0.1.2 | 審查中 | local／staging／production 區隔、限流預設、SQLite、託管選項；代理後必設 `TRUSTED_PROXY_CIDRS`、邊緣 TLS／HSTS、觀測日誌、`MaxHeaderBytes`；§6.2 保留／未實作變數（APP_ENV、LOG_LEVEL、TLS_*、HSTS_ENABLED；TLS 與 HSTS 由 G5 邊緣層處理） |
 | [03-secrets-management-v0.1.md](./03-secrets-management-v0.1.md) | v0.1 | 審查中 | 機密不進版控、存放、輪替、allowlist、gitignore |
 | [04-g3r1-landing-checklist-v0.2.md](./04-g3r1-landing-checklist-v0.2.md) | v0.2 | 完成 | **現行** G3-R1：workflow／分支保護落地檢查與證據（classic → Rulesets，D-08） |
 | [04-g3r1-landing-checklist-v0.1.md](./04-g3r1-landing-checklist-v0.1.md) | v0.1 | 已由 v0.2 取代 | 歷史版本：G3-R1 落地檢查 |
 | [evidence/g3r1-landing-evidence-2026-10-07.md](./evidence/g3r1-landing-evidence-2026-10-07.md) | v0.2 | 完成 | G3-R1 落地證據（Actions 四 checks、classic 保護時點與改用 Rulesets 說明） |
 | [05-pr2-ci-change-review-v0.1.md](./05-pr2-ci-change-review-v0.1.md) | v0.1 | 會簽完成 | PR #2 CI 變更的維運意見（同意 (a)(b)） |
-| [06-rulesets-setup-guide-v0.1.md](./06-rulesets-setup-guide-v0.1.md) | v0.1 | 已完成 | main 分支 Rulesets 設定步驟（D-08 方案 A） |
+| [06-rulesets-setup-guide-v0.1.md](./06-rulesets-setup-guide-v0.1.md) | v0.1.1 | 已完成 | main 分支 Rulesets 設定步驟（D-08 方案 A；v0.1.1 加註 D-10 後規則一 strict=true） |
+| [07-g5-deploy-checklist-v0.1.md](./07-g5-deploy-checklist-v0.1.md) | v0.1 | 草稿待審查 | G5 部署檢核清單（12 項：可信代理、X-Real-IP 覆寫、邊緣 HSTS、觀測日誌、MaxHeaderBytes 等）與證據要求 |
 | [evidence/g3-addendum-pr2-toolchain-2026-10-07.md](./evidence/g3-addendum-pr2-toolchain-2026-10-07.md) | v0.2 | 草稿待審查 | G3 證據補註：PR #2 工具鏈升版的影響、dependency review 恢復 fail-closed |
-| [evidence/rulesets-snapshot-2026-10-07.md](./evidence/rulesets-snapshot-2026-10-07.md) | v0.3 | 草稿待審查 | Rulesets API 快照與截圖證據（13 項 PASS＋2 項已記錄） |
+| [evidence/rulesets-snapshot-2026-10-07.md](./evidence/rulesets-snapshot-2026-10-07.md) | v0.3.1 | 草稿待審查 | Rulesets API 快照與截圖證據（13 項 PASS＋2 項已記錄；D-10 前時點，v0.3.1 加註 strict 已改 true） |
 | [evidence/ruleset-strict-true-d10-2026-10-07.md](./evidence/ruleset-strict-true-d10-2026-10-07.md) | v0.1 | 完成 | 規則一 strict=true（D-10）生效取證 |
 | [examples/ci-devsecops.yml.example](./examples/ci-devsecops.yml.example) | 範例 | 參考 | 範例 workflow（action 版本為範例；實作前釘 SHA） |
 
@@ -79,3 +80,6 @@
 | v0.1.3 | 2026-10-07 | 維運部 | 索引補文件 PR B 新增檔：01 v0.2（現行；v0.1 標為已取代）、05、06、evidence 下 G3 補註與 Rulesets 快照；G3 現況表「workflow 與分支保護」更新為已落地（Rulesets 方案 A），保留原紀錄 |
 | v0.1.4 | 2026-10-07 | 維運部 | 索引補文件 PR A 新增檔：04 v0.2（現行；v0.1 標為已取代）、evidence 下 G3-R1 落地證據 |
 | v0.1.5 | 2026-10-07 | 維運部 | 索引補 D-10 strict=true 生效取證 |
+| v0.1.6 | 2026-10-19 | 維運部 | 索引補 07 G5 部署檢核清單（v0.1，草稿待審查）；02 版本更新為 v0.1.1、06 為 v0.1.1（G4-PR13 S3）、Rulesets 快照為 v0.3.1 |
+| v0.1.7 | 2026-10-19 | 維運部 | 依審查部 G4-PR15-R2：01-ci-pipeline 更新為 v0.2.1（補 CR-002 版本鎖定，待 PR #15 合併後生效）；說明欄 CR-001 Go 版本寫明 `go.mod` 1.27.1／`setup-go` 1.27.x |
+| v0.1.8 | 2026-10-19 | 維運部 | PR #15 已合併：01 更新為 v0.2.2（CR-002 現行、SCR-032 評估）；02 更新為 v0.1.2（未實作變數移到 §6.2，不寫成程式已支援） |
