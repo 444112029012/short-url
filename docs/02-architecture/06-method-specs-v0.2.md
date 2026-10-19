@@ -1,9 +1,9 @@
 ---
 文件：方法規格表
-版本：v0.2
-狀態：審查中（G4-PR2-R1 補件：新增 §13 Go 實作對映；待審查部複審）
+版本：v0.2.1
+狀態：審查中（§13 Go 實作對映待審查部複審）；DR-G4-01（§13.4.1）已於 2026-10-19 生效
 負責角色：設計部
-最後更新：2026-10-07
+最後更新：2026-10-19
 對應需求：SEC-016, SEC-017, REQ-001～REQ-012, NFR-001, NFR-006, SEC-001～SEC-008, SEC-013～SEC-014
 專案代號：SHORTURL
 取代：06-method-specs-v0.1.md（§1～§12 規格內容不變，僅新增 §13 與表頭註記）
@@ -149,7 +149,7 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 ## 13. Go 實作對映（v0.2 新增；G4-PR2-R1）
 
 > **性質**：本節為 §1～§12 語言中立規格之 **Go 語言繫結（language binding）**，屬規範性內容。依本節規則產生之簽名差異**不構成**方法規格差異、**不需 CR**；凡改變輸入約束、回傳欄位語意、錯誤類型／HTTP 狀態對映、副作用或其順序者，仍屬規格差異，須走 CR。  
-> **對照依據**：PR #2（`feat/ENG-007-core-create-redirect-stats`）head `2698138b6c779a2ce8657bdb5b82c43b3b7209dc`；下文「檔案:行」皆指該 commit 之 repo 路徑與行號。  
+> **對照依據**：PR #2（`feat/ENG-007-core-create-redirect-stats`）head `2698138b6c779a2ce8657bdb5b82c43b3b7209dc`。下文以函式／常數名稱引用程式碼位置。  
 > **書面裁示**：`./08-ruling-G4-PR2-R1-go-mapping-v0.1.md`。
 
 ### 13.1 通用對映規則
@@ -166,52 +166,63 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 | GO-MAP-08 消費端介面 | 依賴注入之元件型別 | 依 Go 慣例可由使用端定義最小介面（`application.CodeGenerator`、`httpapi.RateLimitChecker`、`httpapi.EventHooks`） | 方法集與簽名須與本表（經本節對映後）一致 |
 | GO-MAP-09 生命週期／組裝 | 不在本表 | 建構子 `New*`、`sqlite.Open`／`Migrate`／`Close`、測試注入 `NewShortCodeGeneratorWithReader` | 非業務公開方法；不得承載本表以外之業務規則；生產碼 generator 必須使用 `crypto/rand` |
 
-### 13.2 逐方法對映表（PR #2 head `2698138`）
+### 13.2 逐方法對映表
 
 | 規格方法 | 規格簽名（§1～§11） | Go 簽名（檔案:行） | ctx 用途 | 規格例外 → Go 錯誤 → 對外（HTTP／type） | 行為一致性 |
 |---|---|---|---|---|---|
-| HttpApiAdapter.handleCreate | `handleCreate(req: HttpRequest) → HttpResponse` | `func (a *HTTPAPIAdapter) HandleCreate(r *http.Request) response`（`internal/httpapi/adapter.go:77-104`） | 取 `r.Context()` 傳入 `CreateShortURL`（:87）；本身無 ctx 參數 | rate_limited→429；invalid_url→400（含 Content-Type 非 JSON、本文空／>8192 B、未知欄位、多餘 JSON：:152-175）；internal_error→500；皆經 `ErrorMapper` | 先 `CheckCreate`（:78）後解碼與建立；成功 201 `{short_code, short_url, long_url}`（:92-103）；觸發 Obs ✅ |
-| HttpApiAdapter.handleRedirect | `handleRedirect(req) → HttpResponse` | `HandleRedirect(r *http.Request) response`（`adapter.go:108-124`） | `r.Context()` 傳入 `Redirect`（:113） | invalid_url→400；not_found→404；rate_limited→429；internal_error→500；錯誤時刪除 Location（:117） | 先 `CheckRedirect`（:109）；成功 302、Location＝`target.LongURL`（庫值，:121-123）；不讀 query／header ✅ |
-| HttpApiAdapter.handleStats | `handleStats(req) → HttpResponse` | `HandleStats(r *http.Request) response`（`adapter.go:127-141`） | `r.Context()` 傳入 `GetStats`（:128） | invalid_url→400；not_found→404；internal_error→500 | 200 `{short_code, click_count}`；不限流（符合 §1「建議可不限流」）；無寫入 ✅ |
-| ShortUrlApplicationService.createShortUrl | `createShortUrl(longUrl: string) → Result<UrlCreated, AppError>` | `func (s *ShortURLApplicationService) CreateShortURL(ctx context.Context, longURL string) (domain.URLCreated, *domain.AppError)`（`internal/application/service.go:50-97`） | 僅下傳 `repo.Exists(ctx, …)`（:67）、`repo.Save(ctx, …)`（:84） | invalid_url：validator 原樣回傳（:51-54）；internal_error：generator 失敗原樣回傳（:60-63）、Exists／Save 非衝突錯誤 `InternalWrap`（:68-70、:88）、重試耗盡 `Internal()`（:96）；`ErrConflict`／`exists=true`→重試（:71-73、:85-87），不外露 | 驗證→generate→exists→save；有限次重試上限 8（`defaultGenerateAttempts`，:13）；click_count=0（:81）；回傳 short_code／short_url（baseURL＋"/"＋code）／long_url（:90-94）✅ |
-| ShortUrlApplicationService.getStats | `getStats(shortCode: string) → Result<UrlStats, AppError>` | `GetStats(ctx context.Context, shortCode string) (domain.URLStats, *domain.AppError)`（`service.go:100-116`） | 僅下傳 `counter.GetCount(ctx, …)`（:105） | invalid_url（:101-104）；`ErrNotFound`→not_found（:107-108）；其他→internal_error（:110）；負值→internal_error（:112-114） | 無寫入；回傳 short_code、click_count≥0 ✅ |
-| RedirectService.redirect | `redirect(shortCode: string) → Result<RedirectTarget, AppError>` | `func (s *RedirectService) Redirect(ctx context.Context, shortCode string) (domain.RedirectTarget, *domain.AppError)`（`internal/application/redirect.go:25-46`） | 僅下傳 `FindByShortCode(ctx, …)`（:29）、`IncrementAtomic(ctx, …)`（:39） | invalid_url（:26-28）；`ErrNotFound`→not_found（:31-32、:40-42）；其他→internal_error（:34、:43）；庫值空／含控制字元→internal_error（防禦，:36-38） | 先確認紀錄存在（:29）再原子 +1（:39），成功後才回目標（:45）；任何失敗不回目標、不計數（increment 前之失敗）✅ |
-| UrlValidator.validateLongUrl | `validateLongUrl(url: string) → Result<ValidatedUrl, AppError>` | `func (v *URLValidator) ValidateLongURL(raw string) (ValidatedURL, *AppError)`（`internal/domain/validator.go:23-42`） | 無（純函式） | invalid_url（MsgURLValidationFailed） | 空、長度>2048（以 Unicode 字元計，:11、:24）、不可解析、非 http(s)（:34-37）→invalid_url；另見 13.4 細化 ✅ |
-| UrlValidator.validateShortCode | `validateShortCode(code: string) → Result<string, AppError>` | `ValidateShortCode(code string) (string, *AppError)`（`validator.go:45-50`） | 無 | invalid_url（MsgInvalidShortCode） | `^[A-Za-z0-9]{8}$`（:13）；正規化＝原樣回傳 ✅ |
-| ShortCodeGenerator.generate | `generate() → string`；例外 internal_error | `func (g *ShortCodeGenerator) Generate() (string, *AppError)`（`internal/domain/generator.go:35-57`） | 無 | CSPRNG 讀取失敗→`InternalWrap`（:44-46）；其他→`Internal()`（:36-38、:53-55） | `crypto/rand`（:22）、base62、長度 8、拒絕取樣去偏（:12-13、:47-49）✅ |
-| UrlRepository.save | `save(record: UrlRecord) → Result<void, AppError>` | 介面 `Save(ctx context.Context, record domain.URLRecord) error`（`internal/ports/store.go:20`）；實作 `internal/infra/sqlite/store.go:118-131` | `ExecContext(ctx, insertSQL, …)`（:123） | 唯一衝突→`ports.ErrConflict`（:125-127；呼叫端重試）；其他→原生 error（上層轉 internal_error）；click_count<0→error（:119-121） | 參數化 INSERT（:38-40）；schema 無 IP／UA（:28-36）✅ |
-| UrlRepository.findByShortCode | `findByShortCode(code: string) → Option<UrlRecord>` | `FindByShortCode(ctx context.Context, code string) (*domain.URLRecord, error)`（`ports/store.go:21`；`store.go:133-151`） | `QueryRowContext(ctx, selectByCodeSQL, code)`（:136） | None→`(nil, ports.ErrNotFound)`（:139-141）；實作異常→error（上層轉 internal_error） | 參數化 SELECT，僅四業務欄位（:42-45）✅ |
-| UrlRepository.exists | `exists(code: string) → boolean` | `Exists(ctx context.Context, code string) (bool, error)`（`ports/store.go:22`；`store.go:153-163`） | `QueryRowContext(ctx, existsSQL, code)`（:155） | 不存在→`(false, nil)`（:156-158）；異常→error（上層轉 internal_error） | 參數化 `SELECT 1 … LIMIT 1`（:47-48）✅ |
-| ClickCounter.incrementAtomic | `incrementAtomic(shortCode: string) → Result<int, AppError>` | `IncrementAtomic(ctx context.Context, shortCode string) (int, error)`（`ports/store.go:28`；`store.go:165-178`） | `QueryRowContext(ctx, incrementSQL, shortCode)`（:167） | not_found→`ports.ErrNotFound`（:168-170）；internal_error→error（上層 `InternalWrap`） | 單句原子 `UPDATE … SET click_count = click_count + 1 WHERE short_code = ? RETURNING click_count`（:51-55）；回傳遞增後值 ✅ |
-| ClickCounter.getCount | `getCount(shortCode: string) → Result<int, AppError>` | `GetCount(ctx context.Context, shortCode string) (int, error)`（`ports/store.go:29`；`store.go:180-193`） | `QueryRowContext(ctx, countSQL, shortCode)`（:182） | not_found→`ports.ErrNotFound`（:183-185）；internal_error→error | 參數化、僅選 click_count（:57-58）✅ |
-| InMemoryOrDbUrlStore.* | 實作上列五方法 | `sqlite.URLStore`（`store.go:19-26` 編譯期斷言實作兩介面） | 同上 | 同上 | SEC-017：DB 檔 0600、非網路監聽（:60-102）✅ |
-| ErrorMapper.toHttpResponse | `toHttpResponse(error: AppError) → HttpResponse` | `func (ErrorMapper) ToHTTPResponse(err *domain.AppError) response`（`internal/httpapi/mapper.go:28-46`） | 無 | 不拋出；nil／未知 type→internal_error 500（:29-31、:58-59） | invalid_url→400、not_found→404、rate_limited→429、internal_error→500（:48-61）；message 固定目錄（:63-77）✅ |
-| RateLimitGuard.checkCreate／checkRedirect | `(sourceId: string) → Result<void, AppError>` | `CheckCreate/CheckRedirect(sourceID string) *domain.AppError`（`internal/ratelimit/guard.go:16-25`） | 無 | rate_limited（現 stub 一律放行） | 簽名一致；行為延後 ENG-011（SCR-002 追蹤，非本節範圍） |
-| ObservabilityHooks.on* | `(shortCode｜errorType: string) → void` | `OnCreateSuccess(shortCode string)` 等六方法（`internal/observability/hooks.go:11-16`） | 無 | 不拋出 | no-op；行為延後 ENG-012 |
+| HttpApiAdapter.handleCreate | `handleCreate(req: HttpRequest) → HttpResponse` | `func (a *HTTPAPIAdapter) HandleCreate(r *http.Request) response`（`internal/httpapi/adapter.go`） | 取 `r.Context()` 傳入 `CreateShortURL`；本身無 ctx 參數 | rate_limited→429；invalid_url→400（含 Content-Type 非 JSON、本文空／>32768 B（`maxCreateBody`，DR-G4-01，見 13.4.1）、未知欄位、多餘 JSON：`decodeCreate`）；internal_error→500；皆經 `ErrorMapper` | 先 `CheckCreate` 後 `decodeCreate` 與 `CreateShortURL`；成功 201 `{short_code, short_url, long_url}`；觸發 Obs ✅ |
+| HttpApiAdapter.handleRedirect | `handleRedirect(req) → HttpResponse` | `HandleRedirect(r *http.Request) response`（`adapter.go`） | `r.Context()` 傳入 `Redirect` | invalid_url→400；not_found→404；rate_limited→429；internal_error→500；錯誤時刪除 Location | 先 `CheckRedirect`；成功 302、Location＝`target.LongURL`（庫值）；不讀 query／header ✅ |
+| HttpApiAdapter.handleStats | `handleStats(req) → HttpResponse` | `HandleStats(r *http.Request) response`（`adapter.go`） | `r.Context()` 傳入 `GetStats` | invalid_url→400；not_found→404；internal_error→500 | 200 `{short_code, click_count}`；不限流（符合 §1「建議可不限流」）；無寫入 ✅ |
+| ShortUrlApplicationService.createShortUrl | `createShortUrl(longUrl: string) → Result<UrlCreated, AppError>` | `func (s *ShortURLApplicationService) CreateShortURL(ctx context.Context, longURL string) (domain.URLCreated, *domain.AppError)`（`internal/application/service.go`） | 僅下傳 `repo.Exists(ctx, …)`、`repo.Save(ctx, …)` | invalid_url：`ValidateLongURL` 結果原樣回傳；internal_error：`Generate` 失敗原樣回傳、Exists／Save 非衝突錯誤 `InternalWrap`、重試耗盡 `Internal()`；`ErrConflict`／`exists=true`→重試，不外露 | 驗證→generate→exists→save；有限次重試上限 8（`defaultGenerateAttempts`）；click_count=0；回傳 short_code／short_url（baseURL＋"/"＋code）／long_url ✅ |
+| ShortUrlApplicationService.getStats | `getStats(shortCode: string) → Result<UrlStats, AppError>` | `GetStats(ctx context.Context, shortCode string) (domain.URLStats, *domain.AppError)`（`service.go`） | 僅下傳 `counter.GetCount(ctx, …)` | invalid_url（`ValidateShortCode`）；`ErrNotFound`→not_found；其他→internal_error；負值→internal_error | 無寫入；回傳 short_code、click_count≥0 ✅ |
+| RedirectService.redirect | `redirect(shortCode: string) → Result<RedirectTarget, AppError>` | `func (s *RedirectService) Redirect(ctx context.Context, shortCode string) (domain.RedirectTarget, *domain.AppError)`（`internal/application/redirect.go`） | 僅下傳 `FindByShortCode(ctx, …)`、`IncrementAtomic(ctx, …)` | invalid_url（`ValidateShortCode`）；`ErrNotFound`→not_found；其他→internal_error；庫值空／含控制字元→internal_error（防禦，`safeLocation`） | 先 `FindByShortCode` 確認紀錄存在再 `IncrementAtomic` 原子 +1，成功後才回目標；任何失敗不回目標、不計數（increment 前之失敗）✅ |
+| UrlValidator.validateLongUrl | `validateLongUrl(url: string) → Result<ValidatedUrl, AppError>` | `func (v *URLValidator) ValidateLongURL(raw string) (ValidatedURL, *AppError)`（`internal/domain/validator.go`） | 無（純函式） | invalid_url（MsgURLValidationFailed） | 空、長度>2048（以 Unicode 字元計，`MaxLongURLLength`、`utf8.RuneCountInString`）、不可解析、非 http(s)→invalid_url；另見 13.4 細化 ✅ |
+| UrlValidator.validateShortCode | `validateShortCode(code: string) → Result<string, AppError>` | `ValidateShortCode(code string) (string, *AppError)`（`validator.go`） | 無 | invalid_url（MsgInvalidShortCode） | `^[A-Za-z0-9]{8}$`（`shortCodePattern`）；正規化＝原樣回傳 ✅ |
+| ShortCodeGenerator.generate | `generate() → string`；例外 internal_error | `func (g *ShortCodeGenerator) Generate() (string, *AppError)`（`internal/domain/generator.go`） | 無 | CSPRNG 讀取失敗→`InternalWrap`；其他→`Internal()` | `crypto/rand`（`NewShortCodeGenerator`）、base62、長度 8、拒絕取樣去偏（`Generate`）✅ |
+| UrlRepository.save | `save(record: UrlRecord) → Result<void, AppError>` | 介面 `Save(ctx context.Context, record domain.URLRecord) error`（`internal/ports/store.go` `URLRepository`）；實作 `(*URLStore).Save`（`internal/infra/sqlite/store.go`） | `ExecContext(ctx, insertSQL, …)` | 唯一衝突→`ports.ErrConflict`（`isUniqueViolation`；呼叫端重試）；其他→原生 error（上層轉 internal_error）；click_count<0→error | 參數化 INSERT（`insertSQL`）；schema 無 IP／UA（`createTableSQL`）✅ |
+| UrlRepository.findByShortCode | `findByShortCode(code: string) → Option<UrlRecord>` | `FindByShortCode(ctx context.Context, code string) (*domain.URLRecord, error)`（`ports.URLRepository`；`(*URLStore).FindByShortCode`） | `QueryRowContext(ctx, selectByCodeSQL, code)` | None→`(nil, ports.ErrNotFound)`；實作異常→error（上層轉 internal_error） | 參數化 SELECT，僅四業務欄位（`selectByCodeSQL`）✅ |
+| UrlRepository.exists | `exists(code: string) → boolean` | `Exists(ctx context.Context, code string) (bool, error)`（`ports.URLRepository`；`(*URLStore).Exists`） | `QueryRowContext(ctx, existsSQL, code)` | 不存在→`(false, nil)`；異常→error（上層轉 internal_error） | 參數化 `SELECT 1 … LIMIT 1`（`existsSQL`）✅ |
+| ClickCounter.incrementAtomic | `incrementAtomic(shortCode: string) → Result<int, AppError>` | `IncrementAtomic(ctx context.Context, shortCode string) (int, error)`（`ports.ClickCounter`；`(*URLStore).IncrementAtomic`） | `QueryRowContext(ctx, incrementSQL, shortCode)` | not_found→`ports.ErrNotFound`；internal_error→error（上層 `InternalWrap`） | 單句原子 `UPDATE … SET click_count = click_count + 1 WHERE short_code = ? RETURNING click_count`（`incrementSQL`）；回傳遞增後值 ✅ |
+| ClickCounter.getCount | `getCount(shortCode: string) → Result<int, AppError>` | `GetCount(ctx context.Context, shortCode string) (int, error)`（`ports.ClickCounter`；`(*URLStore).GetCount`） | `QueryRowContext(ctx, countSQL, shortCode)` | not_found→`ports.ErrNotFound`；internal_error→error | 參數化、僅選 click_count（`countSQL`）✅ |
+| InMemoryOrDbUrlStore.* | 實作上列五方法 | `sqlite.URLStore`（`store.go` 之 `var _ ports.URLRepository = (*URLStore)(nil)` 等編譯期斷言實作兩介面） | 同上 | 同上 | SEC-017：DB 檔 0600、非網路監聽（`Open`）✅ |
+| ErrorMapper.toHttpResponse | `toHttpResponse(error: AppError) → HttpResponse` | `func (ErrorMapper) ToHTTPResponse(err *domain.AppError) response`（`internal/httpapi/mapper.go`） | 無 | 不拋出；nil／未知 type→internal_error 500（`ToHTTPResponse`、`statusFor`） | invalid_url→400、not_found→404、rate_limited→429、internal_error→500（`statusFor`）；message 固定目錄（`safeMessage`）✅ |
+| RateLimitGuard.checkCreate／checkRedirect | `(sourceId: string) → Result<void, AppError>` | `(*Guard).CheckCreate/CheckRedirect(sourceID string) *domain.AppError`（`internal/ratelimit/guard.go`；建構子 `ratelimit.NewGuard(createPerMin, redirectPerMin int)`） | 無 | 超過門檻→`domain.RateLimited(MsgTooManyRequests)`（`rate_limited`）→429；nil `Guard` 亦回 rate_limited（fail-closed） | 每來源、每方法固定 1 分鐘窗：建立 30 次／分鐘、導向 120 次／分鐘（`NewGuard` 非正值回落此預設；`cmd/shorturl` 由 `RATE_LIMIT_CREATE_PER_MIN`／`RATE_LIMIT_REDIRECT_PER_MIN` 設定）；放行扣一次額度、拒絕不扣；單程序、不跨程序共享。`sourceID` 由 adapter 以 `ratelimit.ClientSource(r, trusted)` 產生（僅連線端為可信代理時採 X-Forwarded-For／X-Real-IP；IPv4-mapped 折疊為 IPv4、IPv6 取 /64），Guard 原樣作為 bucket key；不記錄來源位址（SEC-005）。`HandleCreate`／`HandleRedirect` 先檢查限流再解碼本文或導向。PR #7（ENG-011）實作 ✅ |
+| ObservabilityHooks.on* | `(shortCode｜errorType: string) → void` | `(*Hooks).OnCreateSuccess(shortCode string)`、`OnCreateFailure(errorType string)`、`OnRedirectSuccess`、`OnRedirectFailure`、`OnStatsSuccess`、`OnStatsFailure`（`internal/observability/hooks.go`；建構子 `NewHooks()`、`NewHooksWithLogger(*slog.Logger)`） | 無 | 不拋出、不回錯誤；記錄失敗以 `recover` 吞掉（`emit`） | 每次呼叫遞增該事件之行程內計數器（`atomic.Uint64`），並以 `log/slog` 輸出一筆 JSON 紀錄（`NewHooks` 寫 stderr）：成功含 `event`、`short_code`；失敗含 `event`、`error_type`（穩定碼）；不記錄 Authorization、Cookie、本文、長網址、客戶端 IP（SEC-005）。PR #11（ENG-012）實作 ✅ |
 
 ### 13.3 錯誤轉換總表（埠層 → 應用層 → 對外）
 
-| 來源（埠層 Go error） | 應用層轉換（檔案:行） | AppError.Type | HTTP | 對外 message |
+| 來源（埠層 Go error） | 應用層轉換（函式） | AppError.Type | HTTP | 對外 message |
 |---|---|---|---|---|
-| `ports.ErrNotFound`（FindByShortCode／IncrementAtomic／GetCount） | `domain.NotFound(MsgShortCodeNotFound)`（`redirect.go:31-32、40-42`；`service.go:107-108`） | `not_found` | 404 | Short code not found |
-| `ports.ErrConflict`（Save） | 重試，不外露（`service.go:85-87`）；達上限 8 次→`domain.Internal()`（:96） | （耗盡時）`internal_error` | 500 | An unexpected error occurred |
-| 其他非 nil error（含 ctx 取消／逾時、驅動錯誤） | `domain.InternalWrap(err)`（`service.go:69、88、110`；`redirect.go:34、43`） | `internal_error` | 500 | An unexpected error occurred |
+| `ports.ErrNotFound`（FindByShortCode／IncrementAtomic／GetCount） | `domain.NotFound(MsgShortCodeNotFound)`（`RedirectService.Redirect` 之 `FindByShortCode` 與 `IncrementAtomic` 錯誤分支；`ShortURLApplicationService.GetStats` 之 `GetCount` 錯誤分支） | `not_found` | 404 | Short code not found |
+| `ports.ErrConflict`（Save） | 重試，不外露（`ShortURLApplicationService.CreateShortURL` 之 `Save` 錯誤分支）；達上限 8 次（`defaultGenerateAttempts`）→`domain.Internal()`（`CreateShortURL` 迴圈結束後） | （耗盡時）`internal_error` | 500 | An unexpected error occurred |
+| 其他非 nil error（含 ctx 取消／逾時、驅動錯誤） | `domain.InternalWrap(err)`（`CreateShortURL` 之 `Exists`／`Save` 錯誤分支、`GetStats` 之 `GetCount` 錯誤分支；`Redirect` 之 `FindByShortCode`／`IncrementAtomic` 錯誤分支） | `internal_error` | 500 | An unexpected error occurred |
 | validator 失敗 | 原樣回傳 | `invalid_url` | 400 | URL validation failed／Invalid short code format |
 | RateLimitGuard 拒絕 | 原樣回傳（adapter 層） | `rate_limited` | 429 | Too many requests |
 
 ### 13.4 規格留白處之實作定值（記錄用，非規格變更）
 
-| 項目 | 規格 v0.1 | PR #2 實作 | 判定 |
+| 項目 | 規格 v0.1 | 實作 | 判定 |
 |---|---|---|---|
-| 碰撞重試上限 | 「有限次重試」 | 8 次（`exists=true` 與 `ErrConflict` 皆計一次；`service.go:13、59`） | 滿足「有限次」；耗盡→internal_error 與規格一致 |
-| 長度單位 | 長度≤2048 | Unicode 字元數（`utf8.RuneCountInString`，`validator.go:24`） | 與 OpenAPI `maxLength`（字元）、SQLite `CHECK(length(long_url) <= 2048)`（`store.go:34`）一致 |
-| 「不可解析」細化 | 不可解析→invalid_url | 另拒 ASCII 控制字元／空白（`validator.go:27-29`）、非 UTF-8（:24）、非絕對／opaque（:31）、空 host（:38-40） | 對齊 OpenAPI `long_url: format: uri`（RFC 3986 不允許未編碼空白／控制字元）；屬「不可解析」之實作細化 |
-| 建立請求本文 | Content-Type 為 JSON（前置條件） | 非 `application/json`、空本文、>8192 bytes、未知欄位、多餘 JSON 值→400 invalid_url（`adapter.go:18、152-175`） | 對齊 OpenAPI 僅定義 400 與 `additionalProperties: false` |
+| 碰撞重試上限 | 「有限次重試」 | 8 次（`exists=true` 與 `ErrConflict` 皆計一次；`defaultGenerateAttempts`、`CreateShortURL`） | 滿足「有限次」；耗盡→internal_error 與規格一致 |
+| 長度單位 | 長度≤2048 | Unicode 字元數（`utf8.RuneCountInString`，`ValidateLongURL`） | 與 OpenAPI `maxLength`（字元）、SQLite `CHECK(length(long_url) <= 2048)`（`createTableSQL`）一致 |
+| 「不可解析」細化 | 不可解析→invalid_url | 另拒 ASCII 控制字元／空白（`hasCTLOrSpace`）、非 UTF-8、非絕對／opaque、空 host（皆於 `ValidateLongURL`） | 對齊 OpenAPI `long_url: format: uri`（RFC 3986 不允許未編碼空白／控制字元）；屬「不可解析」之實作細化 |
+| 建立請求本文 | Content-Type 為 JSON（前置條件） | 非 `application/json`、空本文、未知欄位、多餘 JSON 值→400 invalid_url（`decodeCreate`）；**本文硬上限 32768 bytes（32 KiB），超過→400 invalid_url**（`maxCreateBody`；`decodeCreate` 於 JSON 解碼前以 `io.LimitReader(body, maxCreateBody+1)` 截斷讀取，最多讀 32769 B；`HandleCreate` 先 `CheckCreate` 後 `decodeCreate`，被限流請求回 429 且不讀本文；設計裁定 DR-G4-01，見 13.4.1） | 對齊 OpenAPI 僅定義 400 與 `additionalProperties: false`；上限為傳輸層防護，不改變 `long_url` ≤2048 字元之業務規則 |
+| 標頭上限 | — | `http.Server.MaxHeaderBytes = 16384`（`cmd/shorturl/main.go` `newHTTPServer`，常數 `maxHeaderBytes`）。超過時由 `net/http` 於讀取標頭階段直接回 **431**（`Content-Type: text/plain`），不經 router、`ErrorMapper` 與安全標頭中介層；**非**錯誤信封 `{error:{type,message}}`，亦**不屬**四類穩定錯誤碼。實際觸發門檻約 16384＋4096 B（`net/http` 內建緩衝餘裕） | 傳輸層防護（安全部 DR-G4-01 意見 C3）；不在 OpenAPI 業務錯誤契約內，HTTP 契約不變 |
 | ctx 來源與期限 | — | HTTP 請求 ctx（客戶端斷線／Server Shutdown 時取消）；未另設業務逾時 | 符合 GO-MAP-03 |
+
+#### 13.4.1 設計裁定 DR-G4-01：建立請求本文上限（裁定 2026-10-07；生效 2026-10-19）
+
+- **問題**：舊上限 8192 bytes 會誤拒合法輸入。`long_url` 以 Unicode 字元計上限 2048；JSON 允許任意字元以 `\uXXXX` 跳脫，用戶端程式庫（如 Go `encoding/json` 將 `&`、`<`、`>` 跳脫為 `\u0026` 等；Python `json.dumps` 預設 `ensure_ascii=True`）會使本文膨脹。研發部實測：純 & 約 12263 B、非 ASCII 跳脫約 12298 B、emoji surrogate pair 跳脫約 24544 B。
+- **理論最壞值**：每個字元最多跳脫為 12 bytes（BMP 外字元＝兩段 `\uXXXX`），2048 × 12 = 24576 B，加上 JSON 外框 `{"url":""}` 與合理空白，約 24.6 KB。
+- **裁定**：本文硬上限 **32768 bytes（32 KiB）**。高於理論最壞值約 8 KB 餘裕（容納排版空白），且為 2 的次方易於設定。超過上限→400 `invalid_url`（不新增 413／新錯誤類型，維持 OpenAPI 四類錯誤）；讀取須以硬上限截斷，不得先讀入全量再判斷。實作採 `io.LimitReader(body, maxCreateBody+1)`（安全部意見 C2 認可之等效作法，未改用 `http.MaxBytesReader`）。
+- **不變**：`long_url` ≤2048 字元、Content-Type、未知欄位、多餘 JSON 值之規則皆不變；HTTP 契約（OpenAPI）不需改版。
+- **DoS 考量**：單請求記憶體上限由 8 KiB 升至 32 KiB；建立端點另有 30 次／分鐘／來源之速率限制，且 `HandleCreate` 先呼叫 `CheckCreate` 再呼叫 `decodeCreate`，被限流請求不讀本文。另 `http.Server.MaxHeaderBytes` 設為 16384（見 13.4「標頭上限」），標頭不再是大於本文上限之單請求記憶體面。
+- **測試**：(a) `url` 為 2048 字元（含 `https://example.com/` 前綴），其餘字元皆為 BMP 外 emoji 且全以 surrogate pair 跳脫之本文→201；(b) 32768 B＋1 之本文→400 invalid_url；(c) 2049 字元（未跳脫）→400 invalid_url；另依安全部 C4：(d) 恰好 32768 B 之合法本文不因大小被拒；(e) 被限流來源送超大本文→429。
+- **生效**：安全部複核意見 v0.1（`10-dr-g4-01-body-limit-security-opinion-v0.1`）**附條件同意**（條件 C1～C5）；C1（PR #7 ENG-011 限流先合併）已由 PR #7 滿足（main `24b8da0`）；由 PR #17 實作（`maxCreateBody` = 32768、`MaxHeaderBytes` = 16384 與上述測試），C2～C5 於該 PR 對照。本裁定自 2026-10-19 生效。
 
 ### 13.5 與類別圖 v0.1 之已知出入（不影響本節判定）
 
-- 類別圖 `ShortUrlApplicationService` 未列 `counter` 相依；本表 §2 `getStats` 前置條件為「counter／validator 已注入」，實作依本表注入 `ports.ClickCounter`（`service.go:25`）。
+- 類別圖 `ShortUrlApplicationService` 未列 `counter` 相依；本表 §2 `getStats` 前置條件為「counter／validator 已注入」，實作依本表注入 `ports.ClickCounter`（`ShortURLApplicationService` 之 `counter` 欄位，經 `NewShortURLApplicationService` 參數 `counter` 注入）。
 - 類別圖 `ShortCodeGenerator.generate()` 回傳 `string`；本表 §5 列 `internal_error`，實作依本表回傳 `(string, *AppError)`。
 - 以本表為準；類別圖待下次修訂對齊（非 G4 阻擋）。
 
@@ -224,3 +235,4 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 | v0.1 | 2026-10-07 | 設計部 | 公開方法規格齊；狀態審查中 |
 | v0.1+R1 | 2026-10-07 | 設計部 | G2-QA-R1：SEC-016／017 參數化／原子寫入明文 |
 | v0.2 | 2026-10-07 | 設計部 | G4-PR2-R1（路徑 a）：新增 §13「Go 實作對映」（命名 PascalCase、`Result`→`(T, *AppError)`、`Option`→`(*T, error)`、ctx 為首參且僅傳遞取消／逾時、埠層 `error`＋`ports.ErrNotFound`／`ErrConflict` 由應用層轉 AppError）；逐方法對照 PR #2 head `2698138`；表頭加 §13 指引；§1～§12 規格內容未變。裁示見 `08-ruling-G4-PR2-R1-go-mapping-v0.1.md` |
+| v0.2.1 | 2026-10-19 | 設計部（研發部草擬） | 設計裁定 DR-G4-01（2026-10-07 裁定，2026-10-19 生效）：建立請求本文硬上限 8192→32768 B，超限仍 400 invalid_url，解碼前以 `io.LimitReader` 截斷；新增 §13.4.1；§13.4 新增「標頭上限」列（`MaxHeaderBytes`＝16384，超過由 net/http 回 431）；安全部意見 v0.1 附條件同意，C1～C5 已滿足（C1：PR #7；實作：PR #17）；§13.2／§13.4 行號引用改為函式名；G4-PR17-R2：§13.2 RateLimitGuard／ObservabilityHooks 列更新為現行實作（PR #7、#11）；G4-PR17-R3：§13.3／§13.5 行號引用改為函式名；HTTP 契約不變 |
