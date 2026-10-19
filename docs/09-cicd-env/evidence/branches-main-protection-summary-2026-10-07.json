@@ -1,0 +1,54 @@
+{
+  "document_type": "摘要（維運部整理，非原始 API 回應）",
+  "source": "cursor-github list_branches（protected=true）輸出之 main 分支欄位，由維運部整理；branch 欄位對應公開 GET https://api.github.com/repos/444112029012/short-url/branches/main 的同名欄位（審查部於 G3 複審以 WebFetch 該公開 API 獨立確認相同值，見 docs/gates/gate-G3-2026-10-07-recheck-01.md）",
+  "fetched_at_taipei": "2026-10-07 12:15 Asia/Taipei",
+  "point_in_time_note": "12:15 時點為 classic branch protection；之後已依 D-08 改為 Rulesets，現況見 docs/09-cicd-env/evidence/rulesets-snapshot-2026-10-07.md",
+  "branch": {
+    "name": "main",
+    "commit_sha": "d09cceb4d2284f2dbcb99e6f1a5833cd9baecd66",
+    "protected": true,
+    "protection": {
+      "enabled": true,
+      "required_status_checks": {
+        "enforcement_level": "everyone",
+        "contexts": [
+          "secrets-gitleaks",
+          "sast-gosec",
+          "sca-govulncheck",
+          "unit-test"
+        ],
+        "checks": [
+          {
+            "context": "secrets-gitleaks",
+            "app_id": 15368
+          },
+          {
+            "context": "sast-gosec",
+            "app_id": 15368
+          },
+          {
+            "context": "sca-govulncheck",
+            "app_id": 15368
+          },
+          {
+            "context": "unit-test",
+            "app_id": 15368
+          }
+        ]
+      }
+    },
+    "protection_url": "https://api.github.com/repos/444112029012/short-url/branches/main/protection"
+  },
+  "actions_run": {
+    "url": "https://github.com/444112029012/short-url/actions/runs/37569477572",
+    "conclusion": "success",
+    "jobs": [
+      "secrets-gitleaks",
+      "sast-gosec",
+      "sca-govulncheck",
+      "unit-test"
+    ]
+  },
+  "workflow": "https://github.com/444112029012/short-url/blob/main/.github/workflows/ci-devsecops.yml",
+  "seed_commit": "https://github.com/444112029012/short-url/commit/d09cceb4d2284f2dbcb99e6f1a5833cd9baecd66"
+}
