@@ -20,6 +20,10 @@ import (
 const maxCreateBody = 8192
 
 // RateLimitChecker is the RateLimitGuard port used by the adapter.
+//
+// Implementations receive sourceID exactly as produced by
+// ratelimit.ClientSource and must not be handed raw RemoteAddr or header
+// values; the guard does not normalize addresses itself.
 type RateLimitChecker interface {
 	CheckCreate(sourceID string) *domain.AppError
 	CheckRedirect(sourceID string) *domain.AppError

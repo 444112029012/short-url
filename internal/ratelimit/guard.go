@@ -90,6 +90,10 @@ func NewGuard(createPerMin, redirectPerMin int) *Guard {
 }
 
 // CheckCreate consumes one create quota for sourceID or returns rate_limited.
+//
+// sourceID must be the output of ClientSource. The guard uses it verbatim as
+// the bucket key and does not normalize addresses (no IPv4-mapped folding or
+// IPv6 /64 aggregation); passing a raw address can split one client's quota.
 func (g *Guard) CheckCreate(sourceID string) *domain.AppError {
 	if g == nil {
 		return domain.RateLimited(domain.MsgTooManyRequests)
@@ -99,6 +103,10 @@ func (g *Guard) CheckCreate(sourceID string) *domain.AppError {
 
 // CheckRedirect consumes one redirect quota for sourceID or returns rate_limited.
 // The caller must invoke this before redirecting or incrementing click_count.
+//
+// sourceID must be the output of ClientSource. The guard uses it verbatim as
+// the bucket key and does not normalize addresses (no IPv4-mapped folding or
+// IPv6 /64 aggregation); passing a raw address can split one client's quota.
 func (g *Guard) CheckRedirect(sourceID string) *domain.AppError {
 	if g == nil {
 		return domain.RateLimited(domain.MsgTooManyRequests)
