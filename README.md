@@ -52,7 +52,8 @@ curl -sS http://127.0.0.1:8080/health
 
 Request rules enforced by the code:
 
-- `POST /api/v1/urls` requires `Content-Type: application/json` and a body of exactly one JSON object `{"url": "..."}`. Unknown fields, trailing JSON, an empty body, or a body over **8192 bytes** are rejected with `400 invalid_url`.
+- `POST /api/v1/urls` requires `Content-Type: application/json` and a body of exactly one JSON object `{"url": "..."}`. Unknown fields, trailing JSON, an empty body, or a body over **32768 bytes** are rejected with `400 invalid_url`; a body of exactly 32768 bytes is accepted. A source that is over its create limit gets `429 rate_limited` instead, even with an oversized body (the limit check runs first and the body is not read).
+- Request headers larger than about 20 KiB (`MaxHeaderBytes` 16384 plus the 4096 bytes of slack net/http adds) are rejected by net/http itself with `431 Request Header Fields Too Large` (`text/plain`) before the router runs.
 - `url` must be an absolute `http` or `https` URL of at most 2048 characters.
 - Short codes are 8 characters of base62 generated from `crypto/rand`.
 - A redirect sends `Location` equal to the stored `long_url` only; query strings and request headers cannot change it. Each successful redirect increments `click_count` by one.
@@ -97,7 +98,7 @@ HTTP server timeouts are fixed in code: read header 5 s, read 15 s, write 15 s, 
 
 ## HTTPS and HSTS
 
-Every response carries `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`, `X-Frame-Options: DENY`, and `Content-Security-Policy: default-src 'none'; frame-ancestors 'none'`. JSON responses also get `Cache-Control: no-store`.
+Every response carries `X-Content-Type-Options: nosniff`, `Referrer-Policy: no-referrer`, `X-Frame-Options: DENY`, and `Content-Security-Policy: default-src 'none'; frame-ancestors 'none'`. JSON responses also get `Cache-Control: no-store`. Exception: `400` and `431` responses that net/http writes itself before the request reaches the router (for example a malformed request, or request headers over about 20 KiB) are `text/plain` and carry none of these security headers.
 
 `Strict-Transport-Security: max-age=31536000` is sent only when `HSTS_ENABLED` is true **and** the request reached this process over TLS. Because `cmd/shorturl` listens on plain HTTP only, the shipped binary never sends HSTS, whatever `HSTS_ENABLED` says. When TLS ends at a reverse proxy, tunnel, or edge, HSTS has to be added there. Per SCR-010, HSTS at the proxy/edge layer is handled by operations in G5.
 
