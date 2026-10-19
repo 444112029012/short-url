@@ -3,7 +3,7 @@
 版本：v0.2
 狀態：審查中（G4-PR2-R1 補件：新增 §13 Go 實作對映；待審查部複審）
 負責角色：設計部
-最後更新：2026-10-07
+最後更新：2026-10-19
 對應需求：SEC-016, SEC-017, REQ-001～REQ-012, NFR-001, NFR-006, SEC-001～SEC-008, SEC-013～SEC-014
 專案代號：SHORTURL
 取代：06-method-specs-v0.1.md（§1～§12 規格內容不變，僅新增 §13 與表頭註記）
@@ -170,7 +170,7 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 
 | 規格方法 | 規格簽名（§1～§11） | Go 簽名（檔案:行） | ctx 用途 | 規格例外 → Go 錯誤 → 對外（HTTP／type） | 行為一致性 |
 |---|---|---|---|---|---|
-| HttpApiAdapter.handleCreate | `handleCreate(req: HttpRequest) → HttpResponse` | `func (a *HTTPAPIAdapter) HandleCreate(r *http.Request) response`（`internal/httpapi/adapter.go:77-104`） | 取 `r.Context()` 傳入 `CreateShortURL`（:87）；本身無 ctx 參數 | rate_limited→429；invalid_url→400（含 Content-Type 非 JSON、本文空／>8192 B、未知欄位、多餘 JSON：:152-175）；internal_error→500；皆經 `ErrorMapper` | 先 `CheckCreate`（:78）後解碼與建立；成功 201 `{short_code, short_url, long_url}`（:92-103）；觸發 Obs ✅ |
+| HttpApiAdapter.handleCreate | `handleCreate(req: HttpRequest) → HttpResponse` | `func (a *HTTPAPIAdapter) HandleCreate(r *http.Request) response`（`internal/httpapi/adapter.go:77-104`） | 取 `r.Context()` 傳入 `CreateShortURL`（:87）；本身無 ctx 參數 | rate_limited→429；invalid_url→400（含 Content-Type 非 JSON、本文空／>32768 B（DR-G4-01；原 8192）、未知欄位、多餘 JSON：:152-175）；internal_error→500；皆經 `ErrorMapper` | 先 `CheckCreate`（:78）後解碼與建立；成功 201 `{short_code, short_url, long_url}`（:92-103）；觸發 Obs ✅ |
 | HttpApiAdapter.handleRedirect | `handleRedirect(req) → HttpResponse` | `HandleRedirect(r *http.Request) response`（`adapter.go:108-124`） | `r.Context()` 傳入 `Redirect`（:113） | invalid_url→400；not_found→404；rate_limited→429；internal_error→500；錯誤時刪除 Location（:117） | 先 `CheckRedirect`（:109）；成功 302、Location＝`target.LongURL`（庫值，:121-123）；不讀 query／header ✅ |
 | HttpApiAdapter.handleStats | `handleStats(req) → HttpResponse` | `HandleStats(r *http.Request) response`（`adapter.go:127-141`） | `r.Context()` 傳入 `GetStats`（:128） | invalid_url→400；not_found→404；internal_error→500 | 200 `{short_code, click_count}`；不限流（符合 §1「建議可不限流」）；無寫入 ✅ |
 | ShortUrlApplicationService.createShortUrl | `createShortUrl(longUrl: string) → Result<UrlCreated, AppError>` | `func (s *ShortURLApplicationService) CreateShortURL(ctx context.Context, longURL string) (domain.URLCreated, *domain.AppError)`（`internal/application/service.go:50-97`） | 僅下傳 `repo.Exists(ctx, …)`（:67）、`repo.Save(ctx, …)`（:84） | invalid_url：validator 原樣回傳（:51-54）；internal_error：generator 失敗原樣回傳（:60-63）、Exists／Save 非衝突錯誤 `InternalWrap`（:68-70、:88）、重試耗盡 `Internal()`（:96）；`ErrConflict`／`exists=true`→重試（:71-73、:85-87），不外露 | 驗證→generate→exists→save；有限次重試上限 8（`defaultGenerateAttempts`，:13）；click_count=0（:81）；回傳 short_code／short_url（baseURL＋"/"＋code）／long_url（:90-94）✅ |
@@ -206,7 +206,7 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 | 碰撞重試上限 | 「有限次重試」 | 8 次（`exists=true` 與 `ErrConflict` 皆計一次；`service.go:13、59`） | 滿足「有限次」；耗盡→internal_error 與規格一致 |
 | 長度單位 | 長度≤2048 | Unicode 字元數（`utf8.RuneCountInString`，`validator.go:24`） | 與 OpenAPI `maxLength`（字元）、SQLite `CHECK(length(long_url) <= 2048)`（`store.go:34`）一致 |
 | 「不可解析」細化 | 不可解析→invalid_url | 另拒 ASCII 控制字元／空白（`validator.go:27-29`）、非 UTF-8（:24）、非絕對／opaque（:31）、空 host（:38-40） | 對齊 OpenAPI `long_url: format: uri`（RFC 3986 不允許未編碼空白／控制字元）；屬「不可解析」之實作細化 |
-| 建立請求本文 | Content-Type 為 JSON（前置條件） | 非 `application/json`、空本文、>8192 bytes、未知欄位、多餘 JSON 值→400 invalid_url（`adapter.go:18、152-175`） | 對齊 OpenAPI 僅定義 400 與 `additionalProperties: false` |
+| 建立請求本文 | Content-Type 為 JSON（前置條件） | 非 `application/json`、空本文、>32768 bytes（DR-G4-01 調高，原 8192；於 JSON 解碼前以 `io.LimitReader` 截斷，最多讀 32769 bytes；先 `CheckCreate` 後讀本文，已限流來源一律 429）、未知欄位、多餘 JSON 值→400 invalid_url（`adapter.go:18、152-175`；行號指 PR #2 head） | 對齊 OpenAPI 僅定義 400 與 `additionalProperties: false` |
 | ctx 來源與期限 | — | HTTP 請求 ctx（客戶端斷線／Server Shutdown 時取消）；未另設業務逾時 | 符合 GO-MAP-03 |
 
 ### 13.5 與類別圖 v0.1 之已知出入（不影響本節判定）
@@ -224,3 +224,4 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 | v0.1 | 2026-10-07 | 設計部 | 公開方法規格齊；狀態審查中 |
 | v0.1+R1 | 2026-10-07 | 設計部 | G2-QA-R1：SEC-016／017 參數化／原子寫入明文 |
 | v0.2 | 2026-10-07 | 設計部 | G4-PR2-R1（路徑 a）：新增 §13「Go 實作對映」（命名 PascalCase、`Result`→`(T, *AppError)`、`Option`→`(*T, error)`、ctx 為首參且僅傳遞取消／逾時、埠層 `error`＋`ports.ErrNotFound`／`ErrConflict` 由應用層轉 AppError）；逐方法對照 PR #2 head `2698138`；表頭加 §13 指引；§1～§12 規格內容未變。裁示見 `08-ruling-G4-PR2-R1-go-mapping-v0.1.md` |
+| v0.2+DR-G4-01 | 2026-10-19 | 研發部（依核准決策 DR-G4-01） | §13.2 handleCreate 與 §13.4「建立請求本文」：建立本文上限 8192→32768 bytes（>32768→400 invalid_url；解碼前截斷；限流先於讀本文）；另 `cmd/shorturl` 之 `http.Server.MaxHeaderBytes`＝16384。僅實作定值變更，公開方法簽名與錯誤對映不變 |
