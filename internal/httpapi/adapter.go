@@ -17,7 +17,10 @@ import (
 	"github.com/444112029012/short-url/internal/ratelimit"
 )
 
-const maxCreateBody = 8192
+// maxCreateBody is the create request body limit in bytes (DR-G4-01).
+// decodeCreate reads at most maxCreateBody+1 bytes through io.LimitReader
+// before any JSON decoding, so an oversized body is never read unbounded.
+const maxCreateBody = 32768
 
 // RateLimitChecker is the RateLimitGuard port used by the adapter.
 //
