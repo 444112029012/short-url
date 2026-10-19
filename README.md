@@ -57,7 +57,14 @@ Request rules enforced by the code:
 - Short codes are 8 characters of base62 generated from `crypto/rand`.
 - A redirect sends `Location` equal to the stored `long_url` only; query strings and request headers cannot change it. Each successful redirect increments `click_count` by one.
 
-Errors always use `{"error":{"type":"...","message":"..."}}` with one of four types: `invalid_url` (400), `not_found` (404), `rate_limited` (429), `internal_error` (500). Messages come from a fixed catalog and do not include internal details.
+Errors from the create, redirect, and stats handlers use `Content-Type: application/json` and `{"error":{"type":"...","message":"..."}}` with one of four types: `invalid_url` (400), `not_found` (404), `rate_limited` (429), `internal_error` (500). Messages come from a fixed catalog and do not include internal details.
+
+Responses produced by the router itself, before any of those handlers runs, are not JSON:
+
+- A path that matches no route returns `404` with `Content-Type: text/plain; charset=utf-8` and the body `404 page not found`. (`GET /<shortCode>` for an unknown but well-formed code is a handler error and returns the JSON `not_found` body.)
+- A known path with an unsupported method (for example `DELETE /api/v1/urls`, `GET /api/v1/urls`, or `HEAD /<shortCode>`) returns `405` with an empty body, no `Content-Type`, and an `Allow` header naming the permitted method.
+
+Both still carry the security headers listed under [HTTPS and HSTS](#https-and-hsts), but no `Cache-Control`.
 
 ## Configuration
 
