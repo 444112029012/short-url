@@ -8,6 +8,7 @@ import (
 	"strings"
 	"sync/atomic"
 	"testing"
+	"unicode/utf8"
 )
 
 // createBodyLimit is the DR-G4-01 create request body limit in bytes.
@@ -91,5 +92,32 @@ func TestRateLimitedOversizedCreateGets429WithoutReadingBody(t *testing.T) {
 	assertError(t, second, http.StatusTooManyRequests, "rate_limited")
 	if got := body.n.Load(); got != 0 {
 		t.Fatalf("rate-limited request read %d body bytes; limit check must precede body read", got)
+	}
+}
+
+// TestCreateC4aSurrogatePairEscaped2048CharsAccepted covers Security opinion
+// DR-G4-01 C4(a) / method spec §13.4.1 test (a): a url of 2048 characters
+// (runes) whose non-prefix characters are all outside the BMP (U+1F600),
+// each JSON-escaped as a surrogate pair, is accepted with 201. The prefix
+// "https://example.com/" counts toward the 2048 characters.
+func TestCreateC4aSurrogatePairEscaped2048CharsAccepted(t *testing.T) {
+	const prefix = "https://example.com/"
+	n := 2048 - utf8.RuneCountInString(prefix)
+	body := []byte(`{"url":"` + prefix + strings.Repeat(`\uD83D\uDE00`, n) + `"}`)
+	if len(body) <= 8192 || len(body) > createBodyLimit {
+		t.Fatalf("fixture body %d bytes, want 8193..%d", len(body), createBodyLimit)
+	}
+	want := prefix + strings.Repeat("\U0001F600", n)
+	if got := utf8.RuneCountInString(want); got != 2048 {
+		t.Fatalf("fixture url %d runes, want 2048", got)
+	}
+
+	srv := newServer(t)
+	res := postRawBody(srv, bytes.NewReader(body), "")
+	if res.Code != http.StatusCreated {
+		t.Fatalf("C4(a) status %d body %s", res.Code, res.Body.String())
+	}
+	if got := decodeMap(t, res.Body.Bytes())["long_url"]; got != want {
+		t.Fatal("C4(a) long_url mismatch")
 	}
 }
