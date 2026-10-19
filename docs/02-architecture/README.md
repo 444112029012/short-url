@@ -59,4 +59,4 @@ Application → Domain Ports（UrlRepository、ClickCounter）← Infrastructure
 |---|---|---|---|
 | v0.1 | 2026-10-07 | 設計部 | G2 初稿，狀態審查中 |
 | v0.1+G4R1 | 2026-10-07 | 設計部 | G4-PR2-R1：索引改指方法規格 v0.2（v0.1 標已取代）；新增裁示 `08-ruling-G4-PR2-R1-go-mapping-v0.1.md` |
-| v0.1+DR-G4-01 | 2026-10-19 | 設計部 | 索引方法規格版本改為 v0.2.2；新增簽核 `09-signoff-DR-G4-01-method-specs-v0.2.1.md` 列 |
+| v0.1+DR-G4-01 | 2026-10-19 | 設計部 | 索引方法規格版本改為 v0.2.2；新增簽核 `09-signoff-DR-G4-01-method-specs-v0.2.1.md` 列；G4-PR20：08 裁示 §五 觀察 2 補 8192→32768 後續註記（S5） |

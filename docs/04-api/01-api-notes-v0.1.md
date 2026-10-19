@@ -53,8 +53,12 @@
 | 標頭 | 期望 |
 |---|---|
 | Strict-Transport-Security | 演示／對外 HTTPS 時：max-age ≥ 31536000 |
-| X-Content-Type-Options | nosniff（API／錯誤 JSON） |
+| X-Content-Type-Options | nosniff（所有經應用之回應，含 API／錯誤 JSON） |
 | Access-Control-Allow-Origin | 若啟用 CORS，不得對敏感回應濫用未驗證 `*` |
+| Content-Security-Policy | `default-src 'none'; frame-ancestors 'none'`（實作：`internal/httpapi/security_headers.go`） |
+| X-Frame-Options | `DENY` |
+| Referrer-Policy | `no-referrer` |
+| Cache-Control | JSON 回應 `no-store` |
 | Server／框架版本 | 能關閉則不揭露細節 |
 | Location（302） | **僅**庫內已驗證 long_url（SEC-014） |
 
@@ -89,9 +93,9 @@ MVP 以 http(s) 協定與格式白名單為主控；**不**實作預覽頁（OUT
 | 限制 | 值 | 超過時 |
 |---|---|---|
 | 建立請求本文（POST /api/v1/urls） | 32768 bytes（原始位元組，含 JSON 跳脫與空白） | 400 `invalid_url`（標準錯誤信封；不回 413）。被限流請求先回 429，不讀本文 |
-| 請求標頭總大小（所有端點） | 16384 bytes（`MaxHeaderBytes`；net/http 另加 4096 B 緩衝，實際門檻約 16384＋4096 B） | **431** Request Header Fields Too Large |
+| 請求列＋請求標頭（所有端點） | 請求列（含路徑與查詢字串）＋全部標頭合計 **16384 B 以下保證接受**（`MaxHeaderBytes`）；16384～約 20480 B 不保證 | 合計超過約 20480 B（16384＋net/http 4096 B 緩衝），或標頭值（含 Host）超過 **500 個**（net/http `DefaultMaxHeaderValueCount`）→ **431** Request Header Fields Too Large |
 
-431 由 Go net/http 伺服器在讀取標頭階段、進入應用（router／ErrorMapper／安全標頭中介層）之前直接回應：`Content-Type: text/plain; charset=utf-8`，本文為純文字 `431 Request Header Fields Too Large`。**不**使用 `{error:{type,message}}` 信封、**不**帶 §5 安全標頭、**不屬** §3 四類錯誤；用戶端應依狀態碼處理，勿解析 JSON。設計依據：方法規格 v0.2.2 §13.4、§13.4.1。
+431 由 Go net/http 伺服器在讀取請求列與標頭階段、進入應用（router／ErrorMapper／安全標頭中介層）之前直接回應：`Content-Type: text/plain; charset=utf-8`，本文為純文字 `431 Request Header Fields Too Large`。**不**使用 `{error:{type,message}}` 信封、**不屬** §3 四類錯誤。源站由 net/http 直接回應，不保證帶有 §5 安全標頭；部署邊緣可能加上；用戶端不得依賴這些標頭的有無；用戶端應依狀態碼處理，勿解析 JSON。設計依據：方法規格 v0.2.2 §13.4、§13.4.1。
 
 ---
 
@@ -100,4 +104,4 @@ MVP 以 http(s) 協定與格式白名單為主控；**不**實作預覽頁（OUT
 | 版本 | 日期 | 作者 | 摘要 |
 |---|---|---|---|
 | v0.1 | 2026-10-07 | 設計部 | 錯誤／限流／標頭／殘餘風險 |
-| v0.1.1 | 2026-10-19 | 設計部 | DR-G4-01（PR #17，main `433140c`）：新增 §11 傳輸層限制（建立本文 32768 B→400 invalid_url；標頭 16384 B→431 text/plain 非信封）；§9 補長度以解碼後字元計；OpenAPI 0.1.0→0.1.1（requestBody 說明、各 operation 431、info「傳輸層限制」） |
+| v0.1.1 | 2026-10-19 | 設計部 | DR-G4-01（PR #17，main `433140c`）：新增 §11 傳輸層限制（建立本文 32768 B→400 invalid_url；標頭 16384 B→431 text/plain 非信封）；§9 補長度以解碼後字元計；OpenAPI 0.1.0→0.1.1（requestBody 說明、各 operation 431、info「傳輸層限制」）；G4-PR20 S1：§11 標頭上限改為請求列＋標頭總量（門檻約 20480 B）；S10：§5 補列實際送出之 CSP、X-Frame-Options、Referrer-Policy、Cache-Control（431 不帶，見 §11）；SCR-043：431 安全標頭改為「不保證帶有、邊緣可能加上、用戶端不得依賴」；SCR-044：標頭上限改為「16384 B 以下保證接受；超過約 20480 B 或標頭值超過 500 個回 431」 |

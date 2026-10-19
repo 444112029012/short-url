@@ -17,13 +17,21 @@ info:
     - 導向：≤120／分鐘／來源
 
     ## 傳輸層限制（DR-G4-01）
-    - 請求標頭總大小上限 16384 bytes（http.Server.MaxHeaderBytes；Go net/http 另有 4096 B 緩衝，實際門檻約 16384＋4096 B）。
-    - 超過時伺服器於進入應用前直接回 431 Request Header Fields Too Large，Content-Type: text/plain; charset=utf-8，
-      本文為純文字；不使用 {error:{type,message}} 錯誤信封、不帶安全標頭、不屬 invalid_url／not_found／rate_limited／internal_error 四類錯誤。
+    - 請求列（request line，含路徑與查詢字串）＋全部請求標頭合計 16384 B 以下保證接受；
+      合計超過約 20480 B（http.Server.MaxHeaderBytes 16384＋Go net/http 4096 B 緩衝），
+      或標頭值（header field line，含 Host）超過 500 個（net/http DefaultMaxHeaderValueCount）時回 431。
+      介於 16384 與約 20480 B 之間不保證。
+    - 431 Request Header Fields Too Large 由伺服器於進入應用前直接回應，Content-Type: text/plain; charset=utf-8，
+      本文為純文字；不使用 {error:{type,message}} 錯誤信封、不屬 invalid_url／not_found／rate_limited／internal_error 四類錯誤。
+      源站由 net/http 直接回應，不保證帶有上述安全標頭；部署邊緣可能加上；用戶端不得依賴這些標頭的有無。
       用戶端應依狀態碼處理，勿解析為 JSON。
-    - 建立請求本文上限 32768 bytes（見 POST /api/v1/urls）。
+    - 建立請求本文上限 32768 bytes（見 POST /api/v1/urls；機器可讀擴充欄位 x-max-body-bytes）。
+
+    ## 認證
+    - 無認證（OUT-03）；根層 security: [] 明示。
   contact:
     name: 設計部
+security: []
 servers:
   - url: https://shorturl.example.com
     description: 演示環境 placeholder（須 HTTPS，SEC-012）
@@ -46,6 +54,7 @@ paths:
       operationId: createShortUrl
       requestBody:
         required: true
+        x-max-body-bytes: 32768
         description: |
           本文上限 32768 bytes（以原始位元組計，含 JSON 跳脫與空白；DR-G4-01）；超過回 400 invalid_url（不回 413）。
           `url` 欄位仍 ≤2048 個 Unicode 字元（JSON 解碼後計；`\uXXXX` 跳脫與 surrogate pair 各計 1 字元）。
@@ -68,7 +77,7 @@ paths:
                 short_url: https://shorturl.example.com/Ab12Cd39
                 long_url: https://example.com/path?q=1
         '400':
-          description: 長網址驗證失敗（invalid_url）
+          description: 長網址驗證失敗（invalid_url）；亦含 Content-Type 非 application/json、本文為空或超過 32768 bytes、未知欄位、多餘 JSON 值
           content:
             application/json:
               schema:
@@ -201,7 +210,7 @@ paths:
 components:
   responses:
     HeaderTooLarge:
-      description: 傳輸層標頭過大（Request Header Fields Too Large）；由伺服器在進入應用前直接回應，非錯誤信封
+      description: 傳輸層標頭過大（Request Header Fields Too Large）：請求列＋標頭合計超過約 20480 B，或標頭值超過 500 個（16384 B 以下且 ≤500 個保證接受）；由伺服器在進入應用前直接回應，非錯誤信封；不保證帶安全標頭
       content:
         text/plain:
           schema:

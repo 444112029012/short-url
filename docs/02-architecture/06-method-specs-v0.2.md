@@ -1,7 +1,7 @@
 ---
 文件：方法規格表
 版本：v0.2.2
-狀態：審查中（§13 Go 實作對映待審查部複審）；DR-G4-01（§13.4.1）已於 2026-10-19 生效
+狀態：審查中（v0.2.2 隨設計部文件 PR #20 送審；§13 經 G4 PR #17 審查／複審，v0.2.1 已由設計部簽核，見 `09-signoff-DR-G4-01-method-specs-v0.2.1.md`）；DR-G4-01（§13.4.1）已於 2026-10-19 生效
 負責角色：設計部
 最後更新：2026-10-19
 對應需求：SEC-016, SEC-017, REQ-001～REQ-012, NFR-001, NFR-006, SEC-001～SEC-008, SEC-013～SEC-014
@@ -207,7 +207,7 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 | 長度單位 | 長度≤2048 | Unicode 字元數（`utf8.RuneCountInString`，`ValidateLongURL`） | 與 OpenAPI `maxLength`（字元）、SQLite `CHECK(length(long_url) <= 2048)`（`createTableSQL`）一致 |
 | 「不可解析」細化 | 不可解析→invalid_url | 另拒 ASCII 控制字元／空白（`hasCTLOrSpace`）、非 UTF-8、非絕對／opaque、空 host（皆於 `ValidateLongURL`） | 對齊 OpenAPI `long_url: format: uri`（RFC 3986 不允許未編碼空白／控制字元）；屬「不可解析」之實作細化 |
 | 建立請求本文 | Content-Type 為 JSON（前置條件） | 非 `application/json`、空本文、未知欄位、多餘 JSON 值→400 invalid_url（`decodeCreate`）；**本文硬上限 32768 bytes（32 KiB），超過→400 invalid_url**（`maxCreateBody`；`decodeCreate` 於 JSON 解碼前以 `io.LimitReader(body, maxCreateBody+1)` 截斷讀取，最多讀 32769 B；`HandleCreate` 先 `CheckCreate` 後 `decodeCreate`，被限流請求回 429 且不讀本文；設計裁定 DR-G4-01，見 13.4.1） | 對齊 OpenAPI 僅定義 400 與 `additionalProperties: false`；上限為傳輸層防護，不改變 `long_url` ≤2048 字元之業務規則 |
-| 標頭上限 | — | `http.Server.MaxHeaderBytes = 16384`（`cmd/shorturl/main.go` `newHTTPServer`，常數 `maxHeaderBytes`）。超過時由 `net/http` 於讀取標頭階段直接回 **431**（`Content-Type: text/plain`），不經 router、`ErrorMapper` 與安全標頭中介層；**非**錯誤信封 `{error:{type,message}}`，亦**不屬**四類穩定錯誤碼。實際觸發門檻約 16384＋4096 B（`net/http` 內建緩衝餘裕） | 傳輸層防護（安全部 DR-G4-01 意見 C3）；不在 OpenAPI 業務錯誤契約內，HTTP 契約不變 |
+| 標頭上限 | — | `http.Server.MaxHeaderBytes = 16384`（`cmd/shorturl/main.go` `newHTTPServer`，常數 `maxHeaderBytes`；未設 `MaxHeaderValueCount`，採 net/http 預設 500）。請求列（request line，含路徑與查詢字串）＋全部標頭合計 **16384 B 以下保證接受**；合計超過約 20480 B（`net/http` 讀取上限＝`MaxHeaderBytes`＋4096 B bufio 緩衝），或標頭值（header field line，含 Host）超過 **500 個**（`DefaultMaxHeaderValueCount`）時，於讀取階段直接回 **431**（`Content-Type: text/plain; charset=utf-8`），不經 router、`ErrorMapper` 與安全標頭中介層；源站不保證帶安全標頭（部署邊緣可能加上）。HTTP/1.1 行為 | 傳輸層防護（安全部 DR-G4-01 意見 C3）。431 已在 OpenAPI 0.1.1 以 `HeaderTooLarge`（text/plain）標示，不屬四類錯誤；業務錯誤契約（`ErrorResponse` 四類）不變；不破壞相容（不升 v2） |
 | ctx 來源與期限 | — | HTTP 請求 ctx（客戶端斷線／Server Shutdown 時取消）；未另設業務逾時 | 符合 GO-MAP-03 |
 
 #### 13.4.1 設計裁定 DR-G4-01：建立請求本文上限（裁定 2026-10-07；生效 2026-10-19）
@@ -215,7 +215,7 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 - **問題**：舊上限 8192 bytes 會誤拒合法輸入。`long_url` 以 Unicode 字元計上限 2048；JSON 允許任意字元以 `\uXXXX` 跳脫，用戶端程式庫（如 Go `encoding/json` 將 `&`、`<`、`>` 跳脫為 `\u0026` 等；Python `json.dumps` 預設 `ensure_ascii=True`）會使本文膨脹。研發部實測：純 & 約 12263 B、非 ASCII 跳脫約 12298 B、emoji surrogate pair 跳脫約 24544 B。
 - **理論最壞值**：每個字元最多跳脫為 12 bytes（BMP 外字元＝兩段 `\uXXXX`），2048 × 12 = 24576 B，加上 JSON 外框 `{"url":""}` 與合理空白，約 24.6 KB。
 - **裁定**：本文硬上限 **32768 bytes（32 KiB）**。高於理論最壞值約 8 KB 餘裕（容納排版空白），且為 2 的次方易於設定。超過上限→400 `invalid_url`（不新增 413／新錯誤類型，維持 OpenAPI 四類錯誤）；讀取須以硬上限截斷，不得先讀入全量再判斷。實作採 `io.LimitReader(body, maxCreateBody+1)`（安全部意見 C2 認可之等效作法，未改用 `http.MaxBytesReader`）。
-- **不變**：`long_url` ≤2048 字元、Content-Type、未知欄位、多餘 JSON 值之規則皆不變；HTTP 契約（OpenAPI）不需改版。
+- **不變**：`long_url` ≤2048 字元、Content-Type、未知欄位、多餘 JSON 值之規則皆不變；超限仍為 400 `invalid_url`。業務錯誤契約（`ErrorResponse` 四類）不變、無新增錯誤類型；不破壞相容（不升 v2）。OpenAPI 0.1.1 補記本文上限 32768 B，並以 `HeaderTooLarge`（text/plain）標示傳輸層 431，不屬四類錯誤。
 - **DoS 考量**：單請求記憶體上限由 8 KiB 升至 32 KiB；建立端點另有 30 次／分鐘／來源之速率限制，且 `HandleCreate` 先呼叫 `CheckCreate` 再呼叫 `decodeCreate`，被限流請求不讀本文。另 `http.Server.MaxHeaderBytes` 設為 16384（見 13.4「標頭上限」），標頭不再是大於本文上限之單請求記憶體面。
 - **測試**：(a) `url` 為 2048 字元（含 `https://example.com/` 前綴），其餘字元皆為 BMP 外 emoji 且全以 surrogate pair 跳脫之本文→201；(b) 32768 B＋1 之本文→400 invalid_url；(c) 2049 字元（未跳脫）→400 invalid_url；另依安全部 C4：(d) 恰好 32768 B 之合法本文不因大小被拒；(e) 被限流來源送超大本文→429。
 - **生效**：安全部複核意見 v0.1（`10-dr-g4-01-body-limit-security-opinion-v0.1`）**附條件同意**（條件 C1～C5）；C1（PR #7 ENG-011 限流先合併）已由 PR #7 滿足（main `24b8da0`）；由 PR #17 實作（`maxCreateBody` = 32768、`MaxHeaderBytes` = 16384 與上述測試），C2～C5 於該 PR 對照。本裁定自 2026-10-19 生效（PR #17 合併，merge commit `433140c`）。
@@ -236,4 +236,4 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 | v0.1+R1 | 2026-10-07 | 設計部 | G2-QA-R1：SEC-016／017 參數化／原子寫入明文 |
 | v0.2 | 2026-10-07 | 設計部 | G4-PR2-R1（路徑 a）：新增 §13「Go 實作對映」（命名 PascalCase、`Result`→`(T, *AppError)`、`Option`→`(*T, error)`、ctx 為首參且僅傳遞取消／逾時、埠層 `error`＋`ports.ErrNotFound`／`ErrConflict` 由應用層轉 AppError）；逐方法對照 PR #2 head `2698138`；表頭加 §13 指引；§1～§12 規格內容未變。裁示見 `08-ruling-G4-PR2-R1-go-mapping-v0.1.md` |
 | v0.2.1 | 2026-10-19 | 設計部（研發部草擬） | 設計裁定 DR-G4-01（2026-10-07 裁定，2026-10-19 生效）：建立請求本文硬上限 8192→32768 B，超限仍 400 invalid_url，解碼前以 `io.LimitReader` 截斷；新增 §13.4.1；§13.4 新增「標頭上限」列（`MaxHeaderBytes`＝16384，超過由 net/http 回 431）；安全部意見 v0.1 附條件同意，C1～C5 已滿足（C1：PR #7；實作：PR #17）；§13.2／§13.4 行號引用改為函式名；G4-PR17-R2：§13.2 RateLimitGuard／ObservabilityHooks 列更新為現行實作（PR #7、#11）；G4-PR17-R3：§13.3／§13.5 行號引用改為函式名；HTTP 契約不變 |
-| v0.2.2 | 2026-10-19 | 設計部 | S10：metadata 與 §13 引言之對照依據改為 main `433140c`（含 PR #7／#11／#16／#17）；S13：§13.2 RateLimitGuard 列補空 `sourceID` 使用共用鍵 `empty-source`（`emptySourceKey`）；§13.4.1 生效註記補 PR #17 merge commit `433140c`（生效日 2026-10-19 不變）；規格內容與 HTTP 契約不變（OpenAPI 0.1.1 僅補說明與 431） |
+| v0.2.2 | 2026-10-19 | 設計部 | S10：metadata 與 §13 引言之對照依據改為 main `433140c`（含 PR #7／#11／#16／#17）；S13：§13.2 RateLimitGuard 列補空 `sourceID` 使用共用鍵 `empty-source`（`emptySourceKey`）；§13.4.1 生效註記補 PR #17 merge commit `433140c`（生效日 2026-10-19 不變）；G4-PR20-R4／SCR-045：§13.4「標頭上限」列與 §13.4.1「不變」項改為「431 已在 OpenAPI 0.1.1 以 `HeaderTooLarge`（text/plain）標示，不屬四類錯誤；業務錯誤契約不變；不破壞相容（不升 v2）」——**更正**：v0.2.1 列「HTTP 契約不變」應讀作「業務錯誤契約不變、不破壞相容」，OpenAPI 已於 0.1.1 補記本文上限與 431（v0.2.1 列為已簽核歷史，保留原文）；G4-PR20 S1／SCR-044：§13.4 標頭上限改為「請求列＋標頭合計 16384 B 以下保證接受；超過約 20480 B 或標頭值超過 500 個回 431」；SCR-043：431 源站不保證帶安全標頭；G4-PR20 S4：狀態列更新；§1～§12 未動 |
