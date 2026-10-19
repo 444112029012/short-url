@@ -19,6 +19,9 @@ import (
 	"github.com/444112029012/short-url/internal/ratelimit"
 )
 
+// maxHeaderBytes caps request header size at 16 KiB (DR-G4-01 C3).
+const maxHeaderBytes = 16 << 10
+
 func main() {
 	if err := run(); err != nil {
 		log.Printf("shorturl stopped: %s", err.Error())
@@ -59,14 +62,7 @@ func run() error {
 		trusted,
 	)
 
-	srv := &http.Server{
-		Addr:              cfg.HTTPAddr,
-		Handler:           httpapi.NewRouterWithOptions(adapter, httpapi.RouterOptions{HSTS: cfg.HSTSEnabled}),
-		ReadHeaderTimeout: 5 * time.Second,
-		ReadTimeout:       15 * time.Second,
-		WriteTimeout:      15 * time.Second,
-		IdleTimeout:       60 * time.Second,
-	}
+	srv := newHTTPServer(cfg.HTTPAddr, httpapi.NewRouterWithOptions(adapter, httpapi.RouterOptions{HSTS: cfg.HSTSEnabled}))
 
 	errCh := make(chan error, 1)
 	go func() {
@@ -88,4 +84,17 @@ func run() error {
 	shutdownCtx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 	return srv.Shutdown(shutdownCtx)
+}
+
+// newHTTPServer builds the HTTP server with fixed timeouts and header cap.
+func newHTTPServer(addr string, handler http.Handler) *http.Server {
+	return &http.Server{
+		Addr:              addr,
+		Handler:           handler,
+		ReadHeaderTimeout: 5 * time.Second,
+		ReadTimeout:       15 * time.Second,
+		WriteTimeout:      15 * time.Second,
+		IdleTimeout:       60 * time.Second,
+		MaxHeaderBytes:    maxHeaderBytes,
+	}
 }
