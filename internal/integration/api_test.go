@@ -291,7 +291,7 @@ func newServer(t *testing.T) (*httptest.Server, *http.Client, string) {
 	validator := domain.NewURLValidator()
 	appSvc := application.NewShortURLApplicationService(validator, domain.NewShortCodeGenerator(), store, store, "http://localhost:8080")
 	redirectSvc := application.NewRedirectService(validator, store, store)
-	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, ratelimit.NewGuard(), httpapi.NewErrorMapper(), observability.NewHooks())
+	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, ratelimit.NewGuard(30, 120), httpapi.NewErrorMapper(), observability.NewHooks(), nil)
 	srv := httptest.NewServer(httpapi.NewRouter(adapter))
 	t.Cleanup(func() {
 		srv.Close()
