@@ -4,15 +4,18 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"log/slog"
 	"net"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"path/filepath"
 	"strings"
 	"sync"
+	"syscall"
 	"testing"
 	"time"
 
@@ -48,6 +51,12 @@ import (
 const (
 	rlCreatePath = "/api/v1/urls"
 	rlWantBody   = `{"error":{"type":"rate_limited","message":"Too many requests"}}`
+	// rlErrorLogPath is a test-only route mounted in front of the production
+	// router. It makes net/http itself write to http.Server.ErrorLog (a
+	// superfluous WriteHeader warning) so the log test proves that the
+	// ErrorLog capture path is live. Every other path goes to the
+	// production handler unchanged.
+	rlErrorLogPath = "/__test/errorlog"
 )
 
 var rlSecurityHeaders = []struct{ name, value string }{
@@ -64,9 +73,10 @@ type rlEnv struct {
 }
 
 type rlServer struct {
-	srv    *httptest.Server
-	dbPath string
-	logs   *rlLogBuffer
+	srv     *httptest.Server
+	dbPath  string
+	logs    *rlLogBuffer // observability JSON lines
+	errLogs *rlLogBuffer // http.Server.ErrorLog output
 }
 
 // rlLogBuffer is a goroutine-safe sink for the observability JSON logger.
@@ -126,14 +136,23 @@ func newRateLimitServer(t *testing.T, env rlEnv) *rlServer {
 		observability.NewHooksWithLogger(slog.New(slog.NewJSONHandler(logs, nil))),
 		trusted,
 	)
-	srv := httptest.NewUnstartedServer(httpapi.NewRouterWithOptions(adapter, httpapi.RouterOptions{HSTS: cfg.HSTSEnabled}))
-	srv.Config.ErrorLog = slog.NewLogLogger(slog.NewTextHandler(logs, nil), slog.LevelError)
+	prod := httpapi.NewRouterWithOptions(adapter, httpapi.RouterOptions{HSTS: cfg.HSTSEnabled})
+	errLogs := &rlLogBuffer{}
+	srv := httptest.NewUnstartedServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path == rlErrorLogPath {
+			w.WriteHeader(http.StatusNoContent)
+			w.WriteHeader(http.StatusNoContent) // net/http logs "superfluous response.WriteHeader"
+			return
+		}
+		prod.ServeHTTP(w, r)
+	}))
+	srv.Config.ErrorLog = slog.NewLogLogger(slog.NewTextHandler(errLogs, nil), slog.LevelError)
 	srv.Start()
 	t.Cleanup(func() {
 		srv.Close()
 		_ = store.Close()
 	})
-	return &rlServer{srv: srv, dbPath: dbPath, logs: logs}
+	return &rlServer{srv: srv, dbPath: dbPath, logs: logs, errLogs: errLogs}
 }
 
 // client returns an HTTP client whose TCP connections originate from
@@ -365,11 +384,13 @@ func TestENG011_CreateAndRedirectQuotasAreIndependent(t *testing.T) {
 // untouched.
 func TestENG011_PerSourceIsolationByPeerAddress(t *testing.T) {
 	s := newRateLimitServer(t, rlEnv{createPerMin: "2", redirectPerMin: "2"})
-	peerA := s.client(t, net.ParseIP("127.0.0.2"))
-	peerB := s.client(t, net.ParseIP("127.0.0.3"))
-	if _, err := peerA.Get(s.srv.URL + "/health"); err != nil {
-		t.Skipf("cannot bind a second loopback source address on this host: %v", err)
-	}
+	ipA, ipB := net.ParseIP("127.0.0.2"), net.ParseIP("127.0.0.3")
+	rlRequireSourceAddr(t, s, ipA, "peer A")
+	rlRequireSourceAddr(t, s, ipB, "peer B")
+	peerA := s.client(t, ipA)
+	peerB := s.client(t, ipB)
+	rlRequireHealth(t, s, peerA, "peer A")
+	rlRequireHealth(t, s, peerB, "peer B")
 	code := rlShortCode(t, s.create(t, peerA, "https://example.com/peer-a-1", nil))
 	rlShortCode(t, s.create(t, peerA, "https://example.com/peer-a-2", nil))
 	rlAssertLimited(t, "peer A create exhausted", s.create(t, peerA, "https://example.com/peer-a-3", nil))
@@ -386,6 +407,103 @@ func TestENG011_PerSourceIsolationByPeerAddress(t *testing.T) {
 	rlAssertLimited(t, "peer A redirect exhausted", s.redirect(t, peerA, code, nil))
 	if res := s.redirect(t, peerB, code, nil); res.status != http.StatusFound {
 		t.Fatalf("peer B redirect status %d, want 302", res.status)
+	}
+}
+
+// rlInCI reports whether the test runs under CI. There the source-address
+// precheck must fail closed so the SEC-007 per-peer evidence cannot vanish
+// silently (SCR-028).
+func rlInCI() bool {
+	return strings.EqualFold(os.Getenv("CI"), "true") || strings.EqualFold(os.Getenv("GITHUB_ACTIONS"), "true")
+}
+
+// rlSourceAddrUnavailable is true only for the "this host cannot use that
+// local source address" class: EADDRNOTAVAIL from bind/connect (for example
+// "bind: cannot assign requested address" on Linux or "can't assign
+// requested address" on macOS). Every other error is a real failure.
+func rlSourceAddrUnavailable(err error) bool {
+	return errors.Is(err, syscall.EADDRNOTAVAIL)
+}
+
+// rlRedactErr describes a dial or request error without the addresses that
+// net.OpError and url.Error embed: only the operation, the errno text, or
+// the error type is printed.
+func rlRedactErr(err error) string {
+	if err == nil {
+		return "<nil>"
+	}
+	op := ""
+	var opErr *net.OpError
+	if errors.As(err, &opErr) {
+		op = opErr.Op + ": "
+	}
+	var errno syscall.Errno
+	if errors.As(err, &errno) {
+		return op + errno.Error()
+	}
+	if errors.Is(err, context.DeadlineExceeded) || errors.Is(err, os.ErrDeadlineExceeded) {
+		return op + "timeout"
+	}
+	return fmt.Sprintf("%s%T", op, err)
+}
+
+// rlRequireSourceAddr dials the test server from localIP with a real TCP
+// bind. Unavailable source address: t.Fatalf under CI, t.Skipf with the
+// reason elsewhere. Any other dial error: t.Fatalf. Messages name the peer
+// label, not the address.
+func rlRequireSourceAddr(t *testing.T, s *rlServer, localIP net.IP, label string) {
+	t.Helper()
+	dialer := &net.Dialer{Timeout: 5 * time.Second, LocalAddr: &net.TCPAddr{IP: localIP}}
+	conn, err := dialer.Dial("tcp", s.srv.Listener.Addr().String())
+	if err == nil {
+		_ = conn.Close()
+		return
+	}
+	if !rlSourceAddrUnavailable(err) {
+		t.Fatalf("%s: dial from extra loopback source failed with an unexpected error: %s", label, rlRedactErr(err))
+	}
+	if rlInCI() {
+		t.Fatalf("%s: extra loopback source address unavailable under CI (CI/GITHUB_ACTIONS=true); per-source E2E must run: %s", label, rlRedactErr(err))
+	}
+	t.Skipf("%s: extra loopback source address unavailable on this host (EADDRNOTAVAIL); skipped locally only, CI fails instead: %s", label, rlRedactErr(err))
+}
+
+// rlRequireHealth confirms the bound client really reaches the server.
+// Any error or non-200 is a failure, never a skip.
+func rlRequireHealth(t *testing.T, s *rlServer, client *http.Client, label string) {
+	t.Helper()
+	res, err := client.Get(s.srv.URL + "/health")
+	if err != nil {
+		t.Fatalf("%s: /health precheck failed: %s", label, rlRedactErr(err))
+	}
+	defer res.Body.Close()
+	_, _ = io.Copy(io.Discard, res.Body)
+	if res.StatusCode != http.StatusOK {
+		t.Fatalf("%s: /health precheck status %d, want 200", label, res.StatusCode)
+	}
+}
+
+// TestENG011_SourceAddrUnavailableClassifier pins which errors may skip the
+// per-source test locally: only EADDRNOTAVAIL, also when wrapped the way
+// net.Dialer wraps it. Refused, timed-out, or other errors must not skip.
+func TestENG011_SourceAddrUnavailableClassifier(t *testing.T) {
+	wrap := func(errno syscall.Errno) error {
+		return &net.OpError{Op: "dial", Net: "tcp", Err: os.NewSyscallError("bind", errno)}
+	}
+	if !rlSourceAddrUnavailable(wrap(syscall.EADDRNOTAVAIL)) {
+		t.Fatal("wrapped EADDRNOTAVAIL must be classified as source address unavailable")
+	}
+	for _, err := range []error{
+		wrap(syscall.ECONNREFUSED),
+		wrap(syscall.EADDRINUSE),
+		wrap(syscall.ETIMEDOUT),
+		errors.New("cannot assign requested address"),
+		context.DeadlineExceeded,
+		nil,
+	} {
+		if rlSourceAddrUnavailable(err) {
+			t.Fatalf("error %v must not be classified as source address unavailable", err)
+		}
 	}
 }
 
@@ -501,6 +619,75 @@ func TestENG011_IPv6ForwardedClientsShareSlash64(t *testing.T) {
 	rlAssertLimited(t, "IPv4-mapped shares IPv4 bucket", s.create(t, proxy, "https://example.com/v4-3", xff("198.51.100.20")))
 }
 
+// TestENG011_AdjacentIPv6Slash64sDoNotShareQuota pins the aggregation
+// boundary at exactly /64 (SCR-031): 2001:db8:0:0::/64 and 2001:db8:0:1::/64
+// differ only in bit 64, so a /63 implementation would merge them and fail
+// here. The lowest and highest addresses of one /64 still share a bucket.
+func TestENG011_AdjacentIPv6Slash64sDoNotShareQuota(t *testing.T) {
+	s := newRateLimitServer(t, rlEnv{createPerMin: "1", redirectPerMin: "100", trustedCIDRs: "127.0.0.0/8"})
+	proxy := s.client(t, nil)
+	rlShortCode(t, s.create(t, proxy, "https://example.com/adj-0", xff("2001:db8:0:0::1")))
+	rlAssertLimited(t, "top of the same /64", s.create(t, proxy, "https://example.com/adj-0-top", xff("2001:db8:0:0:ffff:ffff:ffff:ffff")))
+	rlAssertLimited(t, "expanded form of the same /64", s.create(t, proxy, "https://example.com/adj-0-exp", xff("2001:0db8:0000:0000:0000:0000:0000:0002")))
+	rlShortCode(t, s.create(t, proxy, "https://example.com/adj-1", xff("2001:db8:0:1::")))
+	rlAssertLimited(t, "adjacent /64 now exhausted too", s.create(t, proxy, "https://example.com/adj-1-b", xff("2001:db8:0:1::1")))
+}
+
+// TestENG011_TrustedProxyXFFEdgeCases covers chains ClientSource resolves
+// without a right-most non-trusted entry being obvious (SCR-031). Expected
+// values follow ratelimit.ClientSource / clientFromForwarded:
+//   - every entry trusted: the right-most valid entry is the source (not the
+//     left-most, not the TCP peer, not X-Real-IP);
+//   - an unparseable entry to the right of the client is skipped, so the
+//     client to its left is still the source (X-Real-IP is not consulted
+//     because X-Forwarded-For produced a valid address);
+//   - X-Forwarded-For with no valid entry at all falls back to X-Real-IP.
+func TestENG011_TrustedProxyXFFEdgeCases(t *testing.T) {
+	const trusted = "127.0.0.0/8,10.0.0.0/8"
+	realIP := func(h http.Header, v string) http.Header {
+		h.Set("X-Real-IP", v)
+		return h
+	}
+
+	t.Run("chain entirely trusted uses right-most valid entry", func(t *testing.T) {
+		s := newRateLimitServer(t, rlEnv{createPerMin: "1", redirectPerMin: "100", trustedCIDRs: trusted})
+		proxy := s.client(t, nil)
+		rlShortCode(t, s.create(t, proxy, "https://example.com/trusted-1", xff("10.0.0.5, 10.0.0.6")))
+		// Same right-most entry: same bucket, even with a different left
+		// entry, another header line, or an X-Real-IP present.
+		rlAssertLimited(t, "same right-most trusted entry", s.create(t, proxy, "https://example.com/trusted-2", xff("10.0.0.7, 10.0.0.6")))
+		rlAssertLimited(t, "same right-most across header lines", s.create(t, proxy, "https://example.com/trusted-3", xff("10.0.0.9", "10.0.0.6")))
+		rlAssertLimited(t, "X-Real-IP ignored when XFF has a valid entry",
+			s.create(t, proxy, "https://example.com/trusted-4", realIP(xff("10.0.0.6"), "198.51.100.61")))
+		// The left-most entry and the TCP peer are separate, unused buckets.
+		rlShortCode(t, s.create(t, proxy, "https://example.com/trusted-5", xff("10.0.0.6, 10.0.0.5")))
+		rlShortCode(t, s.create(t, proxy, "https://example.com/trusted-6", nil))
+	})
+
+	t.Run("invalid entry right of the client is skipped", func(t *testing.T) {
+		s := newRateLimitServer(t, rlEnv{createPerMin: "1", redirectPerMin: "100", trustedCIDRs: trusted})
+		proxy := s.client(t, nil)
+		rlShortCode(t, s.create(t, proxy, "https://example.com/invalid-1", xff("198.51.100.9")))
+		rlAssertLimited(t, "garbage right of client", s.create(t, proxy, "https://example.com/invalid-2", xff("198.51.100.9, garbage")))
+		rlAssertLimited(t, "empty and garbage right of client, plus trusted hop",
+			s.create(t, proxy, "https://example.com/invalid-3", xff("198.51.100.9, , not-an-ip, 10.0.0.1")))
+		rlAssertLimited(t, "X-Real-IP not consulted when XFF yields the client",
+			s.create(t, proxy, "https://example.com/invalid-4", realIP(xff("198.51.100.9, garbage"), "203.0.113.61")))
+		// A different client with the same trailing garbage gets its own quota,
+		// so garbage does not collapse clients into the peer bucket.
+		rlShortCode(t, s.create(t, proxy, "https://example.com/invalid-5", xff("198.51.100.10, garbage")))
+	})
+
+	t.Run("no valid XFF entry falls back to X-Real-IP", func(t *testing.T) {
+		s := newRateLimitServer(t, rlEnv{createPerMin: "1", redirectPerMin: "100", trustedCIDRs: trusted})
+		proxy := s.client(t, nil)
+		rlShortCode(t, s.create(t, proxy, "https://example.com/fallback-1", realIP(xff("garbage, also-bad"), "198.51.100.62")))
+		rlAssertLimited(t, "X-Real-IP bucket", s.create(t, proxy, "https://example.com/fallback-2", realIP(http.Header{}, "198.51.100.62")))
+		rlShortCode(t, s.create(t, proxy, "https://example.com/fallback-3", xff("garbage")))         // peer bucket
+		rlAssertLimited(t, "peer bucket", s.create(t, proxy, "https://example.com/fallback-4", nil)) // same peer
+	})
+}
+
 // TestENG011_ConcurrentCreatesAdmitExactlyLimit fires parallel creates from
 // one source: exactly the limit succeed, the rest are 429, and the store
 // holds exactly the admitted rows.
@@ -561,9 +748,16 @@ func TestENG011_ConcurrentCreatesAdmitExactlyLimit(t *testing.T) {
 }
 
 // TestENG011_LogsDoNotContainClientAddresses drives allowed and rejected
-// traffic through direct, spoofed, and trusted-forwarded paths, then checks
-// the captured observability and server logs: rate_limited failures are
-// recorded by error_type, and no peer or forwarded address appears.
+// traffic through direct, spoofed, and trusted-forwarded paths (IPv4,
+// compressed and fully expanded IPv6), then checks the captured
+// observability lines and http.Server.ErrorLog: rate_limited failures are
+// recorded by error_type, the ErrorLog capture really received a net/http
+// message, and no peer or forwarded address appears (case-insensitive).
+//
+// ErrorLog is exercised through rlErrorLogPath, whose net/http warning
+// carries no peer address. net/http's own panic and TLS-handshake messages
+// do include the peer address; those paths are not reachable through the
+// production handler in this test and are tracked separately (SCR-030).
 func TestENG011_LogsDoNotContainClientAddresses(t *testing.T) {
 	s := newRateLimitServer(t, rlEnv{createPerMin: "1", redirectPerMin: "1", trustedCIDRs: "127.0.0.1/32"})
 	proxy := s.client(t, nil)
@@ -574,12 +768,25 @@ func TestENG011_LogsDoNotContainClientAddresses(t *testing.T) {
 		t.Fatalf("redirect status %d", res.status)
 	}
 	rlAssertLimited(t, "redirect over quota", s.redirect(t, proxy, code, fwd))
-	v6 := xff("2001:db8:77::77")
-	rlShortCode(t, s.create(t, proxy, "https://example.com/logs-v6", v6))
-	rlAssertLimited(t, "v6 create over quota", s.create(t, proxy, "https://example.com/logs-v6-2", v6))
+	rlShortCode(t, s.create(t, proxy, "https://example.com/logs-v6", xff("2001:db8:77::77")))
+	rlAssertLimited(t, "v6 expanded form over quota", s.create(t, proxy, "https://example.com/logs-v6-2",
+		xff("2001:0DB8:0077:0000:0000:0000:0000:0077")))
 	direct := http.Header{}
 	direct.Set("X-Real-IP", "192.0.2.77")
 	rlShortCode(t, s.create(t, proxy, "https://example.com/logs-real", direct))
+	lower := http.Header{}
+	lower["x-forwarded-for"] = []string{"198.51.100.78"}
+	lower["x-real-ip"] = []string{"192.0.2.78"}
+	rlShortCode(t, s.create(t, proxy, "https://example.com/logs-lower", lower))
+
+	// Make net/http write to ErrorLog, with forwarding headers on the request.
+	if res := rlDo(t, proxy, http.MethodGet, s.srv.URL+rlErrorLogPath, nil, fwd); res.status != http.StatusNoContent {
+		t.Fatalf("errorlog trigger status %d", res.status)
+	}
+	errOut := s.errLogs.String()
+	if !strings.Contains(errOut, "superfluous response.WriteHeader") {
+		t.Fatalf("http.Server.ErrorLog capture did not receive the net/http warning; got %d bytes", len(errOut))
+	}
 
 	out := s.logs.String()
 	var createLimited, redirectLimited int
@@ -603,11 +810,18 @@ func TestENG011_LogsDoNotContainClientAddresses(t *testing.T) {
 	if createLimited != 2 || redirectLimited != 1 {
 		t.Fatalf("rate_limited log events create=%d redirect=%d, want 2 and 1", createLimited, redirectLimited)
 	}
+	all := strings.ToLower(out + "\n" + errOut)
 	for _, needle := range []string{
-		"127.0.0.1", "198.51.100.", "203.0.113.", "192.0.2.", "2001:db8",
-		"X-Forwarded-For", "X-Real-Ip", "remote_addr",
+		// peer and forwarded IPv4
+		"127.0.0.", "198.51.100.", "203.0.113.", "192.0.2.",
+		// IPv6: compressed, zero-padded, fully expanded, /64 bucket key,
+		// IPv4-mapped prefix, and the 32-hex no-colon form
+		"2001:db8", "2001:0db8", "2001:0db8:0077:0000:0000:0000:0000:0077",
+		"2001:db8:77::77", "2001:db8:77::/64", "::ffff:", "20010db8",
+		// header and field names that would accompany an address
+		"x-forwarded-for", "x-real-ip", "remote_addr", "remoteaddr", "client_ip",
 	} {
-		if strings.Contains(out, needle) {
+		if strings.Contains(all, strings.ToLower(needle)) {
 			t.Fatalf("captured logs contain a forbidden value (%s)", needleLabel(needle))
 		}
 	}
