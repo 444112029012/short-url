@@ -186,16 +186,16 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 | ClickCounter.getCount | `getCount(shortCode: string) → Result<int, AppError>` | `GetCount(ctx context.Context, shortCode string) (int, error)`（`ports.ClickCounter`；`(*URLStore).GetCount`） | `QueryRowContext(ctx, countSQL, shortCode)` | not_found→`ports.ErrNotFound`；internal_error→error | 參數化、僅選 click_count（`countSQL`）✅ |
 | InMemoryOrDbUrlStore.* | 實作上列五方法 | `sqlite.URLStore`（`store.go` 之 `var _ ports.URLRepository = (*URLStore)(nil)` 等編譯期斷言實作兩介面） | 同上 | 同上 | SEC-017：DB 檔 0600、非網路監聽（`Open`）✅ |
 | ErrorMapper.toHttpResponse | `toHttpResponse(error: AppError) → HttpResponse` | `func (ErrorMapper) ToHTTPResponse(err *domain.AppError) response`（`internal/httpapi/mapper.go`） | 無 | 不拋出；nil／未知 type→internal_error 500（`ToHTTPResponse`、`statusFor`） | invalid_url→400、not_found→404、rate_limited→429、internal_error→500（`statusFor`）；message 固定目錄（`safeMessage`）✅ |
-| RateLimitGuard.checkCreate／checkRedirect | `(sourceId: string) → Result<void, AppError>` | `CheckCreate/CheckRedirect(sourceID string) *domain.AppError`（`internal/ratelimit/guard.go` `Guard`） | 無 | rate_limited（現 stub 一律放行） | 簽名一致；行為延後 ENG-011（SCR-002 追蹤，非本節範圍） |
-| ObservabilityHooks.on* | `(shortCode｜errorType: string) → void` | `OnCreateSuccess(shortCode string)` 等六方法（`internal/observability/hooks.go` `Hooks`） | 無 | 不拋出 | no-op；行為延後 ENG-012 |
+| RateLimitGuard.checkCreate／checkRedirect | `(sourceId: string) → Result<void, AppError>` | `(*Guard).CheckCreate/CheckRedirect(sourceID string) *domain.AppError`（`internal/ratelimit/guard.go`；建構子 `ratelimit.NewGuard(createPerMin, redirectPerMin int)`） | 無 | 超過門檻→`domain.RateLimited(MsgTooManyRequests)`（`rate_limited`）→429；nil `Guard` 亦回 rate_limited（fail-closed） | 每來源、每方法固定 1 分鐘窗：建立 30 次／分鐘、導向 120 次／分鐘（`NewGuard` 非正值回落此預設；`cmd/shorturl` 由 `RATE_LIMIT_CREATE_PER_MIN`／`RATE_LIMIT_REDIRECT_PER_MIN` 設定）；放行扣一次額度、拒絕不扣；單程序、不跨程序共享。`sourceID` 由 adapter 以 `ratelimit.ClientSource(r, trusted)` 產生（僅連線端為可信代理時採 X-Forwarded-For／X-Real-IP；IPv4-mapped 折疊為 IPv4、IPv6 取 /64），Guard 原樣作為 bucket key；不記錄來源位址（SEC-005）。`HandleCreate`／`HandleRedirect` 先檢查限流再解碼本文或導向。PR #7（ENG-011）實作 ✅ |
+| ObservabilityHooks.on* | `(shortCode｜errorType: string) → void` | `(*Hooks).OnCreateSuccess(shortCode string)`、`OnCreateFailure(errorType string)`、`OnRedirectSuccess`、`OnRedirectFailure`、`OnStatsSuccess`、`OnStatsFailure`（`internal/observability/hooks.go`；建構子 `NewHooks()`、`NewHooksWithLogger(*slog.Logger)`） | 無 | 不拋出、不回錯誤；記錄失敗以 `recover` 吞掉（`emit`） | 每次呼叫遞增該事件之行程內計數器（`atomic.Uint64`），並以 `log/slog` 輸出一筆 JSON 紀錄（`NewHooks` 寫 stderr）：成功含 `event`、`short_code`；失敗含 `event`、`error_type`（穩定碼）；不記錄 Authorization、Cookie、本文、長網址、客戶端 IP（SEC-005）。PR #11（ENG-012）實作 ✅ |
 
 ### 13.3 錯誤轉換總表（埠層 → 應用層 → 對外）
 
-| 來源（埠層 Go error） | 應用層轉換（檔案:行） | AppError.Type | HTTP | 對外 message |
+| 來源（埠層 Go error） | 應用層轉換（函式） | AppError.Type | HTTP | 對外 message |
 |---|---|---|---|---|
-| `ports.ErrNotFound`（FindByShortCode／IncrementAtomic／GetCount） | `domain.NotFound(MsgShortCodeNotFound)`（`redirect.go:31-32、40-42`；`service.go:107-108`） | `not_found` | 404 | Short code not found |
-| `ports.ErrConflict`（Save） | 重試，不外露（`service.go:85-87`）；達上限 8 次→`domain.Internal()`（:96） | （耗盡時）`internal_error` | 500 | An unexpected error occurred |
-| 其他非 nil error（含 ctx 取消／逾時、驅動錯誤） | `domain.InternalWrap(err)`（`service.go:69、88、110`；`redirect.go:34、43`） | `internal_error` | 500 | An unexpected error occurred |
+| `ports.ErrNotFound`（FindByShortCode／IncrementAtomic／GetCount） | `domain.NotFound(MsgShortCodeNotFound)`（`RedirectService.Redirect` 之 `FindByShortCode` 與 `IncrementAtomic` 錯誤分支；`ShortURLApplicationService.GetStats` 之 `GetCount` 錯誤分支） | `not_found` | 404 | Short code not found |
+| `ports.ErrConflict`（Save） | 重試，不外露（`ShortURLApplicationService.CreateShortURL` 之 `Save` 錯誤分支）；達上限 8 次（`defaultGenerateAttempts`）→`domain.Internal()`（`CreateShortURL` 迴圈結束後） | （耗盡時）`internal_error` | 500 | An unexpected error occurred |
+| 其他非 nil error（含 ctx 取消／逾時、驅動錯誤） | `domain.InternalWrap(err)`（`CreateShortURL` 之 `Exists`／`Save` 錯誤分支、`GetStats` 之 `GetCount` 錯誤分支；`Redirect` 之 `FindByShortCode`／`IncrementAtomic` 錯誤分支） | `internal_error` | 500 | An unexpected error occurred |
 | validator 失敗 | 原樣回傳 | `invalid_url` | 400 | URL validation failed／Invalid short code format |
 | RateLimitGuard 拒絕 | 原樣回傳（adapter 層） | `rate_limited` | 429 | Too many requests |
 
@@ -222,7 +222,7 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 
 ### 13.5 與類別圖 v0.1 之已知出入（不影響本節判定）
 
-- 類別圖 `ShortUrlApplicationService` 未列 `counter` 相依；本表 §2 `getStats` 前置條件為「counter／validator 已注入」，實作依本表注入 `ports.ClickCounter`（`service.go:25`）。
+- 類別圖 `ShortUrlApplicationService` 未列 `counter` 相依；本表 §2 `getStats` 前置條件為「counter／validator 已注入」，實作依本表注入 `ports.ClickCounter`（`ShortURLApplicationService` 之 `counter` 欄位，經 `NewShortURLApplicationService` 參數 `counter` 注入）。
 - 類別圖 `ShortCodeGenerator.generate()` 回傳 `string`；本表 §5 列 `internal_error`，實作依本表回傳 `(string, *AppError)`。
 - 以本表為準；類別圖待下次修訂對齊（非 G4 阻擋）。
 
@@ -235,4 +235,4 @@ DTO（UrlRecord、UrlCreated、UrlStats、RedirectTarget、AppError）為資料�
 | v0.1 | 2026-10-07 | 設計部 | 公開方法規格齊；狀態審查中 |
 | v0.1+R1 | 2026-10-07 | 設計部 | G2-QA-R1：SEC-016／017 參數化／原子寫入明文 |
 | v0.2 | 2026-10-07 | 設計部 | G4-PR2-R1（路徑 a）：新增 §13「Go 實作對映」（命名 PascalCase、`Result`→`(T, *AppError)`、`Option`→`(*T, error)`、ctx 為首參且僅傳遞取消／逾時、埠層 `error`＋`ports.ErrNotFound`／`ErrConflict` 由應用層轉 AppError）；逐方法對照 PR #2 head `2698138`；表頭加 §13 指引；§1～§12 規格內容未變。裁示見 `08-ruling-G4-PR2-R1-go-mapping-v0.1.md` |
-| v0.2.1 | 2026-10-19 | 設計部（研發部草擬） | 設計裁定 DR-G4-01（2026-10-07 裁定，2026-10-19 生效）：建立請求本文硬上限 8192→32768 B，超限仍 400 invalid_url，解碼前以 `io.LimitReader` 截斷；新增 §13.4.1；§13.4 新增「標頭上限」列（`MaxHeaderBytes`＝16384，超過由 net/http 回 431）；安全部意見 v0.1 附條件同意，C1～C5 已滿足（C1：PR #7；實作：PR #17）；§13.2／§13.4 行號引用改為函式名；HTTP 契約不變 |
+| v0.2.1 | 2026-10-19 | 設計部（研發部草擬） | 設計裁定 DR-G4-01（2026-10-07 裁定，2026-10-19 生效）：建立請求本文硬上限 8192→32768 B，超限仍 400 invalid_url，解碼前以 `io.LimitReader` 截斷；新增 §13.4.1；§13.4 新增「標頭上限」列（`MaxHeaderBytes`＝16384，超過由 net/http 回 431）；安全部意見 v0.1 附條件同意，C1～C5 已滿足（C1：PR #7；實作：PR #17）；§13.2／§13.4 行號引用改為函式名；G4-PR17-R2：§13.2 RateLimitGuard／ObservabilityHooks 列更新為現行實作（PR #7、#11）；G4-PR17-R3：§13.3／§13.5 行號引用改為函式名；HTTP 契約不變 |
