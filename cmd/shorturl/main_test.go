@@ -57,13 +57,20 @@ func TestNewHTTPServerRejectsOversizedHeaders(t *testing.T) {
 	if got, _ := status(1024); got != http.StatusNoContent {
 		t.Fatalf("small header status %d", got)
 	}
-	// net/http allows 4096 bytes of slack above MaxHeaderBytes; 32 KiB is well past it.
-	// The 431 is written by net/http itself (text/plain), not by the router.
-	got, ct := status(32 * 1024)
-	if got != http.StatusRequestHeaderFieldsTooLarge {
-		t.Fatalf("oversized header status %d, want 431", got)
+	// A header just under 16 KiB is still served.
+	if got, _ := status(16000); got != http.StatusNoContent {
+		t.Fatalf("16000-byte header status %d", got)
 	}
-	if !strings.HasPrefix(ct, "text/plain") {
-		t.Fatalf("431 Content-Type %q, want text/plain", ct)
+	// SCR-025: net/http adds 4096 bytes of slack above MaxHeaderBytes, so the
+	// effective cap is about 20 KiB. A ~21 KiB header and a 32 KiB header get
+	// 431, written by net/http itself (text/plain), not by the router.
+	for _, size := range []int{21 * 1024, 32 * 1024} {
+		got, ct := status(size)
+		if got != http.StatusRequestHeaderFieldsTooLarge {
+			t.Fatalf("%d-byte header status %d, want 431", size, got)
+		}
+		if !strings.HasPrefix(ct, "text/plain") {
+			t.Fatalf("%d-byte header 431 Content-Type %q, want text/plain", size, ct)
+		}
 	}
 }
