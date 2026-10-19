@@ -6,6 +6,7 @@ import (
 	"errors"
 	"io"
 	"mime"
+	"net"
 	"net/http"
 	"strings"
 
@@ -13,11 +14,16 @@ import (
 
 	"github.com/444112029012/short-url/internal/application"
 	"github.com/444112029012/short-url/internal/domain"
+	"github.com/444112029012/short-url/internal/ratelimit"
 )
 
 const maxCreateBody = 8192
 
 // RateLimitChecker is the RateLimitGuard port used by the adapter.
+//
+// Implementations receive sourceID exactly as produced by
+// ratelimit.ClientSource and must not be handed raw RemoteAddr or header
+// values; the guard does not normalize addresses itself.
 type RateLimitChecker interface {
 	CheckCreate(sourceID string) *domain.AppError
 	CheckRedirect(sourceID string) *domain.AppError
@@ -40,6 +46,7 @@ type HTTPAPIAdapter struct {
 	limiter  RateLimitChecker
 	errors   ErrorMapper
 	obs      EventHooks
+	trusted  []*net.IPNet
 }
 
 func NewHTTPAPIAdapter(
@@ -48,6 +55,7 @@ func NewHTTPAPIAdapter(
 	limiter RateLimitChecker,
 	errors ErrorMapper,
 	obs EventHooks,
+	trusted []*net.IPNet,
 ) *HTTPAPIAdapter {
 	return &HTTPAPIAdapter{
 		app:      app,
@@ -55,6 +63,7 @@ func NewHTTPAPIAdapter(
 		limiter:  limiter,
 		errors:   errors,
 		obs:      obs,
+		trusted:  trusted,
 	}
 }
 
@@ -75,7 +84,7 @@ type statsResponse struct {
 
 // HandleCreate serves POST /api/v1/urls.
 func (a *HTTPAPIAdapter) HandleCreate(r *http.Request) response {
-	if appErr := a.limiter.CheckCreate(sourceID(r)); appErr != nil {
+	if appErr := a.limiter.CheckCreate(a.sourceID(r)); appErr != nil {
 		a.obs.OnCreateFailure(string(appErr.Type))
 		return a.errors.ToHTTPResponse(appErr)
 	}
@@ -106,7 +115,7 @@ func (a *HTTPAPIAdapter) HandleCreate(r *http.Request) response {
 // HandleRedirect serves GET /{shortCode}.
 // Location is only the stored long_url. Query and header values are ignored (SEC-014).
 func (a *HTTPAPIAdapter) HandleRedirect(r *http.Request) response {
-	if appErr := a.limiter.CheckRedirect(sourceID(r)); appErr != nil {
+	if appErr := a.limiter.CheckRedirect(a.sourceID(r)); appErr != nil {
 		a.obs.OnRedirectFailure(string(appErr.Type))
 		return a.errors.ToHTTPResponse(appErr)
 	}
@@ -140,13 +149,12 @@ func (a *HTTPAPIAdapter) HandleStats(r *http.Request) response {
 	return response{status: http.StatusOK, header: jsonHeader(), body: raw}
 }
 
-func sourceID(r *http.Request) string {
-	// TODO(ENG-011): derive the client address from the peer IP, honoring
-	// TRUSTED_PROXY_CIDRS only for trusted proxies. Do not log this value.
-	if r == nil {
-		return ""
+func (a *HTTPAPIAdapter) sourceID(r *http.Request) string {
+	var trusted []*net.IPNet
+	if a != nil {
+		trusted = a.trusted
 	}
-	return r.RemoteAddr
+	return ratelimit.ClientSource(r, trusted)
 }
 
 func decodeCreate(r *http.Request) (string, *domain.AppError) {

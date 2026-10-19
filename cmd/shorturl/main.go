@@ -42,6 +42,10 @@ func run() error {
 		return err
 	}
 
+	trusted, err := ratelimit.ParseTrustedCIDRs(cfg.TrustedProxyCIDRs)
+	if err != nil {
+		return err
+	}
 	validator := domain.NewURLValidator()
 	generator := domain.NewShortCodeGenerator()
 	appSvc := application.NewShortURLApplicationService(validator, generator, store, store, cfg.BaseURL)
@@ -49,9 +53,10 @@ func run() error {
 	adapter := httpapi.NewHTTPAPIAdapter(
 		appSvc,
 		redirectSvc,
-		ratelimit.NewGuard(),
+		ratelimit.NewGuard(cfg.RateLimitCreatePerMin, cfg.RateLimitRedirectPerMin),
 		httpapi.NewErrorMapper(),
 		observability.NewHooks(),
+		trusted,
 	)
 
 	srv := &http.Server{

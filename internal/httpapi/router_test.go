@@ -34,7 +34,7 @@ func newServer(t *testing.T) http.Handler {
 	validator := domain.NewURLValidator()
 	appSvc := application.NewShortURLApplicationService(validator, domain.NewShortCodeGenerator(), store, store, "http://localhost:8080")
 	redirectSvc := application.NewRedirectService(validator, store, store)
-	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, ratelimit.NewGuard(), httpapi.NewErrorMapper(), observability.NewHooks())
+	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, ratelimit.NewGuard(30, 120), httpapi.NewErrorMapper(), observability.NewHooks(), nil)
 	return httpapi.NewRouter(adapter)
 }
 
@@ -160,7 +160,7 @@ func TestAdapterHonorsLimiterStubContract(t *testing.T) {
 	validator := domain.NewURLValidator()
 	appSvc := application.NewShortURLApplicationService(validator, domain.NewShortCodeGenerator(), store, store, "http://localhost:8080")
 	redirectSvc := application.NewRedirectService(validator, store, store)
-	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, blockingLimiter{}, httpapi.NewErrorMapper(), observability.NewHooks())
+	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, blockingLimiter{}, httpapi.NewErrorMapper(), observability.NewHooks(), nil)
 	srv := httpapi.NewRouter(adapter)
 
 	res := postURL(t, srv, "https://example.com")
@@ -192,7 +192,7 @@ func TestClosedStoreReturnsInternalError(t *testing.T) {
 	validator := domain.NewURLValidator()
 	appSvc := application.NewShortURLApplicationService(validator, domain.NewShortCodeGenerator(), store, store, "http://localhost:8080")
 	redirectSvc := application.NewRedirectService(validator, store, store)
-	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, ratelimit.NewGuard(), httpapi.NewErrorMapper(), observability.NewHooks())
+	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, ratelimit.NewGuard(30, 120), httpapi.NewErrorMapper(), observability.NewHooks(), nil)
 	res := postURL(t, httpapi.NewRouter(adapter), "https://example.com/closed")
 	assertError(t, res, http.StatusInternalServerError, "internal_error")
 }

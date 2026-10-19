@@ -84,7 +84,7 @@ func TestSecurityHeadersOn429And500(t *testing.T) {
 	validator := domain.NewURLValidator()
 	appSvc := application.NewShortURLApplicationService(validator, domain.NewShortCodeGenerator(), store, store, "http://localhost:8080")
 	redirectSvc := application.NewRedirectService(validator, store, store)
-	limited := httpapi.NewRouter(httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, blockingLimiter{}, httpapi.NewErrorMapper(), observability.NewHooks()))
+	limited := httpapi.NewRouter(httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, blockingLimiter{}, httpapi.NewErrorMapper(), observability.NewHooks(), nil))
 	tooMany := postURL(t, limited, "https://example.com/limited")
 	assertError(t, tooMany, http.StatusTooManyRequests, "rate_limited")
 	assertBaselineHeaders(t, tooMany)
@@ -96,9 +96,10 @@ func TestSecurityHeadersOn429And500(t *testing.T) {
 	closed := httpapi.NewRouter(httpapi.NewHTTPAPIAdapter(
 		application.NewShortURLApplicationService(validator, domain.NewShortCodeGenerator(), store, store, "http://localhost:8080"),
 		application.NewRedirectService(validator, store, store),
-		ratelimit.NewGuard(),
+		ratelimit.NewGuard(30, 120),
 		httpapi.NewErrorMapper(),
 		observability.NewHooks(),
+		nil,
 	))
 	internal := postURL(t, closed, "https://example.com/closed")
 	assertError(t, internal, http.StatusInternalServerError, "internal_error")
@@ -152,7 +153,7 @@ func newServerWithHSTS(t *testing.T, hsts bool) http.Handler {
 	validator := domain.NewURLValidator()
 	appSvc := application.NewShortURLApplicationService(validator, domain.NewShortCodeGenerator(), store, store, "http://localhost:8080")
 	redirectSvc := application.NewRedirectService(validator, store, store)
-	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, ratelimit.NewGuard(), httpapi.NewErrorMapper(), observability.NewHooks())
+	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, ratelimit.NewGuard(30, 120), httpapi.NewErrorMapper(), observability.NewHooks(), nil)
 	return httpapi.NewRouterWithOptions(adapter, httpapi.RouterOptions{HSTS: hsts})
 }
 
