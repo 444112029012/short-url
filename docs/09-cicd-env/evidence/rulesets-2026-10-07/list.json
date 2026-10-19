@@ -1,0 +1,40 @@
+[
+  {
+    "id": 24629854,
+    "name": "main-pr-review",
+    "target": "branch",
+    "source_type": "Repository",
+    "source": "444112029012/short-url",
+    "enforcement": "active",
+    "node_id": "RRS_lACqUmVwb3NpdG9yec5T7561zgF30l4",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/444112029012/short-url/rulesets/24629854"
+      },
+      "html": {
+        "href": "https://github.com/444112029012/short-url/rules/24629854"
+      }
+    },
+    "created_at": "2026-10-07T05:21:54.135Z",
+    "updated_at": "2026-10-07T05:21:54.186Z"
+  },
+  {
+    "id": 24629805,
+    "name": "main-required-checks",
+    "target": "branch",
+    "source_type": "Repository",
+    "source": "444112029012/short-url",
+    "enforcement": "active",
+    "node_id": "RRS_lACqUmVwb3NpdG9yec5T7561zgF30i0",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/444112029012/short-url/rulesets/24629805"
+      },
+      "html": {
+        "href": "https://github.com/444112029012/short-url/rules/24629805"
+      }
+    },
+    "created_at": "2026-10-07T05:19:23.312Z",
+    "updated_at": "2026-10-07T05:19:23.391Z"
+  }
+]

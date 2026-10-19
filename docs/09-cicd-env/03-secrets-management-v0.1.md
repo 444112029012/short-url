@@ -11,7 +11,7 @@
 # 機密管理（v0.1）
 
 > 原則：**機密永不進入 git**。版控僅允許 `.env.example` 與文件中的**明顯假值／佔位符**。  
-> CI 機密掃描門檻對齊 [`../06-security/03-ci-security-gates-v0.2.md`](../06-security/03-ci-security-gates-v0.2.md)（SEC-011：**真實機密一律擋**）。
+> CI 機密掃描門檻對齊 [`../06-security/03-ci-security-gates-v0.3.md`](../06-security/03-ci-security-gates-v0.3.md)（現行，D-07；SEC-011：**真實機密一律擋**）。
 
 ---
 
@@ -59,9 +59,9 @@
 | 允許內容 | 如 `REPLACE_ME`、`changeme-not-a-secret`、文件中的空白／星號遮罩說明；**禁止**把真實機密加入 allowlist |
 | 建議路徑 | `.gitleaks.toml` 或 `.gitleaksignore`（實作時擇一；放 repo 根目錄） |
 | 審核 | **新增／修改 allowlist 須安全部審核**並留 PR 紀錄；指向門檻文件例外條款 |
-| 禁止 | 關閉整條機密掃描規則；以編碼／更名繞過掃描（門檻 §5） |
+| 禁止 | 關閉整條機密掃描規則；以編碼／更名繞過掃描（門檻 v0.3 §12「禁止事項」） |
 
-例外流程：不得無紀錄關閉規則 → 見 [`../06-security/03-ci-security-gates-v0.2.md`](../06-security/03-ci-security-gates-v0.2.md) 與 [`01-ci-pipeline-v0.1.md`](./01-ci-pipeline-v0.1.md) §8。
+例外流程：不得無紀錄關閉規則 → 見 [`../06-security/03-ci-security-gates-v0.3.md`](../06-security/03-ci-security-gates-v0.3.md) §6 與 [`01-ci-pipeline-v0.2.md`](./01-ci-pipeline-v0.2.md) §8。
 
 ---
 
@@ -130,7 +130,7 @@ id_rsa.*
 | （建議）GitHub secret scanning＋push protection | 推送前／後雙層防護 |
 | Allowlist 變更 | 須安全部審核；變更本身可被 gitleaks 設定檔 diff 審查 |
 
-流水線設計見 [`01-ci-pipeline-v0.1.md`](./01-ci-pipeline-v0.1.md)。
+流水線設計見 [`01-ci-pipeline-v0.2.md`](./01-ci-pipeline-v0.2.md)。
 
 ---
 
@@ -140,3 +140,4 @@ id_rsa.*
 |---|---|---|---|
 | v0.1 | 2026-10-07 | 維運部 | G3：存放、分類、allowlist、輪替、gitignore、禁止事項 |
 | v0.1.1 | 2026-10-07 | 維運部 | 一致性簽核：門檻引用改指 `03-ci-security-gates-v0.2.md`；job／阻擋語意未放寬 |
+| v0.1.2 | 2026-10-07 | 維運部 | 引用同步（檔名與 frontmatter 維持 v0.1，沿用本檔 v0.1.1 列之小版號慣例）：CI 資安門檻引用由 `03-ci-security-gates-v0.2.md` 改指現行 `03-ci-security-gates-v0.3.md`（v0.2 已由 v0.3 取代，D-07；禁止事項改引 §12、例外改引 §6）；流水線引用改指 `01-ci-pipeline-v0.2.md`；內容與阻擋語意未變 |
