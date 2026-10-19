@@ -87,6 +87,9 @@ func run() error {
 }
 
 // newHTTPServer builds the HTTP server with fixed timeouts and header cap.
+// net/http adds 4096 bytes of slack to MaxHeaderBytes, so the effective
+// request-header cap is about 16384+4096 = 20480 bytes (about 20 KiB).
+// Past it, net/http replies 431 (text/plain) before the router runs.
 func newHTTPServer(addr string, handler http.Handler) *http.Server {
 	return &http.Server{
 		Addr:              addr,
