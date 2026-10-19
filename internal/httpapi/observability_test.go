@@ -50,7 +50,7 @@ func TestUT_OBS_01_AdapterCallsHooks(t *testing.T) {
 	path := filepath.Join(t.TempDir(), "obs.db")
 	store := openStore(t, path)
 	hooks := &recHooks{}
-	srv := routerWith(t, store, ratelimit.NewGuard(), hooks)
+	srv := routerWith(t, store, ratelimit.NewGuard(30, 120), hooks)
 
 	created := postURL(t, srv, "https://example.com/obs")
 	if created.Code != http.StatusCreated {
@@ -120,7 +120,7 @@ func TestUT_OBS_01_LogsOmitSensitiveValues(t *testing.T) {
 	store := openStore(t, path)
 	var buf bytes.Buffer
 	hooks := observability.NewHooksWithLogger(slog.New(slog.NewJSONHandler(&buf, nil)))
-	srv := routerWith(t, store, ratelimit.NewGuard(), hooks)
+	srv := routerWith(t, store, ratelimit.NewGuard(30, 120), hooks)
 
 	payload, err := json.Marshal(map[string]string{"url": longURL})
 	if err != nil {
@@ -195,6 +195,6 @@ func routerWith(t *testing.T, store *sqlite.URLStore, limiter httpapi.RateLimitC
 	validator := domain.NewURLValidator()
 	appSvc := application.NewShortURLApplicationService(validator, domain.NewShortCodeGenerator(), store, store, "http://localhost:8080")
 	redirectSvc := application.NewRedirectService(validator, store, store)
-	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, limiter, httpapi.NewErrorMapper(), hooks)
+	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, limiter, httpapi.NewErrorMapper(), hooks, nil)
 	return httpapi.NewRouter(adapter)
 }
