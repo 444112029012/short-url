@@ -60,8 +60,9 @@ type observed struct {
 }
 
 // newHeaderServer wires the same stack as main: config-driven RouterOptions,
-// NewRouterWithOptions, the 5-arg adapter with main's NewGuard(), and a temp
-// SQLite store. useTLS selects httptest.NewTLSServer.
+// NewRouterWithOptions, the 6-arg adapter with main's default limits
+// NewGuard(30, 120) and nil trusted proxies, and a temp SQLite store.
+// useTLS selects httptest.NewTLSServer.
 func newHeaderServer(t *testing.T, opts httpapi.RouterOptions, useTLS bool) (*httptest.Server, *http.Client) {
 	t.Helper()
 	store, err := sqlite.Open(filepath.Join(t.TempDir(), "headers.db"))
@@ -75,7 +76,7 @@ func newHeaderServer(t *testing.T, opts httpapi.RouterOptions, useTLS bool) (*ht
 	validator := domain.NewURLValidator()
 	appSvc := application.NewShortURLApplicationService(validator, domain.NewShortCodeGenerator(), store, store, "http://localhost:8080")
 	redirectSvc := application.NewRedirectService(validator, store, store)
-	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, ratelimit.NewGuard(), httpapi.NewErrorMapper(), observability.NewHooks())
+	adapter := httpapi.NewHTTPAPIAdapter(appSvc, redirectSvc, ratelimit.NewGuard(30, 120), httpapi.NewErrorMapper(), observability.NewHooks(), nil)
 	handler := httpapi.NewRouterWithOptions(adapter, opts)
 	var srv *httptest.Server
 	if useTLS {
