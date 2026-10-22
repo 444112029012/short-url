@@ -1,11 +1,11 @@
 ---
 文件：main 分支 Rulesets 設定步驟（D-08 方案 A）
-版本：v0.1
+版本：v0.1.1
 狀態：已完成（使用者於 2026-10-07 設定；ruleset 24629805 main-required-checks、24629854 main-pr-review；舊 classic 保護與舊 ruleset main 已刪；證據 `evidence/rulesets-snapshot-2026-10-07.md`）
 負責角色：維運部
-最後更新：2026-10-07
+最後更新：2026-10-19
 專案代號：SHORTURL
-對應：D-08、RR-006、09-cr-ci-deviations-ruling-v0.1、01-ci-pipeline-v0.2 §5.2；ENG-020；NFR-004（SI-05）；SEC-009、SEC-010、SEC-011
+對應：D-08、D-10、RR-006、09-cr-ci-deviations-ruling-v0.1、01-ci-pipeline-v0.2 §5.2；ENG-020；NFR-004（SI-05）；SEC-009、SEC-010、SEC-011
 ---
 
 # main 分支 Rulesets 設定步驟
@@ -37,7 +37,9 @@
      - `unit-test`
      
      若每項旁邊可選來源，選 **GitHub Actions**。
-     「Require branches to be up to date before merging」與「Do not require status checks on creation」**都不要勾**。
+     ✅ **要勾**「Require branches to be up to date before merging」（D-10 起）；「Do not require status checks on creation」**不要勾**。
+
+     > **D-10 更新（v0.1.1）**：本指引 v0.1 原寫「Require branches to be up to date before merging」與「Do not require status checks on creation」**都不要勾**，為 D-10 前的設定（`strict_required_status_checks_policy=false`，見 [`evidence/rulesets-snapshot-2026-10-07.md`](./evidence/rulesets-snapshot-2026-10-07.md)）。自 D-10（2026-10-07 14:33，UTC+8）起，規則一已改為 **strict=true**（要求分支為最新），取證見 [`evidence/ruleset-strict-true-d10-2026-10-07.md`](./evidence/ruleset-strict-true-d10-2026-10-07.md)。日後重建規則一時，請勾選「Require branches to be up to date before merging」；「Do not require status checks on creation」維持不勾。
    - ❌ **不要**勾 Require a pull request before merging（放在規則二）。
 7. 按最下方 **Create**。
 
@@ -87,3 +89,4 @@
 |---|---|---|---|
 | v0.1 | 2026-10-07 | 維運部 | D-08 方案 A 設定步驟（待使用者操作） |
 | v0.1 | 2026-10-07 | 維運部 | 狀態同步（依 G4-PR3-R3）：狀態改「已完成」，記錄 ruleset 24629805／24629854、舊 classic 與舊 ruleset `main` 已刪，指向 `evidence/rulesets-snapshot-2026-10-07.md`；對應補 ENG-020、NFR-004、SEC-009～011；新增修訂紀錄節 |
+| v0.1.1 | 2026-10-19 | 維運部 | 依 G4-PR13 審查建議 S3：規則一步驟改為勾選「Require branches to be up to date before merging」（D-10；「Do not require status checks on creation」維持不勾），並加註 D-10（2026-10-07 14:33，UTC+8）起規則一 strict=true，見 `evidence/ruleset-strict-true-d10-2026-10-07.md`；v0.1 內容為 D-10 前設定；小版修訂不改檔名 |
