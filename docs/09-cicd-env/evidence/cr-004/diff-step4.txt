@@ -1,0 +1,8 @@
+45c45
+<         "dismiss_stale_reviews_on_push": false,
+---
+>         "dismiss_stale_reviews_on_push": true,
+48c48
+<         "require_last_push_approval": false,
+---
+>         "require_last_push_approval": true,

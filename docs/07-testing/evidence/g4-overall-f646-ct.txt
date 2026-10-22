@@ -1,0 +1,49 @@
+=== RUN   TestCT_CREATE_01_CreateReturns201CreateUrlResponse
+{"time":"2026-10-22T15:10:29.777394813+08:00","level":"INFO","msg":"create_success","event":"create_success","short_code":"x31bZIyl"}
+--- PASS: TestCT_CREATE_01_CreateReturns201CreateUrlResponse (0.01s)
+=== RUN   TestCT_CREATE_02_InvalidURLReturns400InvalidURL
+{"time":"2026-10-22T15:10:29.779271278+08:00","level":"INFO","msg":"create_failure","event":"create_failure","error_type":"invalid_url"}
+{"time":"2026-10-22T15:10:29.779323221+08:00","level":"INFO","msg":"create_failure","event":"create_failure","error_type":"invalid_url"}
+{"time":"2026-10-22T15:10:29.779343265+08:00","level":"INFO","msg":"create_failure","event":"create_failure","error_type":"invalid_url"}
+{"time":"2026-10-22T15:10:29.779390957+08:00","level":"INFO","msg":"create_failure","event":"create_failure","error_type":"invalid_url"}
+--- PASS: TestCT_CREATE_02_InvalidURLReturns400InvalidURL (0.00s)
+=== RUN   TestCT_REDIR_01_RedirectReturns302WithLocation
+{"time":"2026-10-22T15:10:29.782486656+08:00","level":"INFO","msg":"create_success","event":"create_success","short_code":"T3bb8t9L"}
+{"time":"2026-10-22T15:10:29.783067895+08:00","level":"INFO","msg":"redirect_success","event":"redirect_success","short_code":"T3bb8t9L"}
+--- PASS: TestCT_REDIR_01_RedirectReturns302WithLocation (0.00s)
+=== RUN   TestCT_REDIR_02_UnknownCodeReturns404NotFound
+{"time":"2026-10-22T15:10:29.784274008+08:00","level":"INFO","msg":"redirect_failure","event":"redirect_failure","error_type":"not_found"}
+--- PASS: TestCT_REDIR_02_UnknownCodeReturns404NotFound (0.00s)
+=== RUN   TestCT_STATS_01_StatsReturns200UrlStatsResponse
+{"time":"2026-10-22T15:10:29.785820767+08:00","level":"INFO","msg":"create_success","event":"create_success","short_code":"bwUmIyaV"}
+{"time":"2026-10-22T15:10:29.786224555+08:00","level":"INFO","msg":"redirect_success","event":"redirect_success","short_code":"bwUmIyaV"}
+{"time":"2026-10-22T15:10:29.786281849+08:00","level":"INFO","msg":"stats_success","event":"stats_success","short_code":"bwUmIyaV"}
+--- PASS: TestCT_STATS_01_StatsReturns200UrlStatsResponse (0.00s)
+=== RUN   TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields
+=== RUN   TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/invalid_url/create
+{"time":"2026-10-22T15:10:29.78736439+08:00","level":"INFO","msg":"create_failure","event":"create_failure","error_type":"invalid_url"}
+=== RUN   TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/invalid_url/redirect_bad_code
+{"time":"2026-10-22T15:10:29.788448888+08:00","level":"INFO","msg":"redirect_failure","event":"redirect_failure","error_type":"invalid_url"}
+=== RUN   TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/invalid_url/stats_bad_code
+{"time":"2026-10-22T15:10:29.790320961+08:00","level":"INFO","msg":"stats_failure","event":"stats_failure","error_type":"invalid_url"}
+=== RUN   TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/not_found/redirect
+{"time":"2026-10-22T15:10:29.791475294+08:00","level":"INFO","msg":"redirect_failure","event":"redirect_failure","error_type":"not_found"}
+=== RUN   TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/not_found/stats
+{"time":"2026-10-22T15:10:29.792537654+08:00","level":"INFO","msg":"stats_failure","event":"stats_failure","error_type":"not_found"}
+=== RUN   TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/rate_limited/create
+{"time":"2026-10-22T15:10:29.793662873+08:00","level":"INFO","msg":"create_failure","event":"create_failure","error_type":"rate_limited"}
+=== RUN   TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/rate_limited/redirect
+{"time":"2026-10-22T15:10:29.794793943+08:00","level":"INFO","msg":"redirect_failure","event":"redirect_failure","error_type":"rate_limited"}
+=== RUN   TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/internal_error/create
+{"time":"2026-10-22T15:10:29.795891649+08:00","level":"INFO","msg":"create_failure","event":"create_failure","error_type":"internal_error"}
+--- PASS: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields (0.01s)
+    --- PASS: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/invalid_url/create (0.00s)
+    --- PASS: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/invalid_url/redirect_bad_code (0.00s)
+    --- PASS: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/invalid_url/stats_bad_code (0.00s)
+    --- PASS: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/not_found/redirect (0.00s)
+    --- PASS: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/not_found/stats (0.00s)
+    --- PASS: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/rate_limited/create (0.00s)
+    --- PASS: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/rate_limited/redirect (0.00s)
+    --- PASS: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/internal_error/create (0.00s)
+PASS
+ok  	github.com/444112029012/short-url/internal/httpapi	0.031s
