@@ -1,9 +1,10 @@
 # G4 整體關卡證據清單（R3）
 
 - 日期：2026-10-22（台北時間）；base main f646beeb25eec7a20b358df0af88450c76a85af5
-- 下列檔案自本機工作稿複製入庫，複製後重算 sha256，皆與本機原檔一致。
+- 本 PR 共變動 71 檔＝原樣收錄 65 檔＋新增／修訂 5 檔＋本清單 1 檔（CR-003 簽核紀錄入庫時有追記，列於第二節；本機原檔 sha256 aa646c8008cf1299a0b9b81ce3f48b0d6e08526a31f7eab8952cbb373547e4dd）。
+- 原樣收錄檔複製後重算 sha256，皆與本機原檔一致。
 
-## 一、原樣收錄（共 62 檔）
+## 一、原樣收錄（共 65 檔）
 
 | 路徑 | sha256 |
 |---|---|
@@ -32,6 +33,7 @@
 | docs/07-testing/evidence/g4-overall-f646-race.txt | 42f375378befa50f51b9255f994c4bde7e54a00b04804f0d78d86abdca21ad86 |
 | docs/07-testing/evidence/g4-overall-f646-test.json | 71353d9a8d74dea36ca6fb9916b07cfd93bfba0f6f2dafcd50e0867a5bcb89a7 |
 | docs/07-testing/evidence/g4-overall-f646-vet.txt | 00a5f1d995f1697b6f134bcca3e00d503345a5241662ca72a16f8b0ac5768294 |
+| docs/07-testing/evidence/pr26-ct-run.txt | 3209871dd317775c79574f3ecc5750375dedf8553bf4cf7d2f007066431fc1bd |
 | docs/09-cicd-env/evidence/cr-004/805-after.json | ba4cad93614911f45d7bf21fe7db94f265c8f5817e8716e6a163906c596b7984 |
 | docs/09-cicd-env/evidence/cr-004/805-before.json | ba4cad93614911f45d7bf21fe7db94f265c8f5817e8716e6a163906c596b7984 |
 | docs/09-cicd-env/evidence/cr-004/ac1-5-record-v0.1.md | 1e12b7f3ac25b05ca2dfe802d11c2c42b242fd0a7d60e44c05599482bd0529b1 |
@@ -60,22 +62,25 @@
 | docs/09-cicd-env/evidence/cr-004/ui-screenshot-2.png | 368c9e7ef7b360a00b747b97c8061fc809dcd4eb698db4548c8114586976db29 |
 | docs/09-cicd-env/evidence/cr-004/ui-screenshot.png | c8d1f4ebdb6061cf449a56e1ffe1f6504b1682747688e5daf603579b15251260 |
 | docs/99-changelog/CR-003-branch-docs-exception-v0.1.md | c55ad3ca7c97497e07c84cfce2503bc74063bdff9de6a7692b3a6604d44f57b2 |
-| docs/99-changelog/CR-003-signoff-record-v0.1.md | aa646c8008cf1299a0b9b81ce3f48b0d6e08526a31f7eab8952cbb373547e4dd（本機原檔；入庫版已追記 R10 結案，見二） |
 | docs/99-changelog/CR-004-ruleset-stale-approval-v0.3.md | eae83378ea0234b936714803fcf9a93515ef72fd9aa36b5c0891c7401ded7ed4 |
 | docs/99-changelog/CR-004-signoff-record-v0.2.md | 27f28c2a77c78e8019b4dade155c12d260fb911782fc3a90d40d1bc38e0947f6 |
+| docs/gates/gate-G3-2026-10-07-recheck-01.md | 64a57ef6a7f16507bb28c653f96cb6fae67dec42646377779f9a5608dccb87a7 |
 | docs/gates/gate-G4-PR24-2026-10-22-recheck-01.md | 13067c45ac74cf7ef3302a39510174289dbe6898b67e9873d709023f46569ee8 |
 | docs/gates/gate-G4-PR24-2026-10-22-recheck-02.md | 9a00e133b1ad44e518054f13c6caed36f78f272c730ba86d7db0ec1ab6e4649c |
 | docs/gates/gate-G4-PR25-2026-10-22-recheck-01.md | f83d1ed8ef1d5e672a084c76b8da452005eff5c79e0d5f4c5d38ccc729b2bc19 |
 | docs/gates/gate-G4-PR26-2026-10-22-recheck-01.md | 1460233ed1baf7914da8b44a44641fc7584b9799df27b0dfeb1c571076ce703d |
 | docs/gates/gate-G4-overall-2026-10-22.md | 01648257a04a43be4f01738db304d74d12e4aeea8b434a20ef8eeb93f7cb9446 |
 | docs/gates/gate-G4-overall-submission-2026-10-22-v0.1.md | 1ee9355c27ff2489f3e5e2288ad7900153ca13aa74b751da276c6adee5782669 |
+| docs/gates/review-CR-003-2026-10-22.md | e3618d13f810c77d5048732536a86e33da0fa21667e3f021cc181cd89a170b91 |
+| docs/gates/review-CR-004-2026-10-22.md | 325b9c6269ce6fdeb48ee3e4bb0e41ed7919776be9343bab43205576c0a43f15 |
 
-## 二、本 PR 新增或修訂（非原樣複製）
+## 二、本 PR 新增或修訂（非原樣複製，共 6 檔含本清單）
 
 | 路徑 | sha256 | 說明 |
 |---|---|---|
-| docs/gates/gate-G4-overall-submission-2026-10-22-v0.2.md | cef5dd7e4692b9f8dfcadf9b4d2704aebd0b36f7586ade060fdcf0c834d54162 | 新版送審（R4／R5） |
-| docs/99-changelog/decision-log.md | acdc4e316931c72e39f286e611d0cdc3842226fef3de7bcd90fa4541df3b1529 | 以本機版為底（補 CR-003、D-15、D-16 列）並追記 D-15 確認、D-17 |
+| docs/gates/gate-G4-overall-submission-2026-10-22-v0.2.md | 259486ace97d921f737f0eb9b23ce558df95d34ac0c45fc59d8c45898b36de79 | 新版送審（R4／R5；S4 修正） |
+| docs/99-changelog/decision-log.md | acdc4e316931c72e39f286e611d0cdc3842226fef3de7bcd90fa4541df3b1529 | 以本機版為底並追記 D-15 確認、D-17 |
 | docs/99-changelog/CR-003-signoff-record-v0.1.md | 82b9a00b421ddd3188d256d887fdd3b1d96ac22382edcd4f5e4a727aa552f21e | 追記 CR-003 R10 結案 |
 | docs/08-engineering/01-task-breakdown-v0.1.md | e3133b354ae02828ddecb64f79082bdea24ac4c4dc9fb248ce5fa17645262b43 | 檔頭補標已簽核（D-15） |
 | docs/08-engineering/02-branch-commit-conventions-v0.1.md | 4843a3213332a927fc2158b4c49dcdf4006b6739fa208b9ba052da511dd887a7 | 檔頭補標已簽核（D-15） |
+| docs/gates/G4-overall-evidence-manifest.md | （本檔，無法自列雜湊；以 PR head commit 之 blob 為準） | 本清單 |

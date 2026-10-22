@@ -17,7 +17,7 @@
 | 6 | 介面變更同步 OpenAPI 與文件 | #24 README 431 措辭對齊 API 說明；#26 補契約測試 | `06-security/20-*`、`06-security/27-*` |
 | 7 | 符合 commit 規範與 DoD | 符合；#24 以 admin bypass 合併，已於 2026-10-22 16:35（台北時間）由使用者追認（原話見 §9 R4） | `07-testing/08-definition-of-done-v0.1.md`、`09-cicd-env/evidence/cr-004/pr24-merge-record-v0.2.md` |
 
-前置：CI 全綠（§3）；安全審查無未解決阻擋項（§5）。目前無開啟中的 PR（`gh pr list --state open` 空，已核實）。
+前置：CI 全綠（§3）；安全審查無未解決阻擋項（§5）。除本 PR 外，目前無開啟中的 PR（`gh pr list --state open` 核實）。
 
 ## 2. 本輪已合併 PR 對照表（gh 核實）
 
