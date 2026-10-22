@@ -1,0 +1,5 @@
+取得時間：2026-10-22 15:10～15:16（UTC+8）
+工作目錄：/workspace/tmp/qa-g4-f646（gh repo clone 後 detached @ f646beeb25eec7a20b358df0af88450c76a85af5）
+go version：go1.27.3 linux/amd64（CI 釘 1.27.2，CI 證據以 run 39737480926 為準）
+指令：go vet ./...；go test ./... -count=1 -json；go test ./... -race -count=1；go test ./internal/httpapi/ -run CT -v -count=1；go test ./... -cover -count=1；go test ./... -coverpkg=./... -coverprofile
+DEF-005 突變（暫存複本，已刪除）：openapi.yaml L288 enum 加 gone → CT 仍 14 PASS（ok）
