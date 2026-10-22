@@ -10,6 +10,8 @@
 
 # 方法規格表
 
+> **注意**：G4-PR2-R1 起請以 [06-method-specs-v0.2.md](./06-method-specs-v0.2.md) 為準（§1～§12 內容相同，新增 §13「Go 實作對映」）。本檔保留為 v0.1 歷史版。
+
 > 欄位：類別｜方法｜職責｜輸入參數｜回傳｜例外／錯誤｜前置條件｜後置條件｜對應 REQ／NFR／SEC｜備註  
 > 型別為語言中立偽碼。穩定錯誤碼：`invalid_url`｜`not_found`｜`rate_limited`｜`internal_error`。
 
