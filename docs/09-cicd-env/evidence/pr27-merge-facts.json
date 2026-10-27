@@ -1,0 +1,186 @@
+{
+  "collected_at": "2026-10-27 (Asia/Taipei, UTC+8)",
+  "note": "gh 原始輸出彙整；本檔不判定是否 bypass",
+  "commands": {
+    "gh pr view 27 -R 444112029012/short-url --json number,state,reviewDecision,reviews,mergedBy,mergedAt,mergeCommit,headRefOid,baseRefName": {
+      "baseRefName": "main",
+      "headRefOid": "a4276fbaf20a0540d2e0b93a0c7af44aadd490c1",
+      "mergeCommit": {
+        "oid": "2425129b2384d6a8b2c158691e8e4d3076369164"
+      },
+      "mergedAt": "2026-10-27T00:56:42Z",
+      "mergedBy": {
+        "id": "U_kgDOCJh6HQ",
+        "is_bot": false,
+        "login": "444112029012",
+        "name": "YSW"
+      },
+      "number": 27,
+      "reviewDecision": "REVIEW_REQUIRED",
+      "reviews": [],
+      "state": "MERGED"
+    },
+    "gh api repos/444112029012/short-url/pulls/27/reviews": [],
+    "gh api repos/444112029012/short-url/rulesets/rule-suites?ref=refs/heads/main&time_period=week": [
+      {
+        "id": 4737651192,
+        "actor_id": 144210461,
+        "actor_name": "444112029012",
+        "before_sha": "f646beeb25eec7a20b358df0af88450c76a85af5",
+        "after_sha": "2425129b2384d6a8b2c158691e8e4d3076369164",
+        "ref": "refs/heads/main",
+        "repository_id": 1408212661,
+        "repository_name": "short-url",
+        "pushed_at": "2026-10-27T08:56:41+08:00",
+        "result": "bypass"
+      },
+      {
+        "id": 4657615860,
+        "actor_id": 144210461,
+        "actor_name": "444112029012",
+        "before_sha": "d0749f57038aa0f56e4fa26b2c2b3c97ceb71265",
+        "after_sha": "f646beeb25eec7a20b358df0af88450c76a85af5",
+        "ref": "refs/heads/main",
+        "repository_id": 1408212661,
+        "repository_name": "short-url",
+        "pushed_at": "2026-10-22T14:59:54+08:00",
+        "result": "bypass"
+      },
+      {
+        "id": 4657196272,
+        "actor_id": 144210461,
+        "actor_name": "444112029012",
+        "before_sha": "5084d6a95a0ac1d1a3884e990089fa742822c3b1",
+        "after_sha": "d0749f57038aa0f56e4fa26b2c2b3c97ceb71265",
+        "ref": "refs/heads/main",
+        "repository_id": 1408212661,
+        "repository_name": "short-url",
+        "pushed_at": "2026-10-22T14:29:19+08:00",
+        "result": "bypass"
+      },
+      {
+        "id": 4656797461,
+        "actor_id": 144210461,
+        "actor_name": "444112029012",
+        "before_sha": "2a0281934aec6aa74d3f1ccd9c6b2635d698d4e5",
+        "after_sha": "5084d6a95a0ac1d1a3884e990089fa742822c3b1",
+        "ref": "refs/heads/main",
+        "repository_id": 1408212661,
+        "repository_name": "short-url",
+        "pushed_at": "2026-10-22T13:59:48+08:00",
+        "result": "bypass"
+      },
+      {
+        "id": 4655565191,
+        "actor_id": 144210461,
+        "actor_name": "444112029012",
+        "before_sha": "363f1692e56228b39c70c4dfe1da58976a3c9871",
+        "after_sha": "2a0281934aec6aa74d3f1ccd9c6b2635d698d4e5",
+        "ref": "refs/heads/main",
+        "repository_id": 1408212661,
+        "repository_name": "short-url",
+        "pushed_at": "2026-10-22T12:09:18+08:00",
+        "result": "bypass"
+      },
+      {
+        "id": 4653668781,
+        "actor_id": 144210461,
+        "actor_name": "444112029012",
+        "before_sha": "db51cd53d775c398dc2fbfcd9892f2052ba9bf36",
+        "after_sha": "363f1692e56228b39c70c4dfe1da58976a3c9871",
+        "ref": "refs/heads/main",
+        "repository_id": 1408212661,
+        "repository_name": "short-url",
+        "pushed_at": "2026-10-22T09:08:42+08:00",
+        "result": "bypass"
+      },
+      {
+        "id": 4653533182,
+        "actor_id": 144210461,
+        "actor_name": "444112029012",
+        "before_sha": "abbec9ebd4ef18ddbfb7f0b9f7cfeba8f7ba9326",
+        "after_sha": "db51cd53d775c398dc2fbfcd9892f2052ba9bf36",
+        "ref": "refs/heads/main",
+        "repository_id": 1408212661,
+        "repository_name": "short-url",
+        "pushed_at": "2026-10-22T08:57:03+08:00",
+        "result": "bypass"
+      }
+    ],
+    "gh api repos/444112029012/short-url/rulesets/rule-suites/4737651192": {
+      "id": 4737651192,
+      "actor_id": 144210461,
+      "actor_name": "444112029012",
+      "before_sha": "f646beeb25eec7a20b358df0af88450c76a85af5",
+      "after_sha": "2425129b2384d6a8b2c158691e8e4d3076369164",
+      "ref": "refs/heads/main",
+      "repository_id": 1408212661,
+      "repository_name": "short-url",
+      "pushed_at": "2026-10-27T08:56:41+08:00",
+      "result": "bypass",
+      "rule_evaluations": [
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 24629805,
+            "name": "main-required-checks"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "required_status_checks"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 24629805,
+            "name": "main-required-checks"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "non_fast_forward"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 24629805,
+            "name": "main-required-checks"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "deletion"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 24629854,
+            "name": "main-pr-review"
+          },
+          "enforcement": "active",
+          "result": "fail",
+          "rule_type": "pull_request",
+          "details": "New changes require approval from someone other than the last pusher."
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 24629854,
+            "name": "main-pr-review"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "non_fast_forward"
+        },
+        {
+          "rule_source": {
+            "type": "ruleset",
+            "id": 24629854,
+            "name": "main-pr-review"
+          },
+          "enforcement": "active",
+          "result": "pass",
+          "rule_type": "deletion"
+        }
+      ]
+    }
+  }
+}

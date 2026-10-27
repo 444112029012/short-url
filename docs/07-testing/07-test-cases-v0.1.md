@@ -1,19 +1,19 @@
 ---
 文件：測試案例目錄
-版本：v0.1
+版本：v0.2
 狀態：審查中
 負責角色：品保部
-最後更新：2026-10-07
+最後更新：2026-10-22
 對應需求：REQ-001～REQ-012、NFR-001～NFR-008、SEC-001～SEC-017
 對應規格：方法規格、OpenAPI、SEC v0.2
 專案代號：SHORTURL
-關卡：G3
+關卡：G3（v0.2：G4 S6、CR-003）
 ---
 
 # 測試案例目錄：SHORTURL
 
 > 編號規則：`UT-*` 單元｜`IT-*` 整合｜`CT-*` 契約｜`E2E-*` 端到端｜`CHK-*` 檢查表。  
-> Given／When／Then 為摘要；實作時可拆 table-driven。層級與追溯見矩陣 v0.3。
+> Given／When／Then 為摘要；實作時可拆 table-driven。層級與追溯見矩陣 v0.4。
 
 ---
 
@@ -120,8 +120,24 @@
 | E2E-02 | e2e | Given 服務啟動；When 建立空／ftp／L+1；Then 400、庫無碼 | REQ-005、007、011；SEC-001 | createShortUrl |
 | E2E-03 | e2e | Given 無此短碼；When 導向／stats；Then 404、不導向任意站 | REQ-008 | redirect／stats |
 | E2E-04 | e2e | Given 已建立；When 導向並附加 `?url=https://evil.example`；Then Location 仍為庫值 | SEC-014 | redirectShortCode |
-| E2E-05 | e2e | Given 同來源快速超過建立門檻；When POST；Then 429 rate_limited | SEC-007 | createShortUrl |
+| E2E-05 | e2e | Given 同來源快速超過建立門檻；When POST；Then 429 rate_limited（v0.2 起為總 ID，細分見 §5.1） | SEC-007 | createShortUrl |
 | E2E-06 | e2e | Given 非法短碼 path；When GET；Then 400、不計次 | REQ-006；SEC-013 | redirectShortCode |
+
+### 5.1 E2E-05 細分（v0.2；S6 處置，實作 `internal/integration/ratelimit_e2e_test.go`）
+
+| ID | Given／When／Then 摘要 | 實作測試 | REQ／NFR／SEC | 自動化 |
+|---|---|---|---|---|
+| E2E-05-01 | 建立門檻 N 用盡；When POST；Then 429 rate_limited、無 Location／Retry-After、不落庫；超限時非法 body 仍 429 | `TestENG011_CreateQuotaExhaustedReturns429` | SEC-007 | 是 |
+| E2E-05-02 | 未設定門檻；When 第 31 次建立；Then 429（預設 30／分） | `TestENG011_DefaultLimitsFromConfig` | SEC-007 | 是 |
+| E2E-05-03 | 導向門檻用盡；Then 429、未知碼亦 429、被拒不計次 | `TestENG011_RedirectQuotaExhaustedReturns429WithoutCounting` | SEC-007；REQ-003 | 是 |
+| E2E-05-04 | 建立與導向配額互不影響 | `TestENG011_CreateAndRedirectQuotasAreIndependent` | SEC-007 | 是 |
+| E2E-05-05 | 兩個真實來源位址配額隔離；CI 不可 skip | `TestENG011_PerSourceIsolationByPeerAddress`＋（合併）`TestENG011_SourceAddrUnavailableClassifier` | SEC-007 | 是 |
+| E2E-05-06 | 非可信 peer 輪換 XFF／X-Real-IP 不能繞過（無可信清單／清單不含 peer） | `TestENG011_UntrustedPeerCannotSpoofForwardingHeaders`（2 子測試） | SEC-007 | 是 |
+| E2E-05-07 | 可信代理後方依 XFF／X-Real-IP 分配獨立配額 | `TestENG011_TrustedProxyForwardedForIsHonored` | SEC-007 | 是 |
+| E2E-05-08 | 可信代理 XFF 解析：前置值無效、全鏈可信取最右、右側非法項略過、退回 X-Real-IP | `TestENG011_TrustedProxyIgnoresClientPrependedEntries`＋（合併）`TestENG011_TrustedProxyXFFEdgeCases`（3 子測試） | SEC-007 | 是 |
+| E2E-05-09 | IPv6 同 /64 共用、相鄰 /64 不共用；IPv4-mapped＝IPv4 | `TestENG011_IPv6ForwardedClientsShareSlash64`＋（合併）`TestENG011_AdjacentIPv6Slash64sDoNotShareQuota` | SEC-007 | 是 |
+| E2E-05-10 | 40 並發建立、門檻 5；Then 恰 5 成功、35 個 429、5 列 | `TestENG011_ConcurrentCreatesAdmitExactlyLimit` | SEC-007；NFR-003（輔助，單實例） | 是 |
+| E2E-05-11 | 限流流量後：rate_limited 事件以 error_type 記錄；日誌與 ErrorLog 無 peer／轉送位址及標頭名 | `TestENG011_LogsDoNotContainClientAddresses` | SEC-005、SEC-004、NFR-006；SEC-007 | 是 |
 
 ---
 
@@ -146,6 +162,7 @@
 | CHK-SEC-012 | checklist | 演示基底 HTTPS；localhost 標非演示 | SEC-012 |
 | CHK-SEC-015 | checklist | 演示環境 `/.git/HEAD` 不可取得 | SEC-015 |
 | CHK-SEC-017 | checklist | DS1 非公網、最小權限、憑證不進版控 | SEC-017 |
+| CHK-ENG-022 | checklist | CR-003 純文件 PR 分支例外：①條款五要素與 CR-003 §2.1 逐字一致（§2.2 追加規則分開寫入） ②改到 docs/ 以外即不適用 ③任務拆解／README 同步 ④每個 DR／CR 分支 PR 的變更檔全在 docs/、標題與 trailer 帶既有 ENG（如有）及 DR；CR 分支無 ENG 時帶 CR（有 DR 一併帶）⑤回滾已記錄 ⑥安全部三項前提已寫入且 DR／CR 分支 PR 仍跑四項 required checks、無 paths-ignore、被讀取的 docs/ 檔有資安審查；否定：DR／CR 分支改到程式／測試→不符；未登錄 DR／CR 編號→不符 | ENG-022；NFR-007（輔助） |
 
 ---
 
@@ -157,7 +174,7 @@
 | SEC-003 | UT-ERR-01、UT-ERR-02、CT-ERR-01 |
 | SEC-004 | UT-REPO-01、IT-STORE-01、CHK-NFR-005 |
 | SEC-006 | UT-GEN-01、UT-GEN-02 |
-| SEC-007 | UT-RL-01、UT-RL-02、UT-HC-03、E2E-05 |
+| SEC-007 | UT-RL-01、UT-RL-02、UT-HC-03、E2E-05（E2E-05-01～11） |
 | SEC-013 | UT-VAL-07、UT-HR-03、E2E-06 |
 | SEC-014 | UT-RED-01、UT-HR-01、CT-REDIR-01、E2E-04 |
 | SEC-016 | UT-CLK-01、IT-STORE-02、IT-STORE-03 |
@@ -193,8 +210,9 @@
 | IT | 6 |
 | CT | 6 |
 | E2E | 6 |
-| CHK | 17 |
-| **合計（具名 ID）** | **約 69** |
+| E2E-05 細分 | 11 |
+| CHK | 18 |
+| **合計（具名 ID）** | **約 81** |
 
 ---
 
@@ -203,3 +221,4 @@
 | 版本 | 日期 | 作者 | 摘要 |
 |---|---|---|---|
 | v0.1 | 2026-10-07 | 品保部 | G3：案例目錄初版；公開方法 UT 100%；REQ／關鍵 SEC 覆蓋 |
+| v0.2 | 2026-10-22 | 品保部 | G4 S6：E2E-05 細分 E2E-05-01～11（§5.1）；CR-003：新增 CHK-ENG-022；數量更新 |

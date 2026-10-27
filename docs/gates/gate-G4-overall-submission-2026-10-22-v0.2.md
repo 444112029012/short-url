@@ -141,7 +141,7 @@
 
 ## 9. 退回單 G4-R4／R5 決定紀錄（v0.2 新增）
 
-### R4（2026-10-22 16:35 台北時間，使用者原話，逐字引用）
+### R4（2026-10-22 16:35 台北時間，使用者原話，逐字引用；message id：t271s1068）
 
 - 「追認 #24 以 admin bypass 合併」
 - 「接受 RR-011 維持中風險」
@@ -152,6 +152,6 @@
 
 ### R5（D-15）：已確認
 
-- 使用者 2026-10-22 16:34 於審查部聊天（widget t92s384）回覆，原話：「算，以 G3 通過為準補標已簽核」。
+- 使用者 2026-10-22 16:34 於審查部聊天（widget t92s384；message id：t92s384）回覆，原話：「算，以 G3 通過為準補標已簽核」。
 - 依此，`08-engineering/01-task-breakdown-v0.1.md` 與 `08-engineering/02-branch-commit-conventions-v0.1.md` 檔頭狀態補標「已簽核（G3 通過，gate-G3-2026-10-07-recheck-01；D-15）」，版本號不變。
 - 已追記於 `99-changelog/decision-log.md`（D-15 確認列）與 `99-changelog/CR-003-signoff-record-v0.1.md`（CR-003 R10 結案）。

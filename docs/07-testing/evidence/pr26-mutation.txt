@@ -1,0 +1,77 @@
+### M1 mapper.go L53 not_found 404→410
+ internal/httpapi/mapper.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/internal/httpapi/mapper.go b/internal/httpapi/mapper.go
+index 303e04a..7ebaa94 100644
+--- a/internal/httpapi/mapper.go
++++ b/internal/httpapi/mapper.go
+@@ -50,7 +50,7 @@ func statusFor(typ domain.ErrorType) (int, domain.ErrorType) {
+ 	case domain.TypeInvalidURL:
+ 		return http.StatusBadRequest, domain.TypeInvalidURL
+ 	case domain.TypeNotFound:
+-		return http.StatusNotFound, domain.TypeNotFound
++		return http.StatusGone, domain.TypeNotFound
+ 	case domain.TypeRateLimited:
+ 		return http.StatusTooManyRequests, domain.TypeRateLimited
+ 	case domain.TypeInternal:
+--- FAIL: TestCT_REDIR_02_UnknownCodeReturns404NotFound (0.00s)
+    contract_test.go:203: status = 410, want 404; body {"error":{"type":"not_found","message":"Short code not found"}}
+--- FAIL: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields (0.01s)
+    --- FAIL: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/not_found/redirect (0.00s)
+        contract_test.go:237: status = 410, want 404; body {"error":{"type":"not_found","message":"Short code not found"}}
+    --- FAIL: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/not_found/stats (0.00s)
+        contract_test.go:240: status = 410, want 404; body {"error":{"type":"not_found","message":"Short code not found"}}
+FAIL
+FAIL	github.com/444112029012/short-url/internal/httpapi	0.031s
+FAIL
+exit=1
+### M2 mapper.go L55 rate_limited→internal_error（429 保留）
+ internal/httpapi/mapper.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/internal/httpapi/mapper.go b/internal/httpapi/mapper.go
+index 303e04a..476b4c0 100644
+--- a/internal/httpapi/mapper.go
++++ b/internal/httpapi/mapper.go
+@@ -52,7 +52,7 @@ func statusFor(typ domain.ErrorType) (int, domain.ErrorType) {
+ 	case domain.TypeNotFound:
+ 		return http.StatusNotFound, domain.TypeNotFound
+ 	case domain.TypeRateLimited:
+-		return http.StatusTooManyRequests, domain.TypeRateLimited
++		return http.StatusTooManyRequests, domain.TypeInternal
+ 	case domain.TypeInternal:
+ 		return http.StatusInternalServerError, domain.TypeInternal
+ 	default:
+--- FAIL: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields (0.01s)
+    --- FAIL: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/rate_limited/create (0.00s)
+        contract_test.go:244: error.type = "internal_error", want "rate_limited"
+    --- FAIL: TestCT_ERR_01_AllErrorsUseEnumAndNoExtraFields/rate_limited/redirect (0.00s)
+        contract_test.go:248: error.type = "internal_error", want "rate_limited"
+FAIL
+FAIL	github.com/444112029012/short-url/internal/httpapi	0.035s
+FAIL
+exit=1
+### M3 adapter.go L135 302→301
+ internal/httpapi/adapter.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/internal/httpapi/adapter.go b/internal/httpapi/adapter.go
+index 216e43d..41c4e63 100644
+--- a/internal/httpapi/adapter.go
++++ b/internal/httpapi/adapter.go
+@@ -132,7 +132,7 @@ func (a *HTTPAPIAdapter) HandleRedirect(r *http.Request) response {
+ 	a.obs.OnRedirectSuccess(chi.URLParam(r, "shortCode"))
+ 	header := make(http.Header)
+ 	header.Set("Location", target.LongURL)
+-	return response{status: http.StatusFound, header: header}
++	return response{status: http.StatusMovedPermanently, header: header}
+ }
+ 
+ // HandleStats serves GET /api/v1/urls/{shortCode}/stats.
+--- FAIL: TestCT_REDIR_01_RedirectReturns302WithLocation (0.00s)
+    contract_test.go:188: status = 301, want 302
+FAIL
+FAIL	github.com/444112029012/short-url/internal/httpapi	0.024s
+FAIL
+exit=1
+### 還原後
+ok  	github.com/444112029012/short-url/internal/httpapi	0.072s
+exit=0

@@ -1,0 +1,14 @@
+ok  	github.com/444112029012/short-url/cmd/shorturl	0.506s	coverage: 2.8% of statements
+ok  	github.com/444112029012/short-url/internal/application	0.002s	coverage: 82.0% of statements
+ok  	github.com/444112029012/short-url/internal/config	0.003s	coverage: 84.2% of statements
+ok  	github.com/444112029012/short-url/internal/domain	0.003s	coverage: 81.1% of statements
+ok  	github.com/444112029012/short-url/internal/health	0.002s	coverage: 100.0% of statements
+ok  	github.com/444112029012/short-url/internal/httpapi	0.069s	coverage: 90.4% of statements
+ok  	github.com/444112029012/short-url/internal/infra/sqlite	0.041s	coverage: 69.9% of statements
+ok  	github.com/444112029012/short-url/internal/integration	0.208s	coverage: [no statements]
+ok  	github.com/444112029012/short-url/internal/observability	0.003s	coverage: 87.5% of statements
+?   	github.com/444112029012/short-url/internal/ports	[no test files]
+ok  	github.com/444112029012/short-url/internal/ratelimit	0.004s	coverage: 87.3% of statements
+total:										(statements)			78.7%
+exit=0
+ok  	github.com/444112029012/short-url/internal/httpapi	0.029s	coverage: 82.2% of statements
