@@ -1,0 +1,15 @@
+// Package canaryg404 是 CR-005 本機金絲雀假樣本，只存在 /tmp 暫存副本，不得提交。
+package canaryg404
+
+import "math/rand"
+
+const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+
+// NewToken 故意以 math/rand 產生 token（G404：弱亂數）。
+func NewToken(n int) string {
+	b := make([]byte, n)
+	for i := range b {
+		b[i] = alphabet[rand.Intn(len(alphabet))]
+	}
+	return string(b)
+}

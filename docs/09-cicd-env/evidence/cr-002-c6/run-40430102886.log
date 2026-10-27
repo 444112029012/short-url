@@ -1,0 +1,1094 @@
+secrets-gitleaks	Set up job	﻿2026-10-27T01:01:56.8354977Z Current runner version: '2.338.0'
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8374942Z ##[group]Runner Image Provisioner
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8375530Z Hosted Compute Agent
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8375958Z Version: 20261021.618
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8376362Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8376813Z Build Date: 2026-10-21T00:45:21Z
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8377318Z Worker ID: {61c4b1dc-7bd5-4a3e-8fb3-eb6b8b59a1b0}
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8377765Z Region: centralus
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8378171Z Cloud: Azure
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8378525Z ##[endgroup]
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8379326Z ##[group]Operating System
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8379785Z Ubuntu
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8380117Z 24.04.5
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8380431Z LTS
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8380805Z ##[endgroup]
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8381150Z ##[group]Runner Image
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8381778Z Image: ubuntu-24.04
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8382154Z Version: 20261012.334.1
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8382813Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8383903Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8384538Z ##[endgroup]
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8385341Z ##[group]GITHUB_TOKEN Permissions
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8386676Z Contents: read
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8387043Z Metadata: read
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8387420Z PullRequests: read
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8387831Z ##[endgroup]
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8389235Z Secret source: Actions
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8389870Z Cache mode: write
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8390345Z Prepare workflow directory
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8621702Z Prepare all required actions
+secrets-gitleaks	Set up job	2026-10-27T01:01:56.8654689Z Getting action download info
+secrets-gitleaks	Set up job	2026-10-27T01:01:57.0813416Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+secrets-gitleaks	Set up job	2026-10-27T01:01:57.2660122Z Complete job name: secrets-gitleaks
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-27T01:01:57.3299952Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3300537Z with:
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3300776Z   fetch-depth: 0
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3301038Z   repository: 444112029012/short-url
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3303456Z   token: ***
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3303701Z   ssh-strict: true
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3304142Z   ssh-user: git
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3304538Z   persist-credentials: true
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3304931Z   clean: true
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3305353Z   sparse-checkout-cone-mode: true
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3305676Z   fetch-tags: false
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3305926Z   show-progress: true
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3306269Z   lfs: false
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3306508Z   submodules: false
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3306764Z   set-safe-directory: true
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3307050Z   allow-unsafe-pr-checkout: false
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.3307489Z ##[endgroup]
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5667863Z Syncing repository: 444112029012/short-url
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5669078Z ##[group]Getting Git version info
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5669549Z Working directory is '/home/runner/work/short-url/short-url'
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5670115Z [command]/usr/bin/git version
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5758109Z git version 2.55.0
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5773864Z ##[endgroup]
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5786349Z Temporarily overriding HOME='/home/runner/work/_temp/5c3be295-cba4-4038-bac8-f350bc193678' before making global git config changes
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5787677Z Adding repository directory to the temporary git global config as a safe directory
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5791452Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5851380Z Deleting the contents of '/home/runner/work/short-url/short-url'
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5854941Z ##[group]Initializing the repository
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5858529Z [command]/usr/bin/git init /home/runner/work/short-url/short-url
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5964323Z hint: Using 'master' as the name for the initial branch. This default branch name
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5965080Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5965922Z hint: to use in all of your new repositories, which will suppress this warning,
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5966325Z hint: call:
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5966548Z hint:
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5966864Z hint: 	git config --global init.defaultBranch <name>
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5967203Z hint:
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5967521Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5968027Z hint: 'development'. The just-created branch can be renamed via this command:
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5968426Z hint:
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5968659Z hint: 	git branch -m <name>
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5968921Z hint:
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5969271Z hint: Disable this message with "git config set advice.defaultBranchName false"
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5980578Z Initialized empty Git repository in /home/runner/work/short-url/short-url/.git/
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.5991939Z [command]/usr/bin/git remote add origin https://github.com/444112029012/short-url
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6037865Z ##[endgroup]
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6038597Z ##[group]Disabling automatic garbage collection
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6041607Z [command]/usr/bin/git config --local gc.auto 0
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6077347Z ##[endgroup]
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6078024Z ##[group]Setting up auth
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6083974Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6116224Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6426651Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6457378Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6640021Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6671266Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6856644Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6894124Z ##[endgroup]
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6904612Z ##[group]Fetching the repository
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:57.6905957Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3232272Z From https://github.com/444112029012/short-url
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3232927Z  * [new branch]      canary/c6-gosec-red -> origin/canary/c6-gosec-red
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3233598Z  * [new branch]      chore/ENG-020-dependency-review-fail-closed -> origin/chore/ENG-020-dependency-review-fail-closed
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3234310Z  * [new branch]      ci/dependency-review-fail-closed -> origin/ci/dependency-review-fail-closed
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3235327Z  * [new branch]      cursor/g3r1-landing-evidence-0021 -> origin/cursor/g3r1-landing-evidence-0021
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3235998Z  * [new branch]      docs/ENG-011-g4-batch2-security-reviews -> origin/docs/ENG-011-g4-batch2-security-reviews
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3236718Z  * [new branch]      docs/ENG-011-security-08-v015-readme-v022 -> origin/docs/ENG-011-security-08-v015-readme-v022
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3237391Z  * [new branch]      docs/ENG-020-g3r1-landing-evidence -> origin/docs/ENG-020-g3r1-landing-evidence
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3238020Z  * [new branch]      docs/ENG-020-g4-cr001-docs-sync -> origin/docs/ENG-020-g4-cr001-docs-sync
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3238536Z  * [new branch]      docs/ENG-021-readme -> origin/docs/ENG-021-readme
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3239066Z  * [new branch]      docs/ENG-021-readme-followup -> origin/docs/ENG-021-readme-followup
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3239685Z  * [new branch]      docs/G4-DR-G4-01-design-followups -> origin/docs/G4-DR-G4-01-design-followups
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3240546Z  * [new branch]      docs/G4-DR-G4-01-openapi-and-index -> origin/docs/G4-DR-G4-01-openapi-and-index
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3241228Z  * [new branch]      docs/g3-rulesets-snapshot-2026-10-07 -> origin/docs/g3-rulesets-snapshot-2026-10-07
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3242014Z  * [new branch]      docs/g4-cr001-ci-v02-gates-v03 -> origin/docs/g4-cr001-ci-v02-gates-v03
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3242768Z  * [new branch]      docs/g4-overall-evidence -> origin/docs/g4-overall-evidence
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3243400Z  * [new branch]      feat/ENG-007-core-create-redirect-stats -> origin/feat/ENG-007-core-create-redirect-stats
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3244186Z  * [new branch]      feat/ENG-007-create-body-limit-32768 -> origin/feat/ENG-007-create-body-limit-32768
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3244826Z  * [new branch]      feat/ENG-011-rate-limit-guard -> origin/feat/ENG-011-rate-limit-guard
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3245413Z  * [new branch]      feat/ENG-012-observability-hooks -> origin/feat/ENG-012-observability-hooks
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3246085Z  * [new branch]      feat/ENG-016-security-response-headers -> origin/feat/ENG-016-security-response-headers
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3246753Z  * [new branch]      fix/ENG-020-cr-002-go-1272-gosec-pin -> origin/fix/ENG-020-cr-002-go-1272-gosec-pin
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3247328Z  * [new branch]      fix/ENG-020-pin-go-1-27-1 -> origin/fix/ENG-020-pin-go-1-27-1
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3247874Z  * [new branch]      fix/ENG-022-ci-hardening-scr032 -> origin/fix/ENG-022-ci-hardening-scr032
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3248351Z  * [new branch]      main                -> origin/main
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3248853Z  * [new branch]      test/ENG-007-create-collision-tests -> origin/test/ENG-007-create-collision-tests
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3249441Z  * [new branch]      test/ENG-011-rate-limit-e2e -> origin/test/ENG-011-rate-limit-e2e
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3250132Z  * [new branch]      test/ENG-013-openapi-contract-tests -> origin/test/ENG-013-openapi-contract-tests
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3250927Z  * [new branch]      test/ENG-016-security-headers-e2e -> origin/test/ENG-016-security-headers-e2e
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3251653Z  * [new branch]      test/ENG-019-api-integration -> origin/test/ENG-019-api-integration
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3252779Z [command]/usr/bin/git branch --list --remote origin/canary/c6-gosec-red
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3271285Z   origin/canary/c6-gosec-red
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3278114Z [command]/usr/bin/git rev-parse refs/remotes/origin/canary/c6-gosec-red
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3300215Z 99fa4bd6176ecd61af4ac9c744e9356843c0b2f3
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3303978Z ##[endgroup]
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3304613Z ##[group]Determining the checkout info
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3305368Z ##[endgroup]
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3314460Z [command]/usr/bin/git sparse-checkout disable
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3361829Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3388102Z ##[group]Checking out the ref
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3390270Z [command]/usr/bin/git checkout --progress --force -B canary/c6-gosec-red refs/remotes/origin/canary/c6-gosec-red
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3580742Z Switched to a new branch 'canary/c6-gosec-red'
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3584982Z branch 'canary/c6-gosec-red' set up to track 'origin/canary/c6-gosec-red'.
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3590029Z ##[endgroup]
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3661597Z [command]/usr/bin/git log -1 --format=%H
+secrets-gitleaks	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.3662270Z 99fa4bd6176ecd61af4ac9c744e9356843c0b2f3
+secrets-gitleaks	Install gitleaks	﻿2026-10-27T01:01:58.3830933Z ##[group]Run set -euo pipefail
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3831400Z ^[[36;1mset -euo pipefail^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3831936Z ^[[36;1mVER=8.21.2^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3832279Z ^[[36;1mTGZ="gitleaks_${VER}_linux_x64.tar.gz"^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3832879Z ^[[36;1mBASE="https://github.com/gitleaks/gitleaks/releases/download/v${VER}"^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3833638Z ^[[36;1m# SCR-021：釘官方 checksums 檔中 linux_x64 的 sha256，並與同 release 的 checksums 檔交叉比對^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3834402Z ^[[36;1mEXPECTED_SHA256=5bc41815076e6ed6ef8fbecc9d9b75bcae31f39029ceb55da08086315316e3ba^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3835159Z ^[[36;1mcd "$(mktemp -d)"^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3835504Z ^[[36;1mcurl -fsSL -o "${TGZ}" "${BASE}/${TGZ}"^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3836021Z ^[[36;1mcurl -fsSL -o checksums.txt "${BASE}/gitleaks_${VER}_checksums.txt"^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3836628Z ^[[36;1mofficial="$(awk -v f="${TGZ}" '$2==f {print $1}' checksums.txt)"^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3837350Z ^[[36;1mif [ "${official}" != "${EXPECTED_SHA256}" ]; then echo "::error::checksums.txt 與釘選值不符：${official}"; exit 1; fi^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3838066Z ^[[36;1mecho "${EXPECTED_SHA256}  ${TGZ}" | sha256sum -c -^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3838546Z ^[[36;1mtar -xzf "${TGZ}" -C /usr/local/bin gitleaks^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.3838939Z ^[[36;1mgitleaks version^[[0m
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.4059261Z shell: /usr/bin/bash -e {0}
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.4059668Z ##[endgroup]
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.8794484Z gitleaks_8.21.2_linux_x64.tar.gz: OK
+secrets-gitleaks	Install gitleaks	2026-10-27T01:01:58.9227833Z 8.21.2
+secrets-gitleaks	Run gitleaks	﻿2026-10-27T01:01:58.9297545Z ##[group]Run gitleaks detect --source . --verbose --exit-code 1
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:58.9299026Z ^[[36;1mgitleaks detect --source . --verbose --exit-code 1^[[0m
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:58.9356309Z shell: /usr/bin/bash -e {0}
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:58.9357182Z ##[endgroup]
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:58.9448673Z 
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:58.9449481Z     ○
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:58.9450165Z     │╲
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:58.9450767Z     │ ○
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:58.9451394Z     ○ ░
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:58.9452181Z     ░    gitleaks
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:58.9452636Z 
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:59.1424418Z ^[[90m1:01AM^[[0m ^[[32mINF^[[0m 71 commits scanned.
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:59.1426321Z ^[[90m1:01AM^[[0m ^[[32mINF^[[0m scan completed in 185ms
+secrets-gitleaks	Run gitleaks	2026-10-27T01:01:59.1427306Z ^[[90m1:01AM^[[0m ^[[32mINF^[[0m no leaks found
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-27T01:01:59.1658966Z Post job cleanup.
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2273499Z [command]/usr/bin/git version
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2308455Z git version 2.55.0
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2336076Z Temporarily overriding HOME='/home/runner/work/_temp/f7d4cee3-6daf-4868-8f57-6f8cde3c7de1' before making global git config changes
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2338051Z Adding repository directory to the temporary git global config as a safe directory
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2340180Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2376091Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2408464Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2625781Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2659850Z http.https://github.com/.extraheader
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2676565Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2708708Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2921771Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+secrets-gitleaks	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2955555Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+secrets-gitleaks	Complete job	﻿2026-10-27T01:01:59.3280086Z Cleaning up orphan processes
+secrets-gitleaks	Complete job	2026-10-27T01:01:59.3615030Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+sast-gosec	Set up job	﻿2026-10-27T01:01:57.1183781Z Current runner version: '2.338.0'
+sast-gosec	Set up job	2026-10-27T01:01:57.1203497Z ##[group]Runner Image Provisioner
+sast-gosec	Set up job	2026-10-27T01:01:57.1204244Z Hosted Compute Agent
+sast-gosec	Set up job	2026-10-27T01:01:57.1204780Z Version: 20261021.618
+sast-gosec	Set up job	2026-10-27T01:01:57.1205291Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+sast-gosec	Set up job	2026-10-27T01:01:57.1205926Z Build Date: 2026-10-21T00:45:21Z
+sast-gosec	Set up job	2026-10-27T01:01:57.1206507Z Worker ID: {86a49edb-38d9-4d9f-8699-557f83e1dda2}
+sast-gosec	Set up job	2026-10-27T01:01:57.1207075Z Region: westus3
+sast-gosec	Set up job	2026-10-27T01:01:57.1207636Z Cloud: Azure
+sast-gosec	Set up job	2026-10-27T01:01:57.1208199Z ##[endgroup]
+sast-gosec	Set up job	2026-10-27T01:01:57.1209458Z ##[group]Operating System
+sast-gosec	Set up job	2026-10-27T01:01:57.1210031Z Ubuntu
+sast-gosec	Set up job	2026-10-27T01:01:57.1210456Z 24.04.5
+sast-gosec	Set up job	2026-10-27T01:01:57.1210877Z LTS
+sast-gosec	Set up job	2026-10-27T01:01:57.1211304Z ##[endgroup]
+sast-gosec	Set up job	2026-10-27T01:01:57.1211744Z ##[group]Runner Image
+sast-gosec	Set up job	2026-10-27T01:01:57.1212294Z Image: ubuntu-24.04
+sast-gosec	Set up job	2026-10-27T01:01:57.1212747Z Version: 20261012.334.1
+sast-gosec	Set up job	2026-10-27T01:01:57.1213592Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+sast-gosec	Set up job	2026-10-27T01:01:57.1214966Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+sast-gosec	Set up job	2026-10-27T01:01:57.1215778Z ##[endgroup]
+sast-gosec	Set up job	2026-10-27T01:01:57.1216732Z ##[group]GITHUB_TOKEN Permissions
+sast-gosec	Set up job	2026-10-27T01:01:57.1218386Z Contents: read
+sast-gosec	Set up job	2026-10-27T01:01:57.1218852Z Metadata: read
+sast-gosec	Set up job	2026-10-27T01:01:57.1219613Z PullRequests: read
+sast-gosec	Set up job	2026-10-27T01:01:57.1220269Z ##[endgroup]
+sast-gosec	Set up job	2026-10-27T01:01:57.1222346Z Secret source: Actions
+sast-gosec	Set up job	2026-10-27T01:01:57.1223140Z Cache mode: write
+sast-gosec	Set up job	2026-10-27T01:01:57.1224063Z Prepare workflow directory
+sast-gosec	Set up job	2026-10-27T01:01:57.1473310Z Prepare all required actions
+sast-gosec	Set up job	2026-10-27T01:01:57.1513281Z Getting action download info
+sast-gosec	Set up job	2026-10-27T01:01:57.4543909Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+sast-gosec	Set up job	2026-10-27T01:01:57.5837057Z Download action repository 'actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff' (SHA:40f1582b2485089dde7abd97c1529aa768e1baff)
+sast-gosec	Set up job	2026-10-27T01:01:58.5317162Z Complete job name: sast-gosec
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-27T01:01:58.5982402Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5983448Z with:
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5983940Z   repository: 444112029012/short-url
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5987746Z   token: ***
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5988280Z   ssh-strict: true
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5988756Z   ssh-user: git
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5989456Z   persist-credentials: true
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5989988Z   clean: true
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5990454Z   sparse-checkout-cone-mode: true
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5991046Z   fetch-depth: 1
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5991509Z   fetch-tags: false
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5991998Z   show-progress: true
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5992486Z   lfs: false
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5992933Z   submodules: false
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5993463Z   set-safe-directory: true
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5993994Z   allow-unsafe-pr-checkout: false
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5994741Z ##[endgroup]
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8034010Z Syncing repository: 444112029012/short-url
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8036712Z ##[group]Getting Git version info
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8037968Z Working directory is '/home/runner/work/short-url/short-url'
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8039939Z [command]/usr/bin/git version
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8065500Z git version 2.55.0
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8081644Z ##[endgroup]
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8092885Z Temporarily overriding HOME='/home/runner/work/_temp/c8956a1e-7018-4844-8d6e-73b445b97c9a' before making global git config changes
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8095286Z Adding repository directory to the temporary git global config as a safe directory
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8097080Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8132726Z Deleting the contents of '/home/runner/work/short-url/short-url'
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8138247Z ##[group]Initializing the repository
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8142521Z [command]/usr/bin/git init /home/runner/work/short-url/short-url
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8209169Z hint: Using 'master' as the name for the initial branch. This default branch name
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8211401Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8212782Z hint: to use in all of your new repositories, which will suppress this warning,
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8213897Z hint: call:
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8214543Z hint:
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8215305Z hint: 	git config --global init.defaultBranch <name>
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8216242Z hint:
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8216939Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8217882Z hint: 'development'. The just-created branch can be renamed via this command:
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8218627Z hint:
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8219449Z hint: 	git branch -m <name>
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8220038Z hint:
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8220977Z hint: Disable this message with "git config set advice.defaultBranchName false"
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8222367Z Initialized empty Git repository in /home/runner/work/short-url/short-url/.git/
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8224194Z [command]/usr/bin/git remote add origin https://github.com/444112029012/short-url
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8257144Z ##[endgroup]
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8258150Z ##[group]Disabling automatic garbage collection
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8261090Z [command]/usr/bin/git config --local gc.auto 0
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8285451Z ##[endgroup]
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8286347Z ##[group]Setting up auth
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8291698Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8318156Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8587666Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8614098Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8794974Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8821679Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.8978204Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.9008645Z ##[endgroup]
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.9010074Z ##[group]Fetching the repository
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.9019572Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +99fa4bd6176ecd61af4ac9c744e9356843c0b2f3:refs/remotes/origin/canary/c6-gosec-red
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.7829866Z From https://github.com/444112029012/short-url
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.7832174Z  * [new ref]         99fa4bd6176ecd61af4ac9c744e9356843c0b2f3 -> origin/canary/c6-gosec-red
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.7837370Z ##[endgroup]
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.7839386Z ##[group]Determining the checkout info
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.7841592Z ##[endgroup]
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.7843191Z [command]/usr/bin/git sparse-checkout disable
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.7881479Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.7906047Z ##[group]Checking out the ref
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.7915934Z [command]/usr/bin/git checkout --progress --force -B canary/c6-gosec-red refs/remotes/origin/canary/c6-gosec-red
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.8096514Z Switched to a new branch 'canary/c6-gosec-red'
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.8099785Z branch 'canary/c6-gosec-red' set up to track 'origin/canary/c6-gosec-red'.
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.8105627Z ##[endgroup]
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.8137261Z [command]/usr/bin/git log -1 --format=%H
+sast-gosec	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.8155904Z 99fa4bd6176ecd61af4ac9c744e9356843c0b2f3
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	﻿2026-10-27T01:01:59.8460672Z ##[group]Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.8462126Z with:
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.8463088Z   go-version: 1.27.2
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.8463966Z   check-latest: false
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.8472255Z   token: ***
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.8473066Z   cache: true
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.8473913Z ##[endgroup]
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.9590540Z Setup go version spec 1.27.2
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.9599447Z Attempting to download 1.27.2...
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.9722499Z (node:2082) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.9725771Z (Use `node --trace-deprecation ...` to show where the warning was created)
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:00.9274318Z matching 1.27.2...
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:00.9299430Z Acquiring 1.27.2 from https://github.com/actions/go-versions/releases/download/1.27.2-37875086547/go-1.27.2-linux-x64.tar.gz
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:01.4889180Z Extracting Go...
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:01.4974616Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/60ac3c6d-9955-4a7b-8416-3800f7cd02c4 -f /home/runner/work/_temp/4f29a0df-017d-4010-91ff-46be78ebcc5c
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:02.9373051Z Successfully extracted go to /home/runner/work/_temp/60ac3c6d-9955-4a7b-8416-3800f7cd02c4
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:02.9373814Z Adding to the cache ...
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.0828166Z Successfully cached go to /opt/hostedtoolcache/go/1.27.2/x64
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.0828662Z Added go to the path
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.0830339Z Successfully set up Go version 1.27.2
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.1015322Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.1040154Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.1065250Z /home/runner/go/pkg/mod
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.1081019Z /home/runner/.cache/go-build
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.3138170Z Cache hit for: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.3235123Z (node:2082) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.5219924Z Received 62914560 of 153158848 (41.1%), 60.0 MBs/sec
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.2790219Z Received 153158848 of 153158848 (100.0%), 83.1 MBs/sec
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.2791003Z Cache Size: ~146 MB (153158848 B)
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.2902005Z [command]/usr/bin/tar -xf /home/runner/work/_temp/79c52116-60c9-4341-955a-f5d7ec62dd6e/cache.tzst -P -C /home/runner/work/short-url/short-url --use-compress-program unzstd
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9392148Z Cache restored successfully
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9447623Z Cache restored from key: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9469960Z go version go1.27.2 linux/amd64
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9470327Z 
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9470694Z ##[group]go env
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9570657Z AR='ar'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9571484Z CC='gcc'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9571875Z CGO_CFLAGS='-O2 -g'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9572273Z CGO_CPPFLAGS=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9572678Z CGO_CXXFLAGS='-O2 -g'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9573519Z CGO_ENABLED='1'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9573943Z CGO_FFLAGS='-O2 -g'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9574379Z CGO_LDFLAGS='-O2 -g'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9574762Z CXX='g++'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9575055Z GCCGO='gccgo'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9575372Z GO111MODULE=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9575626Z GOAMD64='v1'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9575914Z GOARCH='amd64'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9576181Z GOAUTH='netrc'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9576477Z GOBIN='/home/runner/go/bin'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9576793Z GOCACHE='/home/runner/.cache/go-build'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9577102Z GOCACHEPROG=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9577379Z GODEBUG=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9577705Z GOENV='/home/runner/.config/go/env'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9577996Z GOEXE=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9578247Z GOEXPERIMENT=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9578528Z GOFIPS140='off'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9578814Z GOFLAGS=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9579835Z GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build269280569=/tmp/go-build -gno-record-gcc-switches'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9580550Z GOHOSTARCH='amd64'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9580825Z GOHOSTOS='linux'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9581122Z GOINSECURE=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9581470Z GOMOD='/home/runner/work/short-url/short-url/go.mod'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9581826Z GOMODCACHE='/home/runner/go/pkg/mod'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9582124Z GONOPROXY=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9582443Z GONOSUMDB=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9582687Z GOOS='linux'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9582984Z GOPACKAGESDRIVER=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9583261Z GOPATH='/home/runner/go'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9583529Z GOPRIVATE=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9583881Z GOPROXY='https://proxy.golang.org,direct'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9584217Z GOROOT='/opt/hostedtoolcache/go/1.27.2/x64'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9584657Z GOSUMDB='sum.golang.org'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9584935Z GOTELEMETRY='local'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9585337Z GOTELEMETRYDIR='/home/runner/.config/go/telemetry'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9585676Z GOTMPDIR=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9585933Z GOTOOLCHAIN='auto'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9586305Z GOTOOLDIR='/opt/hostedtoolcache/go/1.27.2/x64/pkg/tool/linux_amd64'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9586700Z GOVCS=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9586958Z GOVERSION='go1.27.2'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9587244Z GOWORK=''
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9587668Z PKG_CONFIG='pkg-config'
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9587899Z 
+sast-gosec	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9588281Z ##[endgroup]
+sast-gosec	Install gosec	﻿2026-10-27T01:02:10.9713479Z ##[group]Run go install github.com/securego/gosec/v2/cmd/gosec@v2.29.1-0.20261015133444-707f2271f665
+sast-gosec	Install gosec	2026-10-27T01:02:10.9714291Z ^[[36;1mgo install github.com/securego/gosec/v2/cmd/gosec@v2.29.1-0.20261015133444-707f2271f665^[[0m
+sast-gosec	Install gosec	2026-10-27T01:02:10.9864016Z shell: /usr/bin/bash -e {0}
+sast-gosec	Install gosec	2026-10-27T01:02:10.9864410Z ##[endgroup]
+sast-gosec	Install gosec	2026-10-27T01:02:11.2306192Z go: downloading github.com/securego/gosec/v2 v2.29.1-0.20261015133444-707f2271f665
+sast-gosec	Install gosec	2026-10-27T01:02:12.2408190Z go: downloading golang.org/x/sync v0.24.0
+sast-gosec	Install gosec	2026-10-27T01:02:12.2414051Z go: downloading golang.org/x/tools v0.52.0
+sast-gosec	Install gosec	2026-10-27T01:02:12.5499770Z go: downloading github.com/anthropics/anthropic-sdk-go v1.80.0
+sast-gosec	Install gosec	2026-10-27T01:02:12.5515716Z go: downloading github.com/openai/openai-go/v3 v3.77.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.0167329Z go: downloading google.golang.org/genai v1.73.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.0213622Z go: downloading github.com/ccojocar/zxcvbn-go v1.0.4
+sast-gosec	Install gosec	2026-10-27T01:02:13.0674467Z go: downloading github.com/tidwall/sjson v1.2.5
+sast-gosec	Install gosec	2026-10-27T01:02:13.0729474Z go: downloading github.com/invopop/jsonschema v0.14.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.1036040Z go: downloading github.com/pb33f/ordered-map/v2 v2.3.2
+sast-gosec	Install gosec	2026-10-27T01:02:13.1193921Z go: downloading github.com/standard-webhooks/standard-webhooks/libraries v0.0.1
+sast-gosec	Install gosec	2026-10-27T01:02:13.1280090Z go: downloading github.com/tidwall/gjson v1.20.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.1735320Z go: downloading github.com/gookit/color v1.6.1
+sast-gosec	Install gosec	2026-10-27T01:02:13.1746334Z go: downloading go.yaml.in/yaml/v3 v3.0.5
+sast-gosec	Install gosec	2026-10-27T01:02:13.2064640Z go: downloading golang.org/x/mod v0.42.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.2301334Z go: downloading github.com/bahlo/generic-list-go v0.2.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.4815323Z go: downloading github.com/buger/jsonparser v1.6.1
+sast-gosec	Install gosec	2026-10-27T01:02:13.5093298Z go: downloading github.com/pb33f/go-yaml v0.1.1
+sast-gosec	Install gosec	2026-10-27T01:02:13.5193452Z go: downloading github.com/tidwall/match v1.2.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.5593326Z go: downloading github.com/tidwall/pretty v1.2.2
+sast-gosec	Install gosec	2026-10-27T01:02:13.5603864Z go: downloading github.com/xo/terminfo v1.2.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.5685950Z go: downloading cloud.google.com/go/auth v0.24.1
+sast-gosec	Install gosec	2026-10-27T01:02:13.6183910Z go: downloading cloud.google.com/go v0.123.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.6791119Z go: downloading github.com/google/go-cmp v0.7.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.6791799Z go: downloading github.com/gorilla/websocket v1.5.3
+sast-gosec	Install gosec	2026-10-27T01:02:13.6860168Z go: downloading github.com/coder/websocket v1.8.15
+sast-gosec	Install gosec	2026-10-27T01:02:13.7269401Z go: downloading github.com/googleapis/gax-go/v2 v2.26.2
+sast-gosec	Install gosec	2026-10-27T01:02:13.7270427Z go: downloading cloud.google.com/go/compute/metadata v0.10.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.7655055Z go: downloading go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.72.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.7656334Z go: downloading go.opentelemetry.io/otel v1.47.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.7762753Z go: downloading go.opentelemetry.io/otel/trace v1.47.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.8153113Z go: downloading golang.org/x/net v0.61.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.8454839Z go: downloading google.golang.org/api v0.301.0
+sast-gosec	Install gosec	2026-10-27T01:02:13.9967595Z go: downloading github.com/googleapis/enterprise-certificate-proxy v0.3.23
+sast-gosec	Install gosec	2026-10-27T01:02:14.0363750Z go: downloading github.com/google/s2a-go v0.1.11
+sast-gosec	Install gosec	2026-10-27T01:02:14.0832759Z go: downloading google.golang.org/grpc v1.84.0
+sast-gosec	Install gosec	2026-10-27T01:02:14.0839152Z go: downloading go.opentelemetry.io/otel/metric v1.47.0
+sast-gosec	Install gosec	2026-10-27T01:02:14.3193063Z go: downloading google.golang.org/protobuf v1.36.12
+sast-gosec	Install gosec	2026-10-27T01:02:14.5190524Z go: downloading github.com/felixge/httpsnoop v1.1.0
+sast-gosec	Install gosec	2026-10-27T01:02:14.5205802Z go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20261005182115-fad411399dd8
+sast-gosec	Install gosec	2026-10-27T01:02:14.5206777Z go: downloading github.com/go-logr/logr v1.4.4
+sast-gosec	Install gosec	2026-10-27T01:02:14.5568564Z go: downloading go.opentelemetry.io/otel/log v1.47.0
+sast-gosec	Install gosec	2026-10-27T01:02:14.5792214Z go: downloading golang.org/x/text v0.43.0
+sast-gosec	Install gosec	2026-10-27T01:02:14.9543517Z go: downloading github.com/cespare/xxhash/v2 v2.3.0
+sast-gosec	Install gosec	2026-10-27T01:02:14.9544475Z go: downloading github.com/go-logr/stdr v1.2.2
+sast-gosec	Install gosec	2026-10-27T01:02:14.9544980Z go: downloading go.opentelemetry.io/auto/sdk v1.2.1
+sast-gosec	Install gosec	2026-10-27T01:02:14.9954471Z go: downloading golang.org/x/sys v0.49.0
+sast-gosec	Install gosec	2026-10-27T01:02:14.9977261Z go: downloading golang.org/x/crypto v0.58.0
+sast-gosec	Verify gosec module hash (CR-002)	﻿2026-10-27T01:02:58.0088753Z ##[group]Run set -euo pipefail
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0089399Z ^[[36;1mset -euo pipefail^[[0m
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0089793Z ^[[36;1mexpected='h1:KvLOP3HNC+bEcwPGBQ4mVI70uhZ/scyFgiF1IVooj40='^[[0m
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0090199Z ^[[36;1mbin="$(go env GOPATH)/bin/gosec"^[[0m
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0090642Z ^[[36;1mline="$(go version -m "$bin" | awk '$1=="mod" && $2=="github.com/securego/gosec/v2"')" || true^[[0m
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0091229Z ^[[36;1mif [ -z "$line" ]; then echo "::error::mod github.com/securego/gosec/v2 line missing"; exit 1; fi^[[0m
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0091692Z ^[[36;1mecho "$line"^[[0m
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0092009Z ^[[36;1mactual="$(echo "$line" | awk '{print $4}')"^[[0m
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0092524Z ^[[36;1mif [ "$actual" != "$expected" ]; then echo "::error::gosec h1 mismatch: $actual != $expected"; exit 1; fi^[[0m
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0092964Z ^[[36;1mecho "gosec h1 OK"^[[0m
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0128104Z shell: /usr/bin/bash -e {0}
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0128464Z ##[endgroup]
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0247270Z 	mod	github.com/securego/gosec/v2	v2.29.1-0.20261015133444-707f2271f665	h1:KvLOP3HNC+bEcwPGBQ4mVI70uhZ/scyFgiF1IVooj40=
+sast-gosec	Verify gosec module hash (CR-002)	2026-10-27T01:02:58.0265462Z gosec h1 OK
+sast-gosec	Run gosec (block HIGH/CRITICAL)	﻿2026-10-27T01:02:58.0292748Z ##[group]Run set -euo pipefail
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0293138Z ^[[36;1mset -euo pipefail^[[0m
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0293527Z ^[[36;1m# -severity=high：僅 high/critical 導致非零；對齊 SEC-009^[[0m
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0293945Z ^[[36;1m# -tests：測試檔一併掃描（SCR-032）；以絕對路徑呼叫，不依賴 PATH（SCR-019）^[[0m
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0294454Z ^[[36;1m"$(go env GOPATH)/bin/gosec" -fmt=text -no-fail=false -severity=high -tests ./...^[[0m
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0321394Z shell: /usr/bin/bash -e {0}
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0321744Z ##[endgroup]
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0729178Z [gosec] 2026/10/27 01:02:58 Including rules: default
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0729731Z [gosec] 2026/10/27 01:02:58 Excluding rules: default
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0730273Z [gosec] 2026/10/27 01:02:58 Including analyzers: default
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0730652Z [gosec] 2026/10/27 01:02:58 Excluding analyzers: default
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0743566Z [gosec] 2026/10/27 01:02:58 Import directory: /home/runner/work/short-url/short-url/internal/c6canary
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0746321Z [gosec] 2026/10/27 01:02:58 Import directory: /home/runner/work/short-url/short-url/internal/config
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0747838Z [gosec] 2026/10/27 01:02:58 Import directory: /home/runner/work/short-url/short-url/internal/infra/sqlite
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.0762494Z [gosec] 2026/10/27 01:02:58 Import directory: /home/runner/work/short-url/short-url/internal/domain
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.2530739Z [gosec] 2026/10/27 01:02:58 Checking package: c6canary
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.2531892Z [gosec] 2026/10/27 01:02:58 Checking file: /home/runner/work/short-url/short-url/internal/c6canary/canary.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:58.2592632Z [gosec] 2026/10/27 01:02:58 Import directory: /home/runner/work/short-url/short-url/internal/integration
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3106076Z [gosec] 2026/10/27 01:02:59 Checking package: domain
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3210154Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/domain/errors.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3252761Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/domain/generator.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3320035Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/domain/types.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3420158Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/domain/validator.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3440546Z [gosec] 2026/10/27 01:02:59 Checking package: domain
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3498249Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/domain/errors.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3549917Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/domain/generator.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3611582Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/domain/types.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3656115Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/domain/validator.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3692136Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/domain/generator_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3723062Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/domain/validator_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3767184Z [gosec] 2026/10/27 01:02:59 Checking package: main
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.3835065Z [gosec] 2026/10/27 01:02:59 Import directory: /home/runner/work/short-url/short-url/internal/observability
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.8842685Z [gosec] 2026/10/27 01:02:59 Checking package: observability
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.8890496Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/observability/hooks.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.8980172Z [gosec] 2026/10/27 01:02:59 Checking package: observability
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.9060467Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/observability/hooks.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.9120692Z [gosec] 2026/10/27 01:02:59 Checking file: /home/runner/work/short-url/short-url/internal/observability/hooks_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.9240533Z [gosec] 2026/10/27 01:02:59 Checking package: main
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:02:59.9300182Z [gosec] 2026/10/27 01:02:59 Import directory: /home/runner/work/short-url/short-url/internal/ports
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:00.2214251Z [gosec] 2026/10/27 01:03:00 Checking package: ports
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:00.2341693Z [gosec] 2026/10/27 01:03:00 Checking file: /home/runner/work/short-url/short-url/internal/ports/store.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:00.2450436Z [gosec] 2026/10/27 01:03:00 Import directory: /home/runner/work/short-url/short-url/cmd/shorturl
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:00.8656163Z [gosec] 2026/10/27 01:03:00 Checking package: config
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:00.8701591Z [gosec] 2026/10/27 01:03:00 Checking file: /home/runner/work/short-url/short-url/internal/config/config.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:00.8934279Z [gosec] 2026/10/27 01:03:00 Checking package: config
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:00.8990370Z [gosec] 2026/10/27 01:03:00 Checking file: /home/runner/work/short-url/short-url/internal/config/config.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:00.9020129Z [gosec] 2026/10/27 01:03:00 Checking file: /home/runner/work/short-url/short-url/internal/config/config_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:00.9123634Z [gosec] 2026/10/27 01:03:00 Checking package: main
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:00.9160110Z [gosec] 2026/10/27 01:03:00 Import directory: /home/runner/work/short-url/short-url/internal/application
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.3860754Z [gosec] 2026/10/27 01:03:01 Checking package: application
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.3910870Z [gosec] 2026/10/27 01:03:01 Checking file: /home/runner/work/short-url/short-url/internal/application/redirect.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.3944904Z [gosec] 2026/10/27 01:03:01 Checking file: /home/runner/work/short-url/short-url/internal/application/service.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.4035900Z [gosec] 2026/10/27 01:03:01 Checking package: application_test
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.4187185Z [gosec] 2026/10/27 01:03:01 Checking file: /home/runner/work/short-url/short-url/internal/application/create_retry_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.4273466Z [gosec] 2026/10/27 01:03:01 Checking file: /home/runner/work/short-url/short-url/internal/application/redirect_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.4315737Z [gosec] 2026/10/27 01:03:01 Checking file: /home/runner/work/short-url/short-url/internal/application/service_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.4390944Z [gosec] 2026/10/27 01:03:01 Checking package: main
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.4430569Z [gosec] 2026/10/27 01:03:01 Import directory: /home/runner/work/short-url/short-url/internal/health
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.7630581Z [gosec] 2026/10/27 01:03:01 Checking package: health
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.7681658Z [gosec] 2026/10/27 01:03:01 Checking file: /home/runner/work/short-url/short-url/internal/health/health.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.7730311Z [gosec] 2026/10/27 01:03:01 Checking package: health
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.7790345Z [gosec] 2026/10/27 01:03:01 Checking file: /home/runner/work/short-url/short-url/internal/health/health.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.7845061Z [gosec] 2026/10/27 01:03:01 Checking file: /home/runner/work/short-url/short-url/internal/health/health_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.7871342Z [gosec] 2026/10/27 01:03:01 Checking package: main
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:01.7924331Z [gosec] 2026/10/27 01:03:01 Import directory: /home/runner/work/short-url/short-url/internal/httpapi
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.0152047Z [gosec] 2026/10/27 01:03:23 Checking package: main
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.0153492Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/cmd/shorturl/main.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.0370473Z [gosec] 2026/10/27 01:03:23 Checking package: main
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.0391729Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/cmd/shorturl/main.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.0393174Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/cmd/shorturl/main_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.0683704Z [gosec] 2026/10/27 01:03:23 Checking package: main
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.0694659Z [gosec] 2026/10/27 01:03:23 Import directory: /home/runner/work/short-url/short-url/internal/ratelimit
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.1265319Z [gosec] 2026/10/27 01:03:23 Checking package: sqlite
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.1290737Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/infra/sqlite/store.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.1350579Z [gosec] 2026/10/27 01:03:23 Checking package: sqlite
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.1390320Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/infra/sqlite/store.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.1397779Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/infra/sqlite/store_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.1451114Z [gosec] 2026/10/27 01:03:23 Checking package: main
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.1469595Z [gosec] 2026/10/27 01:03:23 Checking package: integration
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.1470364Z [gosec] 2026/10/27 01:03:23 Checking package: integration
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.1471472Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/integration/api_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.1537221Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/integration/ratelimit_e2e_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.1616100Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/integration/security_headers_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2080127Z [gosec] 2026/10/27 01:03:23 Checking package: main
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2469974Z [gosec] 2026/10/27 01:03:23 Checking package: httpapi
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2471140Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/adapter.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2477315Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/mapper.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2478597Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/response.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2479996Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/router.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2481294Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/security_headers.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2580071Z [gosec] 2026/10/27 01:03:23 Checking package: httpapi
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2610300Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/adapter.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2611630Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/mapper.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2612814Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/response.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2613934Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/router.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2615018Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/security_headers.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2616117Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/mapper_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2722560Z [gosec] 2026/10/27 01:03:23 Checking package: httpapi_test
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2733198Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/bodylimit_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2742037Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/contract_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2756900Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/observability_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2784874Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/ratelimit_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2791138Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/router_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2802339Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/security_headers_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2994528Z [gosec] 2026/10/27 01:03:23 Checking package: main
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2996034Z [gosec] 2026/10/27 01:03:23 Checking package: ratelimit
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.2998117Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/guard.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3003984Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/source.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3018857Z [gosec] 2026/10/27 01:03:23 Checking package: ratelimit
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3019928Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/guard.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3024126Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/source.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3027390Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/guard_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3038451Z [gosec] 2026/10/27 01:03:23 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/source_test.go
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3097925Z [gosec] 2026/10/27 01:03:23 Checking package: main
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3104925Z Results:
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3105237Z 
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3105252Z 
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3106427Z [/home/runner/work/short-url/short-url/internal/c6canary/canary.go:11] - G404 (CWE-338): Use of weak random number generator (math/rand or math/rand/v2 instead of crypto/rand) (Confidence: MEDIUM, Severity: HIGH)
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3107464Z     10: func Token() string {
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3107828Z   > 11: 	return strconv.Itoa(rand.Int())
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3108250Z     12: }
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3108386Z 
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3108531Z Autofix: 
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3108678Z 
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3108791Z Summary:
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3109266Z   Gosec  : dev
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3109580Z   Files  : 58
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3109912Z   Lines  : 7497
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3110173Z   Nosec  : 0
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3110469Z   Issues : 1
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3110638Z 
+sast-gosec	Run gosec (block HIGH/CRITICAL)	2026-10-27T01:03:23.3144571Z ##[error]Process completed with exit code 1.
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-27T01:03:23.3268077Z Post job cleanup.
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.3986880Z [command]/usr/bin/git version
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.4018642Z git version 2.55.0
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.4047591Z Temporarily overriding HOME='/home/runner/work/_temp/9df59314-2027-41a3-9b68-0737ed9a0d43' before making global git config changes
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.4048726Z Adding repository directory to the temporary git global config as a safe directory
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.4052702Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.4082955Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.4109323Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.4329931Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.4348702Z http.https://github.com/.extraheader
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.4357769Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.4384162Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.4577551Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+sast-gosec	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:03:23.4604611Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+sast-gosec	Complete job	﻿2026-10-27T01:03:23.4904121Z Cleaning up orphan processes
+sast-gosec	Complete job	2026-10-27T01:03:23.5145432Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+sca-govulncheck	Set up job	﻿2026-10-27T01:01:57.0153302Z Current runner version: '2.338.0'
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0181235Z ##[group]Runner Image Provisioner
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0182509Z Hosted Compute Agent
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0183196Z Version: 20261021.618
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0183818Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0184601Z Build Date: 2026-10-21T00:45:21Z
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0185236Z Worker ID: {da784584-087f-4a92-92a0-aae7601b98d2}
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0185909Z Region: northcentralus
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0186457Z Cloud: Azure
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0186960Z ##[endgroup]
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0188411Z ##[group]Operating System
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0189005Z Ubuntu
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0189472Z 24.04.5
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0190023Z LTS
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0190527Z ##[endgroup]
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0191055Z ##[group]Runner Image
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0191610Z Image: ubuntu-24.04
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0192241Z Version: 20261012.334.1
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0193285Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0194940Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0195822Z ##[endgroup]
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0196975Z ##[group]GITHUB_TOKEN Permissions
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0198909Z Contents: read
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0199508Z Metadata: read
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0200215Z PullRequests: read
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0200735Z ##[endgroup]
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0203303Z Secret source: Actions
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0204187Z Cache mode: write
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0205069Z Prepare workflow directory
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0520427Z Prepare all required actions
+sca-govulncheck	Set up job	2026-10-27T01:01:57.0568248Z Getting action download info
+sca-govulncheck	Set up job	2026-10-27T01:01:57.2688158Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+sca-govulncheck	Set up job	2026-10-27T01:01:57.3503499Z Download action repository 'actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff' (SHA:40f1582b2485089dde7abd97c1529aa768e1baff)
+sca-govulncheck	Set up job	2026-10-27T01:01:57.7417896Z Download action repository 'actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48' (SHA:2031cfc080254a8a887f58cffee85186f0e49e48)
+sca-govulncheck	Set up job	2026-10-27T01:01:58.3388940Z Complete job name: sca-govulncheck
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-27T01:01:58.4308705Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4311228Z with:
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4312709Z   repository: 444112029012/short-url
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4324074Z   token: ***
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4325043Z   ssh-strict: true
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4325928Z   ssh-user: git
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4326903Z   persist-credentials: true
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4327892Z   clean: true
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4328876Z   sparse-checkout-cone-mode: true
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4329942Z   fetch-depth: 1
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4330805Z   fetch-tags: false
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4331739Z   show-progress: true
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4332889Z   lfs: false
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4333782Z   submodules: false
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4334739Z   set-safe-directory: true
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4335802Z   allow-unsafe-pr-checkout: false
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4337391Z ##[endgroup]
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5330740Z Syncing repository: 444112029012/short-url
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5335284Z ##[group]Getting Git version info
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5338031Z Working directory is '/home/runner/work/short-url/short-url'
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5341199Z [command]/usr/bin/git version
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5342857Z git version 2.55.0
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5355030Z ##[endgroup]
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5367592Z Temporarily overriding HOME='/home/runner/work/_temp/205c0eb2-af8b-482f-ac57-286a1bd968e2' before making global git config changes
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5371547Z Adding repository directory to the temporary git global config as a safe directory
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5375468Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5419314Z Deleting the contents of '/home/runner/work/short-url/short-url'
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5429190Z ##[group]Initializing the repository
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5439971Z [command]/usr/bin/git init /home/runner/work/short-url/short-url
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5773454Z hint: Using 'master' as the name for the initial branch. This default branch name
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5777791Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5781013Z hint: to use in all of your new repositories, which will suppress this warning,
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5783553Z hint: call:
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5785212Z hint:
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5786988Z hint: 	git config --global init.defaultBranch <name>
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5789037Z hint:
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5791257Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5794437Z hint: 'development'. The just-created branch can be renamed via this command:
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5797174Z hint:
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5798346Z hint: 	git branch -m <name>
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5799477Z hint:
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5800954Z hint: Disable this message with "git config set advice.defaultBranchName false"
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5803946Z Initialized empty Git repository in /home/runner/work/short-url/short-url/.git/
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5807561Z [command]/usr/bin/git remote add origin https://github.com/444112029012/short-url
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5852480Z ##[endgroup]
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5854935Z ##[group]Disabling automatic garbage collection
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5857131Z [command]/usr/bin/git config --local gc.auto 0
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5908855Z ##[endgroup]
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5911112Z ##[group]Setting up auth
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5913637Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.5947369Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6249327Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6283339Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6471023Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6503231Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6683820Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6723812Z ##[endgroup]
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6726350Z ##[group]Fetching the repository
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6735851Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +99fa4bd6176ecd61af4ac9c744e9356843c0b2f3:refs/remotes/origin/canary/c6-gosec-red
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2284795Z From https://github.com/444112029012/short-url
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2287599Z  * [new ref]         99fa4bd6176ecd61af4ac9c744e9356843c0b2f3 -> origin/canary/c6-gosec-red
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2291948Z ##[endgroup]
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2294128Z ##[group]Determining the checkout info
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2296572Z ##[endgroup]
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2300838Z [command]/usr/bin/git sparse-checkout disable
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2350249Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2379576Z ##[group]Checking out the ref
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2385141Z [command]/usr/bin/git checkout --progress --force -B canary/c6-gosec-red refs/remotes/origin/canary/c6-gosec-red
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2607256Z Switched to a new branch 'canary/c6-gosec-red'
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2611070Z branch 'canary/c6-gosec-red' set up to track 'origin/canary/c6-gosec-red'.
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2617957Z ##[endgroup]
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2656968Z [command]/usr/bin/git log -1 --format=%H
+sca-govulncheck	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.2678967Z 99fa4bd6176ecd61af4ac9c744e9356843c0b2f3
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	﻿2026-10-27T01:01:59.2983654Z ##[group]Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.2984930Z with:
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.2985622Z   go-version: 1.27.2
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.2986402Z   check-latest: false
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.2993656Z   token: ***
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.2994423Z   cache: true
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.2995168Z ##[endgroup]
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.4288956Z Setup go version spec 1.27.2
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.4298070Z Attempting to download 1.27.2...
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.4401826Z (node:2281) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.4404466Z (Use `node --trace-deprecation ...` to show where the warning was created)
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:00.0720526Z matching 1.27.2...
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:00.0754047Z Acquiring 1.27.2 from https://github.com/actions/go-versions/releases/download/1.27.2-37875086547/go-1.27.2-linux-x64.tar.gz
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:00.5524065Z Extracting Go...
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:00.5667744Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/72bbf192-1fa4-4101-88f6-9a88a8fc8625 -f /home/runner/work/_temp/c22ea856-cfbd-4272-8557-d40ca10a69ba
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:02.2432582Z Successfully extracted go to /home/runner/work/_temp/72bbf192-1fa4-4101-88f6-9a88a8fc8625
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:02.2433606Z Adding to the cache ...
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.5185345Z Successfully cached go to /opt/hostedtoolcache/go/1.27.2/x64
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.5193426Z Added go to the path
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.5194035Z Successfully set up Go version 1.27.2
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.5405355Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.5434848Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.5466064Z /home/runner/go/pkg/mod
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.5485396Z /home/runner/.cache/go-build
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.6758606Z Cache hit for: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.6864093Z (node:2281) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.8443595Z Received 134217728 of 153158848 (87.6%), 126.5 MBs/sec
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9869865Z Received 153158848 of 153158848 (100.0%), 126.5 MBs/sec
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9870902Z Cache Size: ~146 MB (153158848 B)
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9899307Z [command]/usr/bin/tar -xf /home/runner/work/_temp/a05c0db3-6b56-4d00-bf94-562b6d6f19a6/cache.tzst -P -C /home/runner/work/short-url/short-url --use-compress-program unzstd
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.8883000Z Cache restored successfully
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.8946468Z Cache restored from key: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.8979712Z go version go1.27.2 linux/amd64
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.8980000Z 
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.8980418Z ##[group]go env
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9128873Z AR='ar'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9129566Z CC='gcc'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9130017Z CGO_CFLAGS='-O2 -g'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9130524Z CGO_CPPFLAGS=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9130935Z CGO_CXXFLAGS='-O2 -g'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9131400Z CGO_ENABLED='1'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9131701Z CGO_FFLAGS='-O2 -g'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9132229Z CGO_LDFLAGS='-O2 -g'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9132568Z CXX='g++'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9132893Z GCCGO='gccgo'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9133195Z GO111MODULE=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9133476Z GOAMD64='v1'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9133759Z GOARCH='amd64'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9134040Z GOAUTH='netrc'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9134349Z GOBIN='/home/runner/go/bin'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9134731Z GOCACHE='/home/runner/.cache/go-build'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9135134Z GOCACHEPROG=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9135450Z GODEBUG=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9135788Z GOENV='/home/runner/.config/go/env'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9136200Z GOEXE=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9136503Z GOEXPERIMENT=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9137139Z GOFIPS140='off'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9137416Z GOFLAGS=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9138494Z GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build2045704610=/tmp/go-build -gno-record-gcc-switches'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9139410Z GOHOSTARCH='amd64'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9139708Z GOHOSTOS='linux'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9140003Z GOINSECURE=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9140404Z GOMOD='/home/runner/work/short-url/short-url/go.mod'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9140878Z GOMODCACHE='/home/runner/go/pkg/mod'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9141282Z GONOPROXY=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9141558Z GONOSUMDB=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9141826Z GOOS='linux'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9142291Z GOPACKAGESDRIVER=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9142664Z GOPATH='/home/runner/go'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9142999Z GOPRIVATE=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9143401Z GOPROXY='https://proxy.golang.org,direct'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9143907Z GOROOT='/opt/hostedtoolcache/go/1.27.2/x64'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9144328Z GOSUMDB='sum.golang.org'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9144693Z GOTELEMETRY='local'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9145125Z GOTELEMETRYDIR='/home/runner/.config/go/telemetry'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9145613Z GOTMPDIR=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9145918Z GOTOOLCHAIN='auto'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9146415Z GOTOOLDIR='/opt/hostedtoolcache/go/1.27.2/x64/pkg/tool/linux_amd64'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9146928Z GOVCS=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9147251Z GOVERSION='go1.27.2'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9147548Z GOWORK=''
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9147928Z PKG_CONFIG='pkg-config'
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9148190Z 
+sca-govulncheck	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:10.9148676Z ##[endgroup]
+sca-govulncheck	Ensure go.sum present	﻿2026-10-27T01:02:10.9372515Z ##[group]Run test -f go.sum
+sca-govulncheck	Ensure go.sum present	2026-10-27T01:02:10.9372949Z ^[[36;1mtest -f go.sum^[[0m
+sca-govulncheck	Ensure go.sum present	2026-10-27T01:02:10.9558807Z shell: /usr/bin/bash -e {0}
+sca-govulncheck	Ensure go.sum present	2026-10-27T01:02:10.9559155Z ##[endgroup]
+sca-govulncheck	Install govulncheck	﻿2026-10-27T01:02:11.0046592Z ##[group]Run go install golang.org/x/vuln/cmd/govulncheck@v1.8.0
+sca-govulncheck	Install govulncheck	2026-10-27T01:02:11.0047118Z ^[[36;1mgo install golang.org/x/vuln/cmd/govulncheck@v1.8.0^[[0m
+sca-govulncheck	Install govulncheck	2026-10-27T01:02:11.0088602Z shell: /usr/bin/bash -e {0}
+sca-govulncheck	Install govulncheck	2026-10-27T01:02:11.0088952Z ##[endgroup]
+sca-govulncheck	Run govulncheck	﻿2026-10-27T01:02:11.9671280Z ##[group]Run govulncheck ./...
+sca-govulncheck	Run govulncheck	2026-10-27T01:02:11.9671632Z ^[[36;1mgovulncheck ./...^[[0m
+sca-govulncheck	Run govulncheck	2026-10-27T01:02:11.9711074Z shell: /usr/bin/bash -e {0}
+sca-govulncheck	Run govulncheck	2026-10-27T01:02:11.9711388Z ##[endgroup]
+sca-govulncheck	Run govulncheck	2026-10-27T01:02:19.8073202Z === Symbol Results ===
+sca-govulncheck	Run govulncheck	2026-10-27T01:02:19.8073518Z 
+sca-govulncheck	Run govulncheck	2026-10-27T01:02:19.8073812Z No vulnerabilities found.
+sca-govulncheck	Run govulncheck	2026-10-27T01:02:19.8074023Z 
+sca-govulncheck	Run govulncheck	2026-10-27T01:02:19.8074193Z Your code is affected by 0 vulnerabilities.
+sca-govulncheck	Run govulncheck	2026-10-27T01:02:19.8074951Z This scan also found 1 vulnerability in packages you import and 0
+sca-govulncheck	Run govulncheck	2026-10-27T01:02:19.8075718Z vulnerabilities in modules you require, but your code doesn't appear to call
+sca-govulncheck	Run govulncheck	2026-10-27T01:02:19.8076532Z these vulnerabilities.
+sca-govulncheck	Run govulncheck	2026-10-27T01:02:19.8077113Z Use '-show verbose' for more details.
+sca-govulncheck	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	﻿2026-10-27T01:02:19.8263393Z Post job cleanup.
+sca-govulncheck	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:19.9422329Z (node:2608) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+sca-govulncheck	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:19.9423093Z (Use `node --trace-deprecation ...` to show where the warning was created)
+sca-govulncheck	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:19.9498246Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+sca-govulncheck	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:19.9550727Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+sca-govulncheck	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:19.9567449Z /home/runner/go/pkg/mod
+sca-govulncheck	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:19.9589282Z /home/runner/.cache/go-build
+sca-govulncheck	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:19.9595226Z Cache hit occurred on the primary key setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025, not saving cache.
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-27T01:02:19.9780023Z Post job cleanup.
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.0619265Z [command]/usr/bin/git version
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.0656366Z git version 2.55.0
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.0690098Z Temporarily overriding HOME='/home/runner/work/_temp/0d869aba-e578-41e6-9beb-14a614d534b2' before making global git config changes
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.0691373Z Adding repository directory to the temporary git global config as a safe directory
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.0696981Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.0733512Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.0763749Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.0993824Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.1008469Z http.https://github.com/.extraheader
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.1018801Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.1053552Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.1286333Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+sca-govulncheck	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:20.1327658Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+sca-govulncheck	Complete job	﻿2026-10-27T01:02:20.1729240Z Cleaning up orphan processes
+sca-govulncheck	Complete job	2026-10-27T01:02:20.2005947Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+unit-test	Set up job	﻿2026-10-27T01:01:56.9742426Z Current runner version: '2.338.0'
+unit-test	Set up job	2026-10-27T01:01:56.9760131Z ##[group]Runner Image Provisioner
+unit-test	Set up job	2026-10-27T01:01:56.9760763Z Hosted Compute Agent
+unit-test	Set up job	2026-10-27T01:01:56.9761122Z Version: 20261021.618
+unit-test	Set up job	2026-10-27T01:01:56.9761494Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+unit-test	Set up job	2026-10-27T01:01:56.9762014Z Build Date: 2026-10-21T00:45:21Z
+unit-test	Set up job	2026-10-27T01:01:56.9762476Z Worker ID: {92e6d754-f906-4837-aa63-6c84517406a8}
+unit-test	Set up job	2026-10-27T01:01:56.9763084Z Region: westus3
+unit-test	Set up job	2026-10-27T01:01:56.9763422Z Cloud: Azure
+unit-test	Set up job	2026-10-27T01:01:56.9763778Z ##[endgroup]
+unit-test	Set up job	2026-10-27T01:01:56.9764590Z ##[group]Operating System
+unit-test	Set up job	2026-10-27T01:01:56.9764961Z Ubuntu
+unit-test	Set up job	2026-10-27T01:01:56.9765333Z 24.04.5
+unit-test	Set up job	2026-10-27T01:01:56.9765661Z LTS
+unit-test	Set up job	2026-10-27T01:01:56.9766007Z ##[endgroup]
+unit-test	Set up job	2026-10-27T01:01:56.9766376Z ##[group]Runner Image
+unit-test	Set up job	2026-10-27T01:01:56.9766739Z Image: ubuntu-24.04
+unit-test	Set up job	2026-10-27T01:01:56.9767144Z Version: 20261012.334.1
+unit-test	Set up job	2026-10-27T01:01:56.9767778Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+unit-test	Set up job	2026-10-27T01:01:56.9768833Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+unit-test	Set up job	2026-10-27T01:01:56.9769407Z ##[endgroup]
+unit-test	Set up job	2026-10-27T01:01:56.9770177Z ##[group]GITHUB_TOKEN Permissions
+unit-test	Set up job	2026-10-27T01:01:56.9771455Z Contents: read
+unit-test	Set up job	2026-10-27T01:01:56.9771857Z Metadata: read
+unit-test	Set up job	2026-10-27T01:01:56.9772271Z PullRequests: read
+unit-test	Set up job	2026-10-27T01:01:56.9772627Z ##[endgroup]
+unit-test	Set up job	2026-10-27T01:01:56.9774278Z Secret source: Actions
+unit-test	Set up job	2026-10-27T01:01:56.9774887Z Cache mode: write
+unit-test	Set up job	2026-10-27T01:01:56.9775606Z Prepare workflow directory
+unit-test	Set up job	2026-10-27T01:01:56.9978630Z Prepare all required actions
+unit-test	Set up job	2026-10-27T01:01:57.0009064Z Getting action download info
+unit-test	Set up job	2026-10-27T01:01:57.3139939Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+unit-test	Set up job	2026-10-27T01:01:57.3872770Z Download action repository 'actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff' (SHA:40f1582b2485089dde7abd97c1529aa768e1baff)
+unit-test	Set up job	2026-10-27T01:01:58.1536451Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+unit-test	Set up job	2026-10-27T01:01:58.3642290Z Complete job name: unit-test
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-27T01:01:58.4173834Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4174459Z with:
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4174729Z   repository: 444112029012/short-url
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4176919Z   token: ***
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4177181Z   ssh-strict: true
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4177444Z   ssh-user: git
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4177715Z   persist-credentials: true
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4178008Z   clean: true
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4178277Z   sparse-checkout-cone-mode: true
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4178590Z   fetch-depth: 1
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4178854Z   fetch-tags: false
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4179122Z   show-progress: true
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4179394Z   lfs: false
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4179650Z   submodules: false
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4179918Z   set-safe-directory: true
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4180237Z   allow-unsafe-pr-checkout: false
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.4180619Z ##[endgroup]
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6042589Z Syncing repository: 444112029012/short-url
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6044050Z ##[group]Getting Git version info
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6044821Z Working directory is '/home/runner/work/short-url/short-url'
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6045772Z [command]/usr/bin/git version
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6206785Z git version 2.55.0
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6228958Z ##[endgroup]
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6239650Z Temporarily overriding HOME='/home/runner/work/_temp/690c39dc-2695-4e08-8683-e318f554630a' before making global git config changes
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6241046Z Adding repository directory to the temporary git global config as a safe directory
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6244219Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6287142Z Deleting the contents of '/home/runner/work/short-url/short-url'
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6290328Z ##[group]Initializing the repository
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6293794Z [command]/usr/bin/git init /home/runner/work/short-url/short-url
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6389273Z hint: Using 'master' as the name for the initial branch. This default branch name
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6390316Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6390974Z hint: to use in all of your new repositories, which will suppress this warning,
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6391460Z hint: call:
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6391730Z hint:
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6392111Z hint: 	git config --global init.defaultBranch <name>
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6392517Z hint:
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6392894Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6393819Z hint: 'development'. The just-created branch can be renamed via this command:
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6394307Z hint:
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6394589Z hint: 	git branch -m <name>
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6394873Z hint:
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6395284Z hint: Disable this message with "git config set advice.defaultBranchName false"
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6398491Z Initialized empty Git repository in /home/runner/work/short-url/short-url/.git/
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6408964Z [command]/usr/bin/git remote add origin https://github.com/444112029012/short-url
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6456271Z ##[endgroup]
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6456905Z ##[group]Disabling automatic garbage collection
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6459375Z [command]/usr/bin/git config --local gc.auto 0
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6488511Z ##[endgroup]
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6489101Z ##[group]Setting up auth
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6493825Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6522025Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6800052Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.6829259Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.7000961Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.7029303Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.7204582Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.7288645Z ##[endgroup]
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.7296052Z ##[group]Fetching the repository
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:58.7297066Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +99fa4bd6176ecd61af4ac9c744e9356843c0b2f3:refs/remotes/origin/canary/c6-gosec-red
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6107696Z From https://github.com/444112029012/short-url
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6109274Z  * [new ref]         99fa4bd6176ecd61af4ac9c744e9356843c0b2f3 -> origin/canary/c6-gosec-red
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6112337Z ##[endgroup]
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6113638Z ##[group]Determining the checkout info
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6115064Z ##[endgroup]
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6120130Z [command]/usr/bin/git sparse-checkout disable
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6163746Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6199459Z ##[group]Checking out the ref
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6200764Z [command]/usr/bin/git checkout --progress --force -B canary/c6-gosec-red refs/remotes/origin/canary/c6-gosec-red
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6381204Z Switched to a new branch 'canary/c6-gosec-red'
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6385253Z branch 'canary/c6-gosec-red' set up to track 'origin/canary/c6-gosec-red'.
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6389462Z ##[endgroup]
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6423574Z [command]/usr/bin/git log -1 --format=%H
+unit-test	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:01:59.6444358Z 99fa4bd6176ecd61af4ac9c744e9356843c0b2f3
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	﻿2026-10-27T01:01:59.6695957Z ##[group]Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.6697075Z with:
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.6697733Z   go-version: 1.27.2
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.6698371Z   check-latest: false
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.6698984Z   cache: true
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.6704670Z   token: ***
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.6705227Z ##[endgroup]
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.7530064Z Setup go version spec 1.27.2
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.7537511Z Attempting to download 1.27.2...
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.7658364Z (node:2056) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:01:59.7660175Z (Use `node --trace-deprecation ...` to show where the warning was created)
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:00.7367829Z matching 1.27.2...
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:00.7388321Z Acquiring 1.27.2 from https://github.com/actions/go-versions/releases/download/1.27.2-37875086547/go-1.27.2-linux-x64.tar.gz
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:01.1819892Z Extracting Go...
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:01.1905837Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/d20c586a-85bb-41d0-a4e8-54ae577c559c -f /home/runner/work/_temp/e3f42c49-6211-4f97-aca1-92a1bb951751
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:02.4786551Z Successfully extracted go to /home/runner/work/_temp/d20c586a-85bb-41d0-a4e8-54ae577c559c
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:02.4786961Z Adding to the cache ...
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:07.0619215Z Successfully cached go to /opt/hostedtoolcache/go/1.27.2/x64
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:07.0620250Z Added go to the path
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:07.0622483Z Successfully set up Go version 1.27.2
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:07.0802044Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:07.0837324Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:07.0874522Z /home/runner/go/pkg/mod
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:07.0889110Z /home/runner/.cache/go-build
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:07.2951534Z Cache hit for: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:07.3026390Z (node:2056) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:08.5071203Z Received 58720256 of 153158848 (38.3%), 56.0 MBs/sec
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.0886758Z Received 153158848 of 153158848 (100.0%), 92.3 MBs/sec
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.0887098Z Cache Size: ~146 MB (153158848 B)
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.0924182Z [command]/usr/bin/tar -xf /home/runner/work/_temp/c90c8a1d-33f5-48b8-bd95-3618e351e691/cache.tzst -P -C /home/runner/work/short-url/short-url --use-compress-program unzstd
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9288942Z Cache restored successfully
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9358536Z Cache restored from key: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9379047Z go version go1.27.2 linux/amd64
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9379282Z 
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9379535Z ##[group]go env
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9491827Z AR='ar'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9492254Z CC='gcc'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9492573Z CGO_CFLAGS='-O2 -g'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9492903Z CGO_CPPFLAGS=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9493416Z CGO_CXXFLAGS='-O2 -g'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9493752Z CGO_ENABLED='1'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9494074Z CGO_FFLAGS='-O2 -g'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9494424Z CGO_LDFLAGS='-O2 -g'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9494725Z CXX='g++'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9495067Z GCCGO='gccgo'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9495356Z GO111MODULE=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9495650Z GOAMD64='v1'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9495942Z GOARCH='amd64'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9496239Z GOAUTH='netrc'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9496544Z GOBIN='/home/runner/go/bin'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9496897Z GOCACHE='/home/runner/.cache/go-build'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9497250Z GOCACHEPROG=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9497545Z GODEBUG=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9497870Z GOENV='/home/runner/.config/go/env'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9498210Z GOEXE=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9498488Z GOEXPERIMENT=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9498794Z GOFIPS140='off'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9499331Z GOFLAGS=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9500186Z GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build3969843956=/tmp/go-build -gno-record-gcc-switches'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9500885Z GOHOSTARCH='amd64'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9501191Z GOHOSTOS='linux'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9501485Z GOINSECURE=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9501882Z GOMOD='/home/runner/work/short-url/short-url/go.mod'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9502302Z GOMODCACHE='/home/runner/go/pkg/mod'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9502652Z GONOPROXY=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9503094Z GONOSUMDB=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9503441Z GOOS='linux'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9503743Z GOPACKAGESDRIVER=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9504060Z GOPATH='/home/runner/go'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9504378Z GOPRIVATE=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9504745Z GOPROXY='https://proxy.golang.org,direct'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9505136Z GOROOT='/opt/hostedtoolcache/go/1.27.2/x64'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9505500Z GOSUMDB='sum.golang.org'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9505821Z GOTELEMETRY='local'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9506187Z GOTELEMETRYDIR='/home/runner/.config/go/telemetry'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9506576Z GOTMPDIR=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9506865Z GOTOOLCHAIN='auto'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9507253Z GOTOOLDIR='/opt/hostedtoolcache/go/1.27.2/x64/pkg/tool/linux_amd64'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9507663Z GOVCS=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9507945Z GOVERSION='go1.27.2'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9508272Z GOWORK=''
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9508596Z PKG_CONFIG='pkg-config'
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9508848Z 
+unit-test	Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:09.9509278Z ##[endgroup]
+unit-test	go vet	﻿2026-10-27T01:02:09.9709928Z ##[group]Run go vet ./...
+unit-test	go vet	2026-10-27T01:02:09.9710141Z ^[[36;1mgo vet ./...^[[0m
+unit-test	go vet	2026-10-27T01:02:09.9984246Z shell: /usr/bin/bash -e {0}
+unit-test	go vet	2026-10-27T01:02:09.9984433Z ##[endgroup]
+unit-test	go test (-race, JSON)	﻿2026-10-27T01:02:19.9118449Z ##[group]Run set -euo pipefail
+unit-test	go test (-race, JSON)	2026-10-27T01:02:19.9118703Z ^[[36;1mset -euo pipefail^[[0m
+unit-test	go test (-race, JSON)	2026-10-27T01:02:19.9118900Z ^[[36;1mgo test -race -json ./... | tee go-test.json > /dev/null^[[0m
+unit-test	go test (-race, JSON)	2026-10-27T01:02:19.9176591Z shell: /usr/bin/bash -e {0}
+unit-test	go test (-race, JSON)	2026-10-27T01:02:19.9176766Z env:
+unit-test	go test (-race, JSON)	2026-10-27T01:02:19.9176882Z   CGO_ENABLED: 1
+unit-test	go test (-race, JSON)	2026-10-27T01:02:19.9177001Z ##[endgroup]
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	﻿2026-10-27T01:02:49.2335581Z ##[group]Run set -euo pipefail
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:49.2335809Z ^[[36;1mset -euo pipefail^[[0m
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:49.2336123Z ^[[36;1mgo test -race -count=1 -v -run '^TestENG011_PerSourceIsolationByPeerAddress$' ./internal/integration/ | tee eng011.log^[[0m
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:49.2336534Z ^[[36;1mif ! grep -q -- '--- PASS: TestENG011_PerSourceIsolationByPeerAddress' eng011.log; then^[[0m
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:49.2336874Z ^[[36;1m  echo "::error::TestENG011_PerSourceIsolationByPeerAddress 未執行或被 SKIP"; exit 1^[[0m
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:49.2337109Z ^[[36;1mfi^[[0m
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:49.2391164Z shell: /usr/bin/bash -e {0}
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:49.2391311Z env:
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:49.2391423Z   CGO_ENABLED: 1
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:49.2391543Z ##[endgroup]
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:49.6404903Z === RUN   TestENG011_PerSourceIsolationByPeerAddress
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:49.6907550Z --- PASS: TestENG011_PerSourceIsolationByPeerAddress (0.05s)
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:49.6907981Z PASS
+unit-test	ENG-011 per-source isolation test must PASS (no SKIP)	2026-10-27T01:02:50.6926592Z ok  	github.com/444112029012/short-url/internal/integration	1.058s
+unit-test	Upload test results	﻿2026-10-27T01:02:50.7096070Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+unit-test	Upload test results	2026-10-27T01:02:50.7096306Z with:
+unit-test	Upload test results	2026-10-27T01:02:50.7096423Z   name: go-test-json
+unit-test	Upload test results	2026-10-27T01:02:50.7096551Z   path: go-test.json
+unit-test	Upload test results	2026-10-27T01:02:50.7096672Z   retention-days: 14
+unit-test	Upload test results	2026-10-27T01:02:50.7096798Z   if-no-files-found: warn
+unit-test	Upload test results	2026-10-27T01:02:50.7096932Z   compression-level: 6
+unit-test	Upload test results	2026-10-27T01:02:50.7097058Z   overwrite: false
+unit-test	Upload test results	2026-10-27T01:02:50.7097186Z   include-hidden-files: false
+unit-test	Upload test results	2026-10-27T01:02:50.7097328Z ##[endgroup]
+unit-test	Upload test results	2026-10-27T01:02:50.8155144Z (node:7388) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+unit-test	Upload test results	2026-10-27T01:02:50.8155604Z (Use `node --trace-deprecation ...` to show where the warning was created)
+unit-test	Upload test results	2026-10-27T01:02:50.8185193Z With the provided path, there will be 1 file uploaded
+unit-test	Upload test results	2026-10-27T01:02:50.8188825Z Artifact name is valid!
+unit-test	Upload test results	2026-10-27T01:02:50.8189207Z Root directory input is valid!
+unit-test	Upload test results	2026-10-27T01:02:51.1447472Z Beginning upload of artifact content to blob storage
+unit-test	Upload test results	2026-10-27T01:02:51.1578330Z (node:7388) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+unit-test	Upload test results	2026-10-27T01:02:51.4132018Z Uploaded bytes 16023
+unit-test	Upload test results	2026-10-27T01:02:51.4747542Z Finished uploading artifact content to blob storage!
+unit-test	Upload test results	2026-10-27T01:02:51.4748067Z SHA256 digest of uploaded artifact zip is 5eb9ce3a5cc6d342683490ad2ca25c0cf22191f64d572dd737fb3ad032ba1709
+unit-test	Upload test results	2026-10-27T01:02:51.4749206Z Finalizing artifact upload
+unit-test	Upload test results	2026-10-27T01:02:51.9213660Z Artifact go-test-json.zip successfully finalized. Artifact ID 12701662087
+unit-test	Upload test results	2026-10-27T01:02:51.9214120Z Artifact go-test-json has been successfully uploaded! Final size is 16023 bytes. Artifact ID is 12701662087
+unit-test	Upload test results	2026-10-27T01:02:51.9214568Z Artifact download URL: https://github.com/444112029012/short-url/actions/runs/40430102886/artifacts/12701662087
+unit-test	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	﻿2026-10-27T01:02:51.9358803Z Post job cleanup.
+unit-test	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:52.0137204Z (node:7400) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+unit-test	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:52.0137655Z (Use `node --trace-deprecation ...` to show where the warning was created)
+unit-test	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:52.0177086Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+unit-test	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:52.0210034Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+unit-test	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:52.0244469Z /home/runner/go/pkg/mod
+unit-test	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:52.0288955Z /home/runner/.cache/go-build
+unit-test	Post Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff	2026-10-27T01:02:52.0294173Z Cache hit occurred on the primary key setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025, not saving cache.
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-27T01:02:52.0468325Z Post job cleanup.
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1025011Z [command]/usr/bin/git version
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1060091Z git version 2.55.0
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1086114Z Temporarily overriding HOME='/home/runner/work/_temp/5f6d45dd-865b-44a9-b58e-c0ba9767879e' before making global git config changes
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1086854Z Adding repository directory to the temporary git global config as a safe directory
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1090051Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1121992Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1149081Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1357201Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1385834Z http.https://github.com/.extraheader
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1399342Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1454711Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1698423Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+unit-test	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-27T01:02:52.1739389Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+unit-test	Complete job	﻿2026-10-27T01:02:52.2056264Z Cleaning up orphan processes
+unit-test	Complete job	2026-10-27T01:02:52.2307443Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

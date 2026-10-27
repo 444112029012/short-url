@@ -1,0 +1,21 @@
+# 2026-10-27 09:02:38 CST
+$ go mod download -json github.com/securego/gosec/v2@v2.30.0
+{
+	"Path": "github.com/securego/gosec/v2",
+	"Version": "v2.30.0",
+	"Info": "/workspace/tools/gp-v2300/pkg/mod/cache/download/github.com/securego/gosec/v2/@v/v2.30.0.info",
+	"GoMod": "/workspace/tools/gp-v2300/pkg/mod/cache/download/github.com/securego/gosec/v2/@v/v2.30.0.mod",
+	"Zip": "/workspace/tools/gp-v2300/pkg/mod/cache/download/github.com/securego/gosec/v2/@v/v2.30.0.zip",
+	"Dir": "/workspace/tools/gp-v2300/pkg/mod/github.com/securego/gosec/v2@v2.30.0",
+	"Sum": "h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=",
+	"GoModSum": "h1:qQn/kd9spDGy4yCVezLnzPkUuHPhm6jiIcBANad01Sw=",
+	"Origin": {
+		"VCS": "git",
+		"URL": "https://github.com/securego/gosec",
+		"Hash": "5eb1d104ef85ff2c905c877eb600e8c1dee33a22",
+		"Ref": "refs/tags/v2.30.0"
+	}
+}
+exit=0
+$ cat $GOMODCACHE/cache/download/github.com/securego/gosec/v2/@v/v2.30.0.ziphash
+h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=

@@ -1,0 +1,91 @@
+# 2026-10-27 09:05:20 CST
+$ govulncheck -mode=binary -show verbose /workspace/tools/gp-v2300/bin/gosec
+Scanning your binary for known vulnerabilities...
+
+Fetching vulnerabilities from the database...
+
+Checking the binary against the vulnerabilities...
+
+The package pattern matched the following root package:
+  github.com/securego/gosec/v2
+Govulncheck scanned the following 49 modules and the go1.27.2 standard library:
+  github.com/securego/gosec/v2@v2.30.0
+  cloud.google.com/go@v0.123.0
+  cloud.google.com/go/auth@v0.24.1
+  cloud.google.com/go/compute/metadata@v0.10.0
+  github.com/anthropics/anthropic-sdk-go@v1.82.0
+  github.com/bahlo/generic-list-go@v0.2.0
+  github.com/buger/jsonparser@v1.6.1
+  github.com/ccojocar/zxcvbn-go@v1.0.4
+  github.com/cespare/xxhash/v2@v2.3.0
+  github.com/coder/websocket@v1.8.15
+  github.com/felixge/httpsnoop@v1.1.0
+  github.com/go-logr/logr@v1.4.4
+  github.com/go-logr/stdr@v1.2.2
+  github.com/google/go-cmp@v0.7.0
+  github.com/google/s2a-go@v0.1.11
+  github.com/google/uuid@v1.6.0
+  github.com/googleapis/enterprise-certificate-proxy@v0.3.23
+  github.com/googleapis/gax-go/v2@v2.26.2
+  github.com/gookit/color@v1.6.3
+  github.com/gorilla/websocket@v1.5.3
+  github.com/invopop/jsonschema@v0.14.0
+  github.com/openai/openai-go/v3@v3.82.0
+  github.com/pb33f/go-yaml@v0.1.1
+  github.com/pb33f/ordered-map/v2@v2.3.2
+  github.com/standard-webhooks/standard-webhooks/libraries@v0.0.1
+  github.com/tidwall/gjson@v1.20.0
+  github.com/tidwall/match@v1.2.0
+  github.com/tidwall/pretty@v1.2.2
+  github.com/tidwall/sjson@v1.2.5
+  github.com/xo/terminfo@v1.2.0
+  go.opentelemetry.io/auto/sdk@v1.2.1
+  go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.72.0
+  go.opentelemetry.io/otel@v1.47.0
+  go.opentelemetry.io/otel/log@v1.47.0
+  go.opentelemetry.io/otel/metric@v1.47.0
+  go.opentelemetry.io/otel/trace@v1.47.0
+  go.yaml.in/yaml/v3@v3.0.5
+  golang.org/x/crypto@v0.58.0
+  golang.org/x/mod@v0.42.0
+  golang.org/x/net@v0.61.0
+  golang.org/x/sync@v0.24.0
+  golang.org/x/sys@v0.49.0
+  golang.org/x/text@v0.43.0
+  golang.org/x/tools@v0.52.0
+  google.golang.org/api@v0.304.0
+  google.golang.org/genai@v1.75.0
+  google.golang.org/genproto/googleapis/rpc@v0.0.0-20261012220534-4341edf3f941
+  google.golang.org/grpc@v1.84.0
+  google.golang.org/protobuf@v1.36.12
+
+=== Symbol Results ===
+
+Vulnerability #1: GO-2026-6809
+    Distrust compromised intermediate certificates in crypto/x509
+  More info: https://pkg.go.dev/vuln/GO-2026-6809
+  Standard library
+    Found in: crypto/x509@go1.27.2
+    Fixed in: crypto/x509@go1.27.3
+    Vulnerable symbols found:
+      #1: x509.Certificate.Verify
+
+=== Package Results ===
+
+No other vulnerabilities found.
+
+=== Module Results ===
+
+Vulnerability #1: GO-2026-5932
+    The golang.org/x/crypto/openpgp package is unmaintained, unsafe by design,
+    and has known security issues
+  More info: https://pkg.go.dev/vuln/GO-2026-5932
+  Module: golang.org/x/crypto
+    Found in: golang.org/x/crypto@v0.58.0
+    Fixed in: N/A
+
+Your code is affected by 1 vulnerability from the Go standard library.
+This scan also found 0 vulnerabilities in packages you import and 1
+vulnerability in modules you require, but your code doesn't appear to call these
+vulnerabilities.
+exit=3

@@ -1,0 +1,72 @@
+# 2026-10-27 09:03:57 CST cwd=/tmp/cr005-canary（origin/main 2425129 + internal/canaryg404/token.go）
+$ gosec -fmt=text -no-fail=false -severity=high -tests ./...   (CI 參數)
+[gosec] 2026/10/27 09:03:57 Including rules: default
+[gosec] 2026/10/27 09:03:57 Excluding rules: default
+[gosec] 2026/10/27 09:03:57 Including analyzers: default
+[gosec] 2026/10/27 09:03:57 Excluding analyzers: default
+Results:
+
+
+[/tmp/cr005-canary/internal/canaryg404/token.go:12] - G404 (CWE-338): Use of weak random number generator (math/rand or math/rand/v2 instead of crypto/rand) (Confidence: MEDIUM, Severity: HIGH)
+    11: 	for i := range b {
+  > 12: 		b[i] = alphabet[rand.Intn(len(alphabet))]
+    13: 	}
+
+Autofix: 
+
+Summary:
+  Gosec  : dev
+  Files  : 58
+  Lines  : 7500
+  Nosec  : 0
+  Issues : 1
+
+exit=1
+
+$ gosec -fmt=text -no-fail=false -tests ./...   (不加 -severity)
+[gosec] 2026/10/27 09:03:58 Including rules: default
+[gosec] 2026/10/27 09:03:58 Excluding rules: default
+[gosec] 2026/10/27 09:03:58 Including analyzers: default
+[gosec] 2026/10/27 09:03:58 Excluding analyzers: default
+Results:
+
+
+[/tmp/cr005-canary/internal/canaryg404/token.go:12] - G404 (CWE-338): Use of weak random number generator (math/rand or math/rand/v2 instead of crypto/rand) (Confidence: MEDIUM, Severity: HIGH)
+    11: 	for i := range b {
+  > 12: 		b[i] = alphabet[rand.Intn(len(alphabet))]
+    13: 	}
+
+Autofix: 
+
+Summary:
+  Gosec  : dev
+  Files  : 58
+  Lines  : 7500
+  Nosec  : 0
+  Issues : 1
+
+exit=1
+
+$ gosec -fmt=text -no-fail=false -include=G404 -tests ./internal/canaryg404/...
+[gosec] 2026/10/27 09:03:58 Including rules: G404
+[gosec] 2026/10/27 09:03:58 Excluding rules: default
+[gosec] 2026/10/27 09:03:58 Including analyzers: G404
+[gosec] 2026/10/27 09:03:58 Excluding analyzers: default
+Results:
+
+
+[/tmp/cr005-canary/internal/canaryg404/token.go:12] - G404 (CWE-338): Use of weak random number generator (math/rand or math/rand/v2 instead of crypto/rand) (Confidence: MEDIUM, Severity: HIGH)
+    11: 	for i := range b {
+  > 12: 		b[i] = alphabet[rand.Intn(len(alphabet))]
+    13: 	}
+
+Autofix: 
+
+Summary:
+  Gosec  : dev
+  Files  : 1
+  Lines  : 15
+  Nosec  : 0
+  Issues : 1
+
+exit=1

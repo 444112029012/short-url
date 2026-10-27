@@ -1,0 +1,9 @@
+69133128
+github.com/securego/gosec/v2 v2.29.1-0.20261015133444-707f2271f665 h1:KvLOP3HNC+bEcwPGBQ4mVI70uhZ/scyFgiF1IVooj40=
+github.com/securego/gosec/v2 v2.29.1-0.20261015133444-707f2271f665/go.mod h1:sXj2muZ/CL9FWlyhZQZh8ya4oQmSmpfLGm7A8atCh/w=
+
+go.sum database tree
+70128805
+oKZmGalzUaQWmN5/qmAA189VM/QrrS2zPka8SNXB0Lg=
+
+— sum.golang.org Az3grlBpm/7Rsuy9nX5m8+2aX/OkxtE6qdR9WFtpOoLqcVvDYTkXJ1wpRZydBk5E2Y+jRgJ4uekJQPdrHFjnxq3S1ww=

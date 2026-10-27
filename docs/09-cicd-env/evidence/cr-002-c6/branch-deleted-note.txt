@@ -1,0 +1,2 @@
+ls-remote rc=0 bytes=0 at 2026-10-27 09:04:02 +0800
+{"message":"Branch not found","documentation_url":"https://docs.github.com/rest/branches/branches#get-a-branch","status":"404"}gh: Branch not found (HTTP 404)

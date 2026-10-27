@@ -1,0 +1,716 @@
+# 2026-10-27 09:06:26 CST 負向對照：v2.29.0 於 Go 1.27.2（重現 #1774，非本 CR 採用版本）
+go version go1.27.2 linux/amd64
+go: downloading golang.org/x/sys v0.47.0
+go: downloading golang.org/x/crypto v0.55.0
+install exit=0
+	mod	github.com/securego/gosec/v2	v2.29.0	h1:pF2HSLcnY5voqpxQumEe0O5YAAbvF4Syu4qeIewpLyc=
+$ gosec -fmt=text -no-fail=false -severity=high -tests ./...
+[gosec] 2026/10/27 09:06:57 Including rules: default
+[gosec] 2026/10/27 09:06:57 Excluding rules: default
+[gosec] 2026/10/27 09:06:57 Including analyzers: default
+[gosec] 2026/10/27 09:06:57 Excluding analyzers: default
+[gosec] 2026/10/27 09:06:58 Checking package: ports
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package ports: package ports has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: health
+[gosec] 2026/10/27 09:06:58 Checking package: health
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package health: package health has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: main
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package main: package main has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: domain
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package domain: package domain has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: application
+[gosec] 2026/10/27 09:06:58 Checking package: domain
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package application: package application has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: application_test
+[gosec] 2026/10/27 09:06:58 Checking package: ratelimit
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package application_test: package application_test has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: main
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package main: package main has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package ratelimit: package ratelimit has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: ratelimit
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package domain: package domain has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: main
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package main: package main has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package ratelimit: package ratelimit has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: main
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package main: package main has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: observability
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package observability: package observability has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: observability
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package observability: package observability has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: main
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package main: package main has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: config
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package config: package config has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: config
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package config: package config has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:06:58 Checking package: main
+[gosec] 2026/10/27 09:06:58 Error building the SSA representation of the package main: package main has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:07:15 Checking package: main
+[gosec] 2026/10/27 09:07:15 Checking package: sqlite
+[gosec] 2026/10/27 09:07:15 Error building the SSA representation of the package main: package main has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:07:15 Checking package: main
+[gosec] 2026/10/27 09:07:15 Error building the SSA representation of the package main: package main has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:07:15 Checking package: main
+[gosec] 2026/10/27 09:07:15 Error building the SSA representation of the package main: package main has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:07:15 Error building the SSA representation of the package sqlite: package sqlite has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:07:15 Checking package: sqlite
+[gosec] 2026/10/27 09:07:15 Error building the SSA representation of the package sqlite: package sqlite has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:07:15 Checking package: main
+[gosec] 2026/10/27 09:07:15 Error building the SSA representation of the package main: package main has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:07:16 Checking package: httpapi
+[gosec] 2026/10/27 09:07:16 Error building the SSA representation of the package httpapi: package httpapi has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:07:16 Checking package: httpapi
+[gosec] 2026/10/27 09:07:16 Checking package: integration
+[gosec] 2026/10/27 09:07:16 Checking package: integration
+[gosec] 2026/10/27 09:07:16 Error building the SSA representation of the package httpapi: package httpapi has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:07:16 Checking package: httpapi_test
+[gosec] 2026/10/27 09:07:16 Error building the SSA representation of the package httpapi_test: package httpapi_test has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:07:16 Checking package: main
+[gosec] 2026/10/27 09:07:16 Error building the SSA representation of the package main: package main has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:07:16 Error building the SSA representation of the package integration: package integration has type errors, skipping SSA analysis, no ssa result
+[gosec] 2026/10/27 09:07:16 Checking package: main
+[gosec] 2026/10/27 09:07:16 Error building the SSA representation of the package main: package main has type errors, skipping SSA analysis, no ssa result
+Results:
+
+Golang errors in file: [/tmp/cr005-main/cmd/shorturl/main.go]:
+
+  > [line 4 : column 2] - could not import context (reading /workspace/tools/gc-v2290/41/41d67d96fdf88c15f43105afc462adb50a63abff76967ef9379637d341edea8b-d: internal error in importing "context" (cannot decode "context", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 4 : column 2] - could not import context (reading /workspace/tools/gc-v2290/41/41d67d96fdf88c15f43105afc462adb50a63abff76967ef9379637d341edea8b-d: internal error in importing "context" (cannot decode "context", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import errors (reading /workspace/tools/gc-v2290/4a/4ab18ace01e2f27f21c33a036224977c23221fd0a561b5dfd10b7ac989296d38-d: internal error in importing "errors" (cannot decode "errors", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import errors (reading /workspace/tools/gc-v2290/4a/4ab18ace01e2f27f21c33a036224977c23221fd0a561b5dfd10b7ac989296d38-d: internal error in importing "errors" (cannot decode "errors", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import log (reading /workspace/tools/gc-v2290/21/214913cc9b9ba55117f57c90b7b1bd2c3a55bc4eac9fd13a978833f35ffa5d65-d: internal error in importing "log" (cannot decode "log", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import log (reading /workspace/tools/gc-v2290/21/214913cc9b9ba55117f57c90b7b1bd2c3a55bc4eac9fd13a978833f35ffa5d65-d: internal error in importing "log" (cannot decode "log", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import net/http (reading /workspace/tools/gc-v2290/8a/8ac9ea099cc643ef14c4f0de17a8c812e9f2ca46e4d667d774ba3191d458877c-d: internal error in importing "net/http" (cannot decode "net/http", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import net/http (reading /workspace/tools/gc-v2290/8a/8ac9ea099cc643ef14c4f0de17a8c812e9f2ca46e4d667d774ba3191d458877c-d: internal error in importing "net/http" (cannot decode "net/http", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import os/signal (reading /workspace/tools/gc-v2290/3f/3fb45744381c8df4bc11ccdeb47de0eac165fb3f336ccfcee505cb99c6f9bc47-d: internal error in importing "os/signal" (cannot decode "os/signal", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import os/signal (reading /workspace/tools/gc-v2290/3f/3fb45744381c8df4bc11ccdeb47de0eac165fb3f336ccfcee505cb99c6f9bc47-d: internal error in importing "os/signal" (cannot decode "os/signal", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import syscall (reading /workspace/tools/gc-v2290/c9/c9d8fcef5f2909a4a6ac10b331a94bd87766a4c720ef911014e83cdde2dba2e4-d: internal error in importing "syscall" (cannot decode "syscall", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import syscall (reading /workspace/tools/gc-v2290/c9/c9d8fcef5f2909a4a6ac10b331a94bd87766a4c720ef911014e83cdde2dba2e4-d: internal error in importing "syscall" (cannot decode "syscall", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 11 : column 2] - could not import time (reading /workspace/tools/gc-v2290/9b/9b2f288b43782f7fdd1f5c73ec75433b7b89c28769b3e966f7caf80652ffe69a-d: internal error in importing "time" (cannot decode "time", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 11 : column 2] - could not import time (reading /workspace/tools/gc-v2290/9b/9b2f288b43782f7fdd1f5c73ec75433b7b89c28769b3e966f7caf80652ffe69a-d: internal error in importing "time" (cannot decode "time", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 13 : column 2] - could not import github.com/444112029012/short-url/internal/application (reading /workspace/tools/gc-v2290/c3/c31276bed3d2fb51cc8b0a53a299761905fedd3c9cdab291d0ce367a4c7a14c7-d: internal error in importing "github.com/444112029012/short-url/internal/application" (cannot decode "github.com/444112029012/short-url/internal/application", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 13 : column 2] - could not import github.com/444112029012/short-url/internal/application (reading /workspace/tools/gc-v2290/c3/c31276bed3d2fb51cc8b0a53a299761905fedd3c9cdab291d0ce367a4c7a14c7-d: internal error in importing "github.com/444112029012/short-url/internal/application" (cannot decode "github.com/444112029012/short-url/internal/application", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 14 : column 2] - could not import github.com/444112029012/short-url/internal/config (reading /workspace/tools/gc-v2290/d8/d878a3eba02a1fa57860f19aa6db502bf6c5e88975f5b2c560a0f994848ce7a8-d: internal error in importing "github.com/444112029012/short-url/internal/config" (cannot decode "github.com/444112029012/short-url/internal/config", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 14 : column 2] - could not import github.com/444112029012/short-url/internal/config (reading /workspace/tools/gc-v2290/d8/d878a3eba02a1fa57860f19aa6db502bf6c5e88975f5b2c560a0f994848ce7a8-d: internal error in importing "github.com/444112029012/short-url/internal/config" (cannot decode "github.com/444112029012/short-url/internal/config", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 15 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 15 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 16 : column 2] - could not import github.com/444112029012/short-url/internal/httpapi (reading /workspace/tools/gc-v2290/15/157860d6cae699a016086582f020837952b697eaed230af2844d8947a610ed56-d: internal error in importing "github.com/444112029012/short-url/internal/httpapi" (cannot decode "github.com/444112029012/short-url/internal/httpapi", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 16 : column 2] - could not import github.com/444112029012/short-url/internal/httpapi (reading /workspace/tools/gc-v2290/15/157860d6cae699a016086582f020837952b697eaed230af2844d8947a610ed56-d: internal error in importing "github.com/444112029012/short-url/internal/httpapi" (cannot decode "github.com/444112029012/short-url/internal/httpapi", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 17 : column 2] - could not import github.com/444112029012/short-url/internal/infra/sqlite (reading /workspace/tools/gc-v2290/20/201d625773b3c37e4f76550b2a09ae457b4783a05d6f7b3b239e2036050adfef-d: internal error in importing "github.com/444112029012/short-url/internal/infra/sqlite" (cannot decode "github.com/444112029012/short-url/internal/infra/sqlite", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 17 : column 2] - could not import github.com/444112029012/short-url/internal/infra/sqlite (reading /workspace/tools/gc-v2290/20/201d625773b3c37e4f76550b2a09ae457b4783a05d6f7b3b239e2036050adfef-d: internal error in importing "github.com/444112029012/short-url/internal/infra/sqlite" (cannot decode "github.com/444112029012/short-url/internal/infra/sqlite", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 18 : column 2] - could not import github.com/444112029012/short-url/internal/observability (reading /workspace/tools/gc-v2290/40/4084ce373f4cc5be1b11136fac07216d1df338c8613d3cb79a230adb2e02bfac-d: internal error in importing "github.com/444112029012/short-url/internal/observability" (cannot decode "github.com/444112029012/short-url/internal/observability", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 18 : column 2] - could not import github.com/444112029012/short-url/internal/observability (reading /workspace/tools/gc-v2290/40/4084ce373f4cc5be1b11136fac07216d1df338c8613d3cb79a230adb2e02bfac-d: internal error in importing "github.com/444112029012/short-url/internal/observability" (cannot decode "github.com/444112029012/short-url/internal/observability", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 19 : column 2] - could not import github.com/444112029012/short-url/internal/ratelimit (reading /workspace/tools/gc-v2290/22/226bb29fc668ba9b1932975803e85440d503d579ad1122dd0abceed9625c3aa9-d: internal error in importing "github.com/444112029012/short-url/internal/ratelimit" (cannot decode "github.com/444112029012/short-url/internal/ratelimit", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 19 : column 2] - could not import github.com/444112029012/short-url/internal/ratelimit (reading /workspace/tools/gc-v2290/22/226bb29fc668ba9b1932975803e85440d503d579ad1122dd0abceed9625c3aa9-d: internal error in importing "github.com/444112029012/short-url/internal/ratelimit" (cannot decode "github.com/444112029012/short-url/internal/ratelimit", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/cmd/shorturl/main_test.go]:
+
+  > [line 4 : column 2] - could not import bufio (reading /workspace/tools/gc-v2290/30/3034b80a3b8346ad4ad0cb21da06cddb596bba080f80902b4b47853058934322-d: internal error in importing "bufio" (cannot decode "bufio", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import fmt (reading /workspace/tools/gc-v2290/5e/5e6fbb12e5dd3335f5b04e691a3c047a6433691b6eea2fbddbdefb6370743cb3-d: internal error in importing "fmt" (cannot decode "fmt", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import net (reading /workspace/tools/gc-v2290/ff/ffff7af66e824b5c101f001e6427edaed5f7684dc0580fce78210e79652c0922-d: internal error in importing "net" (cannot decode "net", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import net/http/httptest (reading /workspace/tools/gc-v2290/bb/bb57f0ee622068aeeae7db9a8ae2653b6c11bab4596f3b0d79516ca27980d335-d: internal error in importing "net/http/httptest" (cannot decode "net/http/httptest", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/application/create_retry_test.go]:
+
+  > [line 4 : column 2] - could not import context (reading /workspace/tools/gc-v2290/41/41d67d96fdf88c15f43105afc462adb50a63abff76967ef9379637d341edea8b-d: internal error in importing "context" (cannot decode "context", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import errors (reading /workspace/tools/gc-v2290/4a/4ab18ace01e2f27f21c33a036224977c23221fd0a561b5dfd10b7ac989296d38-d: internal error in importing "errors" (cannot decode "errors", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import github.com/444112029012/short-url/internal/application (reading /workspace/tools/gc-v2290/c3/c31276bed3d2fb51cc8b0a53a299761905fedd3c9cdab291d0ce367a4c7a14c7-d: internal error in importing "github.com/444112029012/short-url/internal/application" (cannot decode "github.com/444112029012/short-url/internal/application", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/application/redirect.go]:
+
+  > [line 4 : column 2] - could not import context (reading /workspace/tools/gc-v2290/41/41d67d96fdf88c15f43105afc462adb50a63abff76967ef9379637d341edea8b-d: internal error in importing "context" (cannot decode "context", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import errors (reading /workspace/tools/gc-v2290/4a/4ab18ace01e2f27f21c33a036224977c23221fd0a561b5dfd10b7ac989296d38-d: internal error in importing "errors" (cannot decode "errors", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import github.com/444112029012/short-url/internal/ports (reading /workspace/tools/gc-v2290/06/06dc1d7908cf873187b13d0b2ce6e5f50bafc5f55f6e0427f950760c2f8935f1-d: internal error in importing "github.com/444112029012/short-url/internal/ports" (cannot decode "github.com/444112029012/short-url/internal/ports", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/application/service.go]:
+
+  > [line 6 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import time (reading /workspace/tools/gc-v2290/9b/9b2f288b43782f7fdd1f5c73ec75433b7b89c28769b3e966f7caf80652ffe69a-d: internal error in importing "time" (cannot decode "time", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/application/service_test.go]:
+
+  > [line 10 : column 2] - could not import github.com/444112029012/short-url/internal/ports (reading /workspace/tools/gc-v2290/06/06dc1d7908cf873187b13d0b2ce6e5f50bafc5f55f6e0427f950760c2f8935f1-d: internal error in importing "github.com/444112029012/short-url/internal/ports" (cannot decode "github.com/444112029012/short-url/internal/ports", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/config/config.go]:
+
+  > [line 4 : column 2] - could not import fmt (reading /workspace/tools/gc-v2290/5e/5e6fbb12e5dd3335f5b04e691a3c047a6433691b6eea2fbddbdefb6370743cb3-d: internal error in importing "fmt" (cannot decode "fmt", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 4 : column 2] - could not import fmt (reading /workspace/tools/gc-v2290/5e/5e6fbb12e5dd3335f5b04e691a3c047a6433691b6eea2fbddbdefb6370743cb3-d: internal error in importing "fmt" (cannot decode "fmt", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import net (reading /workspace/tools/gc-v2290/ff/ffff7af66e824b5c101f001e6427edaed5f7684dc0580fce78210e79652c0922-d: internal error in importing "net" (cannot decode "net", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import net (reading /workspace/tools/gc-v2290/ff/ffff7af66e824b5c101f001e6427edaed5f7684dc0580fce78210e79652c0922-d: internal error in importing "net" (cannot decode "net", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import net/url (reading /workspace/tools/gc-v2290/ef/ef37bbb9d66ac1eb20e0ecff75480f01b9eed4fdb1c2bc4399d9bf7e5fe6dc8a-d: internal error in importing "net/url" (cannot decode "net/url", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import net/url (reading /workspace/tools/gc-v2290/ef/ef37bbb9d66ac1eb20e0ecff75480f01b9eed4fdb1c2bc4399d9bf7e5fe6dc8a-d: internal error in importing "net/url" (cannot decode "net/url", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import strconv (reading /workspace/tools/gc-v2290/28/28e1dc8c043bea1c932569c2a950e969a8afaf84beecc364173a67a86e84f96f-d: internal error in importing "strconv" (cannot decode "strconv", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import strconv (reading /workspace/tools/gc-v2290/28/28e1dc8c043bea1c932569c2a950e969a8afaf84beecc364173a67a86e84f96f-d: internal error in importing "strconv" (cannot decode "strconv", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/config/config_test.go]:
+
+  > [line 6 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/domain/generator.go]:
+
+  > [line 4 : column 2] - could not import crypto/rand (reading /workspace/tools/gc-v2290/84/84999eaa036f6b6d22597a7e1d41a7e1b8ebb3755735fee16fc1854662367370-d: internal error in importing "crypto/rand" (cannot decode "crypto/rand", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 4 : column 2] - could not import crypto/rand (reading /workspace/tools/gc-v2290/84/84999eaa036f6b6d22597a7e1d41a7e1b8ebb3755735fee16fc1854662367370-d: internal error in importing "crypto/rand" (cannot decode "crypto/rand", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import io (reading /workspace/tools/gc-v2290/0b/0b9595e2a41539ad650e5acd2462c6f01393341905c263e1d4c18983d0cb27b5-d: internal error in importing "io" (cannot decode "io", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import io (reading /workspace/tools/gc-v2290/0b/0b9595e2a41539ad650e5acd2462c6f01393341905c263e1d4c18983d0cb27b5-d: internal error in importing "io" (cannot decode "io", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/domain/generator_test.go]:
+
+  > [line 4 : column 2] - could not import errors (reading /workspace/tools/gc-v2290/4a/4ab18ace01e2f27f21c33a036224977c23221fd0a561b5dfd10b7ac989296d38-d: internal error in importing "errors" (cannot decode "errors", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/domain/types.go]:
+
+  > [line 3 : column 8] - could not import time (reading /workspace/tools/gc-v2290/9b/9b2f288b43782f7fdd1f5c73ec75433b7b89c28769b3e966f7caf80652ffe69a-d: internal error in importing "time" (cannot decode "time", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 3 : column 8] - could not import time (reading /workspace/tools/gc-v2290/9b/9b2f288b43782f7fdd1f5c73ec75433b7b89c28769b3e966f7caf80652ffe69a-d: internal error in importing "time" (cannot decode "time", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/domain/validator.go]:
+
+  > [line 4 : column 2] - could not import net/url (reading /workspace/tools/gc-v2290/ef/ef37bbb9d66ac1eb20e0ecff75480f01b9eed4fdb1c2bc4399d9bf7e5fe6dc8a-d: internal error in importing "net/url" (cannot decode "net/url", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 4 : column 2] - could not import net/url (reading /workspace/tools/gc-v2290/ef/ef37bbb9d66ac1eb20e0ecff75480f01b9eed4fdb1c2bc4399d9bf7e5fe6dc8a-d: internal error in importing "net/url" (cannot decode "net/url", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import regexp (reading /workspace/tools/gc-v2290/2f/2f970c344de794bdac6f28d715114cdffcaa0d5a3eb3dab9caaf96eac784c778-d: internal error in importing "regexp" (cannot decode "regexp", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import regexp (reading /workspace/tools/gc-v2290/2f/2f970c344de794bdac6f28d715114cdffcaa0d5a3eb3dab9caaf96eac784c778-d: internal error in importing "regexp" (cannot decode "regexp", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import unicode/utf8 (reading /workspace/tools/gc-v2290/e1/e1986f1aa48cf53ab5a1352f010d537a3fb816c06f2652d1b3f4a649d4556ab5-d: internal error in importing "unicode/utf8" (cannot decode "unicode/utf8", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import unicode/utf8 (reading /workspace/tools/gc-v2290/e1/e1986f1aa48cf53ab5a1352f010d537a3fb816c06f2652d1b3f4a649d4556ab5-d: internal error in importing "unicode/utf8" (cannot decode "unicode/utf8", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/health/health_test.go]:
+
+  > [line 3 : column 8] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/httpapi/adapter.go]:
+
+  > [line 4 : column 2] - could not import bytes (reading /workspace/tools/gc-v2290/50/50650b93bc03a51f9c152b4dd9f94e09a894f786a85cdf9b2159c627588cffc1-d: internal error in importing "bytes" (cannot decode "bytes", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 4 : column 2] - could not import bytes (reading /workspace/tools/gc-v2290/50/50650b93bc03a51f9c152b4dd9f94e09a894f786a85cdf9b2159c627588cffc1-d: internal error in importing "bytes" (cannot decode "bytes", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import encoding/json (reading /workspace/tools/gc-v2290/00/00d85f21c53e3a8dddf97c4ff17eb5947ff9b0736ba5260358346502b709be63-d: internal error in importing "encoding/json" (cannot decode "encoding/json", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import encoding/json (reading /workspace/tools/gc-v2290/00/00d85f21c53e3a8dddf97c4ff17eb5947ff9b0736ba5260358346502b709be63-d: internal error in importing "encoding/json" (cannot decode "encoding/json", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import errors (reading /workspace/tools/gc-v2290/4a/4ab18ace01e2f27f21c33a036224977c23221fd0a561b5dfd10b7ac989296d38-d: internal error in importing "errors" (cannot decode "errors", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import errors (reading /workspace/tools/gc-v2290/4a/4ab18ace01e2f27f21c33a036224977c23221fd0a561b5dfd10b7ac989296d38-d: internal error in importing "errors" (cannot decode "errors", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import io (reading /workspace/tools/gc-v2290/0b/0b9595e2a41539ad650e5acd2462c6f01393341905c263e1d4c18983d0cb27b5-d: internal error in importing "io" (cannot decode "io", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import io (reading /workspace/tools/gc-v2290/0b/0b9595e2a41539ad650e5acd2462c6f01393341905c263e1d4c18983d0cb27b5-d: internal error in importing "io" (cannot decode "io", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import mime (reading /workspace/tools/gc-v2290/5a/5a1404323b92c32ae704f38c3f797149764bf1f49e80bc239846701aae613f84-d: internal error in importing "mime" (cannot decode "mime", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import mime (reading /workspace/tools/gc-v2290/5a/5a1404323b92c32ae704f38c3f797149764bf1f49e80bc239846701aae613f84-d: internal error in importing "mime" (cannot decode "mime", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import net (reading /workspace/tools/gc-v2290/ff/ffff7af66e824b5c101f001e6427edaed5f7684dc0580fce78210e79652c0922-d: internal error in importing "net" (cannot decode "net", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import net (reading /workspace/tools/gc-v2290/ff/ffff7af66e824b5c101f001e6427edaed5f7684dc0580fce78210e79652c0922-d: internal error in importing "net" (cannot decode "net", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import net/http (reading /workspace/tools/gc-v2290/8a/8ac9ea099cc643ef14c4f0de17a8c812e9f2ca46e4d667d774ba3191d458877c-d: internal error in importing "net/http" (cannot decode "net/http", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import net/http (reading /workspace/tools/gc-v2290/8a/8ac9ea099cc643ef14c4f0de17a8c812e9f2ca46e4d667d774ba3191d458877c-d: internal error in importing "net/http" (cannot decode "net/http", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 11 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 11 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 13 : column 2] - could not import github.com/go-chi/chi/v5 (reading /workspace/tools/gc-v2290/a9/a9826386c38d55e4e2c4060c7f9f630605f94a7601701d707cdf49458238b9d4-d: internal error in importing "github.com/go-chi/chi/v5" (cannot decode "github.com/go-chi/chi/v5", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 13 : column 2] - could not import github.com/go-chi/chi/v5 (reading /workspace/tools/gc-v2290/a9/a9826386c38d55e4e2c4060c7f9f630605f94a7601701d707cdf49458238b9d4-d: internal error in importing "github.com/go-chi/chi/v5" (cannot decode "github.com/go-chi/chi/v5", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 15 : column 2] - could not import github.com/444112029012/short-url/internal/application (reading /workspace/tools/gc-v2290/c3/c31276bed3d2fb51cc8b0a53a299761905fedd3c9cdab291d0ce367a4c7a14c7-d: internal error in importing "github.com/444112029012/short-url/internal/application" (cannot decode "github.com/444112029012/short-url/internal/application", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 15 : column 2] - could not import github.com/444112029012/short-url/internal/application (reading /workspace/tools/gc-v2290/c3/c31276bed3d2fb51cc8b0a53a299761905fedd3c9cdab291d0ce367a4c7a14c7-d: internal error in importing "github.com/444112029012/short-url/internal/application" (cannot decode "github.com/444112029012/short-url/internal/application", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 16 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 16 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 17 : column 2] - could not import github.com/444112029012/short-url/internal/ratelimit (reading /workspace/tools/gc-v2290/22/226bb29fc668ba9b1932975803e85440d503d579ad1122dd0abceed9625c3aa9-d: internal error in importing "github.com/444112029012/short-url/internal/ratelimit" (cannot decode "github.com/444112029012/short-url/internal/ratelimit", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 17 : column 2] - could not import github.com/444112029012/short-url/internal/ratelimit (reading /workspace/tools/gc-v2290/22/226bb29fc668ba9b1932975803e85440d503d579ad1122dd0abceed9625c3aa9-d: internal error in importing "github.com/444112029012/short-url/internal/ratelimit" (cannot decode "github.com/444112029012/short-url/internal/ratelimit", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 125 : column 53] - undefined: chi
+
+  > [line 125 : column 53] - undefined: chi
+
+  > [line 132 : column 26] - undefined: chi
+
+  > [line 132 : column 26] - undefined: chi
+
+  > [line 140 : column 47] - undefined: chi
+
+  > [line 140 : column 47] - undefined: chi
+
+
+Golang errors in file: [/tmp/cr005-main/internal/httpapi/bodylimit_test.go]:
+
+  > [line 4 : column 2] - could not import bytes (reading /workspace/tools/gc-v2290/50/50650b93bc03a51f9c152b4dd9f94e09a894f786a85cdf9b2159c627588cffc1-d: internal error in importing "bytes" (cannot decode "bytes", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import context (reading /workspace/tools/gc-v2290/41/41d67d96fdf88c15f43105afc462adb50a63abff76967ef9379637d341edea8b-d: internal error in importing "context" (cannot decode "context", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import io (reading /workspace/tools/gc-v2290/0b/0b9595e2a41539ad650e5acd2462c6f01393341905c263e1d4c18983d0cb27b5-d: internal error in importing "io" (cannot decode "io", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import net/http (reading /workspace/tools/gc-v2290/8a/8ac9ea099cc643ef14c4f0de17a8c812e9f2ca46e4d667d774ba3191d458877c-d: internal error in importing "net/http" (cannot decode "net/http", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import net/http/httptest (reading /workspace/tools/gc-v2290/bb/bb57f0ee622068aeeae7db9a8ae2653b6c11bab4596f3b0d79516ca27980d335-d: internal error in importing "net/http/httptest" (cannot decode "net/http/httptest", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import path/filepath (reading /workspace/tools/gc-v2290/df/df2414643f1f059c3da2ed797c1504da0a7c56aacebc0c8723fb585d8891a0ac-d: internal error in importing "path/filepath" (cannot decode "path/filepath", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 11 : column 2] - could not import sync/atomic (reading /workspace/tools/gc-v2290/e3/e340884bcde480d86467f04707548e5822e10707f3e75eaadcab050070becc47-d: internal error in importing "sync/atomic" (cannot decode "sync/atomic", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 12 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 13 : column 2] - could not import unicode/utf8 (reading /workspace/tools/gc-v2290/e1/e1986f1aa48cf53ab5a1352f010d537a3fb816c06f2652d1b3f4a649d4556ab5-d: internal error in importing "unicode/utf8" (cannot decode "unicode/utf8", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 15 : column 2] - could not import github.com/444112029012/short-url/internal/observability (reading /workspace/tools/gc-v2290/40/4084ce373f4cc5be1b11136fac07216d1df338c8613d3cb79a230adb2e02bfac-d: internal error in importing "github.com/444112029012/short-url/internal/observability" (cannot decode "github.com/444112029012/short-url/internal/observability", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 16 : column 2] - could not import github.com/444112029012/short-url/internal/ratelimit (reading /workspace/tools/gc-v2290/22/226bb29fc668ba9b1932975803e85440d503d579ad1122dd0abceed9625c3aa9-d: internal error in importing "github.com/444112029012/short-url/internal/ratelimit" (cannot decode "github.com/444112029012/short-url/internal/ratelimit", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/httpapi/contract_test.go]:
+
+  > [line 11 : column 2] - could not import net/url (reading /workspace/tools/gc-v2290/ef/ef37bbb9d66ac1eb20e0ecff75480f01b9eed4fdb1c2bc4399d9bf7e5fe6dc8a-d: internal error in importing "net/url" (cannot decode "net/url", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 13 : column 2] - could not import regexp (reading /workspace/tools/gc-v2290/2f/2f970c344de794bdac6f28d715114cdffcaa0d5a3eb3dab9caaf96eac784c778-d: internal error in importing "regexp" (cannot decode "regexp", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 14 : column 2] - could not import sort (reading /workspace/tools/gc-v2290/d1/d1a5e83a615f684b8238c1db67e1b4b0da3135519bfd4a8cc29efe0f472311cd-d: internal error in importing "sort" (cannot decode "sort", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/httpapi/mapper_test.go]:
+
+  > [line 6 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/httpapi/observability_test.go]:
+
+  > [line 6 : column 2] - could not import encoding/json (reading /workspace/tools/gc-v2290/00/00d85f21c53e3a8dddf97c4ff17eb5947ff9b0736ba5260358346502b709be63-d: internal error in importing "encoding/json" (cannot decode "encoding/json", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import log/slog (reading /workspace/tools/gc-v2290/1b/1b76174e737a3701bcab8b72dd387ebbf3e3a5d7813a3a36b05cd137d3f8d4a4-d: internal error in importing "log/slog" (cannot decode "log/slog", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 12 : column 2] - could not import sync (reading /workspace/tools/gc-v2290/2e/2e2202e0525ee27ee2f819d71337347fa3699d52e6783900b4802a1a8e300a21-d: internal error in importing "sync" (cannot decode "sync", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 15 : column 2] - could not import github.com/444112029012/short-url/internal/application (reading /workspace/tools/gc-v2290/c3/c31276bed3d2fb51cc8b0a53a299761905fedd3c9cdab291d0ce367a4c7a14c7-d: internal error in importing "github.com/444112029012/short-url/internal/application" (cannot decode "github.com/444112029012/short-url/internal/application", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 16 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 17 : column 2] - could not import github.com/444112029012/short-url/internal/httpapi (reading /workspace/tools/gc-v2290/15/157860d6cae699a016086582f020837952b697eaed230af2844d8947a610ed56-d: internal error in importing "github.com/444112029012/short-url/internal/httpapi" (cannot decode "github.com/444112029012/short-url/internal/httpapi", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 18 : column 2] - could not import github.com/444112029012/short-url/internal/infra/sqlite (reading /workspace/tools/gc-v2290/20/201d625773b3c37e4f76550b2a09ae457b4783a05d6f7b3b239e2036050adfef-d: internal error in importing "github.com/444112029012/short-url/internal/infra/sqlite" (cannot decode "github.com/444112029012/short-url/internal/infra/sqlite", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/httpapi/router.go]:
+
+  > [line 9 : column 2] - could not import github.com/444112029012/short-url/internal/health (reading /workspace/tools/gc-v2290/84/849192a28061b6ab9205a7314db9def7247c302f3e7f927933a9983c28fa79ea-d: internal error in importing "github.com/444112029012/short-url/internal/health" (cannot decode "github.com/444112029012/short-url/internal/health", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import github.com/444112029012/short-url/internal/health (reading /workspace/tools/gc-v2290/84/849192a28061b6ab9205a7314db9def7247c302f3e7f927933a9983c28fa79ea-d: internal error in importing "github.com/444112029012/short-url/internal/health" (cannot decode "github.com/444112029012/short-url/internal/health", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 27 : column 7] - undefined: chi
+
+  > [line 27 : column 7] - undefined: chi
+
+
+Golang errors in file: [/tmp/cr005-main/internal/httpapi/router_test.go]:
+
+  > [line 6 : column 2] - could not import database/sql (reading /workspace/tools/gc-v2290/69/69721cf9e86c6abffb206421e1d46771ef3e18505ff9069e66a1cc995551bd50-d: internal error in importing "database/sql" (cannot decode "database/sql", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 14 : column 4] - could not import modernc.org/sqlite (reading /workspace/tools/gc-v2290/98/9843d12d57816a840d30bb60162e0608c4d43543c1922ec90b9e542005d4aa81-d: internal error in importing "modernc.org/sqlite" (cannot decode "modernc.org/sqlite", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/httpapi/security_headers.go]:
+
+  > [line 50 : column 11] - w.Header undefined (type *cacheControlWriter has no field or method Header)
+
+  > [line 50 : column 11] - w.Header undefined (type *cacheControlWriter has no field or method Header)
+
+  > [line 52 : column 56] - w.Header undefined (type *cacheControlWriter has no field or method Header)
+
+  > [line 52 : column 56] - w.Header undefined (type *cacheControlWriter has no field or method Header)
+
+  > [line 53 : column 6] - w.Header undefined (type *cacheControlWriter has no field or method Header)
+
+  > [line 53 : column 6] - w.Header undefined (type *cacheControlWriter has no field or method Header)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/httpapi/security_headers_test.go]:
+
+  > [line 5 : column 2] - could not import crypto/tls (reading /workspace/tools/gc-v2290/f8/f829616b2b029b18dc424bf83480fed522fb7cae868bcb8e3846525fb27eaae8-d: internal error in importing "crypto/tls" (cannot decode "crypto/tls", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/infra/sqlite/store.go]:
+
+  > [line 4 : column 2] - could not import context (reading /workspace/tools/gc-v2290/41/41d67d96fdf88c15f43105afc462adb50a63abff76967ef9379637d341edea8b-d: internal error in importing "context" (cannot decode "context", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 4 : column 2] - could not import context (reading /workspace/tools/gc-v2290/41/41d67d96fdf88c15f43105afc462adb50a63abff76967ef9379637d341edea8b-d: internal error in importing "context" (cannot decode "context", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import database/sql (reading /workspace/tools/gc-v2290/69/69721cf9e86c6abffb206421e1d46771ef3e18505ff9069e66a1cc995551bd50-d: internal error in importing "database/sql" (cannot decode "database/sql", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import database/sql (reading /workspace/tools/gc-v2290/69/69721cf9e86c6abffb206421e1d46771ef3e18505ff9069e66a1cc995551bd50-d: internal error in importing "database/sql" (cannot decode "database/sql", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import errors (reading /workspace/tools/gc-v2290/4a/4ab18ace01e2f27f21c33a036224977c23221fd0a561b5dfd10b7ac989296d38-d: internal error in importing "errors" (cannot decode "errors", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import errors (reading /workspace/tools/gc-v2290/4a/4ab18ace01e2f27f21c33a036224977c23221fd0a561b5dfd10b7ac989296d38-d: internal error in importing "errors" (cannot decode "errors", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import path/filepath (reading /workspace/tools/gc-v2290/df/df2414643f1f059c3da2ed797c1504da0a7c56aacebc0c8723fb585d8891a0ac-d: internal error in importing "path/filepath" (cannot decode "path/filepath", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import path/filepath (reading /workspace/tools/gc-v2290/df/df2414643f1f059c3da2ed797c1504da0a7c56aacebc0c8723fb585d8891a0ac-d: internal error in importing "path/filepath" (cannot decode "path/filepath", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import time (reading /workspace/tools/gc-v2290/9b/9b2f288b43782f7fdd1f5c73ec75433b7b89c28769b3e966f7caf80652ffe69a-d: internal error in importing "time" (cannot decode "time", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import time (reading /workspace/tools/gc-v2290/9b/9b2f288b43782f7fdd1f5c73ec75433b7b89c28769b3e966f7caf80652ffe69a-d: internal error in importing "time" (cannot decode "time", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 12 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 12 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 13 : column 2] - could not import github.com/444112029012/short-url/internal/ports (reading /workspace/tools/gc-v2290/06/06dc1d7908cf873187b13d0b2ce6e5f50bafc5f55f6e0427f950760c2f8935f1-d: internal error in importing "github.com/444112029012/short-url/internal/ports" (cannot decode "github.com/444112029012/short-url/internal/ports", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 13 : column 2] - could not import github.com/444112029012/short-url/internal/ports (reading /workspace/tools/gc-v2290/06/06dc1d7908cf873187b13d0b2ce6e5f50bafc5f55f6e0427f950760c2f8935f1-d: internal error in importing "github.com/444112029012/short-url/internal/ports" (cannot decode "github.com/444112029012/short-url/internal/ports", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 14 : column 15] - could not import modernc.org/sqlite (reading /workspace/tools/gc-v2290/98/9843d12d57816a840d30bb60162e0608c4d43543c1922ec90b9e542005d4aa81-d: internal error in importing "modernc.org/sqlite" (cannot decode "modernc.org/sqlite", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 14 : column 15] - could not import modernc.org/sqlite (reading /workspace/tools/gc-v2290/98/9843d12d57816a840d30bb60162e0608c4d43543c1922ec90b9e542005d4aa81-d: internal error in importing "modernc.org/sqlite" (cannot decode "modernc.org/sqlite", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/infra/sqlite/store_test.go]:
+
+  > [line 9 : column 2] - could not import sync (reading /workspace/tools/gc-v2290/2e/2e2202e0525ee27ee2f819d71337347fa3699d52e6783900b4802a1a8e300a21-d: internal error in importing "sync" (cannot decode "sync", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/integration/api_test.go]:
+
+  > [line 4 : column 2] - could not import bytes (reading /workspace/tools/gc-v2290/50/50650b93bc03a51f9c152b4dd9f94e09a894f786a85cdf9b2159c627588cffc1-d: internal error in importing "bytes" (cannot decode "bytes", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import context (reading /workspace/tools/gc-v2290/41/41d67d96fdf88c15f43105afc462adb50a63abff76967ef9379637d341edea8b-d: internal error in importing "context" (cannot decode "context", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import database/sql (reading /workspace/tools/gc-v2290/69/69721cf9e86c6abffb206421e1d46771ef3e18505ff9069e66a1cc995551bd50-d: internal error in importing "database/sql" (cannot decode "database/sql", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import encoding/json (reading /workspace/tools/gc-v2290/00/00d85f21c53e3a8dddf97c4ff17eb5947ff9b0736ba5260358346502b709be63-d: internal error in importing "encoding/json" (cannot decode "encoding/json", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import io (reading /workspace/tools/gc-v2290/0b/0b9595e2a41539ad650e5acd2462c6f01393341905c263e1d4c18983d0cb27b5-d: internal error in importing "io" (cannot decode "io", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import net/http (reading /workspace/tools/gc-v2290/8a/8ac9ea099cc643ef14c4f0de17a8c812e9f2ca46e4d667d774ba3191d458877c-d: internal error in importing "net/http" (cannot decode "net/http", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import net/http/httptest (reading /workspace/tools/gc-v2290/bb/bb57f0ee622068aeeae7db9a8ae2653b6c11bab4596f3b0d79516ca27980d335-d: internal error in importing "net/http/httptest" (cannot decode "net/http/httptest", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 11 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 12 : column 2] - could not import path/filepath (reading /workspace/tools/gc-v2290/df/df2414643f1f059c3da2ed797c1504da0a7c56aacebc0c8723fb585d8891a0ac-d: internal error in importing "path/filepath" (cannot decode "path/filepath", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 13 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 14 : column 2] - could not import sync (reading /workspace/tools/gc-v2290/2e/2e2202e0525ee27ee2f819d71337347fa3699d52e6783900b4802a1a8e300a21-d: internal error in importing "sync" (cannot decode "sync", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 15 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 17 : column 4] - could not import modernc.org/sqlite (reading /workspace/tools/gc-v2290/98/9843d12d57816a840d30bb60162e0608c4d43543c1922ec90b9e542005d4aa81-d: internal error in importing "modernc.org/sqlite" (cannot decode "modernc.org/sqlite", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 19 : column 2] - could not import github.com/444112029012/short-url/internal/application (reading /workspace/tools/gc-v2290/c3/c31276bed3d2fb51cc8b0a53a299761905fedd3c9cdab291d0ce367a4c7a14c7-d: internal error in importing "github.com/444112029012/short-url/internal/application" (cannot decode "github.com/444112029012/short-url/internal/application", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 20 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 21 : column 2] - could not import github.com/444112029012/short-url/internal/httpapi (reading /workspace/tools/gc-v2290/15/157860d6cae699a016086582f020837952b697eaed230af2844d8947a610ed56-d: internal error in importing "github.com/444112029012/short-url/internal/httpapi" (cannot decode "github.com/444112029012/short-url/internal/httpapi", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 22 : column 2] - could not import github.com/444112029012/short-url/internal/infra/sqlite (reading /workspace/tools/gc-v2290/20/201d625773b3c37e4f76550b2a09ae457b4783a05d6f7b3b239e2036050adfef-d: internal error in importing "github.com/444112029012/short-url/internal/infra/sqlite" (cannot decode "github.com/444112029012/short-url/internal/infra/sqlite", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 23 : column 2] - could not import github.com/444112029012/short-url/internal/observability (reading /workspace/tools/gc-v2290/40/4084ce373f4cc5be1b11136fac07216d1df338c8613d3cb79a230adb2e02bfac-d: internal error in importing "github.com/444112029012/short-url/internal/observability" (cannot decode "github.com/444112029012/short-url/internal/observability", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 24 : column 2] - could not import github.com/444112029012/short-url/internal/ratelimit (reading /workspace/tools/gc-v2290/22/226bb29fc668ba9b1932975803e85440d503d579ad1122dd0abceed9625c3aa9-d: internal error in importing "github.com/444112029012/short-url/internal/ratelimit" (cannot decode "github.com/444112029012/short-url/internal/ratelimit", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/integration/ratelimit_e2e_test.go]:
+
+  > [line 7 : column 2] - could not import errors (reading /workspace/tools/gc-v2290/4a/4ab18ace01e2f27f21c33a036224977c23221fd0a561b5dfd10b7ac989296d38-d: internal error in importing "errors" (cannot decode "errors", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import fmt (reading /workspace/tools/gc-v2290/5e/5e6fbb12e5dd3335f5b04e691a3c047a6433691b6eea2fbddbdefb6370743cb3-d: internal error in importing "fmt" (cannot decode "fmt", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import log/slog (reading /workspace/tools/gc-v2290/1b/1b76174e737a3701bcab8b72dd387ebbf3e3a5d7813a3a36b05cd137d3f8d4a4-d: internal error in importing "log/slog" (cannot decode "log/slog", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 11 : column 2] - could not import net (reading /workspace/tools/gc-v2290/ff/ffff7af66e824b5c101f001e6427edaed5f7684dc0580fce78210e79652c0922-d: internal error in importing "net" (cannot decode "net", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 18 : column 2] - could not import syscall (reading /workspace/tools/gc-v2290/c9/c9d8fcef5f2909a4a6ac10b331a94bd87766a4c720ef911014e83cdde2dba2e4-d: internal error in importing "syscall" (cannot decode "syscall", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 20 : column 2] - could not import time (reading /workspace/tools/gc-v2290/9b/9b2f288b43782f7fdd1f5c73ec75433b7b89c28769b3e966f7caf80652ffe69a-d: internal error in importing "time" (cannot decode "time", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 23 : column 2] - could not import github.com/444112029012/short-url/internal/config (reading /workspace/tools/gc-v2290/d8/d878a3eba02a1fa57860f19aa6db502bf6c5e88975f5b2c560a0f994848ce7a8-d: internal error in importing "github.com/444112029012/short-url/internal/config" (cannot decode "github.com/444112029012/short-url/internal/config", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/observability/hooks.go]:
+
+  > [line 4 : column 2] - could not import context (reading /workspace/tools/gc-v2290/41/41d67d96fdf88c15f43105afc462adb50a63abff76967ef9379637d341edea8b-d: internal error in importing "context" (cannot decode "context", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 4 : column 2] - could not import context (reading /workspace/tools/gc-v2290/41/41d67d96fdf88c15f43105afc462adb50a63abff76967ef9379637d341edea8b-d: internal error in importing "context" (cannot decode "context", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import log/slog (reading /workspace/tools/gc-v2290/1b/1b76174e737a3701bcab8b72dd387ebbf3e3a5d7813a3a36b05cd137d3f8d4a4-d: internal error in importing "log/slog" (cannot decode "log/slog", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import log/slog (reading /workspace/tools/gc-v2290/1b/1b76174e737a3701bcab8b72dd387ebbf3e3a5d7813a3a36b05cd137d3f8d4a4-d: internal error in importing "log/slog" (cannot decode "log/slog", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import sync/atomic (reading /workspace/tools/gc-v2290/e3/e340884bcde480d86467f04707548e5822e10707f3e75eaadcab050070becc47-d: internal error in importing "sync/atomic" (cannot decode "sync/atomic", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import sync/atomic (reading /workspace/tools/gc-v2290/e3/e340884bcde480d86467f04707548e5822e10707f3e75eaadcab050070becc47-d: internal error in importing "sync/atomic" (cannot decode "sync/atomic", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/observability/hooks_test.go]:
+
+  > [line 4 : column 2] - could not import bytes (reading /workspace/tools/gc-v2290/50/50650b93bc03a51f9c152b4dd9f94e09a894f786a85cdf9b2159c627588cffc1-d: internal error in importing "bytes" (cannot decode "bytes", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import encoding/json (reading /workspace/tools/gc-v2290/00/00d85f21c53e3a8dddf97c4ff17eb5947ff9b0736ba5260358346502b709be63-d: internal error in importing "encoding/json" (cannot decode "encoding/json", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/ports/store.go]:
+
+  > [line 4 : column 2] - could not import context (reading /workspace/tools/gc-v2290/41/41d67d96fdf88c15f43105afc462adb50a63abff76967ef9379637d341edea8b-d: internal error in importing "context" (cannot decode "context", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import errors (reading /workspace/tools/gc-v2290/4a/4ab18ace01e2f27f21c33a036224977c23221fd0a561b5dfd10b7ac989296d38-d: internal error in importing "errors" (cannot decode "errors", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 7 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/ratelimit/guard.go]:
+
+  > [line 4 : column 2] - could not import container/list (reading /workspace/tools/gc-v2290/b1/b112c2fb8bd97215329cbdd85a3b0df5dda67275ac57b0c8a9d9fcd29cfcfb09-d: internal error in importing "container/list" (cannot decode "container/list", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 4 : column 2] - could not import container/list (reading /workspace/tools/gc-v2290/b1/b112c2fb8bd97215329cbdd85a3b0df5dda67275ac57b0c8a9d9fcd29cfcfb09-d: internal error in importing "container/list" (cannot decode "container/list", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import sync (reading /workspace/tools/gc-v2290/2e/2e2202e0525ee27ee2f819d71337347fa3699d52e6783900b4802a1a8e300a21-d: internal error in importing "sync" (cannot decode "sync", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import sync (reading /workspace/tools/gc-v2290/2e/2e2202e0525ee27ee2f819d71337347fa3699d52e6783900b4802a1a8e300a21-d: internal error in importing "sync" (cannot decode "sync", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import time (reading /workspace/tools/gc-v2290/9b/9b2f288b43782f7fdd1f5c73ec75433b7b89c28769b3e966f7caf80652ffe69a-d: internal error in importing "time" (cannot decode "time", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import time (reading /workspace/tools/gc-v2290/9b/9b2f288b43782f7fdd1f5c73ec75433b7b89c28769b3e966f7caf80652ffe69a-d: internal error in importing "time" (cannot decode "time", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 8 : column 2] - could not import github.com/444112029012/short-url/internal/domain (reading /workspace/tools/gc-v2290/22/2288e3d9b10feceb11f03e17e5e57a7adf29432c1eb9afd7844fe36822e5e558-d: internal error in importing "github.com/444112029012/short-url/internal/domain" (cannot decode "github.com/444112029012/short-url/internal/domain", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/ratelimit/guard_test.go]:
+
+  > [line 5 : column 2] - could not import sync/atomic (reading /workspace/tools/gc-v2290/e3/e340884bcde480d86467f04707548e5822e10707f3e75eaadcab050070becc47-d: internal error in importing "sync/atomic" (cannot decode "sync/atomic", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/tmp/cr005-main/internal/ratelimit/source.go]:
+
+  > [line 4 : column 2] - could not import net (reading /workspace/tools/gc-v2290/ff/ffff7af66e824b5c101f001e6427edaed5f7684dc0580fce78210e79652c0922-d: internal error in importing "net" (cannot decode "net", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 4 : column 2] - could not import net (reading /workspace/tools/gc-v2290/ff/ffff7af66e824b5c101f001e6427edaed5f7684dc0580fce78210e79652c0922-d: internal error in importing "net" (cannot decode "net", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import net/http (reading /workspace/tools/gc-v2290/8a/8ac9ea099cc643ef14c4f0de17a8c812e9f2ca46e4d667d774ba3191d458877c-d: internal error in importing "net/http" (cannot decode "net/http", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 5 : column 2] - could not import net/http (reading /workspace/tools/gc-v2290/8a/8ac9ea099cc643ef14c4f0de17a8c812e9f2ca46e4d667d774ba3191d458877c-d: internal error in importing "net/http" (cannot decode "net/http", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 6 : column 2] - could not import strings (reading /workspace/tools/gc-v2290/a9/a94925eb285abb679a38956adab26fbe10091976d68ff1ef0b8406579050aa51-d: internal error in importing "strings" (cannot decode "strings", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/workspace/tools/gc-v2290/03/0380c79cd8dfdb1e5bb04b2a77143950b649a5d7c270f086026636d5096757bf-d]:
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import testing/internal/testdeps (reading /workspace/tools/gc-v2290/7a/7af8adec96bb6ba28869c5575ba85e0faff525080a00f52936a1f031c62a9bb7-d: internal error in importing "testing/internal/testdeps" (cannot decode "testing/internal/testdeps", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/workspace/tools/gc-v2290/24/247a48985e9f6b3df0e5d1285e02834037373609353725ca8bc8a1dca8bd40cd-d]:
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import testing/internal/testdeps (reading /workspace/tools/gc-v2290/7a/7af8adec96bb6ba28869c5575ba85e0faff525080a00f52936a1f031c62a9bb7-d: internal error in importing "testing/internal/testdeps" (cannot decode "testing/internal/testdeps", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/workspace/tools/gc-v2290/2a/2a5ff505d49cdf9061173631adcb2bfb34c39e08bc276012b52b4952761aeda8-d]:
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import testing/internal/testdeps (reading /workspace/tools/gc-v2290/7a/7af8adec96bb6ba28869c5575ba85e0faff525080a00f52936a1f031c62a9bb7-d: internal error in importing "testing/internal/testdeps" (cannot decode "testing/internal/testdeps", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/workspace/tools/gc-v2290/4b/4bf4fe0f5d7201c08d173d9ad8218f4acb71d4fccd7934b9f26ea4b66855d451-d]:
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import testing/internal/testdeps (reading /workspace/tools/gc-v2290/7a/7af8adec96bb6ba28869c5575ba85e0faff525080a00f52936a1f031c62a9bb7-d: internal error in importing "testing/internal/testdeps" (cannot decode "testing/internal/testdeps", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/workspace/tools/gc-v2290/64/640fbf3019a2502b93fa0cef7ff0558ecbdb1015f748cc7acfa04c1a1ef4d160-d]:
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import testing/internal/testdeps (reading /workspace/tools/gc-v2290/7a/7af8adec96bb6ba28869c5575ba85e0faff525080a00f52936a1f031c62a9bb7-d: internal error in importing "testing/internal/testdeps" (cannot decode "testing/internal/testdeps", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/workspace/tools/gc-v2290/88/8850ba2a2948691825b9668e4534a98aa70be6ecfeac1875decc10736e746a90-d]:
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import testing/internal/testdeps (reading /workspace/tools/gc-v2290/7a/7af8adec96bb6ba28869c5575ba85e0faff525080a00f52936a1f031c62a9bb7-d: internal error in importing "testing/internal/testdeps" (cannot decode "testing/internal/testdeps", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/workspace/tools/gc-v2290/a6/a632d637df85ac4d7dbaa19106f6cf79902ff928fe66768b1ca32508aba32e4a-d]:
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import testing/internal/testdeps (reading /workspace/tools/gc-v2290/7a/7af8adec96bb6ba28869c5575ba85e0faff525080a00f52936a1f031c62a9bb7-d: internal error in importing "testing/internal/testdeps" (cannot decode "testing/internal/testdeps", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/workspace/tools/gc-v2290/a7/a74eea3234e78e995a7b685d2c0487d62b06634832387d0056deae66be93af29-d]:
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import testing/internal/testdeps (reading /workspace/tools/gc-v2290/7a/7af8adec96bb6ba28869c5575ba85e0faff525080a00f52936a1f031c62a9bb7-d: internal error in importing "testing/internal/testdeps" (cannot decode "testing/internal/testdeps", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/workspace/tools/gc-v2290/d4/d402345e1be7523c3a4aa4225618bec8deb6687a1ed12f523affb97422ba0e9f-d]:
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import testing/internal/testdeps (reading /workspace/tools/gc-v2290/7a/7af8adec96bb6ba28869c5575ba85e0faff525080a00f52936a1f031c62a9bb7-d: internal error in importing "testing/internal/testdeps" (cannot decode "testing/internal/testdeps", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+Golang errors in file: [/workspace/tools/gc-v2290/e6/e6dc77964fdd8d00b8ac58f3d7592fc32edc0460ae60b76aebf64ab0ec86e781-d]:
+
+  > [line 7 : column 2] - could not import os (reading /workspace/tools/gc-v2290/ee/eeef14e09e2fc7bdc6614b5390cc8319fe70d2de988805d90d053a3fd7ca0956-d: internal error in importing "os" (cannot decode "os", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 9 : column 2] - could not import testing (reading /workspace/tools/gc-v2290/bb/bbb22cdcdbf5754167dd318c58ca8a9736d05cb21ed290019184f13742aeaf0f-d: internal error in importing "testing" (cannot decode "testing", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+  > [line 10 : column 2] - could not import testing/internal/testdeps (reading /workspace/tools/gc-v2290/7a/7af8adec96bb6ba28869c5575ba85e0faff525080a00f52936a1f031c62a9bb7-d: internal error in importing "testing/internal/testdeps" (cannot decode "testing/internal/testdeps", export data version 5 is greater than maximum supported version 4); please report an issue)
+
+
+
+Summary:
+  Gosec  : dev
+  Files  : 57
+  Lines  : 7485
+  Nosec  : 0
+  Issues : 0
+
+exit=1

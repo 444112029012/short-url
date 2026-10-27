@@ -1,0 +1,7 @@
+# 2026-10-27 09:02:51 CST 以 ci-devsecops.yml「Verify gosec module hash (CR-002)」同一段邏輯重現；expected=h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=
+	mod	github.com/securego/gosec/v2	v2.30.0	h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=
+gosec h1 OK
+exit=0
+--- 負向測試（expected 對調）
+::error::gosec h1 mismatch: h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0= != h1:KvLOP3HNC+bEcwPGBQ4mVI70uhZ/scyFgiF1IVooj40=
+exit=1

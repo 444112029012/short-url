@@ -1,0 +1,4 @@
+ci-devsecops.main-2425129.yml YAML OK jobs= ['secrets-gitleaks', 'sast-gosec', 'sca-govulncheck', 'unit-test']
+ci-devsecops.proposed.yml YAML OK jobs= ['secrets-gitleaks', 'sast-gosec', 'sca-govulncheck', 'unit-test']
+diff sast-gosec step 2 Install gosec
+diff sast-gosec step 3 Verify gosec module hash (CR-002)

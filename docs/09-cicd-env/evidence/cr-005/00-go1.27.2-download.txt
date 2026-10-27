@@ -1,0 +1,5 @@
+# 2026-10-27 09:00:47 CST
+official ecbadb99091a3f46e31f5f934b068b1864eafa7995211b39eaddf76996045fe5 go1.27.2.linux-amd64.tar.gz
+ecbadb99091a3f46e31f5f934b068b1864eafa7995211b39eaddf76996045fe5  go1.27.2.linux-amd64.tar.gz
+go1.27.2.linux-amd64.tar.gz: OK
+go version go1.27.2 linux/amd64
