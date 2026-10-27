@@ -1,0 +1,4 @@
+sast-gosec	pass	1m11s	https://github.com/444112029012/short-url/actions/runs/39726831602/job/119652549970	
+sca-govulncheck	pass	29s	https://github.com/444112029012/short-url/actions/runs/39726831602/job/119652550021	
+secrets-gitleaks	pass	6s	https://github.com/444112029012/short-url/actions/runs/39726831602/job/119652549727	
+unit-test	pass	41s	https://github.com/444112029012/short-url/actions/runs/39726831602/job/119652549955	

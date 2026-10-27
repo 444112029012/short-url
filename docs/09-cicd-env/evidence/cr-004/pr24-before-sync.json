@@ -1,0 +1,9 @@
+{
+  "captured_at": "2026-10-22 13:02 UTC+8（取自 pre-pr-list.json）",
+  "pr24": {
+    "headRefOid": "80fc321a2d363871bfdf9b50aa89ca10a3be359d",
+    "mergeStateStatus": "UNKNOWN",
+    "number": 24,
+    "reviewDecision": "REVIEW_REQUIRED"
+  }
+}

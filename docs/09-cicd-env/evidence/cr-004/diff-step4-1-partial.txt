@@ -1,0 +1,10 @@
+45c45
+<         "dismiss_stale_reviews_on_push": false,
+---
+>         "dismiss_stale_reviews_on_push": true,
+47,48c47,48
+<         "require_extra_approval_for_unattributed_changes": true,
+<         "require_last_push_approval": false,
+---
+>         "require_extra_approval_for_unattributed_changes": false,
+>         "require_last_push_approval": true,
