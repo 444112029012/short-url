@@ -1,0 +1,36 @@
+# HEAD db51cd53d775c398dc2fbfcd9892f2052ba9bf36；go version go1.27.3 linux/amd64；2026-10-22 09:01:33 (UTC+8)
+$ go vet ./...
+(exit 0)
+$ go test ./... -cover -count=1
+ok  	github.com/444112029012/short-url/cmd/shorturl	0.511s	coverage: 2.8% of statements
+ok  	github.com/444112029012/short-url/internal/application	0.003s	coverage: 82.0% of statements
+ok  	github.com/444112029012/short-url/internal/config	0.003s	coverage: 84.2% of statements
+ok  	github.com/444112029012/short-url/internal/domain	0.003s	coverage: 81.1% of statements
+ok  	github.com/444112029012/short-url/internal/health	0.003s	coverage: 100.0% of statements
+ok  	github.com/444112029012/short-url/internal/httpapi	0.062s	coverage: 90.4% of statements
+ok  	github.com/444112029012/short-url/internal/infra/sqlite	0.052s	coverage: 69.9% of statements
+ok  	github.com/444112029012/short-url/internal/integration	0.186s	coverage: [no statements]
+ok  	github.com/444112029012/short-url/internal/observability	0.002s	coverage: 87.5% of statements
+?   	github.com/444112029012/short-url/internal/ports	[no test files]
+ok  	github.com/444112029012/short-url/internal/ratelimit	0.004s	coverage: 87.3% of statements
+$ go test ./... -race -count=1
+ok  	github.com/444112029012/short-url/cmd/shorturl	1.518s
+ok  	github.com/444112029012/short-url/internal/application	1.012s
+ok  	github.com/444112029012/short-url/internal/config	1.018s
+ok  	github.com/444112029012/short-url/internal/domain	1.015s
+ok  	github.com/444112029012/short-url/internal/health	1.011s
+ok  	github.com/444112029012/short-url/internal/httpapi	1.181s
+ok  	github.com/444112029012/short-url/internal/infra/sqlite	1.106s
+ok  	github.com/444112029012/short-url/internal/integration	1.625s
+ok  	github.com/444112029012/short-url/internal/observability	1.015s
+?   	github.com/444112029012/short-url/internal/ports	[no test files]
+ok  	github.com/444112029012/short-url/internal/ratelimit	1.018s
+$ CI=true go test ./internal/integration/ -run TestENG011_PerSource -v -count=1
+=== RUN   TestENG011_PerSourceIsolationByPeerAddress
+--- PASS: TestENG011_PerSourceIsolationByPeerAddress (0.01s)
+PASS
+ok  	github.com/444112029012/short-url/internal/integration	0.017s
+$ go test ./... -count=1 -coverpkg=./... -coverprofile=cov.out && go tool cover -func=cov.out | tail -1
+total:										(statements)			80.9%
+$ go test ./... -count=1 -json 統計
+pass=167 fail=0 skip=0 (其中子測試 67)
