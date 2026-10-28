@@ -1,0 +1,40 @@
+# 2026-10-27 09:07:53 CST 以擬議 workflow（/workspace/rebuild/cr-005/ci-devsecops.proposed.yml）sast-gosec 各 run 步驟原文，在全新 GOPATH/GOCACHE（模擬乾淨 runner）於 /tmp/cr005-main (origin/main 2425129) 依序執行；setup-go 以本機 Go 1.27.2 官方 tarball 代替
+go version go1.27.2 linux/amd64
+=== step 2
+go install github.com/securego/gosec/v2/cmd/gosec@v2.30.0--- output
+step2 exit=0
+=== step 3
+set -euo pipefail
+expected='h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0='
+bin="$(go env GOPATH)/bin/gosec"
+line="$(go version -m "$bin" | awk '$1=="mod" && $2=="github.com/securego/gosec/v2"')" || true
+if [ -z "$line" ]; then echo "::error::mod github.com/securego/gosec/v2 line missing"; exit 1; fi
+echo "$line"
+actual="$(echo "$line" | awk '{print $4}')"
+if [ "$actual" != "$expected" ]; then echo "::error::gosec h1 mismatch: $actual != $expected"; exit 1; fi
+echo "gosec h1 OK"
+--- output
+	mod	github.com/securego/gosec/v2	v2.30.0	h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=
+gosec h1 OK
+step3 exit=0
+=== step 4
+set -euo pipefail
+# -severity=high：僅 high/critical 導致非零；對齊 SEC-009
+# -tests：測試檔一併掃描（SCR-032）；以絕對路徑呼叫，不依賴 PATH（SCR-019）
+"$(go env GOPATH)/bin/gosec" -fmt=text -no-fail=false -severity=high -tests ./...
+--- output
+[gosec] 2026/10/27 09:08:32 Including rules: default
+[gosec] 2026/10/27 09:08:32 Excluding rules: default
+[gosec] 2026/10/27 09:08:32 Including analyzers: default
+[gosec] 2026/10/27 09:08:32 Excluding analyzers: default
+Results:
+
+
+Summary:
+  Gosec  : dev
+  Files  : 57
+  Lines  : 7485
+  Nosec  : 0
+  Issues : 0
+
+step4 exit=0

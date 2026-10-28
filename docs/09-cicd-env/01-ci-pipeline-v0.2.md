@@ -1,9 +1,9 @@
 ---
 文件：CI 流水線設計與分支保護
-版本：v0.2.2
+版本：v0.2.3
 狀態：核准（D-07 CI 變更、D-08 合併路徑 A；RR-006 已接受）
 負責角色：維運部
-最後更新：2026-10-19
+最後更新：2026-10-27
 對應需求：NFR-004、SI-05、SEC-009、SEC-010、SEC-011
 專案代號：SHORTURL
 ---
@@ -40,14 +40,15 @@
 | 容器映像 | — | **Trivy image** | 開源 | **有 Dockerfile 時啟用** |
 | IaC／組態 | — | Checkov 或 Trivy misconfig | 開源 | **暫不適用**（尚無 Terraform）；**有 Dockerfile 時**可掃 misconfig |
 
-### 2.1 現行版本鎖定（v0.2，PR #2 起；CR-002 自 PR #15 起）
+### 2.1 現行版本鎖定（v0.2，PR #2 起；CR-002 自 PR #15 起；CR-005 自 PR #29 起）
 
 | 項目 | 版本 | 理由 |
 |---|---|---|
 | Go toolchain（**CR-001，已由 CR-002 取代**）（`go.mod`／`setup-go`） | `go 1.27.1`／`1.27.x` | 1.22 有 GO-2025-3750；1.24 線已停止維護，標準庫修補只在受支援版本 |
 | gosec（**CR-001，已由 CR-002 取代**） | `v2.29.0` | 舊版 `v2.21.4` 無法以 Go 1.25+ 編譯；`-severity=high` 不變 |
 | Go toolchain（**CR-002，依 D-13，現行；[PR #15](https://github.com/444112029012/short-url/pull/15) 已於 2026-10-19 10:22（UTC+8）合併，merge commit `c341be1`**） | `go 1.27.2`／`setup-go` 三處皆精確 `"1.27.2"`、`check-latest: false` | 1.27.1 有 5 個可達標準庫漏洞（GO-2026-6617／6613／6612／6611／6603），1.27.2 已修補；禁止 `1.27.x` |
-| gosec（**CR-002，依 D-13，現行**） | `v2.29.1-0.20261015133444-707f2271f665`（commit `707f2271f66579a18e1da25794b1e8012247274b`） | v2.29.0 內含 x/tools v0.49.0，讀不了 Go 1.27.2 的 export data v5；上游尚無發行版。CI 以 `go version -m` 比對 h1 `h1:KvLOP3HNC+bEcwPGBQ4mVI70uhZ/scyFgiF1IVooj40=`，不符即失敗；不得關閉 sumdb 驗證或改 `GOPROXY=direct`；`-severity=high`、`-no-fail=false` 不變。上游發行後換回發行版（C7） |
+| gosec（**CR-002，依 D-13，已由 CR-005 取代**） | `v2.29.1-0.20261015133444-707f2271f665`（commit `707f2271f66579a18e1da25794b1e8012247274b`） | v2.29.0 內含 x/tools v0.49.0，讀不了 Go 1.27.2 的 export data v5；上游尚無發行版。CI 以 `go version -m` 比對 h1 `h1:KvLOP3HNC+bEcwPGBQ4mVI70uhZ/scyFgiF1IVooj40=`，不符即失敗；不得關閉 sumdb 驗證或改 `GOPROXY=direct`；`-severity=high`、`-no-fail=false` 不變。上游發行後換回發行版（C7） |
+| gosec（**CR-005，依 D-19，現行；[PR #29](https://github.com/444112029012/short-url/pull/29) 已於 2026-10-27 16:37（UTC+8）合併，merge commit `db380a4`**） | `v2.30.0`（tag 指向 commit `5eb1d104ef85ff2c905c877eb600e8c1dee33a22`） | 上游已發行 v2.30.0（內含 x/tools v0.52.0），換回發行版，C7 的觸發條件成立。CI 以 `go version -m` 比對 h1 `h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=`，不符即失敗；其餘規則同 CR-002 列（不得關閉 sumdb、不得改 `GOPROXY=direct`；`-severity=high`、`-no-fail=false`、`-tests` 不變）。合併後 main push run 40474778561 四綠；K4 G404 金絲雀 run 40477332321 sast-gosec 如預期轉紅（證據 `evidence/cr-005/19`–`21`，安全部 32 號結案） |
 | govulncheck | `v1.8.0` | 舊版 `v1.1.3` 無法以 Go 1.25+ 編譯；`govulncheck ./...` 非零即擋，不變 |
 | gitleaks | `8.21.2` | 不變 |
 
@@ -230,3 +231,4 @@ checkout
 | v0.2 | 2026-10-07 | 維運部 | 狀態同步（依 G4-PR3-S1、R3）：§3.3 註明已於 [PR #6](https://github.com/444112029012/short-url/pull/6) 恢復 dependency review fail-closed（非 200 以 `::error::` 失敗），暫行略過已關閉，保留歷史；§5.2 註明 D-08 已選 A、RR-006 已接受、Rulesets 已設定並指向快照證據；開頭與 §8 門檻引用改指現行 `03-ci-security-gates-v0.3.md`（v0.2 已由 v0.3 取代，§6 對齊紀錄保留 v0.2 作歷史）。檔名與版本維持 v0.2，不另升版 |
 | v0.2.1 | 2026-10-19 | 維運部 | 依審查部 G4-PR15-R2：§2.1 補 CR-002（D-13）版本鎖定：Go 1.27.2、gosec pseudo-version `v2.29.1-0.20261015133444-707f2271f665`＋h1 比對，**待 PR #15 合併後生效**；CR-001 列標明現行至 #15 合併。門檻未放寬；檔名維持 v0.2 |
 | v0.2.2 | 2026-10-19 | 維運部 | PR #15 已合併（`c341be1`）：§2.1 CR-002 列改為「現行」，CR-001 列標「已由 CR-002 取代」；§3.4 補 SCR-032 評估（`-race`、gosec `-tests` 實跑皆通過，建議以獨立 CI 強化 PR 實作）。門檻未放寬 |
+| v0.2.3 | 2026-10-27 | 維運部 | CR-005（D-19）：§2.1 gosec 改為發行版 `v2.30.0`＋h1 比對，CR-002 列標「已由 CR-005 取代」；PR #29 已合併（`db380a4`），main 四綠，K4 金絲雀已轉紅。門檻未放寬；檔名維持 v0.2 |

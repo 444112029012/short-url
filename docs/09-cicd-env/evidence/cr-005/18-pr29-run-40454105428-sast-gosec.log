@@ -1,0 +1,417 @@
+﻿2026-10-27T05:13:44.9601140Z Current runner version: '2.338.0'
+2026-10-27T05:13:44.9641817Z ##[group]Runner Image Provisioner
+2026-10-27T05:13:44.9643175Z Hosted Compute Agent
+2026-10-27T05:13:44.9644286Z Version: 20261021.618
+2026-10-27T05:13:44.9645500Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-27T05:13:44.9647049Z Build Date: 2026-10-21T00:45:21Z
+2026-10-27T05:13:44.9648448Z Worker ID: {aebc661b-6dd2-4a50-929c-435a60566faa}
+2026-10-27T05:13:44.9649889Z Region: eastus
+2026-10-27T05:13:44.9651099Z Cloud: Azure
+2026-10-27T05:13:44.9652238Z ##[endgroup]
+2026-10-27T05:13:44.9654557Z ##[group]Operating System
+2026-10-27T05:13:44.9655784Z Ubuntu
+2026-10-27T05:13:44.9656624Z 24.04.5
+2026-10-27T05:13:44.9657486Z LTS
+2026-10-27T05:13:44.9658406Z ##[endgroup]
+2026-10-27T05:13:44.9659511Z ##[group]Runner Image
+2026-10-27T05:13:44.9660545Z Image: ubuntu-24.04
+2026-10-27T05:13:44.9661711Z Version: 20261012.334.1
+2026-10-27T05:13:44.9663947Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-27T05:13:44.9666631Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-27T05:13:44.9668297Z ##[endgroup]
+2026-10-27T05:13:44.9670402Z ##[group]GITHUB_TOKEN Permissions
+2026-10-27T05:13:44.9673770Z Contents: read
+2026-10-27T05:13:44.9674834Z Metadata: read
+2026-10-27T05:13:44.9675860Z PullRequests: read
+2026-10-27T05:13:44.9676959Z ##[endgroup]
+2026-10-27T05:13:44.9680530Z Secret source: Actions
+2026-10-27T05:13:44.9682376Z Cache mode: write
+2026-10-27T05:13:44.9683640Z Prepare workflow directory
+2026-10-27T05:13:45.0166720Z Prepare all required actions
+2026-10-27T05:13:45.0240439Z Getting action download info
+2026-10-27T05:13:45.2405695Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-27T05:13:45.3339008Z Download action repository 'actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff' (SHA:40f1582b2485089dde7abd97c1529aa768e1baff)
+2026-10-27T05:13:45.6032165Z Complete job name: sast-gosec
+2026-10-27T05:13:45.6971113Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-10-27T05:13:45.6972456Z with:
+2026-10-27T05:13:45.6972912Z   repository: 444112029012/short-url
+2026-10-27T05:13:45.6976709Z   token: ***
+2026-10-27T05:13:45.6977150Z   ssh-strict: true
+2026-10-27T05:13:45.6977595Z   ssh-user: git
+2026-10-27T05:13:45.6978038Z   persist-credentials: true
+2026-10-27T05:13:45.6978527Z   clean: true
+2026-10-27T05:13:45.6978985Z   sparse-checkout-cone-mode: true
+2026-10-27T05:13:45.6979510Z   fetch-depth: 1
+2026-10-27T05:13:45.6979941Z   fetch-tags: false
+2026-10-27T05:13:45.6980386Z   show-progress: true
+2026-10-27T05:13:45.6980848Z   lfs: false
+2026-10-27T05:13:45.6981269Z   submodules: false
+2026-10-27T05:13:45.6981906Z   set-safe-directory: true
+2026-10-27T05:13:45.6982437Z   allow-unsafe-pr-checkout: false
+2026-10-27T05:13:45.6983226Z ##[endgroup]
+2026-10-27T05:13:45.9808447Z Syncing repository: 444112029012/short-url
+2026-10-27T05:13:45.9812214Z ##[group]Getting Git version info
+2026-10-27T05:13:45.9813950Z Working directory is '/home/runner/work/short-url/short-url'
+2026-10-27T05:13:45.9816287Z [command]/usr/bin/git version
+2026-10-27T05:13:45.9903210Z git version 2.55.0
+2026-10-27T05:13:45.9938640Z ##[endgroup]
+2026-10-27T05:13:45.9946778Z Temporarily overriding HOME='/home/runner/work/_temp/657344a8-c446-4fb6-bb30-5892c043e631' before making global git config changes
+2026-10-27T05:13:45.9949444Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-27T05:13:45.9964532Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+2026-10-27T05:13:46.0056436Z Deleting the contents of '/home/runner/work/short-url/short-url'
+2026-10-27T05:13:46.0058888Z ##[group]Initializing the repository
+2026-10-27T05:13:46.0060438Z [command]/usr/bin/git init /home/runner/work/short-url/short-url
+2026-10-27T05:13:46.0214656Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-27T05:13:46.0217752Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-27T05:13:46.0220176Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-27T05:13:46.0232720Z hint: call:
+2026-10-27T05:13:46.0233818Z hint:
+2026-10-27T05:13:46.0234943Z hint: 	git config --global init.defaultBranch <name>
+2026-10-27T05:13:46.0236260Z hint:
+2026-10-27T05:13:46.0237567Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-27T05:13:46.0239604Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-27T05:13:46.0241245Z hint:
+2026-10-27T05:13:46.0245734Z hint: 	git branch -m <name>
+2026-10-27T05:13:46.0246338Z hint:
+2026-10-27T05:13:46.0247052Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-27T05:13:46.0248348Z Initialized empty Git repository in /home/runner/work/short-url/short-url/.git/
+2026-10-27T05:13:46.0250314Z [command]/usr/bin/git remote add origin https://github.com/444112029012/short-url
+2026-10-27T05:13:46.0298018Z ##[endgroup]
+2026-10-27T05:13:46.0299732Z ##[group]Disabling automatic garbage collection
+2026-10-27T05:13:46.0302646Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-27T05:13:46.0338197Z ##[endgroup]
+2026-10-27T05:13:46.0339843Z ##[group]Setting up auth
+2026-10-27T05:13:46.0348535Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-27T05:13:46.0425178Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-27T05:13:46.0834555Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-27T05:13:46.0865629Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-27T05:13:46.1097828Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-27T05:13:46.1141095Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-27T05:13:46.1375611Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-27T05:13:46.1419290Z ##[endgroup]
+2026-10-27T05:13:46.1420254Z ##[group]Fetching the repository
+2026-10-27T05:13:46.1432828Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +41528d95b8db0c83ab48267752bdbecee9bb0bd1:refs/remotes/pull/29/merge
+2026-10-27T05:13:46.4297736Z From https://github.com/444112029012/short-url
+2026-10-27T05:13:46.4300669Z  * [new ref]         41528d95b8db0c83ab48267752bdbecee9bb0bd1 -> pull/29/merge
+2026-10-27T05:13:46.4307437Z ##[endgroup]
+2026-10-27T05:13:46.4309628Z ##[group]Determining the checkout info
+2026-10-27T05:13:46.4312512Z ##[endgroup]
+2026-10-27T05:13:46.4313848Z [command]/usr/bin/git sparse-checkout disable
+2026-10-27T05:13:46.4374757Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-27T05:13:46.4406781Z ##[group]Checking out the ref
+2026-10-27T05:13:46.4410437Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/29/merge
+2026-10-27T05:13:46.4652366Z Note: switching to 'refs/remotes/pull/29/merge'.
+2026-10-27T05:13:46.4653313Z 
+2026-10-27T05:13:46.4654082Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-27T05:13:46.4655885Z changes and commit them, and you can discard any commits you make in this
+2026-10-27T05:13:46.4657680Z state without impacting any branches by switching back to a branch.
+2026-10-27T05:13:46.4658710Z 
+2026-10-27T05:13:46.4659410Z If you want to create a new branch to retain commits you create, you may
+2026-10-27T05:13:46.4661036Z do so (now or later) by using -c with the switch command. Example:
+2026-10-27T05:13:46.4662656Z 
+2026-10-27T05:13:46.4663075Z   git switch -c <new-branch-name>
+2026-10-27T05:13:46.4663803Z 
+2026-10-27T05:13:46.4664338Z Or undo this operation with:
+2026-10-27T05:13:46.4665094Z 
+2026-10-27T05:13:46.4665594Z   git switch -
+2026-10-27T05:13:46.4666212Z 
+2026-10-27T05:13:46.4667200Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-27T05:13:46.4668562Z 
+2026-10-27T05:13:46.4670177Z HEAD is now at 41528d9 Merge 1545143ca94a3a92f6877a30afa1762de994eedf into 36f4717caab8a957e60f0a67ef5b01400f69ef52
+2026-10-27T05:13:46.4685111Z ##[endgroup]
+2026-10-27T05:13:46.4729323Z [command]/usr/bin/git log -1 --format=%H
+2026-10-27T05:13:46.4756638Z 41528d95b8db0c83ab48267752bdbecee9bb0bd1
+2026-10-27T05:13:46.5143287Z ##[group]Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
+2026-10-27T05:13:46.5144995Z with:
+2026-10-27T05:13:46.5145866Z   go-version: 1.27.2
+2026-10-27T05:13:46.5146887Z   check-latest: false
+2026-10-27T05:13:46.5157111Z   token: ***
+2026-10-27T05:13:46.5158031Z   cache: true
+2026-10-27T05:13:46.5158925Z ##[endgroup]
+2026-10-27T05:13:46.6616805Z Setup go version spec 1.27.2
+2026-10-27T05:13:46.6628580Z Attempting to download 1.27.2...
+2026-10-27T05:13:46.6791234Z (node:2422) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-27T05:13:46.6794540Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-27T05:13:47.1388262Z matching 1.27.2...
+2026-10-27T05:13:47.1428124Z Acquiring 1.27.2 from https://github.com/actions/go-versions/releases/download/1.27.2-37875086547/go-1.27.2-linux-x64.tar.gz
+2026-10-27T05:13:47.5679228Z Extracting Go...
+2026-10-27T05:13:47.5811333Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/ff7e8a90-4b84-4699-bbf5-a7287b2ecf97 -f /home/runner/work/_temp/1df590ba-0a68-4bc7-92d1-fcbcbb8755d2
+2026-10-27T05:13:49.3364492Z Successfully extracted go to /home/runner/work/_temp/ff7e8a90-4b84-4699-bbf5-a7287b2ecf97
+2026-10-27T05:13:49.3372386Z Adding to the cache ...
+2026-10-27T05:13:55.0955883Z Successfully cached go to /opt/hostedtoolcache/go/1.27.2/x64
+2026-10-27T05:13:55.0958867Z Added go to the path
+2026-10-27T05:13:55.0962068Z Successfully set up Go version 1.27.2
+2026-10-27T05:13:55.1194399Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+2026-10-27T05:13:55.1242226Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+2026-10-27T05:13:55.1285089Z /home/runner/go/pkg/mod
+2026-10-27T05:13:55.1306900Z /home/runner/.cache/go-build
+2026-10-27T05:13:55.2141587Z Cache hit for: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+2026-10-27T05:13:55.2267794Z (node:2422) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-27T05:13:56.0122356Z Received 153158848 of 153158848 (100.0%), 196.9 MBs/sec
+2026-10-27T05:13:56.0123216Z Cache Size: ~146 MB (153158848 B)
+2026-10-27T05:13:56.0196244Z [command]/usr/bin/tar -xf /home/runner/work/_temp/27c8a470-0fb0-4786-bed1-bd85b3b1144e/cache.tzst -P -C /home/runner/work/short-url/short-url --use-compress-program unzstd
+2026-10-27T05:13:57.2164170Z Cache restored successfully
+2026-10-27T05:13:57.2239107Z Cache restored from key: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+2026-10-27T05:13:57.2267625Z go version go1.27.2 linux/amd64
+2026-10-27T05:13:57.2267942Z 
+2026-10-27T05:13:57.2268399Z ##[group]go env
+2026-10-27T05:13:57.2422399Z AR='ar'
+2026-10-27T05:13:57.2422823Z CC='gcc'
+2026-10-27T05:13:57.2423242Z CGO_CFLAGS='-O2 -g'
+2026-10-27T05:13:57.2423707Z CGO_CPPFLAGS=''
+2026-10-27T05:13:57.2424145Z CGO_CXXFLAGS='-O2 -g'
+2026-10-27T05:13:57.2424611Z CGO_ENABLED='1'
+2026-10-27T05:13:57.2425053Z CGO_FFLAGS='-O2 -g'
+2026-10-27T05:13:57.2425884Z CGO_LDFLAGS='-O2 -g'
+2026-10-27T05:13:57.2426318Z CXX='g++'
+2026-10-27T05:13:57.2426718Z GCCGO='gccgo'
+2026-10-27T05:13:57.2427111Z GO111MODULE=''
+2026-10-27T05:13:57.2427518Z GOAMD64='v1'
+2026-10-27T05:13:57.2427905Z GOARCH='amd64'
+2026-10-27T05:13:57.2428279Z GOAUTH='netrc'
+2026-10-27T05:13:57.2428692Z GOBIN='/home/runner/go/bin'
+2026-10-27T05:13:57.2429202Z GOCACHE='/home/runner/.cache/go-build'
+2026-10-27T05:13:57.2429729Z GOCACHEPROG=''
+2026-10-27T05:13:57.2430151Z GODEBUG=''
+2026-10-27T05:13:57.2430573Z GOENV='/home/runner/.config/go/env'
+2026-10-27T05:13:57.2431076Z GOEXE=''
+2026-10-27T05:13:57.2431728Z GOEXPERIMENT=''
+2026-10-27T05:13:57.2432222Z GOFIPS140='off'
+2026-10-27T05:13:57.2432655Z GOFLAGS=''
+2026-10-27T05:13:57.2434359Z GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build1252212653=/tmp/go-build -gno-record-gcc-switches'
+2026-10-27T05:13:57.2435896Z GOHOSTARCH='amd64'
+2026-10-27T05:13:57.2436282Z GOHOSTOS='linux'
+2026-10-27T05:13:57.2436638Z GOINSECURE=''
+2026-10-27T05:13:57.2437098Z GOMOD='/home/runner/work/short-url/short-url/go.mod'
+2026-10-27T05:13:57.2437667Z GOMODCACHE='/home/runner/go/pkg/mod'
+2026-10-27T05:13:57.2438105Z GONOPROXY=''
+2026-10-27T05:13:57.2438429Z GONOSUMDB=''
+2026-10-27T05:13:57.2438746Z GOOS='linux'
+2026-10-27T05:13:57.2439077Z GOPACKAGESDRIVER=''
+2026-10-27T05:13:57.2439435Z GOPATH='/home/runner/go'
+2026-10-27T05:13:57.2439806Z GOPRIVATE=''
+2026-10-27T05:13:57.2440378Z GOPROXY='https://proxy.golang.org,direct'
+2026-10-27T05:13:57.2440940Z GOROOT='/opt/hostedtoolcache/go/1.27.2/x64'
+2026-10-27T05:13:57.2441663Z GOSUMDB='sum.golang.org'
+2026-10-27T05:13:57.2442068Z GOTELEMETRY='local'
+2026-10-27T05:13:57.2442504Z GOTELEMETRYDIR='/home/runner/.config/go/telemetry'
+2026-10-27T05:13:57.2443096Z GOTMPDIR=''
+2026-10-27T05:13:57.2443439Z GOTOOLCHAIN='auto'
+2026-10-27T05:13:57.2443993Z GOTOOLDIR='/opt/hostedtoolcache/go/1.27.2/x64/pkg/tool/linux_amd64'
+2026-10-27T05:13:57.2444592Z GOVCS=''
+2026-10-27T05:13:57.2444954Z GOVERSION='go1.27.2'
+2026-10-27T05:13:57.2445311Z GOWORK=''
+2026-10-27T05:13:57.2445655Z PKG_CONFIG='pkg-config'
+2026-10-27T05:13:57.2445898Z 
+2026-10-27T05:13:57.2446367Z ##[endgroup]
+2026-10-27T05:13:57.2674549Z ##[group]Run go install github.com/securego/gosec/v2/cmd/gosec@v2.30.0
+2026-10-27T05:13:57.2675163Z [36;1mgo install github.com/securego/gosec/v2/cmd/gosec@v2.30.0[0m
+2026-10-27T05:13:57.2947759Z shell: /usr/bin/bash -e {0}
+2026-10-27T05:13:57.2948177Z ##[endgroup]
+2026-10-27T05:13:57.3380954Z go: downloading github.com/securego/gosec/v2 v2.30.0
+2026-10-27T05:13:57.5602542Z go: downloading golang.org/x/sync v0.24.0
+2026-10-27T05:13:57.5627896Z go: downloading golang.org/x/tools v0.52.0
+2026-10-27T05:13:57.9566214Z go: downloading github.com/anthropics/anthropic-sdk-go v1.82.0
+2026-10-27T05:13:57.9590315Z go: downloading github.com/openai/openai-go/v3 v3.82.0
+2026-10-27T05:13:58.1616055Z go: downloading google.golang.org/genai v1.75.0
+2026-10-27T05:13:58.1702503Z go: downloading github.com/ccojocar/zxcvbn-go v1.0.4
+2026-10-27T05:13:58.2610485Z go: downloading github.com/tidwall/sjson v1.2.5
+2026-10-27T05:13:58.2619239Z go: downloading go.opentelemetry.io/otel/trace v1.47.0
+2026-10-27T05:13:58.2710187Z go: downloading github.com/invopop/jsonschema v0.14.0
+2026-10-27T05:13:58.2844612Z go: downloading github.com/pb33f/ordered-map/v2 v2.3.2
+2026-10-27T05:13:58.2874955Z go: downloading go.opentelemetry.io/otel v1.47.0
+2026-10-27T05:13:58.3199774Z go: downloading github.com/standard-webhooks/standard-webhooks/libraries v0.0.1
+2026-10-27T05:13:58.3227319Z go: downloading github.com/tidwall/gjson v1.20.0
+2026-10-27T05:13:58.4140250Z go: downloading github.com/gookit/color v1.6.3
+2026-10-27T05:13:58.4438917Z go: downloading go.yaml.in/yaml/v3 v3.0.5
+2026-10-27T05:13:58.4833926Z go: downloading golang.org/x/mod v0.42.0
+2026-10-27T05:13:58.6776707Z go: downloading github.com/buger/jsonparser v1.6.1
+2026-10-27T05:13:58.6777150Z go: downloading github.com/pb33f/go-yaml v0.1.1
+2026-10-27T05:13:58.6777788Z go: downloading github.com/tidwall/match v1.2.0
+2026-10-27T05:13:58.6778166Z go: downloading github.com/bahlo/generic-list-go v0.2.0
+2026-10-27T05:13:58.7052432Z go: downloading github.com/tidwall/pretty v1.2.2
+2026-10-27T05:13:58.7162766Z go: downloading cloud.google.com/go/auth v0.24.1
+2026-10-27T05:13:58.7632095Z go: downloading cloud.google.com/go v0.123.0
+2026-10-27T05:13:58.8114637Z go: downloading github.com/google/go-cmp v0.7.0
+2026-10-27T05:13:58.8120810Z go: downloading github.com/gorilla/websocket v1.5.3
+2026-10-27T05:13:58.8182398Z go: downloading github.com/xo/terminfo v1.2.0
+2026-10-27T05:13:58.8192533Z go: downloading github.com/coder/websocket v1.8.15
+2026-10-27T05:13:58.8480479Z go: downloading github.com/go-logr/logr v1.4.4
+2026-10-27T05:13:58.8497912Z go: downloading go.opentelemetry.io/otel/log v1.47.0
+2026-10-27T05:13:58.8517829Z go: downloading go.opentelemetry.io/otel/metric v1.47.0
+2026-10-27T05:13:58.8543990Z go: downloading github.com/googleapis/gax-go/v2 v2.26.2
+2026-10-27T05:13:58.8651081Z go: downloading cloud.google.com/go/compute/metadata v0.10.0
+2026-10-27T05:13:58.8840419Z go: downloading go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.72.0
+2026-10-27T05:13:58.8860465Z go: downloading golang.org/x/net v0.61.0
+2026-10-27T05:13:58.8862731Z go: downloading google.golang.org/api v0.304.0
+2026-10-27T05:13:58.8908110Z go: downloading github.com/cespare/xxhash/v2 v2.3.0
+2026-10-27T05:13:58.9120618Z go: downloading github.com/go-logr/stdr v1.2.2
+2026-10-27T05:13:58.9132631Z go: downloading go.opentelemetry.io/auto/sdk v1.2.1
+2026-10-27T05:13:58.9415470Z go: downloading github.com/googleapis/enterprise-certificate-proxy v0.3.23
+2026-10-27T05:13:58.9715091Z go: downloading github.com/google/s2a-go v0.1.11
+2026-10-27T05:13:58.9737655Z go: downloading google.golang.org/grpc v1.84.0
+2026-10-27T05:13:59.3434537Z go: downloading google.golang.org/protobuf v1.36.12
+2026-10-27T05:13:59.5539090Z go: downloading github.com/felixge/httpsnoop v1.1.0
+2026-10-27T05:13:59.5552932Z go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20261012220534-4341edf3f941
+2026-10-27T05:13:59.5789381Z go: downloading golang.org/x/text v0.43.0
+2026-10-27T05:13:59.9771627Z go: downloading golang.org/x/sys v0.49.0
+2026-10-27T05:13:59.9772131Z go: downloading golang.org/x/crypto v0.58.0
+2026-10-27T05:14:57.7485318Z ##[group]Run set -euo pipefail
+2026-10-27T05:14:57.7485678Z [36;1mset -euo pipefail[0m
+2026-10-27T05:14:57.7486048Z [36;1mexpected='h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0='[0m
+2026-10-27T05:14:57.7486450Z [36;1mbin="$(go env GOPATH)/bin/gosec"[0m
+2026-10-27T05:14:57.7486912Z [36;1mline="$(go version -m "$bin" | awk '$1=="mod" && $2=="github.com/securego/gosec/v2"')" || true[0m
+2026-10-27T05:14:57.7487540Z [36;1mif [ -z "$line" ]; then echo "::error::mod github.com/securego/gosec/v2 line missing"; exit 1; fi[0m
+2026-10-27T05:14:57.7487985Z [36;1mecho "$line"[0m
+2026-10-27T05:14:57.7488247Z [36;1mactual="$(echo "$line" | awk '{print $4}')"[0m
+2026-10-27T05:14:57.7488776Z [36;1mif [ "$actual" != "$expected" ]; then echo "::error::gosec h1 mismatch: $actual != $expected"; exit 1; fi[0m
+2026-10-27T05:14:57.7489258Z [36;1mecho "gosec h1 OK"[0m
+2026-10-27T05:14:57.7555849Z shell: /usr/bin/bash -e {0}
+2026-10-27T05:14:57.7556121Z ##[endgroup]
+2026-10-27T05:14:57.7726153Z 	mod	github.com/securego/gosec/v2	v2.30.0	h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=
+2026-10-27T05:14:57.7750309Z gosec h1 OK
+2026-10-27T05:14:57.7785370Z ##[group]Run set -euo pipefail
+2026-10-27T05:14:57.7785711Z [36;1mset -euo pipefail[0m
+2026-10-27T05:14:57.7786061Z [36;1m# -severity=high：僅 high/critical 導致非零；對齊 SEC-009[0m
+2026-10-27T05:14:57.7786494Z [36;1m# -tests：測試檔一併掃描（SCR-032）；以絕對路徑呼叫，不依賴 PATH（SCR-019）[0m
+2026-10-27T05:14:57.7787003Z [36;1m"$(go env GOPATH)/bin/gosec" -fmt=text -no-fail=false -severity=high -tests ./...[0m
+2026-10-27T05:14:57.7857282Z shell: /usr/bin/bash -e {0}
+2026-10-27T05:14:57.7857558Z ##[endgroup]
+2026-10-27T05:14:57.8368736Z [gosec] 2026/10/27 05:14:57 Including rules: default
+2026-10-27T05:14:57.8370031Z [gosec] 2026/10/27 05:14:57 Excluding rules: default
+2026-10-27T05:14:57.8370788Z [gosec] 2026/10/27 05:14:57 Including analyzers: default
+2026-10-27T05:14:57.8371701Z [gosec] 2026/10/27 05:14:57 Excluding analyzers: default
+2026-10-27T05:14:57.8396514Z [gosec] 2026/10/27 05:14:57 Import directory: /home/runner/work/short-url/short-url/internal/health
+2026-10-27T05:14:57.8398315Z [gosec] 2026/10/27 05:14:57 Import directory: /home/runner/work/short-url/short-url/internal/integration
+2026-10-27T05:14:57.8399740Z [gosec] 2026/10/27 05:14:57 Import directory: /home/runner/work/short-url/short-url/internal/ports
+2026-10-27T05:14:57.8410336Z [gosec] 2026/10/27 05:14:57 Import directory: /home/runner/work/short-url/short-url/internal/observability
+2026-10-27T05:14:58.3918559Z [gosec] 2026/10/27 05:14:58 Checking package: ports
+2026-10-27T05:14:58.3978207Z [gosec] 2026/10/27 05:14:58 Checking file: /home/runner/work/short-url/short-url/internal/ports/store.go
+2026-10-27T05:14:58.4003420Z [gosec] 2026/10/27 05:14:58 Import directory: /home/runner/work/short-url/short-url/internal/ratelimit
+2026-10-27T05:14:59.0892843Z [gosec] 2026/10/27 05:14:59 Checking package: health
+2026-10-27T05:14:59.0987293Z [gosec] 2026/10/27 05:14:59 Checking file: /home/runner/work/short-url/short-url/internal/health/health.go
+2026-10-27T05:14:59.1050966Z [gosec] 2026/10/27 05:14:59 Checking package: observability
+2026-10-27T05:14:59.1148023Z [gosec] 2026/10/27 05:14:59 Checking file: /home/runner/work/short-url/short-url/internal/observability/hooks.go
+2026-10-27T05:14:59.1220755Z [gosec] 2026/10/27 05:14:59 Checking package: health
+2026-10-27T05:14:59.1269230Z [gosec] 2026/10/27 05:14:59 Checking file: /home/runner/work/short-url/short-url/internal/health/health.go
+2026-10-27T05:14:59.1369984Z [gosec] 2026/10/27 05:14:59 Checking file: /home/runner/work/short-url/short-url/internal/health/health_test.go
+2026-10-27T05:14:59.1442352Z [gosec] 2026/10/27 05:14:59 Checking package: main
+2026-10-27T05:14:59.1589493Z [gosec] 2026/10/27 05:14:59 Import directory: /home/runner/work/short-url/short-url/cmd/shorturl
+2026-10-27T05:14:59.1605994Z [gosec] 2026/10/27 05:14:59 Checking package: observability
+2026-10-27T05:14:59.1709847Z [gosec] 2026/10/27 05:14:59 Checking file: /home/runner/work/short-url/short-url/internal/observability/hooks.go
+2026-10-27T05:14:59.1792848Z [gosec] 2026/10/27 05:14:59 Checking file: /home/runner/work/short-url/short-url/internal/observability/hooks_test.go
+2026-10-27T05:14:59.1882491Z [gosec] 2026/10/27 05:14:59 Checking package: main
+2026-10-27T05:14:59.1967162Z [gosec] 2026/10/27 05:14:59 Import directory: /home/runner/work/short-url/short-url/internal/application
+2026-10-27T05:14:59.8592809Z [gosec] 2026/10/27 05:14:59 Checking package: application
+2026-10-27T05:14:59.8622697Z [gosec] 2026/10/27 05:14:59 Checking file: /home/runner/work/short-url/short-url/internal/application/redirect.go
+2026-10-27T05:14:59.8760823Z [gosec] 2026/10/27 05:14:59 Checking file: /home/runner/work/short-url/short-url/internal/application/service.go
+2026-10-27T05:14:59.8892527Z [gosec] 2026/10/27 05:14:59 Checking package: application_test
+2026-10-27T05:14:59.9043141Z [gosec] 2026/10/27 05:14:59 Checking file: /home/runner/work/short-url/short-url/internal/application/create_retry_test.go
+2026-10-27T05:14:59.9177058Z [gosec] 2026/10/27 05:14:59 Checking file: /home/runner/work/short-url/short-url/internal/application/redirect_test.go
+2026-10-27T05:14:59.9275580Z [gosec] 2026/10/27 05:14:59 Checking file: /home/runner/work/short-url/short-url/internal/application/service_test.go
+2026-10-27T05:14:59.9386334Z [gosec] 2026/10/27 05:14:59 Checking package: main
+2026-10-27T05:14:59.9548094Z [gosec] 2026/10/27 05:14:59 Import directory: /home/runner/work/short-url/short-url/internal/config
+2026-10-27T05:15:01.9330300Z [gosec] 2026/10/27 05:15:01 Checking package: ratelimit
+2026-10-27T05:15:01.9340589Z [gosec] 2026/10/27 05:15:01 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/guard.go
+2026-10-27T05:15:01.9437253Z [gosec] 2026/10/27 05:15:01 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/source.go
+2026-10-27T05:15:01.9561760Z [gosec] 2026/10/27 05:15:01 Checking package: ratelimit
+2026-10-27T05:15:01.9659335Z [gosec] 2026/10/27 05:15:01 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/guard.go
+2026-10-27T05:15:01.9723048Z [gosec] 2026/10/27 05:15:01 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/source.go
+2026-10-27T05:15:01.9782963Z [gosec] 2026/10/27 05:15:01 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/guard_test.go
+2026-10-27T05:15:01.9812776Z [gosec] 2026/10/27 05:15:01 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/source_test.go
+2026-10-27T05:15:01.9867167Z [gosec] 2026/10/27 05:15:01 Checking package: main
+2026-10-27T05:15:01.9876967Z [gosec] 2026/10/27 05:15:01 Import directory: /home/runner/work/short-url/short-url/internal/domain
+2026-10-27T05:15:02.2747247Z [gosec] 2026/10/27 05:15:02 Checking package: config
+2026-10-27T05:15:02.2762885Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/config/config.go
+2026-10-27T05:15:02.2788419Z [gosec] 2026/10/27 05:15:02 Checking package: config
+2026-10-27T05:15:02.2810762Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/config/config.go
+2026-10-27T05:15:02.2813094Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/config/config_test.go
+2026-10-27T05:15:02.2860033Z [gosec] 2026/10/27 05:15:02 Checking package: main
+2026-10-27T05:15:02.2882700Z [gosec] 2026/10/27 05:15:02 Import directory: /home/runner/work/short-url/short-url/internal/httpapi
+2026-10-27T05:15:02.4033203Z [gosec] 2026/10/27 05:15:02 Checking package: domain
+2026-10-27T05:15:02.4044087Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/domain/errors.go
+2026-10-27T05:15:02.4064376Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/domain/generator.go
+2026-10-27T05:15:02.4095050Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/domain/types.go
+2026-10-27T05:15:02.4143211Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/domain/validator.go
+2026-10-27T05:15:02.4173442Z [gosec] 2026/10/27 05:15:02 Checking package: domain
+2026-10-27T05:15:02.4215659Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/domain/errors.go
+2026-10-27T05:15:02.4217257Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/domain/generator.go
+2026-10-27T05:15:02.4218158Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/domain/types.go
+2026-10-27T05:15:02.4218978Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/domain/validator.go
+2026-10-27T05:15:02.4219929Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/domain/generator_test.go
+2026-10-27T05:15:02.4220775Z [gosec] 2026/10/27 05:15:02 Checking file: /home/runner/work/short-url/short-url/internal/domain/validator_test.go
+2026-10-27T05:15:02.4221785Z [gosec] 2026/10/27 05:15:02 Checking package: main
+2026-10-27T05:15:02.4223178Z [gosec] 2026/10/27 05:15:02 Import directory: /home/runner/work/short-url/short-url/internal/infra/sqlite
+2026-10-27T05:15:29.5212607Z [gosec] 2026/10/27 05:15:29 Checking package: main
+2026-10-27T05:15:29.5242879Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/cmd/shorturl/main.go
+2026-10-27T05:15:29.5392510Z [gosec] 2026/10/27 05:15:29 Checking package: main
+2026-10-27T05:15:29.5415550Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/cmd/shorturl/main.go
+2026-10-27T05:15:29.5444997Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/cmd/shorturl/main_test.go
+2026-10-27T05:15:29.6012743Z [gosec] 2026/10/27 05:15:29 Checking package: main
+2026-10-27T05:15:29.7025587Z [gosec] 2026/10/27 05:15:29 Checking package: sqlite
+2026-10-27T05:15:29.7027072Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/infra/sqlite/store.go
+2026-10-27T05:15:29.7044001Z [gosec] 2026/10/27 05:15:29 Checking package: httpapi
+2026-10-27T05:15:29.7045593Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/adapter.go
+2026-10-27T05:15:29.7057367Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/mapper.go
+2026-10-27T05:15:29.7059277Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/response.go
+2026-10-27T05:15:29.7060968Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/router.go
+2026-10-27T05:15:29.7063012Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/security_headers.go
+2026-10-27T05:15:29.7096273Z [gosec] 2026/10/27 05:15:29 Checking package: sqlite
+2026-10-27T05:15:29.7097404Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/infra/sqlite/store.go
+2026-10-27T05:15:29.7122682Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/infra/sqlite/store_test.go
+2026-10-27T05:15:29.7172414Z [gosec] 2026/10/27 05:15:29 Checking package: main
+2026-10-27T05:15:29.7229215Z [gosec] 2026/10/27 05:15:29 Checking package: httpapi
+2026-10-27T05:15:29.7252643Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/adapter.go
+2026-10-27T05:15:29.7260271Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/mapper.go
+2026-10-27T05:15:29.7261385Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/response.go
+2026-10-27T05:15:29.7282606Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/router.go
+2026-10-27T05:15:29.7287582Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/security_headers.go
+2026-10-27T05:15:29.7288993Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/mapper_test.go
+2026-10-27T05:15:29.7332319Z [gosec] 2026/10/27 05:15:29 Checking package: integration
+2026-10-27T05:15:29.7335558Z [gosec] 2026/10/27 05:15:29 Checking package: integration
+2026-10-27T05:15:29.7336710Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/integration/api_test.go
+2026-10-27T05:15:29.7356407Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/integration/ratelimit_e2e_test.go
+2026-10-27T05:15:29.7374485Z [gosec] 2026/10/27 05:15:29 Checking package: httpapi_test
+2026-10-27T05:15:29.7375886Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/bodylimit_test.go
+2026-10-27T05:15:29.7394193Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/contract_test.go
+2026-10-27T05:15:29.7410237Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/observability_test.go
+2026-10-27T05:15:29.7435671Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/ratelimit_test.go
+2026-10-27T05:15:29.7440423Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/integration/security_headers_test.go
+2026-10-27T05:15:29.7446303Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/router_test.go
+2026-10-27T05:15:29.7462728Z [gosec] 2026/10/27 05:15:29 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/security_headers_test.go
+2026-10-27T05:15:29.7753347Z [gosec] 2026/10/27 05:15:29 Checking package: main
+2026-10-27T05:15:29.7834462Z [gosec] 2026/10/27 05:15:29 Checking package: main
+2026-10-27T05:15:29.7844016Z Results:
+2026-10-27T05:15:29.7844265Z 
+2026-10-27T05:15:29.7844272Z 
+2026-10-27T05:15:29.7844426Z Summary:
+2026-10-27T05:15:29.7844778Z   Gosec  : dev
+2026-10-27T05:15:29.7845146Z   Files  : 57
+2026-10-27T05:15:29.7845519Z   Lines  : 7485
+2026-10-27T05:15:29.7845897Z   Nosec  : 0
+2026-10-27T05:15:29.7846281Z   Issues : 0
+2026-10-27T05:15:29.7846492Z 
+2026-10-27T05:15:29.7992308Z Post job cleanup.
+2026-10-27T05:15:29.9282534Z (node:6148) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-27T05:15:29.9283569Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-27T05:15:29.9351364Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+2026-10-27T05:15:29.9396130Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+2026-10-27T05:15:29.9433052Z /home/runner/go/pkg/mod
+2026-10-27T05:15:29.9455491Z /home/runner/.cache/go-build
+2026-10-27T05:15:29.9463651Z Cache hit occurred on the primary key setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025, not saving cache.
+2026-10-27T05:15:29.9706751Z Post job cleanup.
+2026-10-27T05:15:30.0649223Z [command]/usr/bin/git version
+2026-10-27T05:15:30.0696482Z git version 2.55.0
+2026-10-27T05:15:30.0742257Z Temporarily overriding HOME='/home/runner/work/_temp/4cad8ecb-f1b0-4c37-ab3d-569c7d43e468' before making global git config changes
+2026-10-27T05:15:30.0743540Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-27T05:15:30.0752794Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+2026-10-27T05:15:30.0791868Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-27T05:15:30.0832634Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-27T05:15:30.1162387Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-27T05:15:30.1210383Z http.https://github.com/.extraheader
+2026-10-27T05:15:30.1227394Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-27T05:15:30.1283046Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-27T05:15:30.1607631Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-27T05:15:30.1667671Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-27T05:15:30.2085214Z Cleaning up orphan processes
+2026-10-27T05:15:30.2426822Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

@@ -1,0 +1,4 @@
+# 2026-10-27 09:04:28 CST
+$ gh issue view 1774 -R securego/gosec --json number,title,state,closedAt,stateReason,url
+{"closedAt":"2026-10-23T10:24:55Z","number":1774,"state":"CLOSED","stateReason":"COMPLETED","title":"Go 1.27.2 compatibility: v2.29.0 fails to decode export data version 5","url":"https://github.com/securego/gosec/issues/1774"}
+exit=0

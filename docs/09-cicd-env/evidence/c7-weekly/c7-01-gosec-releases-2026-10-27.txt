@@ -1,0 +1,26 @@
+# 2026-10-27 09:04:22 CST
+$ gh release list -R securego/gosec --limit 10
+v2.30.0	Latest	v2.30.0	2026-10-23T09:22:19Z
+v2.29.0		v2.29.0	2026-08-26T08:34:58Z
+v2.28.0		v2.28.0	2026-07-14T11:26:26Z
+v2.27.1		v2.27.1	2026-06-01T17:24:27Z
+v2.27.0		v2.27.0	2026-06-01T08:21:22Z
+v2.26.1		v2.26.1	2026-04-28T06:53:41Z
+v2.25.0		v2.25.0	2026-03-19T09:29:24Z
+v2.24.7		v2.24.7	2026-03-01T09:56:18Z
+v2.24.6		v2.24.6	2026-02-28T13:53:59Z
+v2.24.0		v2.24.0	2026-02-27T11:14:48Z
+exit=0
+$ gh api "repos/securego/gosec/releases?per_page=5" --jq ".[]|[.tag_name,.published_at,.prerelease,.draft]|@tsv"
+v2.30.0	2026-10-23T09:22:19Z	false	false
+v2.29.0	2026-08-26T08:34:58Z	false	false
+v2.28.0	2026-07-14T11:26:26Z	false	false
+v2.27.1	2026-06-01T17:24:27Z	false	false
+v2.27.0	2026-06-01T08:21:22Z	false	false
+exit=0
+$ gh api repos/securego/gosec/git/ref/tags/v2.30.0
+refs/tags/v2.30.0	tag	2385f2cc274ab1654795dbba53c74e74ea8a296d
+exit=0
+$ gh api repos/securego/gosec/git/tags/2385f2cc274ab1654795dbba53c74e74ea8a296d --jq "[.tag,.object.type,.object.sha,.tagger.date]|@tsv"
+v2.30.0	commit	5eb1d104ef85ff2c905c877eb600e8c1dee33a22	2026-10-23T09:10:59Z
+exit=0

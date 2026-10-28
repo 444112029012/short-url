@@ -1,0 +1,13 @@
+# 2026-10-27 09:27:01 CST CR-005 v0.3 技術內容不變驗證
+§1 v0.2 vs v0.3: IDENTICAL
+§2 v0.2 vs v0.3: IDENTICAL
+§3 v0.2 vs v0.3: IDENTICAL
+§5 v0.2 vs v0.3: IDENTICAL
+§6 v0.2 vs v0.3: IDENTICAL
+§7 v0.2 vs v0.3: IDENTICAL
+7ddfa0f8bfd1e9465fdb85ed8f40c5da25b1d1645211519090eb302806df1853  CR-005-ci-devsecops-gosec-v2.30.0.patch
+a67a0be4f0fba76f030cc7394202db91d9de6635b2b89c17a67e783211dece8f  ci-devsecops.proposed.yml
+74f5d76ca1973d0cb285e26ce6eeb65ecd31eccaeda6151db33b584d9bfcdf21  CR-005-gosec-release-v2.30.0-v0.1.md
+5c6b6f56d8bbaec28016a12f1daf6faec8743a18ed95ae863d792efe007c25fd  CR-005-gosec-release-v2.30.0-v0.2.md
+bfaa6d1dac0cc38601c2830a113b07569cef04c42bfc75585311674e71000322  CR-005-gosec-release-v2.30.0-v0.3.md
+4f3627ca00e092ef930d8e37f1a1a0907aa6815cc2d93fa172c2dd8555088b71  CR-005-v0.2-to-v0.3.diff

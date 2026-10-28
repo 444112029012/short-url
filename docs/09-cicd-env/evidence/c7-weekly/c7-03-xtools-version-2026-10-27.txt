@@ -1,0 +1,12 @@
+# 2026-10-27 09:04:11 CST
+$ curl https://proxy.golang.org/github.com/securego/gosec/v2/@v/v2.30.0.mod | grep x/tools
+20:	golang.org/x/tools v0.52.0
+68:go 1.26.0
+$ curl https://proxy.golang.org/github.com/securego/gosec/v2/@v/v2.30.0.info
+{"Version":"v2.30.0","Time":"2026-10-23T09:07:23Z","Origin":{"VCS":"git","URL":"https://github.com/securego/gosec","Hash":"5eb1d104ef85ff2c905c877eb600e8c1dee33a22","Ref":"refs/tags/v2.30.0"}}
+$ curl https://proxy.golang.org/github.com/securego/gosec/v2/@v/list
+v2.27.0
+v2.27.1
+v2.28.0
+v2.29.0
+v2.30.0
