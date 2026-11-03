@@ -1,0 +1,26 @@
+# date: 2026-11-02 16:32:06 CST
+$ curl https://api.github.com/repos/444112029012/short-url/commits/474756381bd170beb3a5d723b63f1b8ba48b2add/check-runs?per_page=100
+4
+125141230942	unit-test	completed	success	2026-11-02T07:03:29Z	2026-11-02T07:04:41Z	github-actions
+125141230836	sca-govulncheck	completed	success	2026-11-02T07:03:29Z	2026-11-02T07:03:50Z	github-actions
+125141230822	sast-gosec	completed	success	2026-11-02T07:03:29Z	2026-11-02T07:05:20Z	github-actions
+125141230565	secrets-gitleaks	completed	success	2026-11-02T07:03:28Z	2026-11-02T07:03:33Z	github-actions
+$ curl https://api.github.com/repos/444112029012/short-url/commits/474756381bd170beb3a5d723b63f1b8ba48b2add/check-suites
+3
+112202018820	cursor	queued		ci/CR-006-go-1.27.3
+112202019321	render	queued		ci/CR-006-go-1.27.3
+112202035296	github-actions	completed	success	ci/CR-006-go-1.27.3
+$ curl https://api.github.com/repos/444112029012/short-url/commits/474756381bd170beb3a5d723b63f1b8ba48b2add/status
+{"state":"pending","total_count":0}
+$ curl https://api.github.com/repos/444112029012/short-url/actions/runs?head_sha=474756381bd170beb3a5d723b63f1b8ba48b2add
+1
+41403811744	ci-devsecops	pull_request	completed	success	2026-11-02T07:03:25Z
+$ curl https://api.github.com/repos/444112029012/short-url/actions/runs/41403811744/jobs
+125141230565	secrets-gitleaks	completed	success
+125141230822	sast-gosec	completed	success
+125141230836	sca-govulncheck	completed	success
+125141230942	unit-test	completed	success
+--- L6 dependency-review（不錨定 grep -ci）check-run 名稱計數: 0
+$ 未登入取 job log
+403
+# date: 2026-11-02 16:32:18 CST

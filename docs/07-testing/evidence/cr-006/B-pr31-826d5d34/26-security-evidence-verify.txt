@@ -1,0 +1,21 @@
+# date: 2026-11-02 14:37:13 (UTC+8)
+b7444593cb2e8f5cafe5f0f1836c96dec15585eee1570e7facafb23bb8a5f3ec  /workspace/projects/short-url/docs/06-security/36-cr-006-pr31-m5-s2-confirmation-v0.1.md
+1000dd9f151f1c33f1c7a2e7b5a4480e093ea1eee1c136a2ff495311b583f38e  /workspace/projects/short-url/docs/06-security/35-cr-006-go-1273-security-opinion-v0.1.md
+33c96bae0c0dc14d41e47bd3f0aff20f3c25c364d33edb0a8264be7ac19c2ef9  /workspace/projects/short-url/docs/06-security/evidence/cr-006-m5/826d5d34d676e11f52e204e155ea271c7d811581/SHA256SUMS
+目錄名: 826d5d34d676e11f52e204e155ea271c7d811581 長度 40
+01-m5-1-head.txt: OK
+02-m5-2-toolchain.txt: OK
+03-m5-3-install.txt: OK
+04-m5-4-gosec-buildinfo.txt: OK
+05-m5-5-gosec-binary.txt: OK
+05b-m5-5-project-binary.txt: OK
+06-m5-6-project-verbose.txt: OK
+07-m5-7-no-toolchain-switch.txt: OK
+08-m5-8-cleanup.txt: OK
+09-api-checks-l6.txt: OK
+10-ops-log-spotcheck.txt: OK
+exit 0
+SHA256SUMS 列數 11；目錄檔數（不含 SHA256SUMS）11
+註：05、05b、06 檔 GO-2026-6809 字串各出現 1 次，皆為檔尾自註「--- grep -c GO-2026-6809: 0」；07 檔 switching 字樣 1 次為標頭 pattern 字串
+## SCR-060 核對：未登入 job log API
+403

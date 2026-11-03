@@ -1,0 +1,35 @@
+## S4-05 本機金絲雀（暫存 clone 內，非專案 repo 樹）
+Tue Nov  3 09:23:22 CST 2026
+樣本來源：docs/09-cicd-env/evidence/cr-005/11-canary-g404-token.go.txt（CR-005 evidence/11）
+34e1eaa832737090288abd40d85db040662fee1fd36ac02a8d3f0f34de0c55b0  docs/09-cicd-env/evidence/cr-005/11-canary-g404-token.go.txt
+22b459eb63620ee45fc1bf7d5b4aa2cec74e236339ca401b87d454b12cd690ca  internal/s4canary/canary.go
+1,2c1,2
+< // Package canaryg404 是 CR-005 本機金絲雀假樣本，只存在 /tmp 暫存副本，不得提交。
+< package canaryg404
+---
+> // CR-006 S4 local canary (temporary, not committed)
+> package s4canary
+0
+     1	// CR-006 S4 local canary (temporary, not committed)
+     2	package s4canary
+     3	
+     4	import "math/rand"
+     5	
+     6	const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+     7	
+     8	// NewToken 故意以 math/rand 產生 token（G404：弱亂數）。
+     9	func NewToken(n int) string {
+    10		b := make([]byte, n)
+    11		for i := range b {
+    12			b[i] = alphabet[rand.Intn(len(alphabet))]
+    13		}
+    14		return string(b)
+    15	}
+gosec exit=1
+111:[/tmp/sec-s4.hT3W/repo/internal/s4canary/canary.go:12] - G404 (CWE-338): Use of weak random number generator (math/rand or math/rand/v2 instead of crypto/rand) (Confidence: MEDIUM, Severity: HIGH)
+120:  Files  : 58
+121:  Lines  : 7500
+122:  Nosec  : 0
+123:  Issues : 1
+switch_count=0
+Tue Nov  3 09:23:22 CST 2026

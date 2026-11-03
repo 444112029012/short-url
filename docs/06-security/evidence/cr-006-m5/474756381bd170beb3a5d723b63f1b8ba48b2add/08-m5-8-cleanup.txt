@@ -1,0 +1,5 @@
+# date: 2026-11-02 16:32:29 CST
+$ chmod -R u+w /tmp/sec-m5.cN9L && rm -rf /tmp/sec-m5.cN9L（刪除暫存 clone、工具鏈、GOPATH）
+exit 0
+ls: cannot access '/tmp/sec-m5.cN9L': No such file or directory
+# date: 2026-11-02 16:32:30 CST

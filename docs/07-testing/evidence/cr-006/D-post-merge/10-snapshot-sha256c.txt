@@ -1,0 +1,9 @@
+list.json: OK
+raw-24629805.json: OK
+raw-24629854.json: OK
+ruleset-24629805.sorted.json: OK
+ruleset-24629854.sorted.json: OK
+rulesets-list.sorted.json: OK
+CAPTURE.txt: OK
+ci-branches.txt: OK
+main-head.txt: OK

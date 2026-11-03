@@ -1,0 +1,6 @@
+## S6 G5 部署清單檢查（只讀，維運部檔案）
+Tue Nov  3 09:24:38 CST 2026
+7f697ce998f231872154e8e50c95a1d409ea796741e5d54e859e7adf10eb700b  09-cicd-env/07-g5-deploy-checklist-v0.1.md
+4:版本：v0.1
+含 1.27.3 列數: 0
+Tue Nov  3 09:24:38 CST 2026

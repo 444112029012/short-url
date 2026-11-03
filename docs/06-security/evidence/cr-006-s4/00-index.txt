@@ -1,0 +1,13 @@
+CR-006 合併後確認（S3～S7）安全部證據目錄
+本目錄同時收 S4 本機部分與 S3／S6／S7 查證輸出（各檔第一行標明對應 S 項）。
+01 main 公開 clone 與 SHA／parents（S3、S4 前置）
+02 Go 1.27.3 tarball 官方 sha256 核對、gosec v2.30.0 安裝與 h1（S4）
+03 基準：main 1b53fcde 未加樣本 gosec（S4）
+04 本機 G404 金絲雀（暫存 clone 內，已刪除；S4 本機部分，不取代 CI 紅燈）
+05 04 的 gosec 完整輸出（S4）
+06 清理：暫存 clone 已刪、專案 repo 樹內無樣本（S4）
+07 main push run 41559091290 與 jobs（未登入 API；S3）
+08 回滾檢查（S7）
+09 G5 部署清單檢查（S6）
+10 維運 log 副本抽查（S3 log 內容）
+11 S4 CI 金絲雀獨立核對：維運證據 SHA256SUMS、未登入 API run 41561438299／jobs、log 指定行、G 規則僅 1 筆、ls-remote 與 branches API（S4）

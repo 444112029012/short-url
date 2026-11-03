@@ -1,0 +1,45 @@
+# date: 2026-11-02 16:31:46 CST
+$ git diff 826d5d34d676e11f52e204e155ea271c7d811581..474756381bd170beb3a5d723b63f1b8ba48b2add --stat
+ .../34-pr-030-sync-recheck-confirmation-v0.1.md    |  39 +++++++
+ .../35-cr-006-go-1273-security-opinion-v0.1.md     | 127 +++++++++++++++++++++
+ .../36-cr-006-pr31-m5-s2-confirmation-v0.1.md      |  86 ++++++++++++++
+ docs/06-security/README.md                         |  13 ++-
+ docs/99-changelog/decision-log.md                  |   1 +
+ 5 files changed, 264 insertions(+), 2 deletions(-)
+exit 0
+$ git log --oneline 826d5d34d676e11f52e204e155ea271c7d811581..474756381bd170beb3a5d723b63f1b8ba48b2add
+4747563 2026-11-02T14:55:52+08:00 444112029012 Merge remote-tracking branch 'origin/main' into ci/CR-006-go-1.27.3
+164b62c 2026-11-02T14:47:42+08:00 YSW Merge pull request #32 from 444112029012/docs/cr-006-followups
+fb270d9 2026-11-02T14:35:40+08:00 444112029012 docs: CR-006 後續文件（34／35／36 號、06-security README、D-20）
+$ git diff ca09137..164b62c --stat（main 前進範圍，對照）
+ .../34-pr-030-sync-recheck-confirmation-v0.1.md    |  39 +++++++
+ .../35-cr-006-go-1273-security-opinion-v0.1.md     | 127 +++++++++++++++++++++
+ .../36-cr-006-pr31-m5-s2-confirmation-v0.1.md      |  86 ++++++++++++++
+ docs/06-security/README.md                         |  13 ++-
+ docs/99-changelog/decision-log.md                  |   1 +
+ 5 files changed, 264 insertions(+), 2 deletions(-)
+$ git diff 164b62c..474756381bd170beb3a5d723b63f1b8ba48b2add --stat（相對新 base，應只剩 CR 變更）
+ .github/workflows/ci-devsecops.yml | 8 ++++----
+ go.mod                             | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+$ git diff 826d5d34d676e11f52e204e155ea271c7d811581..474756381bd170beb3a5d723b63f1b8ba48b2add -- go.mod go.sum .github/（應為空）
+0
+--- 與 CR 附件一致性
+workflow vs proposed.yml: 相同
+06833a314722d4bc7b436533a6268b2be29d5c56d028eeb1bfd20f9151def245  .github/workflows/ci-devsecops.yml
+06833a314722d4bc7b436533a6268b2be29d5c56d028eeb1bfd20f9151def245  /workspace/rebuild/cr-006/ci-devsecops.proposed.yml
+c3939e62c4a3a9081332fbdd7fd06bb056085bd40f732fe97b25acbcac56eaec  /workspace/rebuild/cr-006/CR-006-ci-go-1.27.3.patch
+1e2b43d75b3352825d6227289fc6f3f42f6d883b4d171c7db1ada91afd49dd72  -
+1e2b43d75b3352825d6227289fc6f3f42f6d883b4d171c7db1ada91afd49dd72  go.sum
+$ git diff ca09137 474756381bd170beb3a5d723b63f1b8ba48b2add --stat -- go.mod go.sum .github/
+ .github/workflows/ci-devsecops.yml | 8 ++++----
+ go.mod                             | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+$ git apply --check（patch 對 main ca09137 的 workflow 套用後與 head 相同？）
+apply exit 0
+ .github/workflows/ci-devsecops.yml | 8 ++++----
+ go.mod                             | 2 +-
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+.github/workflows/ci-devsecops.yml 與 head 相同
+go.mod 與 head 相同
+# date: 2026-11-02 16:31:46 CST

@@ -1,0 +1,5 @@
+base ca09137, Go 1.27.3 GOTOOLCHAIN=local (go.mod says go 1.27.2, OK under 1.27.3)
+?   	github.com/444112029012/short-url/internal/ports	[no test files]
+ok  	github.com/444112029012/short-url/internal/ratelimit	1.020s	coverage: 20.1% of statements in ./...
+total:										(statements)			80.9%
+exact total = 474/586 = 80.8874%

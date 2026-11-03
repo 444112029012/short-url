@@ -1,0 +1,107 @@
+date: 2026-11-02 14:31:45 CST
+HEAD: 826d5d34d676e11f52e204e155ea271c7d811581
+/usr/local/bin/go
+go version go1.27.3 linux/amd64
+go1.27.3
+/usr/local/go
+local
+## go test -race -coverpkg=./... -coverprofile=c.out ./... (GOTOOLCHAIN=local)
+ok  	github.com/444112029012/short-url/cmd/shorturl	1.541s	coverage: 0.2% of statements in ./...
+ok  	github.com/444112029012/short-url/internal/application	1.038s	coverage: 12.8% of statements in ./...
+ok  	github.com/444112029012/short-url/internal/config	1.044s	coverage: 8.2% of statements in ./...
+ok  	github.com/444112029012/short-url/internal/domain	1.048s	coverage: 7.3% of statements in ./...
+ok  	github.com/444112029012/short-url/internal/health	1.032s	coverage: 0.2% of statements in ./...
+ok  	github.com/444112029012/short-url/internal/httpapi	1.262s	coverage: 61.9% of statements in ./...
+ok  	github.com/444112029012/short-url/internal/infra/sqlite	1.132s	coverage: 11.1% of statements in ./...
+ok  	github.com/444112029012/short-url/internal/integration	1.743s	coverage: 69.1% of statements in ./...
+ok  	github.com/444112029012/short-url/internal/observability	1.019s	coverage: 2.4% of statements in ./...
+?   	github.com/444112029012/short-url/internal/ports	[no test files]
+ok  	github.com/444112029012/short-url/internal/ratelimit	1.021s	coverage: 20.1% of statements in ./...
+exit=0
+## go tool cover -func=c.out
+github.com/444112029012/short-url/cmd/shorturl/main.go:25:			main				0.0%
+github.com/444112029012/short-url/cmd/shorturl/main.go:32:			run				0.0%
+github.com/444112029012/short-url/cmd/shorturl/main.go:93:			newHTTPServer			100.0%
+github.com/444112029012/short-url/internal/application/redirect.go:19:		NewRedirectService		100.0%
+github.com/444112029012/short-url/internal/application/redirect.go:25:		Redirect			71.4%
+github.com/444112029012/short-url/internal/application/redirect.go:48:		safeLocation			85.7%
+github.com/444112029012/short-url/internal/application/service.go:31:		NewShortURLApplicationService	100.0%
+github.com/444112029012/short-url/internal/application/service.go:50:		CreateShortURL			88.9%
+github.com/444112029012/short-url/internal/application/service.go:100:		GetStats			81.8%
+github.com/444112029012/short-url/internal/config/config.go:32:			Load				85.0%
+github.com/444112029012/short-url/internal/config/config.go:71:			getenv				100.0%
+github.com/444112029012/short-url/internal/config/config.go:79:			parseBool			100.0%
+github.com/444112029012/short-url/internal/config/config.go:94:			parsePositive			100.0%
+github.com/444112029012/short-url/internal/config/config.go:106:		validateBaseURL			70.0%
+github.com/444112029012/short-url/internal/config/config.go:123:		validateCIDRs			88.9%
+github.com/444112029012/short-url/internal/domain/errors.go:31:			Error				66.7%
+github.com/444112029012/short-url/internal/domain/errors.go:38:			Unwrap				66.7%
+github.com/444112029012/short-url/internal/domain/errors.go:45:			InvalidURL			100.0%
+github.com/444112029012/short-url/internal/domain/errors.go:49:			NotFound			100.0%
+github.com/444112029012/short-url/internal/domain/errors.go:53:			RateLimited			100.0%
+github.com/444112029012/short-url/internal/domain/errors.go:57:			Internal			100.0%
+github.com/444112029012/short-url/internal/domain/errors.go:61:			InternalWrap			100.0%
+github.com/444112029012/short-url/internal/domain/generator.go:21:		NewShortCodeGenerator		100.0%
+github.com/444112029012/short-url/internal/domain/generator.go:27:		NewShortCodeGeneratorWithReader	66.7%
+github.com/444112029012/short-url/internal/domain/generator.go:35:		Generate			87.5%
+github.com/444112029012/short-url/internal/domain/validator.go:18:		NewURLValidator			100.0%
+github.com/444112029012/short-url/internal/domain/validator.go:23:		ValidateLongURL			100.0%
+github.com/444112029012/short-url/internal/domain/validator.go:45:		ValidateShortCode		100.0%
+github.com/444112029012/short-url/internal/domain/validator.go:52:		hasCTLOrSpace			100.0%
+github.com/444112029012/short-url/internal/health/health.go:4:			Status				100.0%
+github.com/444112029012/short-url/internal/httpapi/adapter.go:55:		NewHTTPAPIAdapter		100.0%
+github.com/444112029012/short-url/internal/httpapi/adapter.go:89:		HandleCreate			83.3%
+github.com/444112029012/short-url/internal/httpapi/adapter.go:120:		HandleRedirect			100.0%
+github.com/444112029012/short-url/internal/httpapi/adapter.go:139:		HandleStats			72.7%
+github.com/444112029012/short-url/internal/httpapi/adapter.go:155:		sourceID			100.0%
+github.com/444112029012/short-url/internal/httpapi/adapter.go:163:		decodeCreate			88.2%
+github.com/444112029012/short-url/internal/httpapi/adapter.go:188:		jsonContentType			100.0%
+github.com/444112029012/short-url/internal/httpapi/mapper.go:14:		NewErrorMapper			100.0%
+github.com/444112029012/short-url/internal/httpapi/mapper.go:28:		ToHTTPResponse			75.0%
+github.com/444112029012/short-url/internal/httpapi/mapper.go:48:		statusFor			100.0%
+github.com/444112029012/short-url/internal/httpapi/mapper.go:63:		safeMessage			85.7%
+github.com/444112029012/short-url/internal/httpapi/response.go:11:		write				90.9%
+github.com/444112029012/short-url/internal/httpapi/response.go:29:		jsonHeader			100.0%
+github.com/444112029012/short-url/internal/httpapi/router.go:21:		NewRouter			100.0%
+github.com/444112029012/short-url/internal/httpapi/router.go:26:		NewRouterWithOptions		100.0%
+github.com/444112029012/short-url/internal/httpapi/security_headers.go:25:	securityHeaders			100.0%
+github.com/444112029012/short-url/internal/httpapi/security_headers.go:39:	requestIsTLS			100.0%
+github.com/444112029012/short-url/internal/httpapi/security_headers.go:48:	WriteHeader			100.0%
+github.com/444112029012/short-url/internal/httpapi/security_headers.go:60:	Write				66.7%
+github.com/444112029012/short-url/internal/infra/sqlite/store.go:62:		Open				58.6%
+github.com/444112029012/short-url/internal/infra/sqlite/store.go:104:		Close				66.7%
+github.com/444112029012/short-url/internal/infra/sqlite/store.go:113:		Migrate				100.0%
+github.com/444112029012/short-url/internal/infra/sqlite/store.go:118:		Save				77.8%
+github.com/444112029012/short-url/internal/infra/sqlite/store.go:133:		FindByShortCode			83.3%
+github.com/444112029012/short-url/internal/infra/sqlite/store.go:153:		Exists				100.0%
+github.com/444112029012/short-url/internal/infra/sqlite/store.go:165:		IncrementAtomic			77.8%
+github.com/444112029012/short-url/internal/infra/sqlite/store.go:180:		GetCount			77.8%
+github.com/444112029012/short-url/internal/infra/sqlite/store.go:195:		parseTimestamp			33.3%
+github.com/444112029012/short-url/internal/infra/sqlite/store.go:206:		isUniqueViolation		71.4%
+github.com/444112029012/short-url/internal/observability/hooks.go:30:		NewHooks			100.0%
+github.com/444112029012/short-url/internal/observability/hooks.go:36:		NewHooksWithLogger		100.0%
+github.com/444112029012/short-url/internal/observability/hooks.go:41:		OnCreateSuccess			100.0%
+github.com/444112029012/short-url/internal/observability/hooks.go:46:		OnCreateFailure			100.0%
+github.com/444112029012/short-url/internal/observability/hooks.go:51:		OnRedirectSuccess		100.0%
+github.com/444112029012/short-url/internal/observability/hooks.go:56:		OnRedirectFailure		100.0%
+github.com/444112029012/short-url/internal/observability/hooks.go:61:		OnStatsSuccess			100.0%
+github.com/444112029012/short-url/internal/observability/hooks.go:66:		OnStatsFailure			100.0%
+github.com/444112029012/short-url/internal/observability/hooks.go:70:		emit				87.5%
+github.com/444112029012/short-url/internal/ratelimit/guard.go:52:		newTable			100.0%
+github.com/444112029012/short-url/internal/ratelimit/guard.go:59:		get				85.7%
+github.com/444112029012/short-url/internal/ratelimit/guard.go:75:		NewGuard			100.0%
+github.com/444112029012/short-url/internal/ratelimit/guard.go:97:		CheckCreate			66.7%
+github.com/444112029012/short-url/internal/ratelimit/guard.go:110:		CheckRedirect			66.7%
+github.com/444112029012/short-url/internal/ratelimit/guard.go:117:		allow				87.5%
+github.com/444112029012/short-url/internal/ratelimit/guard.go:166:		dropExpiredFront		83.3%
+github.com/444112029012/short-url/internal/ratelimit/guard.go:178:		evictFront			83.3%
+github.com/444112029012/short-url/internal/ratelimit/source.go:11:		ParseTrustedCIDRs		100.0%
+github.com/444112029012/short-url/internal/ratelimit/source.go:54:		ClientSource			100.0%
+github.com/444112029012/short-url/internal/ratelimit/source.go:78:		joinedForwardedFor		66.7%
+github.com/444112029012/short-url/internal/ratelimit/source.go:87:		bucketKey			77.8%
+github.com/444112029012/short-url/internal/ratelimit/source.go:102:		remoteHost			85.7%
+github.com/444112029012/short-url/internal/ratelimit/source.go:114:		clientFromForwarded		100.0%
+github.com/444112029012/short-url/internal/ratelimit/source.go:135:		parseIP				100.0%
+github.com/444112029012/short-url/internal/ratelimit/source.go:147:		ipInNets			83.3%
+total:										(statements)			80.9%
+exact total = 474/586 = 80.8874%

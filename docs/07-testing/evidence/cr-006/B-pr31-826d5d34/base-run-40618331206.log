@@ -1,0 +1,1094 @@
+unit-test	UNKNOWN STEP	﻿2026-10-28T02:00:12.5990315Z Current runner version: '2.338.0'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6014732Z ##[group]Runner Image Provisioner
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6015606Z Hosted Compute Agent
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6016285Z Version: 20261021.618
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6016921Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6017626Z Build Date: 2026-10-21T00:45:21Z
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6018365Z Worker ID: {09030dab-adec-4945-9fc3-82721d2634e0}
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6019107Z Region: westcentralus
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6019711Z Cloud: Azure
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6020263Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6021905Z ##[group]Operating System
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6022684Z Ubuntu
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6023230Z 24.04.5
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6023772Z LTS
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6024303Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6024846Z ##[group]Runner Image
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6025870Z Image: ubuntu-24.04
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6026473Z Version: 20261012.334.1
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6027769Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6029290Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6030348Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6031767Z ##[group]GITHUB_TOKEN Permissions
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6033754Z Contents: read
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6034362Z Metadata: read
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6035035Z PullRequests: read
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6035666Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6037701Z Secret source: Actions
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6038678Z Cache mode: write
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6039351Z Prepare workflow directory
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6435270Z Prepare all required actions
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.6483211Z Getting action download info
+unit-test	UNKNOWN STEP	2026-10-28T02:00:12.9536750Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+unit-test	UNKNOWN STEP	2026-10-28T02:00:13.0623430Z Download action repository 'actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff' (SHA:40f1582b2485089dde7abd97c1529aa768e1baff)
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.0710090Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.2866030Z Complete job name: unit-test
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3763817Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3764969Z with:
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3765452Z   repository: 444112029012/short-url
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3769426Z   token: ***
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3769897Z   ssh-strict: true
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3770374Z   ssh-user: git
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3770856Z   persist-credentials: true
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3771596Z   clean: true
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3772096Z   sparse-checkout-cone-mode: true
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3772655Z   fetch-depth: 1
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3773118Z   fetch-tags: false
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3773601Z   show-progress: true
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3774088Z   lfs: false
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3774535Z   submodules: false
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3775006Z   set-safe-directory: true
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3775581Z   allow-unsafe-pr-checkout: false
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.3776425Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6210938Z Syncing repository: 444112029012/short-url
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6214231Z ##[group]Getting Git version info
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6215699Z Working directory is '/home/runner/work/short-url/short-url'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6217709Z [command]/usr/bin/git version
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6263358Z git version 2.55.0
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6288811Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6304177Z Temporarily overriding HOME='/home/runner/work/_temp/fe7d1175-0c22-4242-b768-c1bb7b00352a' before making global git config changes
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6305770Z Adding repository directory to the temporary git global config as a safe directory
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6311104Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6364012Z Deleting the contents of '/home/runner/work/short-url/short-url'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6372329Z ##[group]Initializing the repository
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6377131Z [command]/usr/bin/git init /home/runner/work/short-url/short-url
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6525949Z hint: Using 'master' as the name for the initial branch. This default branch name
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6528648Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6534048Z hint: to use in all of your new repositories, which will suppress this warning,
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6536223Z hint: call:
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6537444Z hint:
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6538810Z hint: 	git config --global init.defaultBranch <name>
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6540450Z hint:
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6542230Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6544606Z hint: 'development'. The just-created branch can be renamed via this command:
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6546914Z hint:
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6548039Z hint: 	git branch -m <name>
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6549475Z hint:
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6551239Z hint: Disable this message with "git config set advice.defaultBranchName false"
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6554324Z Initialized empty Git repository in /home/runner/work/short-url/short-url/.git/
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6558955Z [command]/usr/bin/git remote add origin https://github.com/444112029012/short-url
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6626359Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6628468Z ##[group]Disabling automatic garbage collection
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6634504Z [command]/usr/bin/git config --local gc.auto 0
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6678415Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6680332Z ##[group]Setting up auth
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6687398Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.6737951Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.7199479Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.7239480Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.7460319Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.7498874Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.7730170Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.7774179Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.7775104Z ##[group]Fetching the repository
+unit-test	UNKNOWN STEP	2026-10-28T02:00:14.7787730Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe:refs/remotes/origin/main
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.5970239Z From https://github.com/444112029012/short-url
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.5972689Z  * [new ref]         ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe -> origin/main
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.5984946Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.5986070Z ##[group]Determining the checkout info
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.5987345Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.5988114Z [command]/usr/bin/git sparse-checkout disable
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6034015Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6067802Z ##[group]Checking out the ref
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6070827Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6364222Z Switched to a new branch 'main'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6370516Z branch 'main' set up to track 'origin/main'.
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6377909Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6420920Z [command]/usr/bin/git log -1 --format=%H
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6447610Z ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6807872Z ##[group]Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6809776Z with:
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6810595Z   go-version: 1.27.2
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6811700Z   check-latest: false
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6812609Z   cache: true
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6822834Z   token: ***
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.6823650Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.8270981Z Setup go version spec 1.27.2
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.8284084Z Attempting to download 1.27.2...
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.8436945Z (node:2385) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+unit-test	UNKNOWN STEP	2026-10-28T02:00:15.8440786Z (Use `node --trace-deprecation ...` to show where the warning was created)
+unit-test	UNKNOWN STEP	2026-10-28T02:00:16.6796660Z matching 1.27.2...
+unit-test	UNKNOWN STEP	2026-10-28T02:00:16.6831283Z Acquiring 1.27.2 from https://github.com/actions/go-versions/releases/download/1.27.2-37875086547/go-1.27.2-linux-x64.tar.gz
+unit-test	UNKNOWN STEP	2026-10-28T02:00:17.6542107Z Extracting Go...
+unit-test	UNKNOWN STEP	2026-10-28T02:00:17.6659555Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/b599a321-57f6-45af-8fe2-efab58c8ddcc -f /home/runner/work/_temp/1469664b-7447-48b0-9ba7-80ad2ca7963c
+unit-test	UNKNOWN STEP	2026-10-28T02:00:19.3466338Z Successfully extracted go to /home/runner/work/_temp/b599a321-57f6-45af-8fe2-efab58c8ddcc
+unit-test	UNKNOWN STEP	2026-10-28T02:00:19.3467211Z Adding to the cache ...
+unit-test	UNKNOWN STEP	2026-10-28T02:00:25.0988962Z Successfully cached go to /opt/hostedtoolcache/go/1.27.2/x64
+unit-test	UNKNOWN STEP	2026-10-28T02:00:25.0992155Z Added go to the path
+unit-test	UNKNOWN STEP	2026-10-28T02:00:25.0994678Z Successfully set up Go version 1.27.2
+unit-test	UNKNOWN STEP	2026-10-28T02:00:25.1241607Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+unit-test	UNKNOWN STEP	2026-10-28T02:00:25.1288621Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+unit-test	UNKNOWN STEP	2026-10-28T02:00:25.1329929Z /home/runner/go/pkg/mod
+unit-test	UNKNOWN STEP	2026-10-28T02:00:25.1352126Z /home/runner/.cache/go-build
+unit-test	UNKNOWN STEP	2026-10-28T02:00:25.3259836Z Cache hit for: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+unit-test	UNKNOWN STEP	2026-10-28T02:00:25.3382112Z (node:2385) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+unit-test	UNKNOWN STEP	2026-10-28T02:00:26.5624366Z Received 41943040 of 153158848 (27.4%), 40.0 MBs/sec
+unit-test	UNKNOWN STEP	2026-10-28T02:00:27.3003576Z Received 153158848 of 153158848 (100.0%), 84.0 MBs/sec
+unit-test	UNKNOWN STEP	2026-10-28T02:00:27.3004654Z Cache Size: ~146 MB (153158848 B)
+unit-test	UNKNOWN STEP	2026-10-28T02:00:27.3134540Z [command]/usr/bin/tar -xf /home/runner/work/_temp/a8ff0fa3-b668-4d22-b576-ace14b90fe17/cache.tzst -P -C /home/runner/work/short-url/short-url --use-compress-program unzstd
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.5747432Z Cache restored successfully
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.5835075Z Cache restored from key: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.5862852Z go version go1.27.2 linux/amd64
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.5863221Z 
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.5863694Z ##[group]go env
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6002163Z AR='ar'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6002633Z CC='gcc'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6003035Z CGO_CFLAGS='-O2 -g'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6003439Z CGO_CPPFLAGS=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6003803Z CGO_CXXFLAGS='-O2 -g'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6004229Z CGO_ENABLED='1'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6004626Z CGO_FFLAGS='-O2 -g'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6005052Z CGO_LDFLAGS='-O2 -g'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6005423Z CXX='g++'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6005737Z GCCGO='gccgo'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6006072Z GO111MODULE=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6006425Z GOAMD64='v1'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6006768Z GOARCH='amd64'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6007096Z GOAUTH='netrc'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6007448Z GOBIN='/home/runner/go/bin'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6007892Z GOCACHE='/home/runner/.cache/go-build'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6008341Z GOCACHEPROG=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6008669Z GODEBUG=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6009045Z GOENV='/home/runner/.config/go/env'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6009457Z GOEXE=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6009848Z GOEXPERIMENT=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6010194Z GOFIPS140='off'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6010875Z GOFLAGS=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6012292Z GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build4030761013=/tmp/go-build -gno-record-gcc-switches'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6013702Z GOHOSTARCH='amd64'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6014050Z GOHOSTOS='linux'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6014397Z GOINSECURE=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6014837Z GOMOD='/home/runner/work/short-url/short-url/go.mod'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6015398Z GOMODCACHE='/home/runner/go/pkg/mod'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6015850Z GONOPROXY=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6016178Z GONOSUMDB=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6016508Z GOOS='linux'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6016838Z GOPACKAGESDRIVER=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6017212Z GOPATH='/home/runner/go'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6017585Z GOPRIVATE=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6018017Z GOPROXY='https://proxy.golang.org,direct'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6018550Z GOROOT='/opt/hostedtoolcache/go/1.27.2/x64'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6019040Z GOSUMDB='sum.golang.org'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6019421Z GOTELEMETRY='local'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6019889Z GOTELEMETRYDIR='/home/runner/.config/go/telemetry'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6020409Z GOTMPDIR=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6020728Z GOTOOLCHAIN='auto'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6021265Z GOTOOLDIR='/opt/hostedtoolcache/go/1.27.2/x64/pkg/tool/linux_amd64'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6022171Z GOVCS=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6022521Z GOVERSION='go1.27.2'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6022935Z GOWORK=''
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6023309Z PKG_CONFIG='pkg-config'
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6023547Z 
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6023949Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6232717Z ##[group]Run go vet ./...
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6233234Z ^[[36;1mgo vet ./...^[[0m
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6492985Z shell: /usr/bin/bash -e {0}
+unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6493291Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:00:43.8762306Z ##[group]Run set -euo pipefail
+unit-test	UNKNOWN STEP	2026-10-28T02:00:43.8762715Z ^[[36;1mset -euo pipefail^[[0m
+unit-test	UNKNOWN STEP	2026-10-28T02:00:43.8763076Z ^[[36;1mgo test -race -json ./... | tee go-test.json > /dev/null^[[0m
+unit-test	UNKNOWN STEP	2026-10-28T02:00:43.8828530Z shell: /usr/bin/bash -e {0}
+unit-test	UNKNOWN STEP	2026-10-28T02:00:43.8828786Z env:
+unit-test	UNKNOWN STEP	2026-10-28T02:00:43.8828977Z   CGO_ENABLED: 1
+unit-test	UNKNOWN STEP	2026-10-28T02:00:43.8829191Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:01:26.4638534Z ##[group]Run set -euo pipefail
+unit-test	UNKNOWN STEP	2026-10-28T02:01:26.4638884Z ^[[36;1mset -euo pipefail^[[0m
+unit-test	UNKNOWN STEP	2026-10-28T02:01:26.4639459Z ^[[36;1mgo test -race -count=1 -v -run '^TestENG011_PerSourceIsolationByPeerAddress$' ./internal/integration/ | tee eng011.log^[[0m
+unit-test	UNKNOWN STEP	2026-10-28T02:01:26.4640224Z ^[[36;1mif ! grep -q -- '--- PASS: TestENG011_PerSourceIsolationByPeerAddress' eng011.log; then^[[0m
+unit-test	UNKNOWN STEP	2026-10-28T02:01:26.4640829Z ^[[36;1m  echo "::error::TestENG011_PerSourceIsolationByPeerAddress 未執行或被 SKIP"; exit 1^[[0m
+unit-test	UNKNOWN STEP	2026-10-28T02:01:26.4641264Z ^[[36;1mfi^[[0m
+unit-test	UNKNOWN STEP	2026-10-28T02:01:26.4704210Z shell: /usr/bin/bash -e {0}
+unit-test	UNKNOWN STEP	2026-10-28T02:01:26.4704472Z env:
+unit-test	UNKNOWN STEP	2026-10-28T02:01:26.4704664Z   CGO_ENABLED: 1
+unit-test	UNKNOWN STEP	2026-10-28T02:01:26.4704874Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:01:27.0488719Z === RUN   TestENG011_PerSourceIsolationByPeerAddress
+unit-test	UNKNOWN STEP	2026-10-28T02:01:27.0858257Z --- PASS: TestENG011_PerSourceIsolationByPeerAddress (0.04s)
+unit-test	UNKNOWN STEP	2026-10-28T02:01:27.0859458Z PASS
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.0876496Z ok  	github.com/444112029012/short-url/internal/integration	1.047s
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.1088907Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.1089345Z with:
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.1089554Z   name: go-test-json
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.1089781Z   path: go-test.json
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.1089996Z   retention-days: 14
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.1090217Z   if-no-files-found: warn
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.1090456Z   compression-level: 6
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.1090681Z   overwrite: false
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.1090899Z   include-hidden-files: false
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.1091143Z ##[endgroup]
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.2722398Z (node:7739) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.2723417Z (Use `node --trace-deprecation ...` to show where the warning was created)
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.2779827Z With the provided path, there will be 1 file uploaded
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.2780822Z Artifact name is valid!
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.2781290Z Root directory input is valid!
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.6340268Z Beginning upload of artifact content to blob storage
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.6561744Z (node:7739) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.9077343Z Uploaded bytes 16137
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.9685063Z Finished uploading artifact content to blob storage!
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.9686193Z SHA256 digest of uploaded artifact zip is 2a29177475ad1e2343111a92567750a3ae99f4ad7f0254ca2ebb43b3e87db94c
+unit-test	UNKNOWN STEP	2026-10-28T02:01:28.9687345Z Finalizing artifact upload
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.4563856Z Artifact go-test-json.zip successfully finalized. Artifact ID 12786122702
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.4565351Z Artifact go-test-json has been successfully uploaded! Final size is 16137 bytes. Artifact ID is 12786122702
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.4572049Z Artifact download URL: https://github.com/444112029012/short-url/actions/runs/40618331206/artifacts/12786122702
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.4746451Z Post job cleanup.
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.6029734Z (node:7752) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.6030731Z (Use `node --trace-deprecation ...` to show where the warning was created)
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.6114822Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.6160118Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.6202404Z /home/runner/go/pkg/mod
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.6225266Z /home/runner/.cache/go-build
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.6231605Z Cache hit occurred on the primary key setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025, not saving cache.
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.6433564Z Post job cleanup.
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.7328788Z [command]/usr/bin/git version
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.7377178Z git version 2.55.0
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.7428923Z Temporarily overriding HOME='/home/runner/work/_temp/84188d22-d006-4541-978a-69c4c1a21358' before making global git config changes
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.7430113Z Adding repository directory to the temporary git global config as a safe directory
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.7431777Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.7476230Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.7519742Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.7785667Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.7815810Z http.https://github.com/.extraheader
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.7829298Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.7877045Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.8193656Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.8235645Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.8617891Z Cleaning up orphan processes
+unit-test	UNKNOWN STEP	2026-10-28T02:01:29.8952114Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+sast-gosec	UNKNOWN STEP	﻿2026-10-28T02:00:12.4561786Z Current runner version: '2.338.0'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4582426Z ##[group]Runner Image Provisioner
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4583240Z Hosted Compute Agent
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4583800Z Version: 20261021.618
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4584382Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4585028Z Build Date: 2026-10-21T00:45:21Z
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4585610Z Worker ID: {8e292598-d573-4549-9e1d-884b5ae87a49}
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4586347Z Region: mexicocentral
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4586924Z Cloud: Azure
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4587419Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4588496Z ##[group]Operating System
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4589039Z Ubuntu
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4589775Z 24.04.5
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4590272Z LTS
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4590721Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4591275Z ##[group]Runner Image
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4591813Z Image: ubuntu-24.04
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4592387Z Version: 20261025.353.1
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4593473Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4594789Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4595626Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4597133Z ##[group]GITHUB_TOKEN Permissions
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4598743Z Contents: read
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4599343Z Metadata: read
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4600034Z PullRequests: read
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4600522Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4602643Z Secret source: Actions
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4603466Z Cache mode: write
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4604295Z Prepare workflow directory
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4881871Z Prepare all required actions
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.4936264Z Getting action download info
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.7769435Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:12.8618890Z Download action repository 'actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff' (SHA:40f1582b2485089dde7abd97c1529aa768e1baff)
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.6387999Z Complete job name: sast-gosec
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7080442Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7081389Z with:
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7081774Z   repository: 444112029012/short-url
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7085026Z   token: ***
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7085406Z   ssh-strict: true
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7085803Z   ssh-user: git
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7086191Z   persist-credentials: true
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7086608Z   clean: true
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7086996Z   sparse-checkout-cone-mode: true
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7087451Z   fetch-depth: 1
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7087822Z   fetch-tags: false
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7088201Z   show-progress: true
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7088584Z   lfs: false
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7088945Z   submodules: false
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7089351Z   set-safe-directory: true
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7089957Z   allow-unsafe-pr-checkout: false
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.7090584Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9533992Z Syncing repository: 444112029012/short-url
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9536150Z ##[group]Getting Git version info
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9536780Z Working directory is '/home/runner/work/short-url/short-url'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9537653Z [command]/usr/bin/git version
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9626054Z git version 2.56.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9643725Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9655885Z Temporarily overriding HOME='/home/runner/work/_temp/a2b9a0d5-4b78-41df-b2cc-485ae32e84b4' before making global git config changes
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9657892Z Adding repository directory to the temporary git global config as a safe directory
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9661172Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9713904Z Deleting the contents of '/home/runner/work/short-url/short-url'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9735209Z ##[group]Initializing the repository
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9738124Z [command]/usr/bin/git init /home/runner/work/short-url/short-url
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9847591Z hint: Using 'master' as the name for the initial branch. This default branch name
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9849544Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9851120Z hint: to use in all of your new repositories, which will suppress this warning,
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9852261Z hint: call:
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9852857Z hint:
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9853627Z hint: 	git config --global init.defaultBranch <name>
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9854518Z hint:
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9855345Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9856703Z hint: 'development'. The just-created branch can be renamed via this command:
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9857771Z hint:
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9858389Z hint: 	git branch -m <name>
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9859059Z hint:
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9860117Z hint: Disable this message with "git config set advice.defaultBranchName false"
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9861615Z Initialized empty Git repository in /home/runner/work/short-url/short-url/.git/
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9870897Z [command]/usr/bin/git remote add origin https://github.com/444112029012/short-url
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9916976Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9918175Z ##[group]Disabling automatic garbage collection
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9920046Z [command]/usr/bin/git config --local gc.auto 0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9951870Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9952996Z ##[group]Setting up auth
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9956882Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:13.9990231Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.0337681Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.0377942Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.0584684Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.0623928Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.0827192Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.0870325Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.0871095Z ##[group]Fetching the repository
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.0881402Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe:refs/remotes/origin/main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8364790Z From https://github.com/444112029012/short-url
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8365959Z  * [new ref]         ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe -> origin/main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8369301Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8370586Z ##[group]Determining the checkout info
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8372574Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8377752Z [command]/usr/bin/git sparse-checkout disable
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8430920Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8466482Z ##[group]Checking out the ref
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8470130Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8717753Z Switched to a new branch 'main'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8722994Z branch 'main' set up to track 'origin/main'.
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8728455Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8771483Z [command]/usr/bin/git log -1 --format=%H
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.8800852Z ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.9053810Z ##[group]Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.9054377Z with:
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.9054700Z   go-version: 1.27.2
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.9055108Z   check-latest: false
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.9058277Z   token: ***
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.9058611Z   cache: true
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:14.9058938Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:15.0137117Z Setup go version spec 1.27.2
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:15.0151856Z Attempting to download 1.27.2...
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:15.0281332Z (node:2088) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:15.0282688Z (Use `node --trace-deprecation ...` to show where the warning was created)
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:16.1100835Z matching 1.27.2...
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:16.1123097Z Acquiring 1.27.2 from https://github.com/actions/go-versions/releases/download/1.27.2-37875086547/go-1.27.2-linux-x64.tar.gz
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:16.6281816Z Extracting Go...
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:16.6399931Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/24f434d4-c97b-48e4-94a2-718abfb05c84 -f /home/runner/work/_temp/7a7e6c2f-9082-4496-970f-39bad803760e
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:18.0953347Z Successfully extracted go to /home/runner/work/_temp/24f434d4-c97b-48e4-94a2-718abfb05c84
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:18.0954325Z Adding to the cache ...
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:23.6811207Z Successfully cached go to /opt/hostedtoolcache/go/1.27.2/x64
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:23.6813593Z Added go to the path
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:23.6816048Z Successfully set up Go version 1.27.2
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:23.7032278Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:23.7074622Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:23.7115726Z /home/runner/go/pkg/mod
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:23.7136126Z /home/runner/.cache/go-build
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:23.9197343Z Cache hit for: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:23.9280138Z (node:2088) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:25.1284473Z Received 50331648 of 153158848 (32.9%), 48.0 MBs/sec
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:25.8106767Z Received 153158848 of 153158848 (100.0%), 86.8 MBs/sec
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:25.8107290Z Cache Size: ~146 MB (153158848 B)
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:25.8209037Z [command]/usr/bin/tar -xf /home/runner/work/_temp/b3bd6530-6e93-4605-97a6-22b73093bd79/cache.tzst -P -C /home/runner/work/short-url/short-url --use-compress-program unzstd
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8640824Z Cache restored successfully
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8711793Z Cache restored from key: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8732088Z go version go1.27.2 linux/amd64
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8732287Z 
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8732585Z ##[group]go env
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8874628Z AR='ar'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8874971Z CC='gcc'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8875255Z CGO_CFLAGS='-O2 -g'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8875571Z CGO_CPPFLAGS=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8875788Z CGO_CXXFLAGS='-O2 -g'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8876008Z CGO_ENABLED='1'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8876224Z CGO_FFLAGS='-O2 -g'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8876436Z CGO_LDFLAGS='-O2 -g'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8876615Z CXX='g++'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8876788Z GCCGO='gccgo'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8876958Z GO111MODULE=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8877135Z GOAMD64='v1'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8877315Z GOARCH='amd64'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8877484Z GOAUTH='netrc'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8877662Z GOBIN='/home/runner/go/bin'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8877902Z GOCACHE='/home/runner/.cache/go-build'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8878138Z GOCACHEPROG=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8878308Z GODEBUG=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8878515Z GOENV='/home/runner/.config/go/env'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8878738Z GOEXE=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8878902Z GOEXPERIMENT=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8879095Z GOFIPS140='off'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8879822Z GOFLAGS=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8880401Z GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build564595977=/tmp/go-build -gno-record-gcc-switches'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8880920Z GOHOSTARCH='amd64'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8881238Z GOHOSTOS='linux'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8881411Z GOINSECURE=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8881626Z GOMOD='/home/runner/work/short-url/short-url/go.mod'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8881913Z GOMODCACHE='/home/runner/go/pkg/mod'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8882129Z GONOPROXY=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8882298Z GONOSUMDB=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8882455Z GOOS='linux'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8882634Z GOPACKAGESDRIVER=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8882825Z GOPATH='/home/runner/go'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8883033Z GOPRIVATE=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8883264Z GOPROXY='https://proxy.golang.org,direct'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8883538Z GOROOT='/opt/hostedtoolcache/go/1.27.2/x64'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8883777Z GOSUMDB='sum.golang.org'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8883972Z GOTELEMETRY='local'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8884218Z GOTELEMETRYDIR='/home/runner/.config/go/telemetry'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8884466Z GOTMPDIR=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8884639Z GOTOOLCHAIN='auto'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8884901Z GOTOOLDIR='/opt/hostedtoolcache/go/1.27.2/x64/pkg/tool/linux_amd64'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8885190Z GOVCS=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8885360Z GOVERSION='go1.27.2'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8885546Z GOWORK=''
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8885787Z PKG_CONFIG='pkg-config'
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8885911Z 
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8886234Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.9084481Z ##[group]Run go install github.com/securego/gosec/v2/cmd/gosec@v2.30.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.9084975Z ^[[36;1mgo install github.com/securego/gosec/v2/cmd/gosec@v2.30.0^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.9108365Z shell: /usr/bin/bash -e {0}
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.9108623Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:27.1750747Z go: downloading github.com/securego/gosec/v2 v2.30.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:28.7152341Z go: downloading golang.org/x/sync v0.24.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:28.7176303Z go: downloading golang.org/x/tools v0.52.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:29.4356538Z go: downloading github.com/anthropics/anthropic-sdk-go v1.82.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:29.4377045Z go: downloading github.com/openai/openai-go/v3 v3.82.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:29.9391323Z go: downloading google.golang.org/genai v1.75.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:29.9434471Z go: downloading github.com/ccojocar/zxcvbn-go v1.0.4
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:30.1776776Z go: downloading github.com/tidwall/sjson v1.2.5
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:30.1837771Z go: downloading go.opentelemetry.io/otel/trace v1.47.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:30.2491430Z go: downloading github.com/invopop/jsonschema v0.14.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:30.2883085Z go: downloading github.com/pb33f/ordered-map/v2 v2.3.2
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:30.4283428Z go: downloading github.com/standard-webhooks/standard-webhooks/libraries v0.0.1
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:30.4549008Z go: downloading go.opentelemetry.io/otel v1.47.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:30.5881108Z go: downloading github.com/tidwall/gjson v1.20.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:31.0457241Z go: downloading github.com/gookit/color v1.6.3
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:31.0458024Z go: downloading go.yaml.in/yaml/v3 v3.0.5
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:31.0496315Z go: downloading golang.org/x/mod v0.42.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:31.1442781Z go: downloading cloud.google.com/go/auth v0.24.1
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:31.3535381Z go: downloading cloud.google.com/go v0.123.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:31.6797361Z go: downloading github.com/google/go-cmp v0.7.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:31.6816251Z go: downloading github.com/gorilla/websocket v1.5.3
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:31.6825776Z go: downloading github.com/bahlo/generic-list-go v0.2.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:31.6830320Z go: downloading github.com/buger/jsonparser v1.6.1
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:31.9854378Z go: downloading github.com/pb33f/go-yaml v0.1.1
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.0296085Z go: downloading github.com/tidwall/match v1.2.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.0589777Z go: downloading github.com/tidwall/pretty v1.2.2
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.0693211Z go: downloading github.com/coder/websocket v1.8.15
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.3155634Z go: downloading github.com/go-logr/logr v1.4.4
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.3745670Z go: downloading go.opentelemetry.io/otel/log v1.47.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.3751334Z go: downloading go.opentelemetry.io/otel/metric v1.47.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.4282766Z go: downloading github.com/xo/terminfo v1.2.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.5473169Z go: downloading github.com/googleapis/gax-go/v2 v2.26.2
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.5617973Z go: downloading cloud.google.com/go/compute/metadata v0.10.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.7887423Z go: downloading go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.72.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.7890320Z go: downloading golang.org/x/net v0.61.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.7890771Z go: downloading google.golang.org/api v0.304.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:32.8561758Z go: downloading github.com/cespare/xxhash/v2 v2.3.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:33.0379895Z go: downloading github.com/go-logr/stdr v1.2.2
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:33.1687468Z go: downloading go.opentelemetry.io/auto/sdk v1.2.1
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:33.2266961Z go: downloading github.com/googleapis/enterprise-certificate-proxy v0.3.23
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:33.2778219Z go: downloading github.com/google/s2a-go v0.1.11
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:33.5693702Z go: downloading google.golang.org/grpc v1.84.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:34.0397117Z go: downloading google.golang.org/protobuf v1.36.12
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:34.5073289Z go: downloading github.com/felixge/httpsnoop v1.1.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:34.5080877Z go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20261012220534-4341edf3f941
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:34.7512053Z go: downloading golang.org/x/text v0.43.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:35.5042392Z go: downloading golang.org/x/sys v0.49.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:00:35.5043196Z go: downloading golang.org/x/crypto v0.58.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2637938Z ##[group]Run set -euo pipefail
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2638208Z ^[[36;1mset -euo pipefail^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2638501Z ^[[36;1mexpected='h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0='^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2638823Z ^[[36;1mbin="$(go env GOPATH)/bin/gosec"^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2639176Z ^[[36;1mline="$(go version -m "$bin" | awk '$1=="mod" && $2=="github.com/securego/gosec/v2"')" || true^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2639960Z ^[[36;1mif [ -z "$line" ]; then echo "::error::mod github.com/securego/gosec/v2 line missing"; exit 1; fi^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2640322Z ^[[36;1mecho "$line"^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2641206Z ^[[36;1mactual="$(echo "$line" | awk '{print $4}')"^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2641610Z ^[[36;1mif [ "$actual" != "$expected" ]; then echo "::error::gosec h1 mismatch: $actual != $expected"; exit 1; fi^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2642035Z ^[[36;1mecho "gosec h1 OK"^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2660036Z shell: /usr/bin/bash -e {0}
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2660252Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2765276Z 	mod	github.com/securego/gosec/v2	v2.30.0	h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2787249Z gosec h1 OK
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2812595Z ##[group]Run set -euo pipefail
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2812843Z ^[[36;1mset -euo pipefail^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2813141Z ^[[36;1m# -severity=high：僅 high/critical 導致非零；對齊 SEC-009^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2813479Z ^[[36;1m# -tests：測試檔一併掃描（SCR-032）；以絕對路徑呼叫，不依賴 PATH（SCR-019）^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2813886Z ^[[36;1m"$(go env GOPATH)/bin/gosec" -fmt=text -no-fail=false -severity=high -tests ./...^[[0m
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2829950Z shell: /usr/bin/bash -e {0}
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.2830203Z ##[endgroup]
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.3246065Z [gosec] 2026/10/28 02:01:26 Including rules: default
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.3246538Z [gosec] 2026/10/28 02:01:26 Excluding rules: default
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.3246834Z [gosec] 2026/10/28 02:01:26 Including analyzers: default
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.3247118Z [gosec] 2026/10/28 02:01:26 Excluding analyzers: default
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.3272074Z [gosec] 2026/10/28 02:01:26 Import directory: /home/runner/work/short-url/short-url/internal/domain
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.3272995Z [gosec] 2026/10/28 02:01:26 Import directory: /home/runner/work/short-url/short-url/internal/health
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.3273625Z [gosec] 2026/10/28 02:01:26 Import directory: /home/runner/work/short-url/short-url/cmd/shorturl
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:26.3274438Z [gosec] 2026/10/28 02:01:26 Import directory: /home/runner/work/short-url/short-url/internal/integration
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.5694485Z [gosec] 2026/10/28 02:01:27 Checking package: health
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.5808495Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/health/health.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.5905821Z [gosec] 2026/10/28 02:01:27 Checking package: domain
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.5955406Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/domain/errors.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.5997416Z [gosec] 2026/10/28 02:01:27 Checking package: health
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6089162Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/health/health.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6103372Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/health/health_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6104678Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/domain/generator.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6105510Z [gosec] 2026/10/28 02:01:27 Checking package: main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6106489Z [gosec] 2026/10/28 02:01:27 Import directory: /home/runner/work/short-url/short-url/internal/ports
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6107609Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/domain/types.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6108681Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/domain/validator.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6109754Z [gosec] 2026/10/28 02:01:27 Checking package: domain
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6110718Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/domain/errors.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6241433Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/domain/generator.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6311762Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/domain/types.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6411091Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/domain/validator.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6418886Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/domain/generator_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6461610Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/domain/validator_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6513446Z [gosec] 2026/10/28 02:01:27 Checking package: main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.6530134Z [gosec] 2026/10/28 02:01:27 Import directory: /home/runner/work/short-url/short-url/internal/ratelimit
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:27.9979980Z [gosec] 2026/10/28 02:01:27 Checking package: ports
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:28.0074503Z [gosec] 2026/10/28 02:01:27 Checking file: /home/runner/work/short-url/short-url/internal/ports/store.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:28.0077874Z [gosec] 2026/10/28 02:01:27 Import directory: /home/runner/work/short-url/short-url/internal/application
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:28.6802588Z [gosec] 2026/10/28 02:01:28 Checking package: application
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:28.6920225Z [gosec] 2026/10/28 02:01:28 Checking file: /home/runner/work/short-url/short-url/internal/application/redirect.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:28.6995256Z [gosec] 2026/10/28 02:01:28 Checking file: /home/runner/work/short-url/short-url/internal/application/service.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:28.7051376Z [gosec] 2026/10/28 02:01:28 Checking package: application_test
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:28.7061037Z [gosec] 2026/10/28 02:01:28 Checking file: /home/runner/work/short-url/short-url/internal/application/create_retry_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:28.7123996Z [gosec] 2026/10/28 02:01:28 Checking file: /home/runner/work/short-url/short-url/internal/application/redirect_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:28.7200796Z [gosec] 2026/10/28 02:01:28 Checking file: /home/runner/work/short-url/short-url/internal/application/service_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:28.7280436Z [gosec] 2026/10/28 02:01:28 Checking package: main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:28.7430899Z [gosec] 2026/10/28 02:01:28 Import directory: /home/runner/work/short-url/short-url/internal/config
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:29.8810647Z [gosec] 2026/10/28 02:01:29 Checking package: ratelimit
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:29.8867684Z [gosec] 2026/10/28 02:01:29 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/guard.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:29.8947032Z [gosec] 2026/10/28 02:01:29 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/source.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:29.8983934Z [gosec] 2026/10/28 02:01:29 Checking package: ratelimit
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:29.9060952Z [gosec] 2026/10/28 02:01:29 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/guard.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:29.9062442Z [gosec] 2026/10/28 02:01:29 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/source.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:29.9063520Z [gosec] 2026/10/28 02:01:29 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/guard_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:29.9064632Z [gosec] 2026/10/28 02:01:29 Checking file: /home/runner/work/short-url/short-url/internal/ratelimit/source_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:29.9065848Z [gosec] 2026/10/28 02:01:29 Checking package: main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:29.9090521Z [gosec] 2026/10/28 02:01:29 Import directory: /home/runner/work/short-url/short-url/internal/httpapi
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:30.0034049Z [gosec] 2026/10/28 02:01:30 Checking package: config
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:30.0035000Z [gosec] 2026/10/28 02:01:30 Checking file: /home/runner/work/short-url/short-url/internal/config/config.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:30.0035665Z [gosec] 2026/10/28 02:01:30 Checking package: config
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:30.0036459Z [gosec] 2026/10/28 02:01:30 Checking file: /home/runner/work/short-url/short-url/internal/config/config.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:30.0037378Z [gosec] 2026/10/28 02:01:30 Checking file: /home/runner/work/short-url/short-url/internal/config/config_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:30.0238356Z [gosec] 2026/10/28 02:01:30 Checking package: main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:30.0295694Z [gosec] 2026/10/28 02:01:30 Import directory: /home/runner/work/short-url/short-url/internal/infra/sqlite
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.5400916Z [gosec] 2026/10/28 02:01:52 Checking package: main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.5560293Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/cmd/shorturl/main.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.5590516Z [gosec] 2026/10/28 02:01:52 Checking package: main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.5610100Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/cmd/shorturl/main.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.5611179Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/cmd/shorturl/main_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.5936993Z [gosec] 2026/10/28 02:01:52 Checking package: main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.5947516Z [gosec] 2026/10/28 02:01:52 Import directory: /home/runner/work/short-url/short-url/internal/observability
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.6805111Z [gosec] 2026/10/28 02:01:52 Checking package: sqlite
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.6819057Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/infra/sqlite/store.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.6937874Z [gosec] 2026/10/28 02:01:52 Checking package: sqlite
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.6955029Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/infra/sqlite/store.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.6956335Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/infra/sqlite/store_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7055308Z [gosec] 2026/10/28 02:01:52 Checking package: main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7410785Z [gosec] 2026/10/28 02:01:52 Checking package: httpapi
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7412015Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/adapter.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7418568Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/mapper.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7420738Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/response.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7422369Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/router.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7423592Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/security_headers.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7451116Z [gosec] 2026/10/28 02:01:52 Checking package: integration
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7470372Z [gosec] 2026/10/28 02:01:52 Checking package: integration
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7471394Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/integration/api_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7473646Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/integration/ratelimit_e2e_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7515434Z [gosec] 2026/10/28 02:01:52 Checking package: httpapi
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7516473Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/adapter.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7525039Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/mapper.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7527411Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/response.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7528706Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/router.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7530234Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/security_headers.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7532731Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/mapper_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7577251Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/integration/security_headers_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7611427Z [gosec] 2026/10/28 02:01:52 Checking package: httpapi_test
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7613457Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/bodylimit_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7630074Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/contract_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7660490Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/observability_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7750994Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/ratelimit_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7780830Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/router_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.7800990Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/httpapi/security_headers_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8080815Z [gosec] 2026/10/28 02:01:52 Checking package: main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8147109Z [gosec] 2026/10/28 02:01:52 Checking package: main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8151211Z [gosec] 2026/10/28 02:01:52 Checking package: observability
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8152119Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/observability/hooks.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8181030Z [gosec] 2026/10/28 02:01:52 Checking package: observability
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8182069Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/observability/hooks.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8184791Z [gosec] 2026/10/28 02:01:52 Checking file: /home/runner/work/short-url/short-url/internal/observability/hooks_test.go
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8226796Z [gosec] 2026/10/28 02:01:52 Checking package: main
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8232031Z Results:
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8232190Z 
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8232573Z 
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8233094Z Summary:
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8233285Z   Gosec  : dev
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8233567Z   Files  : 57
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8233768Z   Lines  : 7485
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8233962Z   Nosec  : 0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8234169Z   Issues : 0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8234305Z 
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8391407Z Post job cleanup.
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.9375878Z (node:5728) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.9376574Z (Use `node --trace-deprecation ...` to show where the warning was created)
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.9427747Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.9500864Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.9526643Z /home/runner/go/pkg/mod
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.9544668Z /home/runner/.cache/go-build
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.9550857Z Cache hit occurred on the primary key setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025, not saving cache.
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.9762870Z Post job cleanup.
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.0472621Z [command]/usr/bin/git version
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.0511589Z git version 2.56.0
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.0544914Z Temporarily overriding HOME='/home/runner/work/_temp/dba3451a-a28b-4006-af61-a49486a66f78' before making global git config changes
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.0545886Z Adding repository directory to the temporary git global config as a safe directory
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.0549323Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.0586540Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.0626998Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.0853158Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.0881169Z http.https://github.com/.extraheader
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.0891915Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.0929119Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.1153864Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.1193060Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.1583886Z Cleaning up orphan processes
+sast-gosec	UNKNOWN STEP	2026-10-28T02:01:53.1890813Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+secrets-gitleaks	UNKNOWN STEP	﻿2026-10-28T02:00:12.0287501Z Current runner version: '2.338.0'
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0306780Z ##[group]Runner Image Provisioner
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0307396Z Hosted Compute Agent
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0307838Z Version: 20261021.618
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0308230Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0308669Z Build Date: 2026-10-21T00:45:21Z
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0309143Z Worker ID: {3f730b1d-7352-4017-9b58-97cff1502210}
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0309613Z Region: centralus
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0310041Z Cloud: Azure
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0310388Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0311175Z ##[group]Operating System
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0311674Z Ubuntu
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0312080Z 24.04.5
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0312448Z LTS
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0312789Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0313132Z ##[group]Runner Image
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0313555Z Image: ubuntu-24.04
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0313979Z Version: 20261025.353.1
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0314785Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0315699Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0316478Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0317336Z ##[group]GITHUB_TOKEN Permissions
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0318724Z Contents: read
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0319089Z Metadata: read
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0319826Z PullRequests: read
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0320239Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0321732Z Secret source: Actions
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0322367Z Cache mode: write
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0322814Z Prepare workflow directory
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0574483Z Prepare all required actions
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.0614601Z Getting action download info
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.2750589Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4142401Z Complete job name: secrets-gitleaks
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4773106Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4773655Z with:
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4773889Z   fetch-depth: 0
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4774149Z   repository: 444112029012/short-url
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4776473Z   token: ***
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4776716Z   ssh-strict: true
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4776961Z   ssh-user: git
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4777211Z   persist-credentials: true
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4777485Z   clean: true
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4777740Z   sparse-checkout-cone-mode: true
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4778032Z   fetch-tags: false
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4778281Z   show-progress: true
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4778536Z   lfs: false
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4778770Z   submodules: false
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4779027Z   set-safe-directory: true
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4779314Z   allow-unsafe-pr-checkout: false
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.4779673Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7024058Z Syncing repository: 444112029012/short-url
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7025253Z ##[group]Getting Git version info
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7025645Z Working directory is '/home/runner/work/short-url/short-url'
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7026207Z [command]/usr/bin/git version
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7117953Z git version 2.56.0
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7133194Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7143976Z Temporarily overriding HOME='/home/runner/work/_temp/1d7a565c-1c04-4778-9e79-58970fa61b8a' before making global git config changes
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7145131Z Adding repository directory to the temporary git global config as a safe directory
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7148100Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7199482Z Deleting the contents of '/home/runner/work/short-url/short-url'
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7203467Z ##[group]Initializing the repository
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7207045Z [command]/usr/bin/git init /home/runner/work/short-url/short-url
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7317336Z hint: Using 'master' as the name for the initial branch. This default branch name
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7318126Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7319191Z hint: to use in all of your new repositories, which will suppress this warning,
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7319605Z hint: call:
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7319842Z hint:
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7320156Z hint: 	git config --global init.defaultBranch <name>
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7320507Z hint:
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7320832Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7321346Z hint: 'development'. The just-created branch can be renamed via this command:
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7321751Z hint:
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7321990Z hint: 	git branch -m <name>
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7322258Z hint:
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7322610Z hint: Disable this message with "git config set advice.defaultBranchName false"
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7342807Z Initialized empty Git repository in /home/runner/work/short-url/short-url/.git/
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7344893Z [command]/usr/bin/git remote add origin https://github.com/444112029012/short-url
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7387927Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7388658Z ##[group]Disabling automatic garbage collection
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7391367Z [command]/usr/bin/git config --local gc.auto 0
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7421138Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7421795Z ##[group]Setting up auth
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7426888Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7471761Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7793652Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.7832489Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.8033946Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.8073181Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.8275280Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.8319462Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.8319962Z ##[group]Fetching the repository
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:12.8329236Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4880184Z From https://github.com/444112029012/short-url
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4881932Z  * [new branch]      chore/ENG-020-dependency-review-fail-closed -> origin/chore/ENG-020-dependency-review-fail-closed
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4883600Z  * [new branch]      ci/CR-005-gosec-v2.30.0 -> origin/ci/CR-005-gosec-v2.30.0
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4885175Z  * [new branch]      ci/dependency-review-fail-closed -> origin/ci/dependency-review-fail-closed
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4887297Z  * [new branch]      cursor/g3r1-landing-evidence-0021 -> origin/cursor/g3r1-landing-evidence-0021
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4889405Z  * [new branch]      docs/ENG-011-g4-batch2-security-reviews -> origin/docs/ENG-011-g4-batch2-security-reviews
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4891639Z  * [new branch]      docs/ENG-011-security-08-v015-readme-v022 -> origin/docs/ENG-011-security-08-v015-readme-v022
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4893578Z  * [new branch]      docs/ENG-020-g3r1-landing-evidence -> origin/docs/ENG-020-g3r1-landing-evidence
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4895064Z  * [new branch]      docs/ENG-020-g4-cr001-docs-sync -> origin/docs/ENG-020-g4-cr001-docs-sync
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4896245Z  * [new branch]      docs/ENG-021-readme     -> origin/docs/ENG-021-readme
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4897569Z  * [new branch]      docs/ENG-021-readme-followup -> origin/docs/ENG-021-readme-followup
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4899049Z  * [new branch]      docs/G4-DR-G4-01-design-followups -> origin/docs/G4-DR-G4-01-design-followups
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4900903Z  * [new branch]      docs/G4-DR-G4-01-openapi-and-index -> origin/docs/G4-DR-G4-01-openapi-and-index
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4902201Z  * [new branch]      docs/cr-005-followups   -> origin/docs/cr-005-followups
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4903728Z  * [new branch]      docs/g3-rulesets-snapshot-2026-10-07 -> origin/docs/g3-rulesets-snapshot-2026-10-07
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4905291Z  * [new branch]      docs/g4-cr001-ci-v02-gates-v03 -> origin/docs/g4-cr001-ci-v02-gates-v03
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4906595Z  * [new branch]      docs/g4-followups       -> origin/docs/g4-followups
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4907621Z  * [new branch]      docs/g4-overall-evidence -> origin/docs/g4-overall-evidence
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4909046Z  * [new branch]      feat/ENG-007-core-create-redirect-stats -> origin/feat/ENG-007-core-create-redirect-stats
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4910699Z  * [new branch]      feat/ENG-007-create-body-limit-32768 -> origin/feat/ENG-007-create-body-limit-32768
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4912119Z  * [new branch]      feat/ENG-011-rate-limit-guard -> origin/feat/ENG-011-rate-limit-guard
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4913501Z  * [new branch]      feat/ENG-012-observability-hooks -> origin/feat/ENG-012-observability-hooks
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4915080Z  * [new branch]      feat/ENG-016-security-response-headers -> origin/feat/ENG-016-security-response-headers
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4916881Z  * [new branch]      fix/ENG-020-cr-002-go-1272-gosec-pin -> origin/fix/ENG-020-cr-002-go-1272-gosec-pin
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4918152Z  * [new branch]      fix/ENG-020-pin-go-1-27-1 -> origin/fix/ENG-020-pin-go-1-27-1
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4919364Z  * [new branch]      fix/ENG-022-ci-hardening-scr032 -> origin/fix/ENG-022-ci-hardening-scr032
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4920396Z  * [new branch]      main                    -> origin/main
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4921611Z  * [new branch]      test/ENG-007-create-collision-tests -> origin/test/ENG-007-create-collision-tests
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4922941Z  * [new branch]      test/ENG-011-rate-limit-e2e -> origin/test/ENG-011-rate-limit-e2e
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4924435Z  * [new branch]      test/ENG-013-openapi-contract-tests -> origin/test/ENG-013-openapi-contract-tests
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4925924Z  * [new branch]      test/ENG-016-security-headers-e2e -> origin/test/ENG-016-security-headers-e2e
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4927499Z  * [new branch]      test/ENG-019-api-integration -> origin/test/ENG-019-api-integration
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4929988Z [command]/usr/bin/git branch --list --remote origin/main
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4930895Z   origin/main
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4934984Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4964862Z ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4968694Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4969602Z ##[group]Determining the checkout info
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4970637Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.4971921Z [command]/usr/bin/git sparse-checkout disable
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5021045Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5054201Z ##[group]Checking out the ref
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5056440Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5356022Z Switched to a new branch 'main'
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5359517Z branch 'main' set up to track 'origin/main'.
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5366870Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5414235Z [command]/usr/bin/git log -1 --format=%H
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5446117Z ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5648462Z ##[group]Run set -euo pipefail
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5649377Z ^[[36;1mset -euo pipefail^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5650134Z ^[[36;1mVER=8.21.2^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5650893Z ^[[36;1mTGZ="gitleaks_${VER}_linux_x64.tar.gz"^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5652129Z ^[[36;1mBASE="https://github.com/gitleaks/gitleaks/releases/download/v${VER}"^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5653618Z ^[[36;1m# SCR-021：釘官方 checksums 檔中 linux_x64 的 sha256，並與同 release 的 checksums 檔交叉比對^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5655199Z ^[[36;1mEXPECTED_SHA256=5bc41815076e6ed6ef8fbecc9d9b75bcae31f39029ceb55da08086315316e3ba^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5656761Z ^[[36;1mcd "$(mktemp -d)"^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5657536Z ^[[36;1mcurl -fsSL -o "${TGZ}" "${BASE}/${TGZ}"^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5658654Z ^[[36;1mcurl -fsSL -o checksums.txt "${BASE}/gitleaks_${VER}_checksums.txt"^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5659949Z ^[[36;1mofficial="$(awk -v f="${TGZ}" '$2==f {print $1}' checksums.txt)"^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5661532Z ^[[36;1mif [ "${official}" != "${EXPECTED_SHA256}" ]; then echo "::error::checksums.txt 與釘選值不符：${official}"; exit 1; fi^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5663020Z ^[[36;1mecho "${EXPECTED_SHA256}  ${TGZ}" | sha256sum -c -^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5664039Z ^[[36;1mtar -xzf "${TGZ}" -C /usr/local/bin gitleaks^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5664919Z ^[[36;1mgitleaks version^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5684668Z shell: /usr/bin/bash -e {0}
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:13.5685384Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.0610018Z gitleaks_8.21.2_linux_x64.tar.gz: OK
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.1037697Z 8.21.2
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.1101907Z ##[group]Run gitleaks detect --source . --verbose --exit-code 1
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.1103007Z ^[[36;1mgitleaks detect --source . --verbose --exit-code 1^[[0m
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.1120590Z shell: /usr/bin/bash -e {0}
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.1121216Z ##[endgroup]
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.1177196Z 
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.1177811Z     ○
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.1178618Z     │╲
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.1179349Z     │ ○
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.1180062Z     ○ ░
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.1180809Z     ░    gitleaks
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.1181277Z 
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.3861292Z ^[[90m2:00AM^[[0m ^[[32mINF^[[0m 74 commits scanned.
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.3862885Z ^[[90m2:00AM^[[0m ^[[32mINF^[[0m scan completed in 254ms
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.3863943Z ^[[90m2:00AM^[[0m ^[[32mINF^[[0m no leaks found
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.4128031Z Post job cleanup.
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.4734999Z [command]/usr/bin/git version
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.4799355Z git version 2.56.0
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.4826238Z Temporarily overriding HOME='/home/runner/work/_temp/89f2057d-ca0c-4614-b4ac-07c99e19ee91' before making global git config changes
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.4829072Z Adding repository directory to the temporary git global config as a safe directory
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.4831226Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.4879047Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.4914029Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.5151077Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.5189978Z http.https://github.com/.extraheader
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.5204184Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.5248874Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.5461179Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.5501207Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.5842451Z Cleaning up orphan processes
+secrets-gitleaks	UNKNOWN STEP	2026-10-28T02:00:14.6219782Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+sca-govulncheck	UNKNOWN STEP	﻿2026-10-28T02:00:12.2760698Z Current runner version: '2.338.0'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2778052Z ##[group]Runner Image Provisioner
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2778700Z Hosted Compute Agent
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2779060Z Version: 20261021.618
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2779474Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2779963Z Build Date: 2026-10-21T00:45:21Z
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2780387Z Worker ID: {09d0a83f-96d9-446c-ac52-d381425cd0ac}
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2780852Z Region: westus3
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2781195Z Cloud: Azure
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2781520Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2782331Z ##[group]Operating System
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2782702Z Ubuntu
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2783098Z 24.04.5
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2783419Z LTS
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2783927Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2784645Z ##[group]Runner Image
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2785021Z Image: ubuntu-24.04
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2785412Z Version: 20261012.334.1
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2786197Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2787156Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2787726Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2788494Z ##[group]GITHUB_TOKEN Permissions
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2789713Z Contents: read
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2790134Z Metadata: read
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2790493Z PullRequests: read
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2790848Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2792467Z Secret source: Actions
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2793035Z Cache mode: write
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.2793823Z Prepare workflow directory
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.3002185Z Prepare all required actions
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.3034073Z Getting action download info
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.6164557Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:12.7261134Z Download action repository 'actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff' (SHA:40f1582b2485089dde7abd97c1529aa768e1baff)
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:13.5210557Z Download action repository 'actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48' (SHA:2031cfc080254a8a887f58cffee85186f0e49e48)
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.8232121Z Complete job name: sca-govulncheck
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9186413Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9186792Z with:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9186952Z   repository: 444112029012/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9188463Z   token: ***
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9188647Z   ssh-strict: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9188801Z   ssh-user: git
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9188959Z   persist-credentials: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9189128Z   clean: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9189288Z   sparse-checkout-cone-mode: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9189465Z   fetch-depth: 1
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9189611Z   fetch-tags: false
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9189763Z   show-progress: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9189929Z   lfs: false
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9190079Z   submodules: false
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9190241Z   set-safe-directory: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9190434Z   allow-unsafe-pr-checkout: false
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:14.9190682Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.2595346Z Syncing repository: 444112029012/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.2596604Z ##[group]Getting Git version info
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.2596996Z Working directory is '/home/runner/work/short-url/short-url'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.2597740Z [command]/usr/bin/git version
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.2724420Z git version 2.55.0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.2745421Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.2758133Z Temporarily overriding HOME='/home/runner/work/_temp/50014ee6-5297-4ffa-85e1-fa9dc2562e66' before making global git config changes
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.2758968Z Adding repository directory to the temporary git global config as a safe directory
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.2768410Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.2832878Z Deleting the contents of '/home/runner/work/short-url/short-url'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.2836242Z ##[group]Initializing the repository
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.2839133Z [command]/usr/bin/git init /home/runner/work/short-url/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3035696Z hint: Using 'master' as the name for the initial branch. This default branch name
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3036367Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3036871Z hint: to use in all of your new repositories, which will suppress this warning,
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3037212Z hint: call:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3037394Z hint:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3037681Z hint: 	git config --global init.defaultBranch <name>
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3037972Z hint:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3038266Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3038738Z hint: 'development'. The just-created branch can be renamed via this command:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3039091Z hint:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3039289Z hint: 	git branch -m <name>
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3039510Z hint:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3039826Z hint: Disable this message with "git config set advice.defaultBranchName false"
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3040346Z Initialized empty Git repository in /home/runner/work/short-url/short-url/.git/
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3041761Z [command]/usr/bin/git remote add origin https://github.com/444112029012/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3530262Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3530707Z ##[group]Disabling automatic garbage collection
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3534441Z [command]/usr/bin/git config --local gc.auto 0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3571477Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3571891Z ##[group]Setting up auth
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3577727Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3611772Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3913222Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.3941949Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.4117124Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.4146102Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.4326136Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.4606745Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.4607264Z ##[group]Fetching the repository
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:15.4618618Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe:refs/remotes/origin/main
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.5485815Z From https://github.com/444112029012/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.5486669Z  * [new ref]         ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe -> origin/main
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.5489992Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.5490410Z ##[group]Determining the checkout info
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.5492019Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.5497732Z [command]/usr/bin/git sparse-checkout disable
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.5638118Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.5885877Z ##[group]Checking out the ref
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.5889268Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.6288773Z Switched to a new branch 'main'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.6293299Z branch 'main' set up to track 'origin/main'.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.6298595Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.6339434Z [command]/usr/bin/git log -1 --format=%H
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.6362940Z ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.7017124Z ##[group]Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.7017548Z with:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.7017665Z   go-version: 1.27.2
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.7017792Z   check-latest: false
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.7019165Z   token: ***
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.7019288Z   cache: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.7019581Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.7855502Z Setup go version spec 1.27.2
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.7860775Z Attempting to download 1.27.2...
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.8120751Z (node:2086) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:16.8121402Z (Use `node --trace-deprecation ...` to show where the warning was created)
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:17.7525673Z matching 1.27.2...
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:17.7565418Z Acquiring 1.27.2 from https://github.com/actions/go-versions/releases/download/1.27.2-37875086547/go-1.27.2-linux-x64.tar.gz
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:18.8602737Z Extracting Go...
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:18.8685975Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/df359a72-46fe-4fa2-b54d-ee9737daf7c1 -f /home/runner/work/_temp/4b433c2b-856a-41e5-95fc-3897dd59bec9
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:20.1598420Z Successfully extracted go to /home/runner/work/_temp/df359a72-46fe-4fa2-b54d-ee9737daf7c1
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:20.1598860Z Adding to the cache ...
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:24.7677968Z Successfully cached go to /opt/hostedtoolcache/go/1.27.2/x64
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:24.7679643Z Added go to the path
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:24.7681874Z Successfully set up Go version 1.27.2
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:24.7854916Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:24.7889603Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:24.7923335Z /home/runner/go/pkg/mod
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:24.7935435Z /home/runner/.cache/go-build
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:25.0006518Z Cache hit for: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:25.0096200Z (node:2086) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:26.2125297Z Received 62914560 of 153158848 (41.1%), 59.9 MBs/sec
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:27.2129781Z Received 148964544 of 153158848 (97.3%), 71.0 MBs/sec
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:27.2435642Z Received 153158848 of 153158848 (100.0%), 71.9 MBs/sec
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:27.2436136Z Cache Size: ~146 MB (153158848 B)
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:27.2461369Z [command]/usr/bin/tar -xf /home/runner/work/_temp/ebc4dc46-2a60-4681-ade1-46b6016637ba/cache.tzst -P -C /home/runner/work/short-url/short-url --use-compress-program unzstd
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0018768Z Cache restored successfully
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0084839Z Cache restored from key: setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0103394Z go version go1.27.2 linux/amd64
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0103711Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0103928Z ##[group]go env
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0226532Z AR='ar'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0226734Z CC='gcc'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0226923Z CGO_CFLAGS='-O2 -g'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0227121Z CGO_CPPFLAGS=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0227310Z CGO_CXXFLAGS='-O2 -g'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0227526Z CGO_ENABLED='1'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0227820Z CGO_FFLAGS='-O2 -g'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0228037Z CGO_LDFLAGS='-O2 -g'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0228257Z CXX='g++'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0228437Z GCCGO='gccgo'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0228617Z GO111MODULE=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0228794Z GOAMD64='v1'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0228988Z GOARCH='amd64'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0229166Z GOAUTH='netrc'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0229363Z GOBIN='/home/runner/go/bin'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0229603Z GOCACHE='/home/runner/.cache/go-build'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0229845Z GOCACHEPROG=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0230025Z GODEBUG=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0230243Z GOENV='/home/runner/.config/go/env'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0230477Z GOEXE=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0230930Z GOEXPERIMENT=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0231158Z GOFIPS140='off'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0231486Z GOFLAGS=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0232058Z GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build3832101245=/tmp/go-build -gno-record-gcc-switches'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0232643Z GOHOSTARCH='amd64'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0232892Z GOHOSTOS='linux'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0233075Z GOINSECURE=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0233310Z GOMOD='/home/runner/work/short-url/short-url/go.mod'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0233748Z GOMODCACHE='/home/runner/go/pkg/mod'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0233987Z GONOPROXY=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0234170Z GONOSUMDB=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0234341Z GOOS='linux'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0234522Z GOPACKAGESDRIVER=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0234728Z GOPATH='/home/runner/go'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0234960Z GOPRIVATE=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0235223Z GOPROXY='https://proxy.golang.org,direct'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0235519Z GOROOT='/opt/hostedtoolcache/go/1.27.2/x64'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0235799Z GOSUMDB='sum.golang.org'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0236012Z GOTELEMETRY='local'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0236260Z GOTELEMETRYDIR='/home/runner/.config/go/telemetry'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0236536Z GOTMPDIR=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0236713Z GOTOOLCHAIN='auto'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0237009Z GOTOOLDIR='/opt/hostedtoolcache/go/1.27.2/x64/pkg/tool/linux_amd64'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0237326Z GOVCS=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0237502Z GOVERSION='go1.27.2'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0237700Z GOWORK=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0237893Z PKG_CONFIG='pkg-config'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0238019Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0238304Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0422608Z ##[group]Run test -f go.sum
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0422812Z ^[[36;1mtest -f go.sum^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0727573Z shell: /usr/bin/bash -e {0}
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0727743Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0830582Z ##[group]Run go install golang.org/x/vuln/cmd/govulncheck@v1.8.0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0830869Z ^[[36;1mgo install golang.org/x/vuln/cmd/govulncheck@v1.8.0^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0876699Z shell: /usr/bin/bash -e {0}
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0876846Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.7336796Z ##[group]Run govulncheck ./...
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.7336991Z ^[[36;1mgovulncheck ./...^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.7389234Z shell: /usr/bin/bash -e {0}
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.7389379Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9065808Z === Symbol Results ===
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9066014Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9066224Z No vulnerabilities found.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9066368Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9066495Z Your code is affected by 0 vulnerabilities.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9066841Z This scan also found 1 vulnerability in packages you import and 0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9067265Z vulnerabilities in modules you require, but your code doesn't appear to call
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9067611Z these vulnerabilities.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9067826Z Use '-show verbose' for more details.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.0272035Z Post job cleanup.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.1052255Z (node:2409) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.1053106Z (Use `node --trace-deprecation ...` to show where the warning was created)
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.1101442Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOMODCACHE
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.1165740Z /home/runner/go/pkg/mod
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.1175283Z [command]/opt/hostedtoolcache/go/1.27.2/x64/bin/go env GOCACHE
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.1210673Z /home/runner/.cache/go-build
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.1217162Z Cache hit occurred on the primary key setup-go-Linux-x64-ubuntu24-go-1.27.2-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025, not saving cache.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.2285307Z Post job cleanup.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.2854224Z [command]/usr/bin/git version
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.2879924Z git version 2.55.0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.2905251Z Temporarily overriding HOME='/home/runner/work/_temp/61344b1c-8250-49e0-bedd-00d24a8751fd' before making global git config changes
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.2905957Z Adding repository directory to the temporary git global config as a safe directory
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.2909510Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.3568108Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.3604562Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.3800248Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.3824319Z http.https://github.com/.extraheader
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.3832244Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.3968259Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.4149597Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.4179885Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.4472717Z Cleaning up orphan processes
+sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:34.4738930Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

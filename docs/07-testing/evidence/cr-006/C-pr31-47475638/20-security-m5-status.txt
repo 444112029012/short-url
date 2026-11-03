@@ -1,0 +1,22 @@
+# date: 2026-11-02 16:32:13 (UTC+8)
+total 96
+drwxr-xr-x 2 box box  4096 2026-11-02 16:32:06.708014832 +0800 .
+drwxr-xr-x 4 box box  4096 2026-11-02 16:29:30.060409894 +0800 ..
+-rw-r--r-- 1 box box  1545 2026-11-02 16:29:41.094973226 +0800 01-m5-1-head.txt
+-rw-r--r-- 1 box box   679 2026-11-02 16:30:19.126021692 +0800 02-m5-2-toolchain.txt
+-rw-r--r-- 1 box box  3056 2026-11-02 16:30:55.253318024 +0800 03-m5-3-install.txt
+-rw-r--r-- 1 box box  5916 2026-11-02 16:30:55.273315420 +0800 04-m5-4-gosec-buildinfo.txt
+-rw-r--r-- 1 box box  4049 2026-11-02 16:31:06.883803769 +0800 05-m5-5-gosec-binary.txt
+-rw-r--r-- 1 box box  1724 2026-11-02 16:31:25.373396478 +0800 05b-m5-5-project-binary.txt
+-rw-r--r-- 1 box box  1428 2026-11-02 16:31:34.120257662 +0800 06-m5-6-project-verbose.txt
+-rw-r--r-- 1 box box   282 2026-11-02 16:31:34.136255579 +0800 07-m5-7-no-toolchain-switch.txt
+-rw-r--r-- 1 box box  1130 2026-11-02 16:32:12.071316543 +0800 09-api-checks-l6.txt
+-rw-r--r-- 1 box box  2947 2026-11-02 16:31:46.146691854 +0800 11-merge-diff-stat.txt
+-rw-r--r-- 1 box box 39669 2026-11-02 16:31:46.146691854 +0800 12-merge-diff-full.txt
+-rw-r--r-- 1 box box   875 2026-11-02 16:31:54.421614485 +0800 13-merge-diff-security-review.txt
+SHA256SUMS: 無
+08-m5-8: 0
+36／37 號新版：
+36-cr-006-pr31-m5-s2-confirmation-v0.1.md
+b7444593cb2e8f5cafe5f0f1836c96dec15585eee1570e7facafb23bb8a5f3ec  /workspace/projects/short-url/docs/06-security/36-cr-006-pr31-m5-s2-confirmation-v0.1.md
+0

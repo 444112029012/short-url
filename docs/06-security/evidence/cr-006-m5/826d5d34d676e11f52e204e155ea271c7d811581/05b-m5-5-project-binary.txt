@@ -1,0 +1,36 @@
+# date: 2026-11-02 14:31:14 CST
+$ go build -o /tmp/sec-m5.JS3y/shorturl ./cmd/shorturl
+exit 0
+# date: 2026-11-02 14:31:20 CST
+# date: 2026-11-02 14:31:20 CST
+$ go version /tmp/sec-m5.JS3y/shorturl
+/tmp/sec-m5.JS3y/shorturl: go1.27.3
+exit 0
+# date: 2026-11-02 14:31:20 CST
+# date: 2026-11-02 14:31:20 CST
+$ /tmp/sec-m5.JS3y/gopath/bin/govulncheck -mode=binary -show verbose /tmp/sec-m5.JS3y/shorturl
+Scanning your binary for known vulnerabilities...
+
+Fetching vulnerabilities from the database...
+
+Checking the binary against the vulnerabilities...
+
+The package pattern matched the following root package:
+  github.com/444112029012/short-url
+Govulncheck scanned the following 11 modules and the go1.27.3 standard library:
+  github.com/444112029012/short-url@v0.0.0-20261028083329-826d5d34d676
+  github.com/dustin/go-humanize@v1.0.1
+  github.com/go-chi/chi/v5@v5.3.0
+  github.com/google/uuid@v1.6.0
+  github.com/remyoudompheng/bigfft@v0.0.0-20230129092748-24d4a6f8daec
+  golang.org/x/exp@v0.0.0-20250620022241-b7579e27df2b
+  golang.org/x/sys@v0.44.0
+  modernc.org/libc@v1.66.10
+  modernc.org/mathutil@v1.7.1
+  modernc.org/memory@v1.11.0
+  modernc.org/sqlite@v1.39.1
+
+No vulnerabilities found.
+exit 0
+# date: 2026-11-02 14:31:26 CST
+--- grep -c GO-2026-6809: 0

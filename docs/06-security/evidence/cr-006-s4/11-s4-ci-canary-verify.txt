@@ -1,0 +1,39 @@
+## S4 CI 金絲雀獨立核對（安全部；維運證據只讀）
+Tue Nov  3 09:45:43 CST 2026
+[1] 維運證據 /workspace/rebuild/cr-006/evidence-canary-g404/
+20a382d1c50a69dfd44458b020f0370f50ca9ea8a38f0ae9f2442178d3d9c536  SHA256SUMS
+預期 20a382d1c50a69dfd44458b020f0370f50ca9ea8a38f0ae9f2442178d3d9c536
+run.json: OK
+jobs.json: OK
+sast-gosec.log: OK
+branch-deleted-ls-remote.txt: OK
+f8fe07a5ca6b233d414cf1e882b721df791db64fc62aa7d855a7e12af9115112  sast-gosec.log
+11aaa0ed66327df3f04ffe08fb646be593d2194e0098fcdddff79ea6e8e68023  run.json
+0ba1158caacd1e0dac94d84dbac209835d3f6a762dee2f7d262ba0b074cfee20  jobs.json
+[2] 未登入 API
+{"id":41561438299,"event":"workflow_dispatch","head_branch":"canary/cr006-g404-red","head_sha":"790b1c3aeef41ae5c80d6831b4afed27cebe926e","status":"completed","conclusion":"failure","run_attempt":1,"created_at":"2026-11-03T01:42:03Z","updated_at":"2026-11-03T01:43:48Z"}
+{"id":125672736446,"name":"secrets-gitleaks","conclusion":"success","started_at":"2026-11-03T01:42:07Z","completed_at":"2026-11-03T01:42:13Z"}
+{"id":125672736697,"name":"sast-gosec","conclusion":"failure","started_at":"2026-11-03T01:42:07Z","completed_at":"2026-11-03T01:43:47Z"}
+{"id":125672736705,"name":"unit-test","conclusion":"success","started_at":"2026-11-03T01:42:07Z","completed_at":"2026-11-03T01:43:18Z"}
+{"id":125672736799,"name":"sca-govulncheck","conclusion":"success","started_at":"2026-11-03T01:42:14Z","completed_at":"2026-11-03T01:42:37Z"}
+job 125672736697 log HTTP 403
+[3] 指定行
+140: 2026-11-03T01:42:24.0623047Z go version go1.27.3 linux/amd64
+257: 2026-11-03T01:43:19.5544786Z gosec h1 OK
+375: 2026-11-03T01:43:44.6579722Z [/home/runner/work/short-url/short-url/internal/cr006canary/canary.go:12] - G404 (CWE-338): Use of weak random number generator (math/rand or math/rand/v2 instead of crypto/rand) (Confidence: MEDIUM, Severity: HIGH)
+387: 2026-11-03T01:43:44.6583680Z   Issues : 1
+389: 2026-11-03T01:43:44.6649488Z ##[error]Process completed with exit code 1.
+187:2026-11-03T01:42:24.1367984Z GOVERSION='go1.27.3'
+384:2026-11-03T01:43:44.6582969Z   Files  : 58
+385:2026-11-03T01:43:44.6583210Z   Lines  : 7500
+386:2026-11-03T01:43:44.6583448Z   Nosec  : 0
+switching/downloading=0  1.27.2=0
+2026-11-03T01:42:12.7571393Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +790b1c3aeef41ae5c80d6831b4afed27cebe926e:refs/remotes/origin/canary/cr006-g404-red
+2026-11-03T01:42:13.3981227Z  * [new ref]         790b1c3aeef41ae5c80d6831b4afed27cebe926e -> origin/canary/cr006-g404-red
+2026-11-03T01:42:13.4704286Z 790b1c3aeef41ae5c80d6831b4afed27cebe926e
+[5] G 規則發現行數=1
+375:2026-11-03T01:43:44.6579722Z [/home/runner/work/short-url/short-url/internal/cr006canary/canary.go:12] - G404 (CWE-338): Use of weak random number generator (math/rand or math/rand/v2 instead of crypto/rand) (Confidence: MEDIUM, Severity: HIGH)
+[4] ls-remote
+1b53fcde7cf5068dcf7193b92205d6e6e9adb09d	refs/heads/main
+branches API 404
+Tue Nov  3 09:45:53 CST 2026

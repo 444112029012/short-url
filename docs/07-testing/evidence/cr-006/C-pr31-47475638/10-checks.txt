@@ -1,0 +1,89 @@
+## api-job-125141230822-sast-gosec.log
+-- Setup go version spec 1.27.3: 1 @ 131 
+-- go version go1.27.3 linux/amd64: 1 @ 157 
+-- GOVERSION='go1.27.3': 1 @ 204 
+-- GOROOT='/opt/hostedtoolcache/go/1.27.3/x64': 1 @ 196 
+-- GOTOOLCHAIN=: 1 @ 201 
+-- neg 1.27.2: 0
+-- cache:
+148:2026-11-02T07:03:40.0710454Z Cache hit for: setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+155:2026-11-02T07:03:43.3705277Z Cache restored successfully
+156:2026-11-02T07:03:43.3760829Z Cache restored from key: setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+403:2026-11-02T07:05:17.8241815Z Cache hit occurred on the primary key setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025, not saving cache.
+-- L3: 0
+## api-job-125141230836-sca-govulncheck.log
+-- Setup go version spec 1.27.3: 1 @ 132 
+-- go version go1.27.3 linux/amd64: 1 @ 157 
+-- GOVERSION='go1.27.3': 1 @ 204 
+-- GOROOT='/opt/hostedtoolcache/go/1.27.3/x64': 1 @ 196 
+-- GOTOOLCHAIN=: 1 @ 201 
+-- neg 1.27.2: 0
+-- cache:
+149:2026-11-02T07:03:39.6226391Z Cache hit for: setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+155:2026-11-02T07:03:42.6871288Z Cache restored successfully
+156:2026-11-02T07:03:42.6942555Z Cache restored from key: setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+265:2026-11-02T07:03:48.1549862Z Cache hit occurred on the primary key setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025, not saving cache.
+-- L3: 0
+## api-job-125141230942-unit-test.log
+-- Setup go version spec 1.27.3: 1 @ 132 
+-- go version go1.27.3 linux/amd64: 1 @ 157 
+-- GOVERSION='go1.27.3': 1 @ 204 
+-- GOROOT='/opt/hostedtoolcache/go/1.27.3/x64': 1 @ 196 
+-- GOTOOLCHAIN=: 1 @ 201 
+-- neg 1.27.2: 0
+-- cache:
+149:2026-11-02T07:03:41.4409575Z Cache hit for: setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+155:2026-11-02T07:03:44.5337571Z Cache restored successfully
+156:2026-11-02T07:03:44.5404425Z Cache restored from key: setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+265:2026-11-02T07:04:37.7281481Z Cache hit occurred on the primary key setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025, not saving cache.
+-- L3: 0
+L3 gh-view job-125141230822-sast-gosec.log: 0
+L3 gh-view job-125141230836-sca-govulncheck.log: 0
+L3 gh-view job-125141230942-unit-test.log: 0
+## L4
+273:2026-11-02T07:04:46.2286588Z 	mod	github.com/securego/gosec/v2	v2.30.0	h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=
+274:2026-11-02T07:04:46.2306167Z gosec h1 OK
+## L5
+279:2026-11-02T07:04:46.2337464Z [36;1m"$(go env GOPATH)/bin/gosec" -fmt=text -no-fail=false -severity=high -tests ./...[0m
+391:2026-11-02T07:05:17.6770100Z   Files  : 57
+392:2026-11-02T07:05:17.6770427Z   Lines  : 7485
+393:2026-11-02T07:05:17.6770751Z   Nosec  : 0
+394:2026-11-02T07:05:17.6771253Z   Issues : 0
+(gh view)
+391:sast-gosec	UNKNOWN STEP	2026-11-02T07:05:17.6770100Z   Files  : 57
+392:sast-gosec	UNKNOWN STEP	2026-11-02T07:05:17.6770427Z   Lines  : 7485
+393:sast-gosec	UNKNOWN STEP	2026-11-02T07:05:17.6770751Z   Nosec  : 0
+394:sast-gosec	UNKNOWN STEP	2026-11-02T07:05:17.6771253Z   Issues : 0
+## L6
+nv=1 also=0 affected=0 6809=0
+221:2026-11-02T07:03:46.4343907Z No vulnerabilities found.
+217:2026-11-02T07:03:43.5013578Z ##[group]Run govulncheck ./...
+247:2026-11-02T07:03:48.0270909Z Dependency review did not detect any vulnerable packages with severity level "critical" or higher.
+252:2026-11-02T07:03:48.0275567Z Dependency review did not detect any denied packages
+(gh view)
+221:sca-govulncheck	UNKNOWN STEP	2026-11-02T07:03:46.4343907Z No vulnerabilities found.
+## L7
+215:2026-11-02T07:03:57.8486466Z [36;1mgo test -race -json ./... | tee go-test.json > /dev/null[0m
+222:2026-11-02T07:04:34.7472024Z [36;1mgo test -race -count=1 -v -run '^TestENG011_PerSourceIsolationByPeerAddress$' ./internal/integration/ | tee eng011.log[0m
+223:2026-11-02T07:04:34.7472879Z [36;1mif ! grep -q -- '--- PASS: TestENG011_PerSourceIsolationByPeerAddress' eng011.log; then[0m
+231:2026-11-02T07:04:35.3258515Z --- PASS: TestENG011_PerSourceIsolationByPeerAddress (0.03s)
+## steps
+(非 success 步驟如上；空即全 success)
+## artifacts
+art-pr: pass=181 CT_pass=14 CT_fail=0
+art-base: pass=181 CT_pass=14 CT_fail=0
+## baseline 41402171425 (164b62c956a9ffcb1b206b7fd2b21cd47bd93661 push success)
+801:sast-gosec	UNKNOWN STEP	2026-11-02T06:49:39.4351652Z   Files  : 57
+802:sast-gosec	UNKNOWN STEP	2026-11-02T06:49:39.4351874Z   Lines  : 7485
+803:sast-gosec	UNKNOWN STEP	2026-11-02T06:49:39.4352099Z   Nosec  : 0
+804:sast-gosec	UNKNOWN STEP	2026-11-02T06:49:39.4352314Z   Issues : 0
+398:sca-govulncheck	UNKNOWN STEP	2026-11-02T06:48:11.3336150Z No vulnerabilities found.
+400:sca-govulncheck	UNKNOWN STEP	2026-11-02T06:48:11.3336489Z Your code is affected by 0 vulnerabilities.
+401:sca-govulncheck	UNKNOWN STEP	2026-11-02T06:48:11.3336910Z This scan also found 1 vulnerability in packages you import and 0
+402:sca-govulncheck	UNKNOWN STEP	2026-11-02T06:48:11.3337480Z vulnerabilities in modules you require, but your code doesn't appear to call
+379:sca-govulncheck	UNKNOWN STEP	2026-11-02T06:48:02.7543861Z GOVERSION='go1.27.2'
+614:sast-gosec	UNKNOWN STEP	2026-11-02T06:48:01.1853051Z GOVERSION='go1.27.2'
+1016:unit-test	UNKNOWN STEP	2026-11-02T06:48:01.8135963Z GOVERSION='go1.27.2'
+base L3 sast-gosec: 0
+base L3 sca-govulncheck: 0
+base L3 unit-test: 0

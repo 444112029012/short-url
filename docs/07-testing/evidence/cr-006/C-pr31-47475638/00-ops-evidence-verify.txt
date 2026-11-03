@@ -1,0 +1,13 @@
+# date: 2026-11-02 16:32:13 (UTC+8)
+45cff365e74ec3d6ba1919362c3ecbfa698132b2f42f316b6d3da0f5aa377a6b  /workspace/rebuild/cr-006/evidence-pr31-47475638/SHA256SUMS
+run-41403811744-jobs.json: OK
+run-41403811744.json: OK
+job-125141230565-secrets-gitleaks.log: OK
+job-125141230822-sast-gosec.log: OK
+job-125141230836-sca-govulncheck.log: OK
+job-125141230942-unit-test.log: OK
+exit 0
+api-job-125141230565-secrets-gitleaks.log 與維運副本逐位元組相同
+api-job-125141230822-sast-gosec.log 與維運副本逐位元組相同
+api-job-125141230836-sca-govulncheck.log 與維運副本逐位元組相同
+api-job-125141230942-unit-test.log 與維運副本逐位元組相同

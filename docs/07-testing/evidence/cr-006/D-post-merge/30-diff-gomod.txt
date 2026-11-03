@@ -1,0 +1,39 @@
+HEAD 1b53fcde7cf5068dcf7193b92205d6e6e9adb09d
+parents 164b62c956a9ffcb1b206b7fd2b21cd47bd93661 474756381bd170beb3a5d723b63f1b8ba48b2add
+## git diff --numstat 舊 main(164b62c956a9ffcb1b206b7fd2b21cd47bd93661)..merge
+4	4	.github/workflows/ci-devsecops.yml
+1	1	go.mod
+## merge^1..merge
+4	4	.github/workflows/ci-devsecops.yml
+1	1	go.mod
+## diff(474756381bd1, merge) 應為空
+(end)
+## sha256
+06833a314722d4bc7b436533a6268b2be29d5c56d028eeb1bfd20f9151def245  .github/workflows/ci-devsecops.yml
+02842cf5c5b0a74916d55ffa85fcb05db9afc800e4609e8b1c5c35e045f28ebf  go.mod
+1e2b43d75b3352825d6227289fc6f3f42f6d883b4d171c7db1ada91afd49dd72  go.sum
+## go.mod
+go 1.27.3
+無 toolchain 行
+6:# 工具鏈釘 Go 1.27.3（CR-006 由 CR-002 的 1.27.2 升修補版，修 GO-2026-6809；check-latest: false）。1.22 標準庫有 GO-2025-3750；1.24.13 是 1.24 最後一版，
+62:          go-version: "1.27.3"
+63:          check-latest: false
+91:          go-version: "1.27.3"
+92:          check-latest: false
+134:          go-version: "1.27.3"
+135:          check-latest: false
+無 Dockerfile 等
+## main 上自 ca09137 起的 commit
+1b53fcd 164b62c956a9ffcb1b206b7fd2b21cd47bd93661 474756381bd170beb3a5d723b63f1b8ba48b2add Merge pull request #31 from 444112029012/ci/CR-006-go-1.27.3
+4747563 826d5d34d676e11f52e204e155ea271c7d811581 164b62c956a9ffcb1b206b7fd2b21cd47bd93661 Merge remote-tracking branch 'origin/main' into ci/CR-006-go-1.27.3
+164b62c ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe fb270d905e7c7bcc4d50f87f2d4a54d9e0d488ef Merge pull request #32 from 444112029012/docs/cr-006-followups
+fb270d9 ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe docs: CR-006 後續文件（34／35／36 號、06-security README、D-20）
+826d5d3 ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe fix(ci): CI 升 Go 1.27.3（CR-006）
+## ca09137..merge 淨差異
+4	4	.github/workflows/ci-devsecops.yml
+39	0	docs/06-security/34-pr-030-sync-recheck-confirmation-v0.1.md
+127	0	docs/06-security/35-cr-006-go-1273-security-opinion-v0.1.md
+86	0	docs/06-security/36-cr-006-pr31-m5-s2-confirmation-v0.1.md
+11	2	docs/06-security/README.md
+1	0	docs/99-changelog/decision-log.md
+1	1	go.mod

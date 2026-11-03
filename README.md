@@ -11,7 +11,7 @@ Short URL service in Go (chi router, SQLite via `modernc.org/sqlite`, no cgo nee
 
 ## Prerequisites
 
-- Go 1.27.x (`go.mod` declares `go 1.27.2`; CI pins 1.27.2).
+- Go 1.27.x (`go.mod` declares `go 1.27.3`; CI pins 1.27.3).
 - `curl` for the examples below.
 
 ## Build and run

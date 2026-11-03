@@ -1,0 +1,42 @@
+## main ca09137..164b62c9
+164b62c956a9ffcb1b206b7fd2b21cd47bd93661 2026-11-02 14:47:42 +0800 YSW Merge pull request #32 from 444112029012/docs/cr-006-followups
+fb270d905e7c7bcc4d50f87f2d4a54d9e0d488ef 2026-11-02 14:35:40 +0800 444112029012 docs: CR-006 後續文件（34／35／36 號、06-security README、D-20）
+## files
+39	0	docs/06-security/34-pr-030-sync-recheck-confirmation-v0.1.md
+127	0	docs/06-security/35-cr-006-go-1273-security-opinion-v0.1.md
+86	0	docs/06-security/36-cr-006-pr31-m5-s2-confirmation-v0.1.md
+11	2	docs/06-security/README.md
+1	0	docs/99-changelog/decision-log.md
+## .github/go.mod/go.sum/*.go changed on main?
+## head parents
+474756381bd170beb3a5d723b63f1b8ba48b2add parents=826d5d34d676e11f52e204e155ea271c7d811581 164b62c956a9ffcb1b206b7fd2b21cd47bd93661 Merge remote-tracking branch 'origin/main' into ci/CR-006-go-1.27.3
+164b62c956a9ffcb1b206b7fd2b21cd47bd93661 parents=ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe fb270d905e7c7bcc4d50f87f2d4a54d9e0d488ef Merge pull request #32 from 444112029012/docs/cr-006-followups
+fb270d905e7c7bcc4d50f87f2d4a54d9e0d488ef parents=ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe docs: CR-006 後續文件（34／35／36 號、06-security README、D-20）
+## merge-base(B,H)
+164b62c956a9ffcb1b206b7fd2b21cd47bd93661
+## commits on PR (B..H)
+474756381bd170beb3a5d723b63f1b8ba48b2add 826d5d34d676e11f52e204e155ea271c7d811581 164b62c956a9ffcb1b206b7fd2b21cd47bd93661 Merge remote-tracking branch 'origin/main' into ci/CR-006-go-1.27.3
+826d5d34d676e11f52e204e155ea271c7d811581 ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe fix(ci): CI 升 Go 1.27.3（CR-006）
+## net diff numstat MB..H
+4	4	.github/workflows/ci-devsecops.yml
+1	1	go.mod
+## sha256 at head
+06833a314722d4bc7b436533a6268b2be29d5c56d028eeb1bfd20f9151def245  .github/workflows/ci-devsecops.yml
+02842cf5c5b0a74916d55ffa85fcb05db9afc800e4609e8b1c5c35e045f28ebf  go.mod
+1e2b43d75b3352825d6227289fc6f3f42f6d883b4d171c7db1ada91afd49dd72  go.sum
+## merge commit vs its 2 parents
+P1=826d5d34d676e11f52e204e155ea271c7d811581 P2=164b62c956a9ffcb1b206b7fd2b21cd47bd93661
+-- diff P1..H
+39	0	docs/06-security/34-pr-030-sync-recheck-confirmation-v0.1.md
+127	0	docs/06-security/35-cr-006-go-1273-security-opinion-v0.1.md
+86	0	docs/06-security/36-cr-006-pr31-m5-s2-confirmation-v0.1.md
+11	2	docs/06-security/README.md
+1	0	docs/99-changelog/decision-log.md
+-- diff P2..H
+4	4	.github/workflows/ci-devsecops.yml
+1	1	go.mod
+-- remerge check: tree of H vs (P2 tree + P1 change)
+4	4	.github/workflows/ci-devsecops.yml
+1	1	go.mod
+-- show --cc (merge 自身新增內容，空表示無衝突解決改動)
+merge 帶入內容＝main ca09137..164b62c9 的 diff（逐位元組相同）

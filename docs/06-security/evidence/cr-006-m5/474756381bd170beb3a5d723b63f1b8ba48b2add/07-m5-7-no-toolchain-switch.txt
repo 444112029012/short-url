@@ -1,0 +1,9 @@
+# date: 2026-11-02 16:31:34 CST
+$ grep -cE 'switching to go|downloading go1\.' （各檔，不加 ^）
+02-m5-2-toolchain.txt: 0
+03-m5-3-install.txt: 0
+04-m5-4-gosec-buildinfo.txt: 0
+05-m5-5-gosec-binary.txt: 0
+05b-m5-5-project-binary.txt: 0
+06-m5-6-project-verbose.txt: 0
+合計: 0

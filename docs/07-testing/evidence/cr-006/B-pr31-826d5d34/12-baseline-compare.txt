@@ -1,0 +1,23 @@
+## base gosec summary
+639:sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8233567Z   Files  : 57
+640:sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8233768Z   Lines  : 7485
+641:sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8233962Z   Nosec  : 0
+642:sast-gosec	UNKNOWN STEP	2026-10-28T02:01:52.8234169Z   Issues : 0
+## base govulncheck
+1062:sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9065808Z === Symbol Results ===
+1064:sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9066224Z No vulnerabilities found.
+1066:sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9066495Z Your code is affected by 0 vulnerabilities.
+1067:sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:33.9066841Z This scan also found 1 vulnerability in packages you import and 0
+## base L3 count per job
+sast-gosec: 0
+sca-govulncheck: 0
+unit-test: 0
+## base GOVERSION
+188:unit-test	UNKNOWN STEP	2026-10-28T02:00:28.6022521Z GOVERSION='go1.27.2'
+452:sast-gosec	UNKNOWN STEP	2026-10-28T02:00:26.8885360Z GOVERSION='go1.27.2'
+1045:sca-govulncheck	UNKNOWN STEP	2026-10-28T02:00:28.0237502Z GOVERSION='go1.27.2'
+## PR (gh run view) gosec
+384:sast-gosec	UNKNOWN STEP	2026-10-28T08:57:53.6715888Z   Files  : 57
+385:sast-gosec	UNKNOWN STEP	2026-10-28T08:57:53.6716242Z   Lines  : 7485
+386:sast-gosec	UNKNOWN STEP	2026-10-28T08:57:53.6716563Z   Nosec  : 0
+387:sast-gosec	UNKNOWN STEP	2026-10-28T08:57:53.6717493Z   Issues : 0

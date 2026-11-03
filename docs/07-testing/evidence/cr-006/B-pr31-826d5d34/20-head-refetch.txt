@@ -1,0 +1,8 @@
+# date: 2026-11-02 14:35:37 (UTC+8)
+$ git ls-remote（未登入）
+826d5d34d676e11f52e204e155ea271c7d811581	refs/pull/31/head
+exit 0
+$ curl 未登入 API .head.sha
+{"state":"open","merged":false,"head":"826d5d34d676e11f52e204e155ea271c7d811581","base":"ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe","updated_at":"2026-10-28T08:55:38Z"}
+exit 0
+工作目錄 HEAD: 826d5d34d676e11f52e204e155ea271c7d811581
