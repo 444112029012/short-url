@@ -1,10 +1,10 @@
 ---
 文件：CR-006 品保驗收結論（CI 升 Go 1.27.3；PR #31）
-版本：v0.2
+版本：v0.2.1
 狀態：審查中
 負責角色：品保部
 最後更新：2026-11-03（Asia/Taipei，UTC+8）
-依據：CR-006 v0.4（repo 預定路徑 `docs/99-changelog/CR-006-ci-go-1.27.3-v0.4.md`，待 PR33-R3 入庫；本機原件 `/workspace/rebuild/cr-006/CR-006-ci-go-1.27.3-v0.4.md`；sha256 `818f48eb8fdbcc38bdecee2f0bbe3d5de0e0e1329088892dff261971a0409734`）§5.1 L1～L7、§5.2 M5-1～M5-8；品保影響評估 `品保部.md`（未入庫，本機 `/workspace/rebuild/cr-006/impact/品保部.md`；v0.4，sha256 `98d714da2467f8e41ce124fdad814c0598a08112a42107efbc03644aeaed03a0`）§2 QA-CR006-1～15
+依據：CR-006 v0.4（repo 路徑 `docs/99-changelog/CR-006-ci-go-1.27.3-v0.4.md`；本機原件 `/workspace/rebuild/cr-006/CR-006-ci-go-1.27.3-v0.4.md`；sha256 `818f48eb8fdbcc38bdecee2f0bbe3d5de0e0e1329088892dff261971a0409734`）§5.1 L1～L7、§5.2 M5-1～M5-8；品保影響評估 `品保部.md`（未入庫，本機 `/workspace/rebuild/cr-006/impact/品保部.md`；v0.4，sha256 `98d714da2467f8e41ce124fdad814c0598a08112a42107efbc03644aeaed03a0`）§2 QA-CR006-1～15
 比對基準：合併前 main `ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe`（push run 40618331206）、同步後 main `164b62c956a9ffcb1b206b7fd2b21cd47bd93661`（push run 41402171425）；合併後 main `1b53fcde7cf5068dcf7193b92205d6e6e9adb09d`（push run 41559091290）
 專案代號：SHORTURL
 證據路徑：repo `docs/07-testing/evidence/cr-006/`（A～D 四集，v0.2 起，回應審查部 PR33-R4）
@@ -26,7 +26,7 @@ QA-CR006-1～15 全部判定完成：14 項 PASS；QA-CR006-15（合併紀錄）
 |---|---|---|
 | CR-006 `CR-006-ci-go-1.27.3-v0.4.md` | v0.4 | `818f48eb8fdbcc38bdecee2f0bbe3d5de0e0e1329088892dff261971a0409734` |
 | 品保影響評估 `impact/品保部.md` | v0.4 | `98d714da2467f8e41ce124fdad814c0598a08112a42107efbc03644aeaed03a0` |
-| 安全部 M5／S2 確認 36 號（#31 合併所依據的是 v0.1.1；repo 上 `docs/06-security/36-cr-006-pr31-m5-s2-confirmation-v0.1.md` 現為 v0.1.2 `2b7ade2f…`，v0.1.1 原件待安全部依 PR33-R2 另存新檔名入庫） | v0.1.1 | `2936baec4ff6d20474a4b31a30e9820e8a3a1177de17544518dd20179d58d598` |
+| 安全部 M5／S2 確認 36 號（#31 合併所依據的是 v0.1.1；v0.1.1 快照為 repo `docs/06-security/36-cr-006-pr31-m5-s2-confirmation-v0.1.1.md`） | v0.1.1 | `2936baec4ff6d20474a4b31a30e9820e8a3a1177de17544518dd20179d58d598` |
 
 ### 1.2 需求 → 變更 → 驗收 → 證據
 | 需求 | 變更（CR-006 §1） | 驗收項 | 證據集 |
@@ -100,7 +100,7 @@ QA-CR006-1～15 全部判定完成：14 項 PASS；QA-CR006-15（合併紀錄）
 
 ## 6. 未能直接查證的事項
 - RR-011／D-17 是否涵蓋本次 bypass（§4.2）：品保未直接查證；審查部已判定可接受。
-- 36 號 v0.1.1（`2936baec…`）目前無法從 repo 驗證，待安全部依 PR33-R2 入庫；CR-006 v0.4 本文待 PR33-R3 入庫；`品保部.md` 不在 repo（審查部 CR6-S4 列為 S 項）。
+- 36 號 v0.1.1（`2936baec…`）已入庫為 `36-cr-006-pr31-m5-s2-confirmation-v0.1.1.md`；CR-006 v0.4 本文已入庫為 `docs/99-changelog/CR-006-ci-go-1.27.3-v0.4.md`；`品保部.md` 不在 repo（審查部 CR6-S4 列為 S 項）。
 - 品保重現用的 box 預裝 Go 1.27.3 沒有再對 go.dev 官方 JSON 核對 tarball；工具鏈獨立核驗以安全部 M5-2 為準。
 - 未登入取 job log 回 403（SCR-060）；品保用登入的唯讀權限取得 log，並與維運副本逐位元組比對相同。
 - B0、C0 的 SHA256SUMS 無法重算（§1.3）。
@@ -108,5 +108,6 @@ QA-CR006-1～15 全部判定完成：14 項 PASS；QA-CR006-15（合併紀錄）
 ## 修訂紀錄
 | 版本 | 日期 | 作者 | 摘要 |
 |---|---|---|---|
+| v0.2.1 | 2026-11-03 | 品保部（總協調代為更新文字） | 回應審查部 PR33-R5：B、C、D 的覆蓋率檔 14-c.out、12-c.out、31-c.out 原被根目錄 `.gitignore` 的 `*.out` 排除，已以 `git add -f` 入庫（sha256 與各集 SHA256SUMS 相符，一般 `sha256sum -c` 全部 OK）；刪除依據欄、§1.1、§6「待 PR33-R2／R3 入庫」等過時字樣；第 50 行不變；結論不變；小版修訂不改檔名 |
 | v0.2 | 2026-11-03 | 品保部 | 回應審查部 PR #33 退回 PR33-R4：A～D 證據集入庫至 `docs/07-testing/evidence/cr-006/`（內容與 SHA256SUMS 位元組不變，gitleaks 8.21.2 掃描 0 筆）；所有證據引用改為 repo 路徑並加本機路徑對照；行號對入庫檔重核；§1.1、依據欄註明 36 號 v0.1.1 與 CR-006 本文尚未入庫（PR33-R2、R3）；§4.2、§6 補記審查部對 bypass 的判定；結論不變（PASS、缺陷 0） |
 | v0.1 | 2026-11-03 | 品保部 | 初版：QA-CR006-1～15 判定（14 PASS、15 已記錄）；證據集 A～D 的 SHA256SUMS 重算；偏離 2 項（14 淨差異、合併 bypass）；建議 S10～S12 與兩項註記；結論 PASS、缺陷 0 |
