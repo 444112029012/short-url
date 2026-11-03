@@ -1,0 +1,5 @@
+# date: 2026-11-02 14:32:21 CST
+$ chmod -R u+w /tmp/sec-m5.JS3y && rm -rf /tmp/sec-m5.JS3y（刪除暫存 clone、工具鏈、GOPATH）
+exit 0
+ls: cannot access '/tmp/sec-m5.JS3y': No such file or directory
+# date: 2026-11-02 14:32:22 CST

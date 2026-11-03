@@ -1,0 +1,33 @@
+# date: 2026-11-02 16:32:29 CST
+# 來源：維運副本 /workspace/rebuild/cr-006/evidence-pr31-47475638（SHA256SUMS sha256 45cff365…7a6b，sha256sum -c 全 OK）；公開 job log 未登入 403（見 09）
+== 指定行抽查
+job-125141230822-sast-gosec.log:157: 2026-11-02T07:03:43.3792131Z go version go1.27.3 linux/amd64
+job-125141230822-sast-gosec.log:204: 2026-11-02T07:03:43.3934824Z GOVERSION='go1.27.3'
+job-125141230822-sast-gosec.log:273: 2026-11-02T07:04:46.2286588Z 	mod	github.com/securego/gosec/v2	v2.30.0	h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=
+job-125141230822-sast-gosec.log:274: 2026-11-02T07:04:46.2306167Z gosec h1 OK
+job-125141230822-sast-gosec.log:279: 2026-11-02T07:04:46.2337464Z [36;1m"$(go env GOPATH)/bin/gosec" -fmt=text -no-fail=false -severity=high -tests ./...[0m
+job-125141230822-sast-gosec.log:391: 2026-11-02T07:05:17.6770100Z   Files  : 57
+job-125141230822-sast-gosec.log:392: 2026-11-02T07:05:17.6770427Z   Lines  : 7485
+job-125141230822-sast-gosec.log:393: 2026-11-02T07:05:17.6770751Z   Nosec  : 0
+job-125141230822-sast-gosec.log:394: 2026-11-02T07:05:17.6771253Z   Issues : 0
+job-125141230836-sca-govulncheck.log:221: 2026-11-02T07:03:46.4343907Z No vulnerabilities found.
+== job-125141230822-sast-gosec.log
+L1 spec 1.27.3: 1 / go1.27.3 linux/amd64: 1 / GOVERSION: 1 / GOROOT: 1
+L1 1.27.2 字樣（應0）: 0 / GOTOOLCHAIN: GOTOOLCHAIN='auto' 
+L3 switching/downloading（不加^）: 0
+== job-125141230836-sca-govulncheck.log
+L1 spec 1.27.3: 1 / go1.27.3 linux/amd64: 1 / GOVERSION: 1 / GOROOT: 1
+L1 1.27.2 字樣（應0）: 0 / GOTOOLCHAIN: GOTOOLCHAIN='auto' 
+L3 switching/downloading（不加^）: 0
+== job-125141230942-unit-test.log
+L1 spec 1.27.3: 1 / go1.27.3 linux/amd64: 1 / GOVERSION: 1 / GOROOT: 1
+L1 1.27.2 字樣（應0）: 0 / GOTOOLCHAIN: GOTOOLCHAIN='auto' 
+L3 switching/downloading（不加^）: 0
+== L4 gosec h1 OK 計數: 2
+== L6（不錨定）No vulnerabilities found.: 1 / This scan also found: 0 / GO-20xx ID: 0
+== L6 dependency-review（sca-govulncheck job 內步驟）
+2026-11-02T07:03:47.2624130Z dependency graph compare HTTP 200
+2026-11-02T07:03:47.2711420Z   fail-on-severity: critical
+2026-11-02T07:03:48.0270909Z Dependency review did not detect any vulnerable packages with severity level "critical" or higher.
+2026-11-02T07:03:48.0275567Z Dependency review did not detect any denied packages
+# date: 2026-11-02 16:32:29 CST

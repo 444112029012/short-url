@@ -1,0 +1,124 @@
+[gosec] 2026/11/03 09:23:22 Including rules: default
+[gosec] 2026/11/03 09:23:22 Excluding rules: default
+[gosec] 2026/11/03 09:23:22 Including analyzers: default
+[gosec] 2026/11/03 09:23:22 Excluding analyzers: default
+[gosec] 2026/11/03 09:23:22 Import directory: /tmp/sec-s4.hT3W/repo/internal/ratelimit
+[gosec] 2026/11/03 09:23:22 Import directory: /tmp/sec-s4.hT3W/repo/internal/infra/sqlite
+[gosec] 2026/11/03 09:23:22 Import directory: /tmp/sec-s4.hT3W/repo/internal/config
+[gosec] 2026/11/03 09:23:22 Import directory: /tmp/sec-s4.hT3W/repo/internal/observability
+[gosec] 2026/11/03 09:23:22 Import directory: /tmp/sec-s4.hT3W/repo/internal/ports
+[gosec] 2026/11/03 09:23:22 Import directory: /tmp/sec-s4.hT3W/repo/internal/s4canary
+[gosec] 2026/11/03 09:23:22 Import directory: /tmp/sec-s4.hT3W/repo/internal/integration
+[gosec] 2026/11/03 09:23:22 Import directory: /tmp/sec-s4.hT3W/repo/cmd/shorturl
+[gosec] 2026/11/03 09:23:22 Checking package: s4canary
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/s4canary/canary.go
+[gosec] 2026/11/03 09:23:22 Checking package: ports
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/ports/store.go
+[gosec] 2026/11/03 09:23:22 Import directory: /tmp/sec-s4.hT3W/repo/internal/application
+[gosec] 2026/11/03 09:23:22 Import directory: /tmp/sec-s4.hT3W/repo/internal/domain
+[gosec] 2026/11/03 09:23:22 Checking package: ratelimit
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/ratelimit/guard.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/ratelimit/source.go
+[gosec] 2026/11/03 09:23:22 Checking package: ratelimit
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/ratelimit/guard.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/ratelimit/source.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/ratelimit/guard_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: config
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/config/config.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/ratelimit/source_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: config
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/config/config.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/config/config_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: main
+[gosec] 2026/11/03 09:23:22 Import directory: /tmp/sec-s4.hT3W/repo/internal/health
+[gosec] 2026/11/03 09:23:22 Checking package: main
+[gosec] 2026/11/03 09:23:22 Import directory: /tmp/sec-s4.hT3W/repo/internal/httpapi
+[gosec] 2026/11/03 09:23:22 Checking package: observability
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/observability/hooks.go
+[gosec] 2026/11/03 09:23:22 Checking package: observability
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/observability/hooks.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/observability/hooks_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: sqlite
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/infra/sqlite/store.go
+[gosec] 2026/11/03 09:23:22 Checking package: sqlite
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/infra/sqlite/store.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/infra/sqlite/store_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: application
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/application/redirect.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/application/service.go
+[gosec] 2026/11/03 09:23:22 Checking package: main
+[gosec] 2026/11/03 09:23:22 Checking package: application_test
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/application/create_retry_test.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/application/redirect_test.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/application/service_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: main
+[gosec] 2026/11/03 09:23:22 Checking package: main
+[gosec] 2026/11/03 09:23:22 Checking package: domain
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/domain/errors.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/domain/generator.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/domain/types.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/domain/validator.go
+[gosec] 2026/11/03 09:23:22 Checking package: domain
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/domain/errors.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/domain/generator.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/domain/types.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/domain/validator.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/domain/generator_test.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/domain/validator_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: integration
+[gosec] 2026/11/03 09:23:22 Checking package: integration
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/integration/api_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: main
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/integration/ratelimit_e2e_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: main
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/cmd/shorturl/main.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/integration/security_headers_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: main
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/cmd/shorturl/main.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/cmd/shorturl/main_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: health
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/health/health.go
+[gosec] 2026/11/03 09:23:22 Checking package: health
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/health/health.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/health/health_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: main
+[gosec] 2026/11/03 09:23:22 Checking package: main
+[gosec] 2026/11/03 09:23:22 Checking package: main
+[gosec] 2026/11/03 09:23:22 Checking package: httpapi
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/adapter.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/mapper.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/response.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/router.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/security_headers.go
+[gosec] 2026/11/03 09:23:22 Checking package: httpapi
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/adapter.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/mapper.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/response.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/router.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/security_headers.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/mapper_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: httpapi_test
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/bodylimit_test.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/contract_test.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/observability_test.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/ratelimit_test.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/router_test.go
+[gosec] 2026/11/03 09:23:22 Checking file: /tmp/sec-s4.hT3W/repo/internal/httpapi/security_headers_test.go
+[gosec] 2026/11/03 09:23:22 Checking package: main
+Results:
+
+
+[/tmp/sec-s4.hT3W/repo/internal/s4canary/canary.go:12] - G404 (CWE-338): Use of weak random number generator (math/rand or math/rand/v2 instead of crypto/rand) (Confidence: MEDIUM, Severity: HIGH)
+    11: 	for i := range b {
+  > 12: 		b[i] = alphabet[rand.Intn(len(alphabet))]
+    13: 	}
+
+Autofix: 
+
+Summary:
+  Gosec  : dev
+  Files  : 58
+  Lines  : 7500
+  Nosec  : 0
+  Issues : 1
+

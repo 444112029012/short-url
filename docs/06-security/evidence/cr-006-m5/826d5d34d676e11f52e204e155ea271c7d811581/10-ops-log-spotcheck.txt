@@ -1,0 +1,39 @@
+# date: 2026-11-02 14:32:00 CST
+# 來源：維運提供 /workspace/rebuild/cr-006/evidence-pr31（SHA256SUMS sha256 b1405323…，sha256sum -c 全 OK）；公開 job log 未登入 API 回 403（見 09），故僅能抽查維運副本
+== job-122721425145-sast-gosec.log
+L1 spec 1.27.3: 1 / go version go1.27.3: 1 / GOVERSION: 1 / GOROOT: 1
+L1 1.27.2 命中（應0）: 0
+GOTOOLCHAIN 記錄: GOTOOLCHAIN='auto' 
+L3 switching/downloading（不加^）: 0
+== job-122721425254-sca-govulncheck.log
+L1 spec 1.27.3: 1 / go version go1.27.3: 1 / GOVERSION: 1 / GOROOT: 1
+L1 1.27.2 命中（應0）: 0
+GOTOOLCHAIN 記錄: GOTOOLCHAIN='auto' 
+L3 switching/downloading（不加^）: 0
+== job-122721424775-unit-test.log
+L1 spec 1.27.3: 1 / go version go1.27.3: 1 / GOVERSION: 1 / GOROOT: 1
+L1 1.27.2 命中（應0）: 0
+GOTOOLCHAIN 記錄: GOTOOLCHAIN='auto' 
+L3 switching/downloading（不加^）: 0
+== L4
+2026-10-28T08:57:17.8817585Z [36;1mexpected='h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0='[0m
+2026-10-28T08:57:17.8970763Z 	mod	github.com/securego/gosec/v2	v2.30.0	h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=
+2
+== L5
+2026-10-28T08:57:17.9031344Z [36;1m"$(go env GOPATH)/bin/gosec" -fmt=text -no-fail=false -severity=high -tests ./...[0m
+2026-10-28T08:57:53.6715888Z   Files  : 57
+2026-10-28T08:57:53.6716242Z   Lines  : 7485
+2026-10-28T08:57:53.6716563Z   Nosec  : 0
+2026-10-28T08:57:53.6717493Z   Issues : 0
+== L6 參考（不錨定）
+No vulnerabilities found.: 1 / This scan also found: 0 / GO-20: 0
+# date: 2026-11-02 14:32:00 CST
+== L6 dependency-review（dependency-review 為 sca-govulncheck job 內的步驟，非獨立 check-run；不錨定 grep）
+2026-10-28T08:55:48.5434553Z Download action repository 'actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48' (SHA:2031cfc080254a8a887f58cffee85186f0e49e48)
+2026-10-28T08:56:27.5121066Z dependency graph compare HTTP 200
+2026-10-28T08:56:27.5245693Z ##[group]Run actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48
+2026-10-28T08:56:28.3187879Z Dependency review did not detect any vulnerable packages with severity level "critical" or higher.
+2026-10-28T08:56:28.3202329Z Dependency review did not detect any denied packages
+2026-10-28T08:56:33.0891564Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48, actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+判讀：唯一含 critical 的其他行為設定值「fail-on-severity: critical」；輸出為「did not detect any vulnerable packages with severity level "critical" or higher」，無 Critical。（本行於 2026-11-02 14:32:27 CST 更正原自動計數誤列）
+# date: 2026-11-02 14:32:10 CST

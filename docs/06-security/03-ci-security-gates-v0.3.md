@@ -1,9 +1,9 @@
 ---
 文件：CI 資安掃描阻擋門檻
-版本：v0.3.9
+版本：v0.3.11
 狀態：已核准（D-07：CR-001；D-08：合併路徑 A；RR-006 已接受）；**v0.3.7 §2 工具鏈／SAST 暫行例外：依 D-13（CR-002）核准、安全部同意（附條件）；v0.3.8：已生效（#15 於 2026-10-19 10:22:50（UTC+8）合併，merge commit `c341be1a390a0a0eeed057a4e862d6cd1a9bd38b`）**
 負責角色：安全部
-最後更新：2026-10-19
+最後更新：2026-11-03
 對應需求：NFR-004、SI-05；SEC-009～SEC-011
 專案代號：SHORTURL
 與維運對齊狀態：對齊維運 `01-ci-pipeline-v0.2`（工具鏈／dependency-review／§5.2）；一致性以本文件阻擋語意為準；**合併路徑 Rulesets 方案 A 已生效（D-08；取證見 [`docs/09-cicd-env/evidence/rulesets-snapshot-2026-10-07.md`](../09-cicd-env/evidence/rulesets-snapshot-2026-10-07.md)）**
@@ -16,6 +16,8 @@
 > **零現金預算**：僅採免費／開源／GitHub 內建工具；不得以付費授權為必選。  
 > **技術棧（D-04）**：Go＋chi／SQLite。  
 > **門檻語意**：以本文件為準；維運實作**不得放寬**阻擋級別（High／Critical／機密語意與 v0.2 相同）。  
+> **v0.3.11 變更摘要（CR-006，35 號 S5）**：§2 Go toolchain 列改為 `1.27.3`。CR-006 merge `1b53fcde7cf5068dcf7193b92205d6e6e9adb09d`；main push run 41559091290 四項 success（S3）；金絲雀 run 41561438299（workflow_dispatch，分支 `canary/cr006-g404-red`，head `790b1c3a`，sast-gosec failure：G404 HIGH、Issues 1、exit 1，分支已刪；見 [37](./37-cr-006-post-merge-confirmation-v0.1.md)）（S4）。門檻、job 名、阻擋語意都不變。  
+> **v0.3.10 狀態註記（CR-006，未改門檻）**：CR-006 PR #31 於 2026-11-03 09:20:21（UTC+8，API merged_at 換算）合併，merge commit `1b53fcde7cf5068dcf7193b92205d6e6e9adb09d`（parents `164b62c9`＋PR head `47475638`）；main push run 41559091290 四項 success（S3 成立，見 [37](./37-cr-006-post-merge-confirmation-v0.1.md)）。main 的 go.mod 與三處 setup-go 實際已是 `1.27.3`；**§2 Go toolchain 列依 35 號 S5 要等 S4（G404 金絲雀，最遲 2026-11-10）完成後才正式改列 1.27.3**，在那之前本列文字照舊，以本註記為準。若回滾，依 35 號 S7 處理。  
 > **v0.3.9 變更摘要（CR-005／D-19）**：§2 SAST 改為發行版 gosec `v2.30.0`（h1 `67aF6LHa…`），CR-002 的 gosec 暫行例外結束、RR-010 結案；§9 SEC-009 同步。門檻、Go 1.27.2、h1 驗證、required checks 都不變。  
 > **v0.3.8 變更摘要**：CR-002 改為**已生效**（#15 於 2026-10-19 10:22:50（UTC+8）合併，merge commit `c341be1a390a0a0eeed057a4e862d6cd1a9bd38b`；合併後 main push run [39189683566](https://github.com/444112029012/short-url/actions/runs/39189683566) 四項 success，`sast-gosec` 由合併前 main `2e54f7e` 的 failure（run 39183720869）轉綠，log 有 `gosec h1 OK`、Issues 0、Go `go1.27.2`）；移除「CI 實況仍為 1.27.1／v2.29.0」註記；C6／C7 期限寫入具體日期（§2）。  
 > **v0.3.7 變更摘要（CR-002／D-13；v0.3.8 起已生效）**：Go **精確釘 1.27.2**（go.mod 與 CI 一致，禁止 `1.27.x`）；gosec 暫行例外釘上游 commit `707f227`（pseudo-version＋h1 比對，期限與退場見 §2）；govulncheck v1.8.0 不變；阻擋語意不變。  
@@ -49,7 +51,7 @@
 | **SAST** | SEC-009 | **gosec**（Go） | **發行版 `github.com/securego/gosec/v2@v2.30.0`**（CR-005／D-19；上游 tag `v2.30.0` → commit `5eb1d104`；sum.golang.org `h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=`）。CI **必須**在安裝後用 `go version -m` 讀出 gosec 模組的 h1 並比對上列值，不符就失敗；禁止 `@latest`／`@master`／短 SHA；不得關閉或繞過 GOSUMDB／GOPROXY 驗證。**已生效**：PR #29 於 2026-10-27 16:37:12（UTC+8）合併，merge `db380a40`；K4 金絲雀見 [32](./32-cr-005-k4-g404-canary-closure-v0.1.md)。CR-002 的暫行例外（pseudo-version `v2.29.1-0.20261015133444-707f2271f665`，h1 `KvLOP3HN…oj40=`）**已結束**，RR-010 結案；回滾時恢復該例外與 RR-010 | 可選 **CodeQL**（language: `go`） | 開源／GitHub 內建 |
 | **SCA** | SEC-010 | **govulncheck** | **`v1.8.0`**（精確釘版；禁止 `@latest`） | PR 併用 **dependency-review-action**（見 §4.1；fail-closed）；備援 Trivy fs／OSV-Scanner | 開源／GitHub 內建 |
 | **單元測試** | （品質門檻） | `go test` | — | — | 標準庫 |
-| **Go toolchain** | （供應鏈） | 官方 Go | **`go.mod` `go 1.27.2`；CI `setup-go` `"1.27.2"`**（精確釘版，**禁止 `1.27.x`／`stable`**；兩者須一致）。後續修補版以 CR（標準變更）更新，且須先驗證 `sast-gosec`／`sca-govulncheck` 皆綠。（**已生效**：main `c341be1` 起 `go.mod` 為 `go 1.27.2`、workflow 三處 `setup-go` 皆 `"1.27.2"`；main CI log 為 `go1.27.2 linux/amd64`；main `24b8da0` 仍相同） | — | 官方 |
+| **Go toolchain** | （供應鏈） | 官方 Go | **`go.mod` `go 1.27.3`；CI `setup-go` `"1.27.3"`**（CR-006；精確釘版，**禁止 `1.27.x`／`stable`**；兩者須一致；go.mod 不加 toolchain 行）。後續修補版以 CR（標準變更）更新，且須先驗證 `sast-gosec`／`sca-govulncheck` 皆綠。（**已生效**：CR-006 merge `1b53fcde7cf5068dcf7193b92205d6e6e9adb09d` 起 `go.mod` 為 `go 1.27.3`、workflow 三處 `setup-go` 皆 `"1.27.3"`；main run 41559091290 log 為 `go1.27.3 linux/amd64`；G404 金絲雀 run 41561438299 紅燈。回滾時回到 `1.27.2`，依 35 號 S7 處理。歷史：CR-002 `c341be1` 起為 1.27.2） | — | 官方 |
 
 > 選定理由：對齊 Go 技術棧、零預算、可於 GitHub Actions 直接執行；離開已停修之 1.24 線屬安全強化（CR-001 第 1、2 項；D-07）。
 >
@@ -234,3 +236,5 @@
 | v0.3.7 | 2026-10-19 | 安全部 | CR-002／D-13（安全部同意（附條件），見 13）：§2 Go toolchain 改精確 `1.27.2`（go.mod 與 setup-go 一致，禁止 `1.27.x`／`stable`）；SAST 改暫行例外——gosec `v2.29.1-0.20261015133444-707f2271f665`（commit `707f2271f66579a18e1da25794b1e8012247274b`、`h1:KvLOP3HNC+bEcwPGBQ4mVI70uhZ/scyFgiF1IVooj40=`），CI 必須以 `go version -m` 比對 h1，期限（上游發行後 14 日內換回、最遲 2026-12-31 重評）與退場條件；§2 補 CR-002 註記；檔頭狀態標明「依 D-13，待 CR-002 PR 合併後生效」、摘要與對應 CR 補 CR-002；§9 SEC-009 同步；§12 新增例外期間禁止事項與浮動版本禁止；阻擋語意未放寬；§7.1／§11 PR #13 改為已合併事實（2026-10-19 09:05:27 UTC+8，merge commit `2e54f7e`，取證檔連結已生效）；小版修訂不改檔名（檔名保留主版號） |
 | v0.3.8 | 2026-10-19 | 安全部 | CR-002 已生效：#15 於 2026-10-19 10:22:50（UTC+8）合併，merge commit `c341be1a390a0a0eeed057a4e862d6cd1a9bd38b`；狀態列、§2 SAST／Go toolchain 兩列、CR-002 註記與 §9 對照表改「已生效」，移除「CI 實況仍為 v2.29.0／go 1.27.1」註記（已以 cursor-github 唯讀查證 main `c341be1`、`24b8da0` 的 go.mod、workflow 與 CI log 皆為 1.27.2）；記錄合併後 main run 39189683566 四項 success、`sast-gosec` 由 `2e54f7e` failure 轉綠且 log 有 h1 OK；寫入 C6（2026-10-26 前）、C7（每週、發行後 14 日內、最遲 2026-12-31）具體期限；阻擋語意不變；小版修訂不改檔名（檔名保留主版號） |
 | v0.3.9 | 2026-10-27 | 安全部 | CR-005／D-19：§2 SAST 由 CR-002 暫行 pseudo-version 換回發行版 v2.30.0（h1 `67aF6LHa…`），暫行例外結束，RR-010 結案（32 號）；§9 同步；門檻不變；小版修訂不改檔名 |
+| v0.3.10 | 2026-11-03 | 安全部 | CR-006 合併後狀態註記：merge `1b53fcde7cf5068dcf7193b92205d6e6e9adb09d`、main run 41559091290 四項 success（S3）；GO-2026-6809 在 CI gosec 二進位已由 1.27.3 修正（main run log 與安全部本機 S4 證據）；§2 Go 列正式改版待 S4（35 號 S5）；門檻、job 名、阻擋語意不變；小版修訂不改檔名 |
+| v0.3.11 | 2026-11-03 | 安全部 | 35 號 S5：§2 Go toolchain 列改 `1.27.3`（CR-006 merge `1b53fcde7cf5068dcf7193b92205d6e6e9adb09d`；main run 41559091290 四項 success；G404 金絲雀 run 41561438299 紅燈）；門檻、job 名、阻擋語意不變；小版修訂不改檔名 |

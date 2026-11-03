@@ -1,0 +1,24 @@
+# date: 2026-11-02 16:30:16 CST
+$ curl -s "https://go.dev/dl/?mode=json&include=all" | jq go1.27.3 linux-amd64 archive
+65efbc80fdc1fa2cd2631cad5b481777a68e8725f34e89f50fc6ac714e379b40  go1.27.3.linux-amd64.tar.gz
+官方值與 CR 值相符
+download exit 0
+go1.27.3.linux-amd64.tar.gz: OK
+sha256sum -c exit 0
+tar exit 0
+# date: 2026-11-02 16:30:19 CST
+$ env | grep GOTOOLCHAIN（應無）
+$ which go
+/tmp/sec-m5.cN9L/toolchain/go/bin/go
+$ go version
+go version go1.27.3 linux/amd64
+exit 0
+$ go env GOVERSION GOTOOLCHAIN GOROOT GOFLAGS GOPROXY GOSUMDB GOPATH
+go1.27.3
+auto
+/tmp/sec-m5.cN9L/toolchain/go
+
+https://proxy.golang.org,direct
+sum.golang.org
+/tmp/sec-m5.cN9L/gopath
+exit 0

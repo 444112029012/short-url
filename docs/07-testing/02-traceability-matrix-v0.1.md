@@ -1,14 +1,14 @@
 ---
 文件：追溯矩陣
-版本：v0.5
+版本：v0.6
 狀態：審查中
 負責角色：品保部
-最後更新：2026-10-22
+最後更新：2026-11-03
 對應需求：REQ-001～REQ-012、NFR-001～NFR-008、SEC-001～SEC-017
 對應規格：docs/01-requirements/02-requirements-spec-v0.1.md；docs/06-security/01-sec-requirements-v0.2.md
 對應案例：docs/07-testing/07-test-cases-v0.1.md（內容版 v0.2）
 專案代號：SHORTURL
-對應退回項：G1-R1（已關）；G2-QA-R1（已關）；G3 TC 回填；G4 審查部 S6（PR #18，v0.4 處置）；G4 整體退回 G4-R2（v0.5，PR #13～#26、main f646bee）
+對應退回項：G1-R1（已關）；G2-QA-R1（已關）；G3 TC 回填；G4 審查部 S6（PR #18，v0.4 處置）；G4 整體退回 G4-R2（v0.5，PR #13～#26、main f646bee）；CR-005、CR-006 流程列（v0.6）
 ---
 
 # 追溯矩陣：短網址服務
@@ -195,12 +195,14 @@
 
 DEF-002、DEF-003、DEF-005、DEF-006 開放（輕微，G5 前）；DEF-001 關閉；DEF-004 本機已修，待 G4-QA-R2。明細見 12 號 §7、19 號 §4。
 
-## 8. 流程類任務（非 REQ／NFR／SEC；v0.4 新增）
+## 8. 流程類任務（非 REQ／NFR／SEC；v0.4 新增；v0.6 加 CR-005、CR-006）
 
 | 任務 | 來源 | 設計／規範文件 | TC | 對應 | 結果 |
 |---|---|---|---|---|---|
 | ENG-022 純文件 PR 分支例外 | CR-003 v0.1（本文 c55ad3ca 已核實；依 R10 待使用者確認 D-15 才生效，G4-R5） | `08-engineering/02-branch-commit-conventions`（待升 v0.2）；`01-task-breakdown`（待升 v0.2） | **CHK-ENG-022** | NFR-007（輔助） | ⏳ 待 CR-003 生效與文件落地後驗收 |
 | CR-004 ruleset stale approval | CR-004 v0.3（eae83378…） | ruleset 24629854 | CHK-CR-004（AC-CR004-1～9） | SCR-042／RR-011（輔助） | ✅ 首測通過（18 號 v0.4；AC-9 不適用）；撤銷行為未實測 |
+| CR-005 gosec 發行版 v2.30.0 | CR-005 v0.3（`/workspace/rebuild/cr-005/CR-005-gosec-release-v2.30.0-v0.3.md`，bfaa6d1d…；品保評估 `impact/品保部.md` v0.2，88f0c55a…） | `.github/workflows/ci-devsecops.yml`（sast-gosec） | CHK-SEC-009；QA-CR005-1～6 | SEC-009；RR-010（輔助） | ⏳ **待驗收**：QA-CR005-1～6 尚未執行（v0.6 補列） |
+| CR-006 CI 升 Go 1.27.3 | CR-006 v0.4（818f48eb…；品保評估 v0.4，98d714da…） | workflow 三處 setup-go；`go.mod` 第 3 行 | CHK-SEC-009、CHK-SEC-010、CHK-NFR-004；QA-CR006-1～15 | SEC-009、SEC-010、NFR-004、SI-05；RR-012 | ✅ **驗收 PASS、缺陷 0**（21 號 v0.1；PR #31 merge 1b53fcde、push run 41559091290；QA-CR006-14 淨差異偏離、合併 bypass 只記錄） |
 
 ---
 
@@ -215,3 +217,4 @@ DEF-002、DEF-003、DEF-005、DEF-006 開放（輕微，G5 前）；DEF-001 關�
 | v0.3 | 2026-10-07 | 品保部 | **G3**：TC 欄填入實際 ID；公開方法覆蓋勾稽 100%；對齊案例目錄 v0.1 |
 | v0.4 | 2026-10-22 | 品保部 | **G4／S6**：SEC-007 TC 細分 E2E-05-01～11；REQ-003、NFR-003（輔助）、NFR-006、SEC-005 回填；新增 §7 實作對應與執行結果；修正簡體字「舉證」；新增 §8 流程類 ENG-022／CHK-ENG-022（CR-003） |
 | v0.5 | 2026-10-22 | 品保部 | **G4 整體／G4-R2**：§7 基準改 main f646bee（181 PASS、CT 14 PASS）；CT 列改通過、DEF-001 關閉；新增 §7.1 PR #13～#26 追溯、§7.2 開放缺陷；§8 更新 CR-003 狀態、新增 CR-004 列 |
+| v0.6 | 2026-11-03 | 品保部 | §8 新增 CR-005（QA-CR005-1～6 待驗收）、CR-006（驗收 PASS，依 21 號 v0.1）兩列；其他章節不變；v0.5 備份於 `/workspace/tmp-qa-backup/07-testing/02-traceability-matrix-v0.5.md`（8a005aef…9932） |

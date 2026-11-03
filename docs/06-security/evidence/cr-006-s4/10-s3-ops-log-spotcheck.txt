@@ -1,0 +1,32 @@
+## S3 維運 log 副本抽查（只讀 /workspace/rebuild/cr-006/evidence-main-1b53fcde/）
+Tue Nov  3 09:24:58 CST 2026
+SHA256SUMS sha256: 3822d31bcfba16f7f4df1a0130fd6d896b5f5cb59e2d14394636cc60e36a2bd9
+run.json: OK
+jobs.json: OK
+job-sast-gosec-125665062413.log: OK
+job-sca-govulncheck-125665062848.log: OK
+job-secrets-gitleaks-125665063242.log: OK
+job-unit-test-125665063153.log: OK
+41559091290
+1b53fcde7cf5068dcf7193b92205d6e6e9adb09d
+success
+== job-sast-gosec-125665062413.log
+go1.27.3 計數=2  1.27.2 計數=0  switching/downloading 計數=0
+133:2026-11-03T01:20:37.1989098Z go version go1.27.3 linux/amd64
+180:2026-11-03T01:20:37.3261777Z GOVERSION='go1.27.3'
+247:2026-11-03T01:21:42.7842201Z [36;1mecho "gosec h1 OK"[0m
+251:2026-11-03T01:21:42.7990056Z gosec h1 OK
+368:2026-11-03T01:22:12.6833488Z   Files  : 57
+369:2026-11-03T01:22:12.6833900Z   Lines  : 7485
+370:2026-11-03T01:22:12.6834163Z   Nosec  : 0
+371:2026-11-03T01:22:12.6834434Z   Issues : 0
+== job-sca-govulncheck-125665062848.log
+go1.27.3 計數=2  1.27.2 計數=0  switching/downloading 計數=0
+134:2026-11-03T01:20:37.6735300Z go version go1.27.3 linux/amd64
+181:2026-11-03T01:20:37.9842921Z GOVERSION='go1.27.3'
+203:2026-11-03T01:21:05.5240044Z No vulnerabilities found.
+== job-unit-test-125665063153.log
+go1.27.3 計數=2  1.27.2 計數=0  switching/downloading 計數=0
+134:2026-11-03T01:20:36.4465820Z go version go1.27.3 linux/amd64
+181:2026-11-03T01:20:36.5605431Z GOVERSION='go1.27.3'
+Tue Nov  3 09:24:58 CST 2026

@@ -1,0 +1,15 @@
+## S7 回滾檢查
+Tue Nov  3 09:24:10 CST 2026
+1b53fcde7cf5068dcf7193b92205d6e6e9adb09d	refs/heads/main
+32 closed docs: CR-006 後續文件（34／35／36 號、06-security README、D-20）
+31 closed fix(ci): CI 升 Go 1.27.3（CR-006）
+30 closed docs: 收 CR-005 文件與證據、K4 結案、G4 後續補件
+29 closed fix(ci): gosec 換回發行版 v2.30.0 (CR-005)
+28 closed docs: G4 整體關卡收尾（S2～S6、QA-R2 檔案入庫、D-18）
+27 closed docs: 收錄 G4 整體關卡證據（R3）
+26 closed test: 補 OpenAPI 契約測試 CT-* (ENG-013)
+25 closed fix: CI 強化 SCR-032／019／021／004 (ENG-020)
+24 closed docs: README 431 門檻與例外回應措辭對齊 API 說明 (ENG-021)
+23 closed docs: 安全審查 08 v0.1.5 與 06-security README v0.22 (ENG-011)
+revert/回滾 字樣 PR 計數: 0
+Tue Nov  3 09:24:38 CST 2026

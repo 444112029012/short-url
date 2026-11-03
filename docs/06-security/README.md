@@ -1,9 +1,9 @@
 ---
 文件：06-security 章節索引
-版本：v0.30
+版本：v0.35
 狀態：審查中
 負責角色：安全部
-最後更新：2026-11-02
+最後更新：2026-11-03
 專案代號：SHORTURL
 ---
 
@@ -17,12 +17,12 @@
 | [01-sec-requirements-v0.2.md](./01-sec-requirements-v0.2.md) | **v0.2** | 審查中 | SEC-001～**SEC-017**（G2 回寫 TM；新增 016／017） |
 | [01-sec-requirements-v0.1.md](./01-sec-requirements-v0.1.md) | v0.1 | 歷史 | G1 初版；請以 v0.2 為準 |
 | [02-g1-security-pregate-v0.1.md](./02-g1-security-pregate-v0.1.md) | v0.1 | 審查中 | G1 審查部用書面前置結論 |
-| [03-ci-security-gates-v0.3.md](./03-ci-security-gates-v0.3.md) | **v0.3.9** | **已核准**（D-07／D-08）；§2 依 CR-005（D-19）**已生效**（#29，2026-10-27 16:37:12 UTC+8，merge `db380a40`） | **現行 CI 門檻**：Go **1.27.2（精確釘版）**／gosec **發行版 v2.30.0**（h1 `67aF6LHa…` 比對）／govulncheck v1.8.0；CR-002 的 gosec 暫行例外已結束（C6 見 29、K4 見 32）；dependency-review fail-closed；方案 A（D-08）；規則一 strict=true（D-10）。完整歷程見檔內修訂紀錄 |
+| [03-ci-security-gates-v0.3.md](./03-ci-security-gates-v0.3.md) | **v0.3.11** | **已核准**（D-07／D-08）；§2 依 CR-005（D-19）**已生效**（#29，2026-10-27 16:37:12 UTC+8，merge `db380a40`） | **現行 CI 門檻**：Go **1.27.2（精確釘版）**／gosec **發行版 v2.30.0**（h1 `67aF6LHa…` 比對）／govulncheck v1.8.0；CR-002 的 gosec 暫行例外已結束（C6 見 29、K4 見 32）；dependency-review fail-closed；方案 A（D-08）；規則一 strict=true（D-10）。完整歷程見檔內修訂紀錄 |
 | [03-ci-security-gates-v0.2.md](./03-ci-security-gates-v0.2.md) | v0.2.3 | 已取代 | G3 定案稿；**已由 v0.3 取代（D-07）** |
 | [03-ci-security-gates-v0.1.md](./03-ci-security-gates-v0.1.md) | v0.1 | 歷史 | 已由 v0.2 取代 |
 | [04a-dfd-working-v0.1.md](./04a-dfd-working-v0.1.md) | v0.1 | 審查中 | DFD 對齊說明（採設計部定稿；**EE1**） |
 | [04-threat-model-v0.1.md](./04-threat-model-v0.1.md) | v0.1.1 | 審查中 | STRIDE 威脅模型（23 條 TM）；TM-002 已接受（D-06） |
-| [05-residual-risk-register-v0.1.md](./05-residual-risk-register-v0.1.md) | **v0.1.13** | 審查中 | 殘餘風險：RR-001 已接受（D-06）；RR-006 已接受（D-08）；RR-007～009 已接受（D-11），RR-007 已降為低；**RR-010 已結案**（CR-005，2026-10-27）；**RR-011（中）已接受（D-17）**，D-09 人工核 head 持續；**RR-012（低）**：gosec 二進位含 GO-2026-6809，升 Go 1.27.3 的 CR 最遲 2026-11-20 提出（K6） |
+| [05-residual-risk-register-v0.1.md](./05-residual-risk-register-v0.1.md) | **v0.1.15** | 審查中 | 殘餘風險：RR-001 已接受（D-06）；RR-006 已接受（D-08）；RR-007～009 已接受（D-11），RR-007 已降為低；**RR-010 已結案**（CR-005，2026-10-27）；**RR-011（中）已接受（D-17）**，D-09 人工核 head 持續；**RR-012（低）**：gosec 二進位含 GO-2026-6809，升 Go 1.27.3 的 CR 最遲 2026-11-20 提出（K6） |
 | [06-g2-security-pregate-v0.1.md](./06-g2-security-pregate-v0.1.md) | v0.1.1 | 審查中 | G2 審查部用書面前置結論（後註：D-06 已接受） |
 | [07-g3-security-pregate-v0.1.md](./07-g3-security-pregate-v0.1.md) | v0.1 | 審查中 | G3 資安書面前置 |
 | [08-pr-002-security-review-v0.1.md](./08-pr-002-security-review-v0.1.md) | **v0.1.5** | **已核准**；SCR-002／003 已關閉（v0.1.5，以 11 號檔為準） | **PR #2 安全審查**：核准；CR-001（D-07）與合併路徑 A（D-08）已核准 |
@@ -30,7 +30,7 @@
 | [10-dr-g4-01-body-limit-security-opinion-v0.1.md](./10-dr-g4-01-body-limit-security-opinion-v0.1.md) | **v0.1.2** | **附條件同意；C1～C5 已達成** | **DR-G4-01 本文上限 32768 B 複核**：C1（實作 PR 須在 PR #7 合併後）**已達成**（main `24b8da0`）；**v0.1.2：C2～C5 已達成**，MaxHeaderBytes（C3）**已合併**（#17，merge `433140c`，2026-10-19 14:00:38 UTC+8） |
 | [11-pr-007-008-security-review-v0.1.md](./11-pr-007-008-security-review-v0.1.md) | **v0.1.6** | **PR #7 已合併（最終 head `fc9a7a7` 經 16 通過）／PR #8 核准並已合併** | **PR #7（ENG-011 限流）／PR #8（ENG-016 標頭）安全審查**：SCR-006～011、**SCR-017（低）、SCR-018（資訊）**；v0.1.5：SCR-002／006／007／008／017 已關閉、SCR-011 已關閉（main 四綠）；**SCR-010（低，HSTS 由邊緣滿足；開放，G5 前驗證）**；**SCR-003 已關閉**（v0.1.6：#8 合併，`e9f4396`）；SCR-018 資訊 |
 | [12-pr-011-security-review-v0.1.md](./12-pr-011-security-review-v0.1.md) | **v0.1.5** | **核准**；#11 已合併（2026-10-19 11:34:13 UTC+8，`3d3a9cd`） | **PR #11（ENG-012 觀測）安全審查**：SCR-012～016；short_code 入日誌可接受（附條件：日誌存取同 DB、≤14 日輪替）；**SCR-012 已關閉** |
-| [13-cr-002-go-1272-gosec-pin-security-opinion-v0.1.md](./13-cr-002-go-1272-gosec-pin-security-opinion-v0.1.md) | **v0.1.3** | **安全部已同意（附條件）**；CR-002 已生效（#15）；**C6 已關閉（29）、C7 已結束（CR-005，32）** | **CR-002 安全部意見**：Go 精確 1.27.2＋gosec 暫釘 `707f227`；條件 C1～C8；C7 改為每月檢視工具版本；C8（Go 修補版走 CR）持續有效 |
+| [13-cr-002-go-1272-gosec-pin-security-opinion-v0.1.md](./13-cr-002-go-1272-gosec-pin-security-opinion-v0.1.md) | **v0.1.5** | **安全部已同意（附條件）**；CR-002 已生效（#15）；**C6 已關閉（29）、C7 已結束（CR-005，32）** | **CR-002 安全部意見**：Go 精確 1.27.2＋gosec 暫釘 `707f227`；條件 C1～C8；C7 改為每月檢視工具版本；C8（Go 修補版走 CR）持續有效 |
 | [14-pr-015-cr-002-security-review-v0.1.md](./14-pr-015-cr-002-security-review-v0.1.md) | v0.1 | **核准**；PR #15 已合併（2026-10-19 10:22:50 UTC+8，`c341be1`） | **PR #15（CR-002 實作）安全審查**：C1～C5 符合；h1 驗證步驟 fail-closed；**SCR-019（低）、SCR-020（資訊）、SCR-021（資訊、既有）** |
 | [15-third-party-skills-security-review-v0.1.md](./15-third-party-skills-security-review-v0.1.md) | v0.1 | 審查中（安全部結論已出；待總協調轉使用者確認） | **第三方 AI agent skill 安裝前安全審查**（superpowers 三檔／Trail of Bits 兩項／Humanizer-zh／Google・Uber Go 指南） |
 | [16-pr-007-final-head-security-confirmation-v0.1.md](./16-pr-007-final-head-security-confirmation-v0.1.md) | **v0.1.2** | **通過**；#7 已依條件以 head `fc9a7a7` 合併 | **PR #7 最終 head 合併前安全確認**：v0.1（`99b0879`）退回（SCR-017 註解）→ v0.1.1（`fc9a7a7`）通過；v0.1.2 合併後註記（`24b8da0`，main 四綠） |
@@ -53,7 +53,8 @@
 | [33-pr-030-gitleaks-false-positive-ruling-v0.1.md](./33-pr-030-gitleaks-false-positive-ruling-v0.1.md) | v0.1 | 誤報；不放寬門檻 | **PR #30 gitleaks 命中裁定**：google.golang.org/api 的公開 h1 被 generic-api-key 規則誤判；命中的 3 個證據檔只保留在本機，不改 .gitleaksignore |
 | [34-pr-030-sync-recheck-confirmation-v0.1.md](./34-pr-030-sync-recheck-confirmation-v0.1.md) | v0.1 | 通過 | **PR #30 同步範圍複查**：綁定 head 51dc255c；diff 只在 docs/ 內、3 個檔案已排除、各檔 sha 相符、CI 四項全綠 |
 | [35-cr-006-go-1273-security-opinion-v0.1.md](./35-cr-006-go-1273-security-opinion-v0.1.md) | v0.1.3 | 同意（附條件 S1～S7） | **CR-006 安全評估**：CI 升 Go 1.27.3，修 GO-2026-6809（情境嚴重度低）；go.mod 採甲案，不加斷言步驟，合併後做 G404 金絲雀，GOTOOLCHAIN 另案處理；登錄 SCR-053～055 |
-| [36-cr-006-pr31-m5-s2-confirmation-v0.1.md](./36-cr-006-pr31-m5-s2-confirmation-v0.1.md) | v0.1 | **通過**，僅適用於 head `826d5d34`（合併由使用者決定） | **CR-006 PR #31 M5 獨立重跑與 S2 書面確認**：M5-1～M5-8 全部 PASS（gosec go1.27.3、h1 相符、GO-2026-6809 為 0、無工具鏈切換）；L6 成立（dependency-review 為 sca-govulncheck 步驟，無 Critical）；證據 `evidence/cr-006-m5/826d5d34…/`；SCR-060～062（資訊） |
+| [36-cr-006-pr31-m5-s2-confirmation-v0.1.md](./36-cr-006-pr31-m5-s2-confirmation-v0.1.md) | **v0.1.2** | **通過**，僅適用於 head `47475638`（v0.1 對舊 head `826d5d34` 的確認已作廢；合併由使用者決定） | **CR-006 PR #31 M5 獨立重跑與 S2 書面確認**：v0.1.1 對同步 main 後的新 head 重跑 M5-1～M5-8 全部 PASS；合併差異只含 docs 5 檔，go.mod／go.sum／workflow 與 CR 一致；L1、L3～L6 成立；證據 `evidence/cr-006-m5/47475638…/`；SCR-060～062 仍開放，新增 SCR-063（資訊）；v0.1.2：M5 目錄的 01、04 號檔因 gitleaks 誤判只留本機，repo 內驗證須加 `--ignore-missing` |
+| [37-cr-006-post-merge-confirmation-v0.1.md](./37-cr-006-post-merge-confirmation-v0.1.md) | **v0.1.2** | S1～S5 完成（S4 金絲雀 run 41561438299 紅燈；RR-012 結案）；S6 待到期（G5 前）；S7 未觸發；綁 merge `1b53fcde` | **CR-006 合併後確認**（35 號 S1～S7 彙整；證據 `evidence/cr-006-s4/`） |
 
 ## 準據 DFD
 
@@ -149,3 +150,8 @@
 | v0.28 | 2026-10-28 | 安全部 | 35 號改版為 v0.1.2（確認對 CR-006 v0.3 沿用原結論）；小版修訂不改檔名 |
 | v0.29 | 2026-10-28 | 安全部 | 35 號改版為 v0.1.3（確認對 CR-006 v0.4 沿用；寫明之後各版的效力規則）；小版修訂不改檔名 |
 | v0.30 | 2026-11-02 | 安全部 | 索引新增 36（CR-006 PR #31 M5 獨立重跑與 S2 書面確認，通過，綁定 head `826d5d34d676e11f52e204e155ea271c7d811581`）；小版修訂不改檔名 |
+| v0.31 | 2026-11-02 | 安全部 | 36 號改版為 v0.1.1（PR #31 同步 main 後新 head `474756381bd170beb3a5d723b63f1b8ba48b2add` 重跑 M5 通過；舊 head 確認作廢；新增 SCR-063）；小版修訂不改檔名 |
+| v0.32 | 2026-11-03 | 安全部 | 索引新增 37（CR-006 合併後確認）；03 → v0.3.10、05 → v0.1.14、13 → v0.1.4（CR-006 合併狀態註記，RR-012 待 S4 後結案）；小版修訂不改檔名 |
+| v0.33 | 2026-11-03 | 安全部 | 37 號改版為 v0.1.1（sha256 `c495a6c56a597cd6b204e3a4d9a45db0ed9354bf6a83f422a83dda63139e96d8`；S4 計畫改綁維運部 commit `790b1c3a…`、分支 `canary/cr006-g404-red`；新增單一 commit 偏離轉述紀錄）；小版修訂不改檔名 |
+| v0.34 | 2026-11-03 | 安全部 | 37 號改版為 v0.1.2（sha256 `9cacd4682464d8e5e3e87e72e9e047919da012826acbb13d6de5a2f093b2d4e4`；S4、S5 完成）；03 → v0.3.11（§2 Go 列 1.27.3）、05 → v0.1.15（RR-012 結案）、13 → v0.1.5（C8 補註）；小版修訂不改檔名 |
+| v0.35 | 2026-11-03 | 安全部 | 36 號改版為 v0.1.2（M5 證據 01、04 號檔不收進 repo，比照 33 號；驗證須加 `--ignore-missing`）；小版修訂不改檔名 |

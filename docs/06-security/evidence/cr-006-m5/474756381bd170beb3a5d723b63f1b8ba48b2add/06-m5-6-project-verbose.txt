@@ -1,0 +1,35 @@
+# date: 2026-11-02 16:31:25 CST
+$ /tmp/sec-m5.cN9L/gopath/bin/govulncheck -show verbose ./...
+Fetching vulnerabilities from the database...
+
+Checking the code against the vulnerabilities...
+
+The package pattern matched the following 11 root packages:
+  github.com/444112029012/short-url/internal/domain
+  github.com/444112029012/short-url/internal/ports
+  github.com/444112029012/short-url/internal/application
+  github.com/444112029012/short-url/internal/config
+  github.com/444112029012/short-url/internal/health
+  github.com/444112029012/short-url/internal/ratelimit
+  github.com/444112029012/short-url/internal/httpapi
+  github.com/444112029012/short-url/internal/infra/sqlite
+  github.com/444112029012/short-url/internal/observability
+  github.com/444112029012/short-url/cmd/shorturl
+  github.com/444112029012/short-url/internal/integration
+Govulncheck scanned the following 11 modules and the go1.27.3 standard library:
+  github.com/444112029012/short-url
+  github.com/dustin/go-humanize@v1.0.1
+  github.com/go-chi/chi/v5@v5.3.0
+  github.com/google/uuid@v1.6.0
+  github.com/remyoudompheng/bigfft@v0.0.0-20230129092748-24d4a6f8daec
+  golang.org/x/exp@v0.0.0-20250620022241-b7579e27df2b
+  golang.org/x/sys@v0.44.0
+  modernc.org/libc@v1.66.10
+  modernc.org/mathutil@v1.7.1
+  modernc.org/memory@v1.11.0
+  modernc.org/sqlite@v1.39.1
+
+No vulnerabilities found.
+exit 0
+# date: 2026-11-02 16:31:34 CST
+--- grep -c GO-2026-6809: 0

@@ -1,0 +1,14 @@
+# date: 2026-11-02 16:31:54 CST
+--- 帶進檔案（head 版）與本機工作副本 sha256 對照
+docs/06-security/34-pr-030-sync-recheck-confirmation-v0.1.md head=ed210033290835d2 本機=ed210033290835d2
+docs/06-security/35-cr-006-go-1273-security-opinion-v0.1.md head=1000dd9f151f1c33 本機=1000dd9f151f1c33
+docs/06-security/36-cr-006-pr31-m5-s2-confirmation-v0.1.md head=b7444593cb2e8f5c 本機=b7444593cb2e8f5c
+docs/06-security/README.md head=5dc17e080da695d8 本機=5dc17e080da695d8
+docs/99-changelog/decision-log.md head=9bf6523bd77c2b07 本機=61da334fb8e63b26
+--- 帶進變更是否含非 docs/ 路徑: 0
+--- 機密樣式掃描（新增行）: 0
+--- 外部連結（新增行）
+https://api.github.com/repos/444112029012/short-url/actions/jobs/122721425254/logs
+https://go.dev/dl/?mode=json&include=all
+https://proxy.golang.org,direct
+# date: 2026-11-02 16:31:54 CST
