@@ -1,6 +1,6 @@
 ---
 文件：CR-006 PR #31 合併前安全部獨立重跑（M5-1～M5-8）與 S2 書面確認
-版本：v0.1.2
+版本：v0.1.3
 狀態：已提出（v0.1.1：新 head `47475638` 通過，待品保部核對；合併由使用者決定）。v0.1 對舊 head `826d5d34` 的確認已因 head 變動作廢
 負責角色：安全部（執行者）；核對者：品保部
 對應 CR：CR-006 v0.4 §5.2（`/workspace/rebuild/cr-006/CR-006-ci-go-1.27.3-v0.4.md`，sha256 818f48eb8fdbcc38bdecee2f0bbe3d5de0e0e1329088892dff261971a0409734，安全部 2026-11-02 14:29:21（UTC+8）以 `sha256sum` 核對相符）
@@ -8,12 +8,13 @@
 CI run（v0.1.1）：41403811744（jobs：secrets-gitleaks 125141230565、sast-gosec 125141230822、sca-govulncheck 125141230836、unit-test 125141230942）。CI run（v0.1）：40660317286（jobs：secrets-gitleaks 122721425088、sast-gosec 122721425145、sca-govulncheck 122721425254、unit-test 122721424775）
 維運證據（v0.1.1）：`/workspace/rebuild/cr-006/evidence-pr31-47475638/`，SHA256SUMS sha256 45cff365e74ec3d6ba1919362c3ecbfa698132b2f42f316b6d3da0f5aa377a6b（相符），`sha256sum -c` 6 檔全部 OK（2026-11-02 16:29:20 UTC+8）。維運證據（v0.1）：`/workspace/rebuild/cr-006/evidence-pr31/`，SHA256SUMS sha256 b1405323a58c96ca541897bac1eef0ed3aae1967b38bfb96922361d01a9d93cf（相符），`sha256sum -c` 6 檔全部 OK（2026-11-02 14:29:21 UTC+8）
 安全部證據（v0.1.1）：`docs/06-security/evidence/cr-006-m5/474756381bd170beb3a5d723b63f1b8ba48b2add/`，SHA256SUMS sha256 43d33bb47bed52571dff61b56776787ff4e838a8634da79565aa533122a659bd（14 檔，2026-11-02 16:32:30 UTC+8 `sha256sum -c` 全部 OK）。安全部證據（v0.1）：`docs/06-security/evidence/cr-006-m5/826d5d34d676e11f52e204e155ea271c7d811581/`，SHA256SUMS sha256 33c96bae0c0dc14d41e47bd3f0aff20f3c25c364d33edb0a8264be7ac19c2ef9（11 檔，2026-11-02 14:32:27 UTC+8 `sha256sum -c` 全部 OK）
-撰寫時間：v0.1.1 開始於 2026-11-02 16:32:34（UTC+8，取自 `date`），完成時間以檔案 mtime 為準；v0.1 開始於 2026-11-02 14:33:34（UTC+8，取自 `date`），完成時間以檔案 mtime 為準
+版本來源（v0.1.3 起，回應審查部 PR33-R2）：v0.1 原文＝main `1b53fcde` 上本檔 blob（sha256 b7444593…，檔名 `-v0.1.md`）；v0.1.1 原文＝`36-cr-006-pr31-m5-s2-confirmation-v0.1.1.md`（sha256 2936baec4ff6d20474a4b31a30e9820e8a3a1177de17544518dd20179d58d598，#31 合併所依據的 S2）；v0.1.2 原文＝`36-cr-006-pr31-m5-s2-confirmation-v0.1.2.md`（sha256 2b7ade2fa8d929ffb5a242c1794605f5b4471c5a9db69ac912168d1f7b2e4b4e，PR #33 head 87943c91 上的版本）。版本快照檔一經入庫即凍結不改；本檔 `-v0.1.md` 為現行版，舊版一律另存快照
+撰寫時間：v0.1.3 開始於 2026-11-03 15:51:18（UTC+8，取自 `date`）；v0.1.1 開始於 2026-11-02 16:32:34（UTC+8，取自 `date`），完成時間以檔案 mtime 為準；v0.1 開始於 2026-11-02 14:33:34（UTC+8，取自 `date`），完成時間以檔案 mtime 為準
 ---
 
 # CR-006 PR #31：M5 獨立重跑與 S2 書面確認
 
-> **v0.1.2 證據收錄注意（2026-11-03 11:44:57 UTC+8 起草）**：依安全部比照 33 號的裁定，兩個 M5 證據目錄的 `01-m5-1-head.txt` 與 `04-m5-4-gosec-buildinfo.txt` 被 gitleaks `generic-api-key` 誤判（內容分別是公開 commit SHA 與 `google.golang.org/api v0.304.0` 的 h1 校驗和，非機密），**不收進 repo，原檔只留在安全部本機** `/workspace/projects/short-url/docs/06-security/evidence/cr-006-m5/`。SHA256SUMS 不改（43d33bb4…、33c96bae…）。在 repo 內驗證**必須用 `sha256sum -c --ignore-missing SHA256SUMS`**；一般 `sha256sum -c` 會因缺這 2 檔報錯，屬預期。缺檔以本機原檔對 SHA256SUMS 驗證為準。不遮蔽、不改寫證據，不改 `.gitleaksignore` 或 CI 設定。
+> **v0.1.2 證據收錄注意（2026-11-03 11:44:57 UTC+8 起草）**：依安全部比照 33 號的裁定（獨立裁定檔：38 號 `38-cr-006-m5-gitleaks-false-positive-ruling-v0.1.md`），兩個 M5 證據目錄的 `01-m5-1-head.txt` 與 `04-m5-4-gosec-buildinfo.txt` 被 gitleaks `generic-api-key` 誤判（內容分別是公開 commit SHA 與 `google.golang.org/api v0.304.0` 的 h1 校驗和，非機密），**不收進 repo，原檔只留在安全部本機** `/workspace/projects/short-url/docs/06-security/evidence/cr-006-m5/`。SHA256SUMS 不改（43d33bb4…、33c96bae…）。在 repo 內驗證**必須用 `sha256sum -c --ignore-missing SHA256SUMS`**；一般 `sha256sum -c` 會因缺這 2 檔報錯，屬預期。缺檔以本機原檔對 SHA256SUMS 驗證為準。不遮蔽、不改寫證據，不改 `.gitleaksignore` 或 CI 設定。
 
 > **v0.1.1 注意**：PR #31 已於 2026-11-02 14:55:52（UTC+8，commit 時間）以一般 merge 同步 main，head 改為 `474756381bd170beb3a5d723b63f1b8ba48b2add`。**現行結論見 §8**。§1～§7 是 v0.1 對舊 head `826d5d34` 的內容，原文保留，**只對舊 head 有效，已作廢，不得用於新 head**。
 
@@ -153,3 +154,4 @@ CI run（v0.1.1）：41403811744（jobs：secrets-gitleaks 125141230565、sast-g
 | v0.1 | 2026-11-02 | 安全部 | 初版：對 PR #31 head `826d5d34` 獨立重跑 M5-1～M5-8，全部 PASS；L6 成立；S2 書面確認通過；SCR-060～062（資訊） |
 | v0.1.1 | 2026-11-02 | 安全部 | PR #31 同步 main 後 head 改為 `474756381bd170beb3a5d723b63f1b8ba48b2add`：新增 §8（修訂紀錄改為 §9；M5-1～M5-8 全 PASS、合併差異審查只含 docs 5 檔、L1／L3～L6 抽查成立、S2 通過綁定新 head）；檔頭改綁新 head；§1～§7 保留並註明只對舊 head `826d5d34` 有效、已作廢；SCR-060～062 仍開放，新增 SCR-063（資訊）。小版修訂不改檔名 |
 | v0.1.2 | 2026-11-03 | 安全部 | 新增證據收錄注意：兩個 M5 目錄的 01、04 號檔因 gitleaks 誤判只留本機，repo 內驗證須加 `--ignore-missing`；結論與綁定 head 不變。小版修訂不改檔名 |
+| v0.1.3 | 2026-11-03 | 安全部 | 回應審查部 PR33-R2：v0.1.1、v0.1.2 原文另存快照檔入庫，檔頭新增「版本來源」；回應 PR33-S3：證據收錄注意改引 38 號獨立裁定。結論與綁定 head 不變。依審查部要求，36 號自本版起舊版一律另存快照檔，與 README「小版不改檔名」規則的差異待使用者拍板 |

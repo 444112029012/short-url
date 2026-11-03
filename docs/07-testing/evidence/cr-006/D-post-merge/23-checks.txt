@@ -1,0 +1,54 @@
+## api-job-125665062413-sast-gosec.log
+-- Setup go version spec 1.27.3: 1 @ 115 
+-- go version go1.27.3 linux/amd64: 1 @ 133 
+-- GOVERSION='go1.27.3': 1 @ 180 
+-- GOROOT='/opt/hostedtoolcache/go/1.27.3/x64': 1 @ 172 
+-- GOTOOLCHAIN=: 1 @ 177 
+-- neg 1.27.2: 0
+-- cache:
+132:2026-11-03T01:20:37.1965063Z Cache is not found
+381:2026-11-03T01:22:15.5606054Z Failed to save: Unable to reserve cache with key setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025, another job ma
+-- L3: 0
+## api-job-125665062848-sca-govulncheck.log
+-- Setup go version spec 1.27.3: 1 @ 116 
+-- go version go1.27.3 linux/amd64: 1 @ 134 
+-- GOVERSION='go1.27.3': 1 @ 181 
+-- GOROOT='/opt/hostedtoolcache/go/1.27.3/x64': 1 @ 173 
+-- GOTOOLCHAIN=: 1 @ 178 
+-- neg 1.27.2: 0
+-- cache:
+133:2026-11-03T01:20:37.6711024Z Cache is not found
+214:2026-11-03T01:21:08.4191843Z Cache saved with the key: setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+-- L3: 0
+## api-job-125665063153-unit-test.log
+-- Setup go version spec 1.27.3: 1 @ 116 
+-- go version go1.27.3 linux/amd64: 1 @ 134 
+-- GOVERSION='go1.27.3': 1 @ 181 
+-- GOROOT='/opt/hostedtoolcache/go/1.27.3/x64': 1 @ 173 
+-- GOTOOLCHAIN=: 1 @ 178 
+-- neg 1.27.2: 0
+-- cache:
+133:2026-11-03T01:20:36.4448472Z Cache is not found
+253:2026-11-03T01:21:34.7237881Z Failed to save: Unable to reserve cache with key setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025, another job ma
+-- L3: 0
+## L4
+250:2026-11-03T01:21:42.7968294Z 	mod	github.com/securego/gosec/v2	v2.30.0	h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=
+251:2026-11-03T01:21:42.7990056Z gosec h1 OK
+## L5
+256:2026-11-03T01:21:42.8019719Z [36;1m"$(go env GOPATH)/bin/gosec" -fmt=text -no-fail=false -severity=high -tests ./...[0m
+368:2026-11-03T01:22:12.6833488Z   Files  : 57
+369:2026-11-03T01:22:12.6833900Z   Lines  : 7485
+370:2026-11-03T01:22:12.6834163Z   Nosec  : 0
+371:2026-11-03T01:22:12.6834434Z   Issues : 0
+## L6
+nv=1 also=0 affected=0 6809=0 GOids=
+199:2026-11-03T01:20:57.9075288Z ##[group]Run govulncheck ./...
+203:2026-11-03T01:21:05.5240044Z No vulnerabilities found.
+## L7
+202:2026-11-03T01:20:59.2345740Z [36;1mgo test -race -json ./... | tee go-test.json > /dev/null[0m
+209:2026-11-03T01:21:30.7143686Z [36;1mgo test -race -count=1 -v -run '^TestENG011_PerSourceIsolationByPeerAddress$' ./internal/integration/ | tee eng011.log[0m
+210:2026-11-03T01:21:30.7144129Z [36;1mif ! grep -q -- '--- PASS: TestENG011_PerSourceIsolationByPeerAddress' eng011.log; then[0m
+218:2026-11-03T01:21:31.2010719Z --- PASS: TestENG011_PerSourceIsolationByPeerAddress (0.04s)
+## artifact
+pass=181
+CT pass=14 fail=0

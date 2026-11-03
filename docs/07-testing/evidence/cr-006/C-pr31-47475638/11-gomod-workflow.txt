@@ -1,0 +1,12 @@
+HEAD 474756381bd170beb3a5d723b63f1b8ba48b2add
+## go.mod
+go 1.27.3
+無 toolchain 行
+6:# 工具鏈釘 Go 1.27.3（CR-006 由 CR-002 的 1.27.2 升修補版，修 GO-2026-6809；check-latest: false）。1.22 標準庫有 GO-2025-3750；1.24.13 是 1.24 最後一版，
+62:          go-version: "1.27.3"
+63:          check-latest: false
+91:          go-version: "1.27.3"
+92:          check-latest: false
+134:          go-version: "1.27.3"
+135:          check-latest: false
+無 Dockerfile 等

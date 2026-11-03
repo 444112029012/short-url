@@ -1,0 +1,10 @@
+# date: 2026-11-03 09:22:00 (UTC+8)
+## diff 快照/ruleset-24629805.sorted.json 現在/ruleset-24629805.sorted.json
+完全相同（cmp: 位元組相同）
+## diff 快照/ruleset-24629854.sorted.json 現在/ruleset-24629854.sorted.json
+完全相同（cmp: 位元組相同）
+## diff 快照/rulesets-list.sorted.json 現在/rulesets-list.sorted.json
+完全相同（cmp: 位元組相同）
+## 排除 _links、current_user_can_bypass 後
+24629805 相同
+24629854 相同

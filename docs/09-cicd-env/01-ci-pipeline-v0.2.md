@@ -1,6 +1,6 @@
 ---
 文件：CI 流水線設計與分支保護
-版本：v0.2.4
+版本：v0.2.5
 狀態：核准（D-07 CI 變更、D-08 合併路徑 A；RR-006 已接受）
 負責角色：維運部
 最後更新：2026-11-03
@@ -49,7 +49,7 @@
 | Go toolchain（**CR-002，依 D-13，已由 CR-006 取代；[PR #15](https://github.com/444112029012/short-url/pull/15) 已於 2026-10-19 10:22（UTC+8）合併，merge commit `c341be1`**） | `go 1.27.2`／`setup-go` 三處皆精確 `"1.27.2"`、`check-latest: false` | 1.27.1 有 5 個可達標準庫漏洞（GO-2026-6617／6613／6612／6611／6603），1.27.2 已修補；禁止 `1.27.x` |
 | gosec（**CR-002，依 D-13，已由 CR-005 取代**） | `v2.29.1-0.20261015133444-707f2271f665`（commit `707f2271f66579a18e1da25794b1e8012247274b`） | v2.29.0 內含 x/tools v0.49.0，讀不了 Go 1.27.2 的 export data v5；上游尚無發行版。CI 以 `go version -m` 比對 h1 `h1:KvLOP3HNC+bEcwPGBQ4mVI70uhZ/scyFgiF1IVooj40=`，不符即失敗；不得關閉 sumdb 驗證或改 `GOPROXY=direct`；`-severity=high`、`-no-fail=false` 不變。上游發行後換回發行版（C7） |
 | gosec（**CR-005，依 D-19，現行；[PR #29](https://github.com/444112029012/short-url/pull/29) 已於 2026-10-27 16:37（UTC+8）合併，merge commit `db380a4`**） | `v2.30.0`（tag 指向 commit `5eb1d104ef85ff2c905c877eb600e8c1dee33a22`） | 上游已發行 v2.30.0（內含 x/tools v0.52.0），換回發行版，C7 的觸發條件成立。CI 以 `go version -m` 比對 h1 `h1:67aF6LHa7SAL6QEc4es857GrXTT50gUqmrl0XPhtDx0=`，不符即失敗；其餘規則同 CR-002 列（不得關閉 sumdb、不得改 `GOPROXY=direct`；`-severity=high`、`-no-fail=false`、`-tests` 不變）。合併後 main push run 40474778561 四綠；K4 G404 金絲雀 run 40477332321 sast-gosec 如預期轉紅（證據 `evidence/cr-005/19`–`21`，安全部 32 號結案） |
-| Go toolchain（**CR-006，現行；[PR #31](https://github.com/444112029012/short-url/pull/31) 已於 2026-11-03 09:20（UTC+8）合併，merge commit `1b53fcd`**） | `go 1.27.3`／`setup-go` 三處皆精確 `"1.27.3"`、`check-latest: false` | 1.27.2 的 gosec 二進位含 GO-2026-6809（情境嚴重度低，14 日規則不適用），1.27.3 已修補，RR-012 可結案（安全部 35 號）；禁止 `1.27.x`；gosec `v2.30.0`／h1 不變。合併後 main push run 41559091290 四綠，三個 Go job 皆 `go1.27.3`、gosec 57／7485／0／0（證據 `evidence/cr-006/`）；G404 金絲雀待做（35 號 S4，合併後 7 日內） |
+| Go toolchain（**CR-006，現行；[PR #31](https://github.com/444112029012/short-url/pull/31) 已於 2026-11-03 09:20（UTC+8）合併，merge commit `1b53fcd`**） | `go 1.27.3`／`setup-go` 三處皆精確 `"1.27.3"`、`check-latest: false` | 1.27.2 的 gosec 二進位含 GO-2026-6809（情境嚴重度低，14 日規則不適用），1.27.3 已修補，RR-012 可結案（安全部 35 號）；禁止 `1.27.x`；gosec `v2.30.0`／h1 不變。合併後 main push run 41559091290 四綠，三個 Go job 皆 `go1.27.3`、gosec 57／7485／0／0（證據 `evidence/cr-006/`）；G404 金絲雀已完成（35 號 S4）：分支 `canary/cr006-g404-red`，commit `790b1c3aeef41ae5c80d6831b4afed27cebe926e`（parent `1b53fcde`），workflow_dispatch run 41561438299，sast-gosec 如預期轉紅（`canary.go:12` G404 HIGH、Issues 1、exit code 1），分支已於 2026-11-03 09:44:26（UTC+8）刪除（證據 `evidence-canary-g404/`，SHA256SUMS `20a382d1…`） |
 | govulncheck | `v1.8.0` | 舊版 `v1.1.3` 無法以 Go 1.25+ 編譯；`govulncheck ./...` 非零即擋，不變 |
 | gitleaks | `8.21.2` | 不變 |
 
@@ -233,4 +233,5 @@ checkout
 | v0.2.1 | 2026-10-19 | 維運部 | 依審查部 G4-PR15-R2：§2.1 補 CR-002（D-13）版本鎖定：Go 1.27.2、gosec pseudo-version `v2.29.1-0.20261015133444-707f2271f665`＋h1 比對，**待 PR #15 合併後生效**；CR-001 列標明現行至 #15 合併。門檻未放寬；檔名維持 v0.2 |
 | v0.2.2 | 2026-10-19 | 維運部 | PR #15 已合併（`c341be1`）：§2.1 CR-002 列改為「現行」，CR-001 列標「已由 CR-002 取代」；§3.4 補 SCR-032 評估（`-race`、gosec `-tests` 實跑皆通過，建議以獨立 CI 強化 PR 實作）。門檻未放寬 |
 | v0.2.3 | 2026-10-27 | 維運部 | CR-005（D-19）：§2.1 gosec 改為發行版 `v2.30.0`＋h1 比對，CR-002 列標「已由 CR-005 取代」；PR #29 已合併（`db380a4`），main 四綠，K4 金絲雀已轉紅。門檻未放寬；檔名維持 v0.2 |
-| v0.2.4 | 2026-11-03 | 維運部 | CR-006：§2.1 新增 Go 1.27.3 列（PR #31 已合併，`1b53fcd`；main run 41559091290 四綠），CR-002 Go 1.27.2 列標「已由 CR-006 取代」；gosec 版本與 h1 不變。G404 金絲雀尚未執行。門檻未放寬；檔名維持 v0.2 |
+| v0.2.4 | 2026-11-03 | 維運部 | CR-006：§2.1 新增 Go 1.27.3 列（PR #31 已合併，`1b53fcd`；main run 41559091290 四綠），CR-002 Go 1.27.2 列標「已由 CR-006 取代」；gosec 版本與 h1 不變。G404 金絲雀尚未執行（此句已由 v0.2.5 更正）。門檻未放寬；檔名維持 v0.2 |
+| v0.2.5 | 2026-11-03 | 維運部 | 依審查部 PR33-R1：更正 v0.2.4「G404 金絲雀尚未執行」為已完成——分支 `canary/cr006-g404-red`，commit `790b1c3aeef41ae5c80d6831b4afed27cebe926e`（parent `1b53fcde`），workflow_dispatch run 41561438299，sast-gosec 失敗：`canary.go:12` G404（Severity: HIGH）、Issues 1、exit code 1；分支已於 2026-11-03 09:44:26（UTC+8）刪除；證據 `evidence-canary-g404/`（SHA256SUMS `20a382d1c50a69dfd44458b020f0370f50ca9ea8a38f0ae9f2442178d3d9c536`）。§2.1 CR-006 列同步更新。門檻未放寬；檔名維持 v0.2 |

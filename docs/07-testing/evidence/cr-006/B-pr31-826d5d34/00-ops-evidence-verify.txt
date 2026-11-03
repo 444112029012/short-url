@@ -1,0 +1,12 @@
+# 2026-11-02 14:32:52 (UTC+8)
+b1405323a58c96ca541897bac1eef0ed3aae1967b38bfb96922361d01a9d93cf  ../../evidence-pr31/SHA256SUMS
+run-40660317286-jobs.json: OK
+run-40660317286.json: OK
+job-122721424775-unit-test.log: OK
+job-122721425088-secrets-gitleaks.log: OK
+job-122721425145-sast-gosec.log: OK
+job-122721425254-sca-govulncheck.log: OK
+api-job-122721424775.log 與維運 evidence-pr31 同檔 位元組相同
+api-job-122721425088.log 與維運 evidence-pr31 同檔 位元組相同
+api-job-122721425145.log 與維運 evidence-pr31 同檔 位元組相同
+api-job-122721425254.log 與維運 evidence-pr31 同檔 位元組相同

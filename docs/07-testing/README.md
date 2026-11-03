@@ -1,6 +1,6 @@
 ---
 文件：07-testing 章節索引
-版本：v0.6
+版本：v0.7
 狀態：審查中
 負責角色：品保部
 最後更新：2026-11-03（Asia/Taipei，UTC+8）
@@ -23,11 +23,11 @@
 | [10-gate-G3-qa-precheck-v0.1.md](./10-gate-G3-qa-precheck-v0.1.md) | **v0.1** | 審查中 | **G3**：測試策略與 DoD 前置結論（**可送審**） |
 | [11-s6-eng011-disposition-v0.1.md](./11-s6-eng011-disposition-v0.1.md) | v0.1 | 審查中 | **G4 S6**：PR #18 TestENG011_* 19 項處置（11 納入、8 合併、0 不納入）；E2E-05 最終處置 |
 | [12-gate-G4-qa-precheck-v0.1.md](./12-gate-G4-qa-precheck-v0.1.md) | v0.1 | 審查中 | **G4**：#13～#20 品保前置（**有條件可送審**；R1～R2） |
-| `evidence/` | — | — | 實跑輸出與查證紀錄：2026-10-22 全量測試、TestENG011（S6）、PR #26（cover／env／gh-ci／gh-pr／mutation／race／vet／ct-run）、G4 整體 f646（cover／ct／env／race／test／vet），共 16 檔 |
+| `evidence/` | — | — | 實跑輸出與查證紀錄：2026-10-22 全量測試、TestENG011（S6）、PR #26（cover／env／gh-ci／gh-pr／mutation／race／vet／ct-run）、G4 整體 f646（cover／ct／env／race／test／vet），共 16 檔；v0.7 新增 `evidence/cr-006/` 四集（A-pre-push-ruleset 9 檔、B-pr31-826d5d34 33 檔、C-pr31-47475638 32 檔、D-post-merge 27 檔，各附 SHA256SUMS：`594ac3c7…c152`、`eff8f2e6…f9a9`、`1af3cf98…1dab`、`efe052ca…344e`） |
 
 ### G4 與 CR 文件（13～21 號）
 
-檔名維持 `-v0.1` 後綴，版本以檔內「版本」欄為準；13～20 號 sha256 為 2026-10-27 17:10（UTC+8）本機重算值，21 號為 2026-11-03 本機重算值。
+檔名維持 `-v0.1` 後綴，版本以檔內「版本」欄為準；13～20 號 sha256 為 2026-10-27 17:10（UTC+8）本機重算值，21 號為 2026-11-03 本機重算值。**21 號自 v0.2 起改用新檔名**（`-v0.2.md`），不再同名就地改版，比照審查部 PR33-R2 對 36 號的要求；v0.1 原件保留。
 
 | 檔名 | 標題 | 版本 | sha256 |
 |---|---|---|---|
@@ -39,7 +39,8 @@
 | [18-CR-004-AC6-9-qa-verdict-v0.1.md](./18-CR-004-AC6-9-qa-verdict-v0.1.md) | CR-004 AC-CR004-6～9 與 #24 首測 品保判定 | v0.4 | `543763dad54eb6dd1bbd3b68afcdfa4c80e0b375cfea912fb24a02ef02d61288` |
 | [19-G4-overall-qa-conclusion-v0.1.md](./19-G4-overall-qa-conclusion-v0.1.md) | G4 整體品保結論（PR #13～#26）＋G4-QA-R2 處置 | v0.1 | `86606bd3cfb059c52dc1ac9984161d9c8cc879eeeebec9c46795f4d4960b0d70` |
 | [20-G4-QA-R2-closure-note-v0.1.md](./20-G4-QA-R2-closure-note-v0.1.md) | G4-QA-R2 處置紀錄（方案 B：經 PR #27、PR #28 進 main） | **v0.2** | `8918b3c958cbd6537b156a69acb813c59554e35c9e08574cec679841708b826f` |
-| [21-CR-006-qa-acceptance-v0.1.md](./21-CR-006-qa-acceptance-v0.1.md) | CR-006 品保驗收結論（CI 升 Go 1.27.3；PR #31） | v0.1 | `8db3190b6ee456c18fc27e13cc09b4ef1006d0040e22347b55b2bcd8501dc19c` |
+| [21-CR-006-qa-acceptance-v0.1.md](./21-CR-006-qa-acceptance-v0.1.md) | CR-006 品保驗收結論（CI 升 Go 1.27.3；PR #31） | v0.1（已由 v0.2 取代，原件保留） | `8db3190b6ee456c18fc27e13cc09b4ef1006d0040e22347b55b2bcd8501dc19c` |
+| [21-CR-006-qa-acceptance-v0.2.md](./21-CR-006-qa-acceptance-v0.2.md) | CR-006 品保驗收結論 v0.2（證據改引 repo 路徑；回應 PR33-R4） | **v0.2** | `6becd3f04957ebe3cd1df8012e7287924c37d03c5bc2cbbfc5a3ecebfdf21b28` |
 
 註：20 號 v0.2 與本索引 v0.5 為本次修改，尚未進 main（main `36f4717c` 上仍為 20 號 v0.1 `dcc63af8…`、本索引 v0.4 `25c1807b…`），需下一個純文件 PR。本索引無法記錄自身的 sha256。
 
@@ -89,3 +90,4 @@
 | v0.4 | 2026-10-22 | 品保部 | G4：新增 11（S6）、12（G4 前置）、evidence；矩陣 v0.4、案例 v0.2、任務對照 v0.3（ENG-022）；簡體字修正 |
 | v0.5 | 2026-10-27 | 品保部 | 矩陣列改標 v0.5；新增 13～20 號索引列（檔名、標題、版本、sha256）；evidence 列補齊 16 檔；新增 G4-QA-R2 結案交接單（PR #28 merge 36f4717c 查證，依 20 號 v0.2） |
 | v0.6 | 2026-11-03 | 品保部 | 矩陣列改標 v0.6（§8 加 CR-005、CR-006）；新增 21 號（CR-006 驗收 PASS、缺陷 0）索引列；v0.5 備份於 `/workspace/tmp-qa-backup/07-testing/README-v0.5.md` |
+| v0.7 | 2026-11-03 | 品保部 | 回應 PR33-R4：新增 21 號 v0.2 索引列（新檔名，v0.1 保留）；evidence 列加 `evidence/cr-006/` A～D 四集與 SHA256SUMS |

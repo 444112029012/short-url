@@ -3,7 +3,7 @@
 版本：v0.1
 狀態：進行中
 負責角色：總協調
-最後更新：2026-10-22
+最後更新：2026-11-03
 專案代號：SHORTURL
 ---
 
@@ -31,5 +31,7 @@
 | D-18 | 2026-10-27 08:57 | 使用者簽核 G4 整體關卡 | **簽核通過**：「簽核 G4，開工」 | 王昱殊 | 使用者原話（widget t276s1093）；審查部複審 #02 通過（`docs/gates/gate-G4-overall-2026-10-22-recheck-02.md`）；PR #27 合併為 2425129b |
 | D-19 | 2026-10-27 10:11 | 使用者核准 CR-005 v0.3（bfaa6d1d…0322）：CI gosec 由 pseudo-version 707f227 改用發行版 v2.30.0（ci-devsecops.yml 3 行） | **核准**：「核准 CR-005」；綁簽核紀錄 v0.3（5456b01e…aa89）、impact/SHA256SUMS（be2517c7…20a8）；依 §9.4 ①～⑧ 執行，條件 K1～K6（安全部 30 號 v0.1.1） | 王昱殊 | 使用者原話（widget t303s1178）；審查部 review-CR-005-2026-10-27-recheck-02（b41ddc5b）；推送核准：使用者 2026-10-27 13:13 於維運部聊天；#29 合併 db380a40（16:37） |
 | D-20 | 2026-10-28 16:30 | 使用者核准 CR-006 v0.4（818f48eb…）：CI 升 Go 1.27.3（ci-devsecops.yml go-version 3 處＋檔頭註解、go.mod go 1.27.2→1.27.3），修 gosec 二進位之 GO-2026-6809（RR-012，CR-005 K6） | **核准**：「核准 CR-006」；綁 patch c3939e62、ci-devsecops.proposed.yml 06833a31、go.mod 02842cf5、安全部 35 號 v0.1.3（1000dd9f，凍結快照 /workspace/rebuild/cr-006-freeze-2026-10-28/）、基準 main ca09137a；條件 S1～S7，最遲 11/20 合併 | 王昱殊 | 使用者原話（widget t358s1351）；審查部 review-CR-006-2026-10-28（a43ca482）通過無必改；推送核准：使用者 2026-10-28 16:54 於維運部聊天（維運部 t102u）；PR #31 head 826d5d34；註（2026-11-03 補記）：原列「SHA256SUMS 7c4e4e2b」已移除，因使用者核准時未看過此值，不得列為核准綁定 |
-| D-21 | 2026-11-02 17:06 | CR-006 合併方式偏離：PR #31 非單一 commit | **接受偏離**：使用者接受「非單一 commit」 | 王昱殊 | 使用者於 widget t375s1422 回覆 |
-| D-22 | 2026-11-03 09:20 | 合併 PR #31（CR-006） | **已合併**：merge commit 1b53fcde | 王昱殊 | PR #31；main 1b53fcde7cf5068dcf7193b92205d6e6e9adb09d；證據 docs/09-cicd-env/evidence/cr-006/main-1b53fcde/ |
+| D-21 | 2026-11-02 17:06 | CR-006 合併方式偏離：PR #31 非單一 commit | **接受偏離**：使用者接受「非單一 commit」 | 王昱殊 | 使用者於 widget t375s1422 回覆；原文（2026-11-02 17:06 台北時間）：「同意審查部在 PR #31 留『可合併』（head 47475638、base 164b62c9、run 41403811744），並接受因 D-10 merge 同步而不是單一 commit 的偏離」 |
+| D-22 | 2026-11-03 09:20 | 合併 PR #31（CR-006） | **已合併**：merge commit 1b53fcde | 王昱殊 | PR #31；main 1b53fcde7cf5068dcf7193b92205d6e6e9adb09d；證據 docs/09-cicd-env/evidence/cr-006/main-1b53fcde/；使用者原話（2026-11-03 09:20 台北時間，t379u）：「合併了」 |
+| CR6-S6 | 2026-11-03 | CR-006：企劃部、設計部 2026-10-28 14:22 確認沿用 v0.4（818f48eb…）的摘要入檔 | **追蹤中**：摘要已寫入結案紀錄 §6；待審查部確認後關閉 | 總協調 | [`CR-006-closeout-record-v0.1.md`](./CR-006-closeout-record-v0.1.md) §6、§7；`docs/gates/review-CR-006-2026-10-28.md` 第 36～37、109 行 |
+| CR-006 | 2026-11-03 | **CR-006 已結案**（CI 升 Go 1.27.3；merge 1b53fcde；RR-012 結案） | 已結案；未結項 S6、SCR-053、PR33-S2、CR6-S4／S7／S9 見結案紀錄 §7 | 總協調 | [`CR-006-closeout-record-v0.1.md`](./CR-006-closeout-record-v0.1.md)；[`CR-006-ci-go-1.27.3-v0.4.md`](./CR-006-ci-go-1.27.3-v0.4.md) |

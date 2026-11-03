@@ -1,0 +1,2 @@
+1545143ca94a3a92f6877a30afa1762de994eedf	refs/heads/ci/CR-005-gosec-v2.30.0
+cc75d3536602f569bbddece8d46cda65036d72e1	refs/heads/ci/dependency-review-fail-closed

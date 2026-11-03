@@ -1,0 +1,284 @@
+sca-govulncheck	UNKNOWN STEP	﻿2026-10-28T08:55:47.4951658Z Current runner version: '2.338.0'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4977209Z ##[group]Runner Image Provisioner
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4978464Z Hosted Compute Agent
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4979109Z Version: 20261021.618
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4979798Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4980643Z Build Date: 2026-10-21T00:45:21Z
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4981331Z Worker ID: {c182d1f8-aa79-491b-9750-8e4e50e55c68}
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4982122Z Region: centralus
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4982686Z Cloud: Azure
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4983260Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4984905Z ##[group]Operating System
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4985604Z Ubuntu
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4986219Z 24.04.5
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4986746Z LTS
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4987280Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4987908Z ##[group]Runner Image
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4989049Z Image: ubuntu-24.04
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4989727Z Version: 20261012.334.1
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4991009Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4992663Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4993638Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4994992Z ##[group]GITHUB_TOKEN Permissions
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4997235Z Contents: read
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4997995Z Metadata: read
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4998837Z PullRequests: read
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.4999415Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.5001602Z Secret source: Actions
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.5002616Z Cache mode: write
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.5003807Z Prepare workflow directory
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.5354292Z Prepare all required actions
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.5403057Z Getting action download info
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.8481969Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:47.9515823Z Download action repository 'actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff' (SHA:40f1582b2485089dde7abd97c1529aa768e1baff)
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:48.5434553Z Download action repository 'actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48' (SHA:2031cfc080254a8a887f58cffee85186f0e49e48)
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.3949581Z Complete job name: sca-govulncheck
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5022679Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5024537Z with:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5025426Z   repository: 444112029012/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5035480Z   token: ***
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5036378Z   ssh-strict: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5037277Z   ssh-user: git
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5038195Z   persist-credentials: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5039356Z   clean: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5040298Z   sparse-checkout-cone-mode: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5041407Z   fetch-depth: 1
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5042304Z   fetch-tags: false
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5043231Z   show-progress: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5044184Z   lfs: false
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5045045Z   submodules: false
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5045993Z   set-safe-directory: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5047082Z   allow-unsafe-pr-checkout: false
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.5048609Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8097670Z Syncing repository: 444112029012/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8101097Z ##[group]Getting Git version info
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8102744Z Working directory is '/home/runner/work/short-url/short-url'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8105117Z [command]/usr/bin/git version
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8202963Z git version 2.55.0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8228468Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8245953Z Temporarily overriding HOME='/home/runner/work/_temp/b708b98e-f332-4085-aaaa-01521546c026' before making global git config changes
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8251327Z Adding repository directory to the temporary git global config as a safe directory
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8255395Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8316791Z Deleting the contents of '/home/runner/work/short-url/short-url'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8322504Z ##[group]Initializing the repository
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8327487Z [command]/usr/bin/git init /home/runner/work/short-url/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8605939Z hint: Using 'master' as the name for the initial branch. This default branch name
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8609907Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8613207Z hint: to use in all of your new repositories, which will suppress this warning,
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8616146Z hint: call:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8617732Z hint:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8619934Z hint: 	git config --global init.defaultBranch <name>
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8622208Z hint:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8623824Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8625888Z hint: 'development'. The just-created branch can be renamed via this command:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8633996Z hint:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8635595Z hint: 	git branch -m <name>
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8637502Z hint:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8640302Z hint: Disable this message with "git config set advice.defaultBranchName false"
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8644744Z Initialized empty Git repository in /home/runner/work/short-url/short-url/.git/
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8651120Z [command]/usr/bin/git remote add origin https://github.com/444112029012/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8677054Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8678990Z ##[group]Disabling automatic garbage collection
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8681827Z [command]/usr/bin/git config --local gc.auto 0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8750826Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8752392Z ##[group]Setting up auth
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8753936Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.8798878Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.9169943Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.9207472Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.9432153Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.9470622Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.9693570Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.9734853Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.9736463Z ##[group]Fetching the repository
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:49.9748814Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1e4ca083640ac5321e085e480658b25155346867:refs/remotes/pull/31/merge
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7218187Z From https://github.com/444112029012/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7220629Z  * [new ref]         1e4ca083640ac5321e085e480658b25155346867 -> pull/31/merge
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7223882Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7224891Z ##[group]Determining the checkout info
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7226061Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7226817Z [command]/usr/bin/git sparse-checkout disable
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7282103Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7312039Z ##[group]Checking out the ref
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7315795Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/31/merge
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7609566Z Note: switching to 'refs/remotes/pull/31/merge'.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7610242Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7610623Z You are in 'detached HEAD' state. You can look around, make experimental
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7611476Z changes and commit them, and you can discard any commits you make in this
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7612345Z state without impacting any branches by switching back to a branch.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7613202Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7613591Z If you want to create a new branch to retain commits you create, you may
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7684661Z do so (now or later) by using -c with the switch command. Example:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7685163Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7685363Z   git switch -c <new-branch-name>
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7685664Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7685872Z Or undo this operation with:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7686178Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7686333Z   git switch -
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7686579Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7686934Z Turn off this advice by setting config variable advice.detachedHead to false
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7687465Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7688060Z HEAD is now at 1e4ca08 Merge 826d5d34d676e11f52e204e155ea271c7d811581 into ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7691973Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7699297Z [command]/usr/bin/git log -1 --format=%H
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7699911Z 1e4ca083640ac5321e085e480658b25155346867
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7973668Z ##[group]Run actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7974131Z with:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7974353Z   go-version: 1.27.3
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7974589Z   check-latest: false
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7977333Z   token: ***
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7977545Z   cache: true
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.7977758Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.9326027Z Setup go version spec 1.27.3
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.9337130Z Attempting to download 1.27.3...
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.9509349Z (node:2312) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:50.9510354Z (Use `node --trace-deprecation ...` to show where the warning was created)
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:51.8351684Z matching 1.27.3...
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:51.8399670Z Acquiring 1.27.3 from https://github.com/actions/go-versions/releases/download/1.27.3-39437817176/go-1.27.3-linux-x64.tar.gz
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:52.5190250Z Extracting Go...
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:52.5310474Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/685f5926-a5a2-44a8-95db-a194fe5e1502 -f /home/runner/work/_temp/0d557460-13fb-4e54-aa59-85958819bfe8
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:54.2392554Z Successfully extracted go to /home/runner/work/_temp/685f5926-a5a2-44a8-95db-a194fe5e1502
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:55:54.2393387Z Adding to the cache ...
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.0414300Z Successfully cached go to /opt/hostedtoolcache/go/1.27.3/x64
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.0418054Z Added go to the path
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.0421218Z Successfully set up Go version 1.27.3
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.0677320Z [command]/opt/hostedtoolcache/go/1.27.3/x64/bin/go env GOMODCACHE
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.0723892Z [command]/opt/hostedtoolcache/go/1.27.3/x64/bin/go env GOCACHE
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.0777820Z /home/runner/go/pkg/mod
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.0820306Z /home/runner/.cache/go-build
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.2499335Z Cache is not found
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.2522465Z go version go1.27.3 linux/amd64
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.2522700Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.2523042Z ##[group]go env
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3913155Z AR='ar'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3913627Z CC='gcc'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3914147Z CGO_CFLAGS='-O2 -g'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3914461Z CGO_CPPFLAGS=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3914701Z CGO_CXXFLAGS='-O2 -g'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3914944Z CGO_ENABLED='1'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3915166Z CGO_FFLAGS='-O2 -g'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3915388Z CGO_LDFLAGS='-O2 -g'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3915607Z CXX='g++'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3915811Z GCCGO='gccgo'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3916035Z GO111MODULE=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3916240Z GOAMD64='v1'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3916472Z GOARCH='amd64'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3916699Z GOAUTH='netrc'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3916965Z GOBIN='/home/runner/go/bin'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3917245Z GOCACHE='/home/runner/.cache/go-build'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3917532Z GOCACHEPROG=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3917739Z GODEBUG=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3917953Z GOENV='/home/runner/.config/go/env'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3918455Z GOEXE=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3918795Z GOEXPERIMENT=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3919052Z GOFIPS140='off'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3919513Z GOFLAGS=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3920219Z GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build1439611823=/tmp/go-build -gno-record-gcc-switches'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3920926Z GOHOSTARCH='amd64'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3921140Z GOHOSTOS='linux'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3921347Z GOINSECURE=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3921627Z GOMOD='/home/runner/work/short-url/short-url/go.mod'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3921967Z GOMODCACHE='/home/runner/go/pkg/mod'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3922239Z GONOPROXY=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3922437Z GONOSUMDB=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3922627Z GOOS='linux'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3922829Z GOPACKAGESDRIVER=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3923100Z GOPATH='/home/runner/go'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3923336Z GOPRIVATE=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3923612Z GOPROXY='https://proxy.golang.org,direct'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3923987Z GOROOT='/opt/hostedtoolcache/go/1.27.3/x64'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3924304Z GOSUMDB='sum.golang.org'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3924761Z GOTELEMETRY='local'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3925061Z GOTELEMETRYDIR='/home/runner/.config/go/telemetry'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3925380Z GOTMPDIR=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3925582Z GOTOOLCHAIN='auto'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3925913Z GOTOOLDIR='/opt/hostedtoolcache/go/1.27.3/x64/pkg/tool/linux_amd64'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3926273Z GOVCS=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3926470Z GOVERSION='go1.27.3'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3926685Z GOWORK=''
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3926901Z PKG_CONFIG='pkg-config'
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3927046Z 
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.3927379Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.4115876Z ##[group]Run test -f go.sum
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.4116234Z ^[[36;1mtest -f go.sum^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.4399498Z shell: /usr/bin/bash -e {0}
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.4399854Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.4539042Z ##[group]Run go install golang.org/x/vuln/cmd/govulncheck@v1.8.0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.4539610Z ^[[36;1mgo install golang.org/x/vuln/cmd/govulncheck@v1.8.0^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.4596060Z shell: /usr/bin/bash -e {0}
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.4596337Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:00.5473671Z go: downloading golang.org/x/vuln v1.8.0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:01.1865115Z go: downloading golang.org/x/telemetry v0.0.0-20260908163034-4bcc4b2ee518
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:01.2306583Z go: downloading golang.org/x/mod v0.41.0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:01.2313654Z go: downloading golang.org/x/tools v0.50.0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:01.4416972Z go: downloading golang.org/x/sync v0.23.0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:18.4087081Z ##[group]Run govulncheck ./...
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:18.4087412Z ^[[36;1mgovulncheck ./...^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:18.4150844Z shell: /usr/bin/bash -e {0}
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:18.4151110Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8741143Z No vulnerabilities found.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8887630Z ##[group]Run set -euo pipefail
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8888010Z ^[[36;1mset -euo pipefail^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8888655Z ^[[36;1mcode=$(curl -sS -o /tmp/dep-review.json -w '%{http_code}' \^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8889474Z ^[[36;1m  -H "Authorization: ***" \^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8889825Z ^[[36;1m  -H "Accept: application/vnd.github+json" \^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8890378Z ^[[36;1m  "https://api.github.com/repos/${REPO}/dependency-graph/compare/${BASE_SHA}...${HEAD_SHA}")^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8890929Z ^[[36;1mecho "dependency graph compare HTTP ${code}"^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8891249Z ^[[36;1mif [ "${code}" != "200" ]; then^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8891800Z ^[[36;1m  echo "::error::Dependency graph compare API returned HTTP ${code}; dependency-review is fail-closed (CR-001 ruling)."^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8892365Z ^[[36;1m  exit 1^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8892570Z ^[[36;1mfi^[[0m
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8958677Z shell: /usr/bin/bash -e {0}
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8958950Z env:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8961714Z   GH_TOKEN: ***
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8961943Z   REPO: 444112029012/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8962237Z   BASE_SHA: ca09137ae8f336a8bb02ac7f20e893eb2a6ccfbe
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8962578Z   HEAD_SHA: 826d5d34d676e11f52e204e155ea271c7d811581
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:26.8962868Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:27.5121066Z dependency graph compare HTTP 200
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:27.5245693Z ##[group]Run actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:27.5246356Z with:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:27.5246569Z   fail-on-severity: critical
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:27.5249642Z   repo-token: ***
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:27.5249890Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3186662Z ##[group]Vulnerabilities
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3187879Z Dependency review did not detect any vulnerable packages with severity level "critical" or higher.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3199552Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3200230Z ##[group]Licenses
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3201154Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3201802Z ##[group]Denied
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3202329Z Dependency review did not detect any denied packages
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3203198Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3203855Z ##[group]Scorecard
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3204524Z ##[group]Dependency Changes
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3207757Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3208118Z ##[endgroup]
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.3589930Z Post job cleanup.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.4789868Z (node:4671) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.4790881Z (Use `node --trace-deprecation ...` to show where the warning was created)
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.4868043Z [command]/opt/hostedtoolcache/go/1.27.3/x64/bin/go env GOMODCACHE
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.4914445Z [command]/opt/hostedtoolcache/go/1.27.3/x64/bin/go env GOCACHE
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.4947260Z /home/runner/go/pkg/mod
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.4964956Z /home/runner/.cache/go-build
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:28.5185712Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/short-url/short-url --files-from manifest.txt --use-compress-program zstdmt
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:30.0784575Z (node:4671) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:31.0654254Z Sent 18956062 of 153173790 (12.4%), 18.1 MBs/sec
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.0660449Z Sent 86064926 of 153173790 (56.2%), 41.0 MBs/sec
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.6192347Z Sent 153173790 of 153173790 (100.0%), 57.2 MBs/sec
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.8253734Z Cache saved with the key: setup-go-Linux-x64-ubuntu24-go-1.27.3-cf6b0d429736099b597565b998fd2f9b82c99c65d9cffc4d8c9270df02c0a025
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.8425415Z Post job cleanup.
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.9291656Z [command]/usr/bin/git version
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.9335412Z git version 2.55.0
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.9378069Z Temporarily overriding HOME='/home/runner/work/_temp/411c9510-7cc4-44d2-b6e4-c6a03eee49da' before making global git config changes
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.9379826Z Adding repository directory to the temporary git global config as a safe directory
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.9384437Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/short-url/short-url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.9422452Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.9460424Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.9719324Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.9746900Z http.https://github.com/.extraheader
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.9760882Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:32.9797357Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:33.0084689Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:33.0123987Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:33.0510715Z Cleaning up orphan processes
+sca-govulncheck	UNKNOWN STEP	2026-10-28T08:56:33.0891564Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48, actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
