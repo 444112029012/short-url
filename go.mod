@@ -3,7 +3,7 @@ module github.com/444112029012/short-url
 go 1.27.3
 
 require (
-	github.com/go-chi/chi/v5 v5.3.0
+	github.com/go-chi/chi/v5 v5.4.0
 	modernc.org/sqlite v1.39.1
 )
 
