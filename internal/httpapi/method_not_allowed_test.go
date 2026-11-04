@@ -12,7 +12,9 @@ import (
 // method it does not register must answer 405 with an Allow header that
 // lists exactly the registered methods, each once. chi v5.3.0 appended the
 // same method again when a static route and the /{shortCode} param route
-// both matched (e.g. /health), yielding "Allow: GET" twice.
+// both matched (e.g. /health), yielding "Allow: GET" twice, and treated the
+// QUERY method as unknown (no Allow at all). Per README line 68 the 405 body
+// is empty and carries no Content-Type; Allow is a single header line.
 func TestUTHR405Allow(t *testing.T) {
 	srv := newServer(t)
 	cases := []struct {
@@ -20,6 +22,7 @@ func TestUTHR405Allow(t *testing.T) {
 		allow              []string
 	}{
 		{"health static+param overlap", http.MethodPost, "/health", []string{http.MethodGet}},
+		{"health QUERY (chi v5.4.0 known method)", "QUERY", "/health", []string{http.MethodGet}},
 		{"health PUT", http.MethodPut, "/health", []string{http.MethodGet}},
 		{"create route DELETE", http.MethodDelete, "/api/v1/urls", []string{http.MethodPost}},
 		{"create route GET", http.MethodGet, "/api/v1/urls", []string{http.MethodPost}},
@@ -32,6 +35,15 @@ func TestUTHR405Allow(t *testing.T) {
 			srv.ServeHTTP(rec, httptest.NewRequest(tc.method, tc.path, nil))
 			if rec.Code != http.StatusMethodNotAllowed {
 				t.Fatalf("%s %s status %d, want 405", tc.method, tc.path, rec.Code)
+			}
+			if n := len(rec.Header().Values("Allow")); n != 1 {
+				t.Errorf("%s %s Allow header lines %d, want 1: %q", tc.method, tc.path, n, rec.Header().Values("Allow"))
+			}
+			if rec.Body.Len() != 0 {
+				t.Errorf("%s %s 405 body %q, want empty", tc.method, tc.path, rec.Body.String())
+			}
+			if ct, ok := rec.Header()["Content-Type"]; ok {
+				t.Errorf("%s %s 405 Content-Type %q, want absent", tc.method, tc.path, ct)
 			}
 			var got []string
 			for _, line := range rec.Header().Values("Allow") {
